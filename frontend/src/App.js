@@ -1,5 +1,10 @@
+import RentaCarrosAPP from "./RentaCarrosApp";
+import '../src/styles.css'
+
 function App() {
-  return (<></>)
+  return (
+    <RentaCarrosAPP />
+  )
 }
 
 export default App;

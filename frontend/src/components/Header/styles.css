@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: aqua;
+}
+
+.header__container{
+    display: flex;
+}
+
+.header__botones{
+    display: flex;
+}
