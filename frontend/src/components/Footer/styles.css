@@ -1,0 +1,44 @@
+@import "../estilos_globales.css";
+
+.footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: var(--primario);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.footer_copywrite {
+
+}
+
+.header__redes_sociales {
+    display: flex;
+}
+
+.header__redes_sociales span {
+    background-repeat: no-repeat;
+    background-size: auto;
+    display: block;
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+}
+
+.icon__facebook {
+    background: url('../../assets/icon_facebook.png');
+}
+
+.icon__linkedin {
+    background: url('../../assets/icon_linkedin.png');
+}
+
+.icon__twitter {
+    background: url('../../assets/icon_tweet.png');
+}
+
+.icon__instagram {
+    background: url('../../assets/icon_ig.png');
+}
