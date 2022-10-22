@@ -2,15 +2,22 @@
 
 .footer {
     display: flex;
+    align-items: center;
     width: 100%;
+    max-width: 100%;
     justify-content: space-between;
     background-color: var(--primario);
+    padding: 15px 5px 20px 0px;
     position: fixed;
     bottom: 0;
     right: 0;
+    color: var(--blanco);
 }
 
 .footer_copywrite {
+    margin-left: 50px;
+    font-size: 14;
+    font-weight: 700;
 
 }
 
@@ -22,7 +29,7 @@
     background-repeat: no-repeat;
     background-size: auto;
     display: block;
-    margin: 5px;
+    margin: 5px 15px;
     width: 30px;
     height: 30px;
 }
@@ -41,4 +48,10 @@
 
 .icon__instagram {
     background: url('../../assets/icon_ig.png');
+}
+
+@media screen and (max-width: 480px) {
+    .header__redes_sociales{
+      display: none;
+    }
 }
