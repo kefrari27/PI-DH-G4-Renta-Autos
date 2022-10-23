@@ -2,27 +2,34 @@
 
 .footer {
     display: flex;
+    align-items: center;
     width: 100%;
+    max-width: 100%;
     justify-content: space-between;
     background-color: var(--primario);
+    padding: 15px 5px 20px 0px;
     position: fixed;
     bottom: 0;
     right: 0;
+    color: var(--blanco);
 }
 
 .footer_copywrite {
+    margin-left: 50px;
+    font-size: 14;
+    font-weight: 700;
 
 }
 
-.header__redes_sociales {
+.footer__redes_sociales {
     display: flex;
 }
 
-.header__redes_sociales span {
+.footer__redes_sociales span {
     background-repeat: no-repeat;
     background-size: auto;
     display: block;
-    margin: 5px;
+    margin: 5px 15px;
     width: 30px;
     height: 30px;
 }
@@ -41,4 +48,72 @@
 
 .icon__instagram {
     background: url('../../assets/icon_ig.png');
+}
+
+@media screen and (max-width: 480px) {
+    .footer__redes_sociales{
+      display: none;
+    }
+
+    .footer__mobile {
+        display: flex;
+    }
+
+    .footer__mobile-separador {
+        width: 100%;
+        position: fixed;
+        bottom: 10%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .footer__mobile-separador a{
+        padding: 0 25px;
+        text-decoration: none;
+        color: var(--secundario);
+    }
+
+    .footer__mobile-separador span{
+        color: var(--primario);
+    }
+
+    .footer__mobile-separador hr{
+        width: 90%;
+        height: 1px;
+        color: var(--terciario);
+    }
+
+    .footer__redes_sociales-mobile {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+
+    .footer__redes_sociales-mobile span {
+        background-repeat: no-repeat;
+        background-size: auto;
+        display: block;
+        margin: 5px 15px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .icon__facebook_oscuro {
+        background: url('../../assets/icon_facebook_oscuro.png');
+    }
+    
+    .icon__linkedin_oscuro {
+        background: url('../../assets/icon_linkedin_oscuro.png');
+    }
+    
+    .icon__twitter_oscuro {
+        background: url('../../assets/icon_tweet_oscuro.png');
+    }
+    
+    .icon__instagram_oscuro {
+        background: url('../../assets/icon_ig_oscuro.png');
+    }
+    
 }
