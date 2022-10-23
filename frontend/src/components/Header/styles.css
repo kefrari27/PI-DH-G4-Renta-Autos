@@ -1,14 +1,219 @@
+@import "../estilos_globales.css";
+
 .header {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    background-color: aqua;
+    padding: 15px 40px;
+    max-width: 100%;
+    background-color: var(--blanco);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 4px 5px rgba(0, 0, 0, 0.12), 0px 1px 10px rgba(0, 0, 0, 0.2);
 }
 
 .header__container{
     display: flex;
+    align-items: flex-end;
+}
+
+.header__container h2{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 22px;
+}
+
+.header__container-imagen {
+    background: url('../../assets/logo_header.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    display: block;
+    width: 80px;
+    height: 53px;
+}
+
+.header__container-title {
+    text-decoration: none;
+    color: var(--terciario);
 }
 
 .header__botones{
     display: flex;
+    align-items: flex-end;
+    padding-top: 15px;
+}
+
+.header__botones-boton {
+    color: var(--primario);
+    background-color: var(--blanco);
+    height: 40px;
+    border: 1px solid var(--primario);
+    border-radius: 5px;
+    width: 200px;
+    font-family: quicksand;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.header__botones-boton:first-child {
+    margin-right: 10px;
+}
+
+.header__botones-boton-mobile {
+    display: none;
+}
+
+.header__usuario-logueado {
+    display: flex;
+}
+
+.header__avatar {
+    background-color: var(--secundario);
+    color: var(--blanco);;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.header__usuario {
+    color: var(--terciario);
+    position: relative;
+}
+
+.header__usuario-nombre {
+    margin: 0;
+    color: var(--primario);
+}
+
+.header__cerrar-sesion {
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    margin: 0;
+}
+
+.header__cerrar-sesion-boton {
+    background-color: transparent;
+    border: 0;
+}
+
+.menu__mobile {
+    display: none;
+}
+
+@media screen and (max-width: 480px) {
+    .header__botones-boton, .header__container-title{
+      display: none;
+    }
+
+    .header__botones-boton-mobile {
+        display: block;   
+        width: 30px;
+        height: 30px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .header__botones-boton-mobile-icono {
+        background: url('../../assets/menu.png');
+        background-repeat: no-repeat;
+        background-size: auto;   
+        width: 30px;
+        height: 30px;
+    }
+
+    .header__usuario-logueado {
+        display: none;
+    }
+
+    .menu__mobile {
+        display: flex;
+        flex-wrap: wrap;
+        color: var(--blanco);
+    }
+
+    .menu__mobile button{
+        background-color: transparent;
+        border: none;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .menu__mobile-header {
+        display: flex;
+        justify-content: space-between;
+        height: 200px;
+        width: 100%;
+        max-width: 100%;
+        background-color: var(--primario);
+    }
+
+    .menu__mobile-header-cerrar-sesion {
+        margin: 20px;
+        color: var(--blanco);
+        font-size: 24px;
+    }
+
+    .menu__mobile-header-menu {
+        align-self: flex-end;
+        padding-right: 20px;
+        color: var(--blanco);
+        text-transform: uppercase;
+    }
+
+    .menu__mobile-seccion-botones {
+        display: grid;
+        width: 100%;
+    }
+
+    .menu__mobile-botones {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+        color: var(--secundario);
+        font-weight: 700;
+    }
+
+    .menu__mobile-separador-botones {
+        width: 90%;
+        height: 1px;
+        color: var(--terciario);
+    }
+
+    .menu__mobile-header__usuario {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin: 0 10px 10px 0;
+    }
+
+    .menu__mobile-header__avatar {
+        background-color: var(--blanco);
+        color: var(--terciario);;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .menu__mobile-header__usuario-nombre {
+        align-self: flex-end;
+        margin: 0;
+        color: var(--secundario);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .header__container-title{
+        display: none;
+    }
 }
