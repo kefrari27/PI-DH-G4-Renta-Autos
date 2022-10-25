@@ -1,0 +1,239 @@
+{
+	"id": "eca7cba9-49cd-4876-9772-91cb15b9f244",
+	"name": "Backend_G4",
+	"timestamp": "2022-10-25T02:20:38.405Z",
+	"collection_id": "19070148-c1403cda-3d56-45e1-99eb-fcad77297700",
+	"folder_id": 0,
+	"environment_id": "19070148-e5f00623-8c55-475e-bbfc-568b8bbe73c5",
+	"totalPass": 16,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "07dc2750-42ef-4530-8ea5-2b93b2c1227c",
+			"name": "GetCategoria",
+			"url": "http://localhost:8080/api/v1/categoria",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Categoría incluye titulo": true,
+				"Categoría incluye descripcion": true,
+				"Categoría incluye urlImagen": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye titulo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye descripcion": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye urlImagen": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Categoría incluye titulo": true,
+					"Categoría incluye descripcion": true,
+					"Categoría incluye urlImagen": true
+				}
+			]
+		},
+		{
+			"id": "e323c34b-4e2d-4755-936f-3efdd2bead17",
+			"name": "GetCategoriaById",
+			"url": "http://localhost:8080/api/v1/categoria/1",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Categoría incluye titulo": true,
+				"Categoría incluye descripcion": true,
+				"Categoría incluye urlImagen": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye titulo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye descripcion": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye urlImagen": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Categoría incluye titulo": true,
+					"Categoría incluye descripcion": true,
+					"Categoría incluye urlImagen": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "3a80bf84-84a6-42ff-874c-649336e9df98",
+			"name": "CreateCategoria",
+			"url": "http://localhost:8080/api/v1/categoria",
+			"time": 11,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Status code name has string": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Status code name has string": true
+				}
+			]
+		},
+		{
+			"id": "b5f609d4-2a8a-4299-810b-f2add159d49a",
+			"name": "UpdateCategoria",
+			"url": "http://localhost:8080/api/v1/categoria",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Categoría incluye titulo": true,
+				"Categoría incluye descripcion": true,
+				"Categoría incluye urlImagen": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye titulo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye descripcion": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye urlImagen": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Categoría incluye titulo": true,
+					"Categoría incluye descripcion": true,
+					"Categoría incluye urlImagen": true
+				}
+			]
+		},
+		{
+			"id": "40e322b8-8fa3-4a94-849c-46efccd5b4c0",
+			"name": "DeleteCategoriaById",
+			"url": "http://localhost:8080/api/v1/categoria/20",
+			"time": 18,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code es 200": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status code es 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 64,
+	"collection": {
+		"requests": [
+			{
+				"id": "07dc2750-42ef-4530-8ea5-2b93b2c1227c",
+				"method": "GET"
+			},
+			{
+				"id": "e323c34b-4e2d-4755-936f-3efdd2bead17",
+				"method": "GET"
+			},
+			{
+				"id": "3a80bf84-84a6-42ff-874c-649336e9df98",
+				"method": "POST"
+			},
+			{
+				"id": "b5f609d4-2a8a-4299-810b-f2add159d49a",
+				"method": "PUT"
+			},
+			{
+				"id": "40e322b8-8fa3-4a94-849c-46efccd5b4c0",
+				"method": "DELETE"
+			}
+		]
+	}
+}
