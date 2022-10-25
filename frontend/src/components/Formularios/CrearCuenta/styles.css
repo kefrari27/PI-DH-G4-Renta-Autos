@@ -1,0 +1,163 @@
+@import "../../estilos_globales.css";
+
+.seccion__crear-cuenta {
+    width: 100%;
+    height: 84vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.seccion__crear-cuenta h1{
+    text-align: center;
+    color: var(--primario);
+}
+
+.formulario__crear-cuenta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario__crear-cuenta label {
+    margin-bottom: 10px;
+    color: var(--secundario);
+}
+
+.formulario__crear-cuenta input {
+    height: 40px;
+    width: 100%;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+}
+
+.formulario__crear-cuenta-invalido {
+    color: var(--invalido);
+}
+
+/** Estilos para el bloque del nombre y apellido */
+
+.formulario__crear-cuenta__bloque {
+    display: flex;
+    width: 30%;
+}
+
+.formulario__crear-cuenta__bloque > div:first-of-type {
+    margin-right: 20px;
+}
+
+.formulario__crear-cuenta__row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 30%;
+}
+
+.formulario__crear-cuenta__row p {
+    color: var(--invalido);
+    margin: 10px 0;
+    align-self: flex-end;
+}
+
+.invalidInput {
+    background-color: var(--datoInvalido);
+    border: 1px solid var(--invalido);
+}
+
+.validInput {
+    border: none;
+}
+
+.formulario__crear-cuenta__row-nombre-apellido {
+    width: 50%;
+}
+
+.formulario__crear-cuenta__row-nombre-apellido input {
+    border: none;
+}
+
+.input__nombre-apellido {
+    width: 100% !important;
+}
+
+.formulario__crear-cuenta__row-boton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.formulario__crear-cuenta__row-password {
+    position: relative;
+}
+
+.formulario__crear-cuenta__row-password button{
+    width: 40px;
+    display: flex;
+    position: absolute;
+    height: 20px;
+    top: 20%;
+    right: 0;
+    background-color: transparent;
+    border: none;
+}
+
+.formulario__crear-cuenta__row-password span{
+    background: url('../../../assets/icon_ver.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 30px;
+    height: 20px;
+}
+
+.formulario__crear-cuenta__row-boton a{
+   text-decoration: none;
+}
+
+.formulario__crear-cuenta__boton {
+    color: var(--blanco);
+    background-color: var(--primario);
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    font-family: quicksand;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+    .formulario__crear-cuenta__row {
+        width: 50%;
+    }
+
+    .formulario__crear-cuenta__bloque {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .formulario__crear-cuenta__bloque > div:first-of-type {
+        margin-right: 0;
+    }
+
+    .formulario__crear-cuenta__row-boton {
+        width: 50%;
+    }
+
+    .formulario__crear-cuenta__row-boton button{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .formulario__crear-cuenta__row {
+        width: 80%;
+    }
+
+    .formulario__crear-cuenta__row-boton {
+        width: 80%;
+    }
+}

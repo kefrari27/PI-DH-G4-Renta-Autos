@@ -43,7 +43,6 @@
 }
 
 .header__botones-boton {
-    color: var(--primario);
     background-color: var(--blanco);
     height: 40px;
     border: 1px solid var(--primario);
@@ -53,6 +52,11 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
+}
+
+.header__botones-boton a {
+    color: var(--primario);
+    text-decoration: none;
 }
 
 .header__botones-boton:first-child {
