@@ -1,0 +1,57 @@
+@import url("../estilos_globales.css");
+
+.browser {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--secundario);
+}
+
+.h1-browser__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h1-browser__container h1 {
+    color: var(--blanco);
+}
+
+.form-browser__container {
+    padding-bottom: 2rem;
+}
+
+.form-browser__container .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-browser__container .form > div {
+    margin: 0 0.5rem;
+}
+
+.city-select {
+    width: 26rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 5px;
+    padding: 0 0.5rem;
+}
+
+.calendar-element {
+    width: 26rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-form-browser {
+    color: var(--blanco);
+    font-weight: 600;
+    background-color: var(--primario);
+    width: 12rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 5px;
+}
