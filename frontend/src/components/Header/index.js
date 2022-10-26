@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import contextAplicacion from '../../provider/contextAutenticacion';
+import { Link } from "react-router-dom";
 import '../Header/styles.css'
 
 const Header = () => {
@@ -13,12 +14,12 @@ const Header = () => {
        {!esVersionMobileHeaderMenu ? 
         <header className="header">
             <div className="header__container">
-                <a href='https://www.google.com'><span className="header__container-imagen"></span></a>
-                <a href='https://www.google.com'className='header__container-title'>Sentirte como en tu hogar</a>
+                <Link to="/"><span className="header__container-imagen"></span></Link>
+                <Link to="/" className='header__container-title'>Sentirte como en tu hogar</Link>
             </div>
             <div className="header__botones">
-                {!estadoAutenticacion && <button className='header__botones-boton'>Crear cuenta</button>}
-                {!estadoAutenticacion ? <button className='header__botones-boton' onClick={login}>Iniciar sesión</button> : 
+                {!estadoAutenticacion && <button className='header__botones-boton'><Link to="/crearCuenta">Crear Cuenta</Link></button>}
+                {!estadoAutenticacion ? <button className='header__botones-boton'><Link to="/inicioSesion">Iniciar sesión</Link></button> : 
                 <div className="header__usuario-logueado">
                     <div className="header__avatar"><span>MP</span></div>
                     <div className="header__usuario">
@@ -44,11 +45,11 @@ const Header = () => {
             </header>
             <div className="menu__mobile-seccion-botones">
                 <div className="menu__mobile-botones">
-                    <button className=''>Crear cuenta</button>
+                    <button>Crear cuenta</button>
                 </div>
                 <hr className="menu__mobile-separador-botones"/> 
                 <div className="menu__mobile-botones">
-                    <button className='' onClick={login}>Iniciar sesión</button>
+                    <button>Iniciar sesión</button>
                 </div>                
             </div>
         </div>
