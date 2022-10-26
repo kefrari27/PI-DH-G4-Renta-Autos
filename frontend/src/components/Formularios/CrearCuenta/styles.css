@@ -2,10 +2,11 @@
 
 .seccion__crear-cuenta {
     width: 100%;
-    height: 84vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 100px;
 }
 
 .seccion__crear-cuenta h1{
