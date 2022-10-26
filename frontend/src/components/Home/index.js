@@ -1,11 +1,10 @@
+import Categories from "../Categories";
 
 
 const Home = () => {
     return (
-        <div>
-            <h1>
-            HOLA !! 
-            </h1>
+        <div>            
+            <Categories/>
         </div>
     );
 };
