@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table (name = "categorias")
 @Getter
 @Setter
 @ToString
@@ -18,5 +18,5 @@ public class Categoria {
     private Long id;
     private String titulo;
     private String descripcion;
-    private String urlImagen;
+    private String imagen;
 }

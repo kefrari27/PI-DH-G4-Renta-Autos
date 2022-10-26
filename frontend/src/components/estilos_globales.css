@@ -1,7 +1,10 @@
 :root {
+    /* Colores */
     --primario: #F0572D;
     --secundario: #31363F;
     --terciario: #191B1D;
     --cuaternario: #DFE4EA;
     --blanco: #FFFFFF;
+    --datoInvalido: #FFE1E1;
+    --invalido: #FF0000;
 }
