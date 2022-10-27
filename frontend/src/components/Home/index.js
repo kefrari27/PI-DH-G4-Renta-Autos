@@ -1,10 +1,9 @@
-import Categories from "../Categories";
-
+import CardList from "../CardList";
 
 const Home = () => {
     return (
-        <div>            
-            <Categories/>
+        <div>
+            <CardList />
         </div>
     );
 };
