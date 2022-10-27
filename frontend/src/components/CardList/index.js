@@ -6,18 +6,16 @@ const CardList = () => {
     const infoItems= Data;
 
     return (
-        <>
-        
+      <>
+        <h2>Categorias</h2>  
         <div className='container'>
-      {
-        infoItems.map((item,index)=>
-          
-           <Card key={index}  itemInfo={item} /> 
-        )
-      }
-      
-    </div>
-        </>
+          {
+            infoItems.map((item,index)=>
+              <Card key={index}  itemInfo={item}/> 
+            )
+          }        
+        </div>        
+      </>
     )
 }
 

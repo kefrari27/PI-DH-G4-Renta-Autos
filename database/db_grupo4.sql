@@ -15,13 +15,13 @@ CREATE SCHEMA IF NOT EXISTS `db_grupo4` DEFAULT CHARACTER SET utf8 ;
 USE `db_grupo4` ;
 
 -- -----------------------------------------------------
--- Table `db_grupo4`.`categorias`
+-- Table `db_grupo4`.`categoria`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_grupo4`.`categorias` (
+CREATE TABLE IF NOT EXISTS `db_grupo4`.`categoria` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(45) NULL,
   `descripcion` VARCHAR(255) NULL,
-  `imagen` VARCHAR(250) NULL,
+  `urlImagen` VARCHAR(250) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `db_grupo4`.`autos` (
   `idCategoria` INT NOT NULL,
   `idModelo` INT NOT NULL,
   `año` INT NOT NULL,
-  `imagen` VARCHAR(250) NULL,
+  `urlImagen` VARCHAR(250) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_Auto_Categoria1_idx` (`idCategoria` ASC) VISIBLE,
   INDEX `fk_Auto_Marca_idx` (`idMarca` ASC) VISIBLE,
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `db_grupo4`.`autos` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Auto_Categoria`
     FOREIGN KEY (`idCategoria`)
-    REFERENCES `db_grupo4`.`categorias` (`id`)
+    REFERENCES `db_grupo4`.`categoria` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Auto_Modelo`

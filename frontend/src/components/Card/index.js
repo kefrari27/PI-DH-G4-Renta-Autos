@@ -1,27 +1,19 @@
 import "./CardStyle.css"
 
-const Card = ({itemInfo}) => {
-   
-
+const Card = ({itemInfo}) => {   
+  
     return (
       <>
         <div className="carCard">
           <div
             className="imgCard"
-            style={{ backgroundImage: `url(${itemInfo.img})` }}
+            style={{ backgroundImage: `url(${itemInfo.urlImagen})` }}
           ></div>
 
           <div className="infoCard">
-            <h3>{itemInfo.product.title}</h3>
+            <h3>{itemInfo.titulo}</h3>            
             <p>
-             
-              {itemInfo.product.location}
-            </p>
-            <p>
-                {itemInfo.product.category}
-            </p>
-            <p>
-                {itemInfo.product.description}
+                {itemInfo.descripcion}
             </p>
           
           </div>
