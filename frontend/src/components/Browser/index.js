@@ -30,7 +30,7 @@ const Browser = () => {
     return (
         <nav className='browser'>
             <div className='h1-browser__container'>
-                <h1>Busca ofertas en hoteles, casas y mucho más</h1>
+                <h1>Encuentra las mejores ofertas en alquiler de autos y mucho más</h1>
                 <p></p>
             </div>
             <div className='form-browser__container'>
