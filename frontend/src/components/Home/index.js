@@ -1,11 +1,9 @@
-
+import CardList from "../CardList";
 
 const Home = () => {
     return (
         <div>
-            <h1>
-            HOLA !! 
-            </h1>
+            <CardList />
         </div>
     );
 };
