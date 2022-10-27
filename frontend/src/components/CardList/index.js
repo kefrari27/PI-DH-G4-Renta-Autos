@@ -14,8 +14,7 @@ const CardList = () => {
               <Card key={index}  itemInfo={item}/> 
             )
           }        
-        </div>
-        <h2>Categorias</h2>  
+        </div>        
       </>
     )
 }
