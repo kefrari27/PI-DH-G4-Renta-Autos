@@ -23,4 +23,10 @@ public class GlobalExceptionHandler {
         logger.error(ex.getMessage());
         return new ResponseEntity<>("Error "+ex.getMessage(), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler({BadRequestException.class})
+    public ResponseEntity<?> badRequestException(BadRequestException ex, WebRequest req){
+        logger.error(ex.getMessage());
+        return new ResponseEntity<>("Error "+ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
 }
