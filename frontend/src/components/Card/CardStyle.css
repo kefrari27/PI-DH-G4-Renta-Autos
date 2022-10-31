@@ -1,6 +1,6 @@
 .carCard {
-    border-radius: 4px;
-    width: 280px;
+    border-radius: 4px;    
+    width: 23%;
     height: 300px;
     margin: 0px 10px 0px 10px;
     background-color: #fdf7f7;
@@ -34,8 +34,16 @@ h3, p{
     padding-left: 15px;
 }
 
-@media (max-width: 976px) {
-    .barCard{
+
+@media screen and (max-width: 1024px) {
+    .carCard{
         margin: 0px 10px 60px 10px;
+        width: 46%;
     }
+}
+
+@media screen and (max-width: 480px) {
+    .carCard{       
+        width: 100%;
+    }    
 }
