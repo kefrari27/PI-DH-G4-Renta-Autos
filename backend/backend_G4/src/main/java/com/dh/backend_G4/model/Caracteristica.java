@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table (name = "categorias")
+@Table(name = "caracteristicas")
 //@Table
 @Getter
 @Setter
@@ -14,13 +14,13 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Categoria {
+public class Caracteristica {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String icono;
     private String titulo;
     private String descripcion;
-    private String urlImagen;
-    @OneToMany(mappedBy = "categoria", orphanRemoval = true)
+    @ManyToMany(mappedBy = "caracteristicas")
     private Set<Producto> productos;
 }

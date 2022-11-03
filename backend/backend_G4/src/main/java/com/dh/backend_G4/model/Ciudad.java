@@ -6,21 +6,22 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table (name = "categorias")
-//@Table
+@Table(name = "ciudades")
 @Getter
 @Setter
 @ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Categoria {
+public class Ciudad {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String titulo;
-    private String descripcion;
-    private String urlImagen;
-    @OneToMany(mappedBy = "categoria", orphanRemoval = true)
+    private String nombre;
+    private String provincia;
+    private String pais;
+    private String latitud;
+    private String longitud;
+    @OneToMany(mappedBy = "ciudad", orphanRemoval = true)
     private Set<Producto> productos;
 }
