@@ -1,0 +1,241 @@
+.caracteristica-producto-titulo {
+    color: var(--secundario);
+}
+
+.caracteristica-producto-separador {
+    color: var(--primario);
+    width: 98%;
+    background-color: var(--primario);
+    height: 2px;
+    border-width: 0;
+}
+
+.caracteristica-producto {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 40px;
+    margin-bottom: 50px;
+}
+
+.caracteristica-producto__columna-general {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.caracteristica-producto__columna-general span {
+    padding: 15px;
+    background: url('../../../assets/icono_motor.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.caracteristica-producto__columna-uno {
+    grid-column: 1 / 1;
+    grid-row: 1;
+}
+
+.caracteristica-producto__columna-uno span {
+    background: url('../../../assets/icono_motor.png');
+}
+
+.caracteristica-producto__columna-dos {
+    grid-column: 2 / 2;
+    grid-row: 1;
+}
+
+.caracteristica-producto__columna-dos span {
+    background: url('../../../assets/icono_aire_acondicionado.png');
+}
+
+.caracteristica-producto__columna-tres {
+    grid-column: 3 / 3;
+    grid-row: 1;
+}
+
+.caracteristica-producto__columna-tres span {
+    background: url('../../../assets/icono_cambios_manuales.png');
+}
+
+.caracteristica-producto__columna-cuatro {
+    grid-column: 4 / 4;
+    grid-row: 1;
+}
+
+.caracteristica-producto__columna-cuatro span {
+    background: url('../../../assets/icono_granaje.png');
+}
+
+.caracteristica-producto__columna-cinco {
+    grid-column: 1 / 1;
+    grid-row: 2;
+}
+
+.caracteristica-producto__columna-cinco span {
+    background: url('../../../assets/icono_carro_electrico.png');
+}
+
+.caracteristica-producto__columna-seis {
+    grid-column: 2 / 2;
+    grid-row: 2;
+}
+
+.caracteristica-producto__columna-seis span {
+    background: url('../../../assets/icono_cargador_electrico.png');
+}
+
+.caracteristica-producto__columna-siete {
+    grid-column: 3 / 3;
+    grid-row: 2;
+}
+
+.caracteristica-producto__columna-siete span {
+    background: url('../../../assets/icono_dos_carros.png');
+}
+
+.caracteristica-producto__columna-ocho {
+    grid-column: 4 / 4;
+    grid-row: 2;
+}
+
+.caracteristica-producto__columna-ocho span {
+    background: url('../../../assets/icono_seguridad.png');
+}
+
+.caracteristica-producto__columna-nueve {
+    grid-column: 1 / 1;
+    grid-row: 3;
+}
+
+.caracteristica-producto__columna-nueve span {
+    background: url('../../../assets/icono_silla_carro.png');
+}
+
+.caracteristica-producto__columna-diez {
+    grid-column: 2 / 2;
+    grid-row: 3;
+}
+
+.caracteristica-producto__columna-diez span {
+    background: url('../../../assets/icono_frenos.png');
+}
+
+@media screen and (max-width: 1024px) {
+
+    .caracteristica-producto {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 40px;
+    }
+
+    .caracteristica-producto__columna-uno {
+        grid-column: 1 / 1;
+        grid-row: 1;
+    }
+
+    .caracteristica-producto__columna-dos {
+        grid-column: 2 / 2;
+        grid-row: 1;
+    }
+
+    .caracteristica-producto__columna-tres {
+        grid-column: 1 / 1;
+        grid-row: 2;
+    }
+
+    .caracteristica-producto__columna-cuatro {
+        grid-column: 2 / 2;
+        grid-row: 2;
+    }
+
+    .caracteristica-producto__columna-cinco {
+        grid-column: 1 / 1;
+        grid-row: 3;
+    }
+
+    .caracteristica-producto__columna-seis {
+        grid-column: 2 / 2;
+        grid-row: 3;
+    }
+
+    .caracteristica-producto__columna-siete {
+        grid-column: 1 / 1;
+        grid-row: 4;
+    }
+
+    .caracteristica-producto__columna-ocho {
+        grid-column: 2 / 2;
+        grid-row: 4;
+    }
+
+    .caracteristica-producto__columna-nueve {
+        grid-column: 1 / 1;
+        grid-row: 5;
+    }
+
+    .caracteristica-producto__columna-diez {
+        grid-column: 2 / 2;
+        grid-row: 5;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .caracteristica-producto {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 40px;
+    }
+
+    .caracteristica-producto__columna-uno {
+        grid-column: 1 / 1;
+        grid-row: 1;
+    }
+
+    .caracteristica-producto__columna-dos {
+        grid-column: 1 / 1;
+        grid-row: 2;
+    }
+
+    .caracteristica-producto__columna-tres {
+        grid-column: 1 / 1;
+        grid-row: 3;
+    }
+
+    .caracteristica-producto__columna-cuatro {
+        grid-column: 1 / 1;
+        grid-row: 4;
+    }
+
+    .caracteristica-producto__columna-cinco {
+        grid-column: 1 / 1;
+        grid-row: 5;
+    }
+
+    .caracteristica-producto__columna-seis {
+        grid-column: 1 / 1;
+        grid-row: 6;
+    }
+
+    .caracteristica-producto__columna-siete {
+        grid-column: 1 / 1;
+        grid-row: 7;
+    }
+
+    .caracteristica-producto__columna-ocho {
+        grid-column: 1 / 1;
+        grid-row: 8;
+    }
+
+    .caracteristica-producto__columna-nueve {
+        grid-column: 1 / 1;
+        grid-row: 9;
+    }
+
+    .caracteristica-producto__columna-diez {
+        grid-column: 1 / 1;
+        grid-row: 10;
+    }
+}

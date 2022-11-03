@@ -1,6 +1,6 @@
 import Card from '../Card';
 import Data from'./data.json'
-import "./CardList.css"
+import "./styles.css"
 const CardList = () => {
    
     const infoItems= Data;
