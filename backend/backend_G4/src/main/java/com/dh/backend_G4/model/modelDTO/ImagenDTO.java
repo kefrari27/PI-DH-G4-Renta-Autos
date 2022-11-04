@@ -1,5 +1,6 @@
 package com.dh.backend_G4.model.modelDTO;
 
+import com.dh.backend_G4.model.Producto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,4 +11,5 @@ public class ImagenDTO {
     private Long id;
     private String titulo;
     private String urlImagen;
+    private Producto producto;
 }

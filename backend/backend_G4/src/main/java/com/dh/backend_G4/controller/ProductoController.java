@@ -1,24 +1,25 @@
 package com.dh.backend_G4.controller;
 
-import com.dh.backend_G4.exceptions.GlobalExceptionHandler;
+
 import com.dh.backend_G4.exceptions.ResourceNotFoundException;
-import com.dh.backend_G4.model.modelDTO.CategoriaDTO;
 import com.dh.backend_G4.model.modelDTO.ProductoDTO;
 import com.dh.backend_G4.service.interfaceService.IProductoService;
 import org.apache.log4j.*;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
+
 @RestController
 @RequestMapping("api/v1/productos")
-public class ProductosController {
-    final static Logger logger = Logger.getLogger(ProductosController.class);
+public class ProductoController {
+    public static Logger logger = Logger.getLogger(ProductoController.class);
     private final IProductoService productoService;
 
-    public ProductosController(IProductoService productoService) {
+    public ProductoController(IProductoService productoService) {
         this.productoService = productoService;
     }
 
@@ -29,7 +30,7 @@ public class ProductosController {
         if(!productos.isEmpty()){
             return ResponseEntity.ok(productos);
         }else{
-            throw new ResourceNotFoundException("No hay productos para listar");
+            throw new ResourceNotFoundException("No hay Productos para listar");
         }
     }
 
@@ -55,7 +56,7 @@ public class ProductosController {
     public ResponseEntity<ProductoDTO> createProducto(@RequestBody ProductoDTO productoDTO) throws ResourceNotFoundException{
         logger.info("Agregando Producto");
         /*if(categoriaService.guardar(categoriaDTO) ==null) {
-            throw new ResourceNotFoundException("El producto no pudo ser almacenado");
+            throw new ResourceNotFoundException("La Categoría no pudo ser almacenada");
         }*/
         return new ResponseEntity<>(productoService.guardar(productoDTO), HttpStatus.CREATED);
     }
@@ -84,5 +85,5 @@ public class ProductosController {
         }
         return response;
     }
-
+    
 }

@@ -4,7 +4,6 @@ import com.dh.backend_G4.model.modelDTO.ProductoDTO;
 
 import java.util.Set;
 
-
 public interface IProductoService {
     public ProductoDTO guardar(ProductoDTO productoDTO);
     public Set<ProductoDTO> listar();

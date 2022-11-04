@@ -17,9 +17,7 @@ public class ProductoDTO implements Serializable {
     private String titulo;
     private Categoria categoria;
     private Ciudad ciudad;
-    private Set<String> imagenes;
     private String descripcion;
-    private Set<Caracteristica> caracteristicas;
     private String disponibilidad;
     private String politica;
 }

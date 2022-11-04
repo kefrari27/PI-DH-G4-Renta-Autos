@@ -20,6 +20,6 @@ public class Imagen {
     private String descripcion;
     private String urlImagen;
     @ManyToOne
-    @JoinColumn(name = "producto_id", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(foreignKeyDefinition = "foreing key (producto_id) references productos (producto_id)"))
+    @JoinColumn(name = "producto_id", referencedColumnName = "id", nullable = false)
     private Producto producto;
 }

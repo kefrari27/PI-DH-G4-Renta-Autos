@@ -5,12 +5,14 @@ import com.dh.backend_G4.model.modelDTO.ProductoDTO;
 import com.dh.backend_G4.repository.IProductoRepository;
 import com.dh.backend_G4.service.interfaceService.IProductoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+@Service
 public class ProductoService implements IProductoService {
     private final IProductoRepository productoRepository;
     private final ObjectMapper mapper;
@@ -25,11 +27,12 @@ public class ProductoService implements IProductoService {
         Producto producto = mapper.convertValue(productoDTO, Producto.class);
         ProductoDTO response = null;
         if(productoRepository.getProductoByTitulo(productoDTO.getTitulo()) == null){
-            productoRepository.save(producto);
-            Producto productoAlmacenado = productoRepository.getProductoByTitulo(productoDTO.getTitulo());
+           productoRepository.save(producto);
+           Producto productoAlmacenado = productoRepository.getProductoByTitulo(productoDTO.getTitulo());
             response = mapper.convertValue(productoAlmacenado, ProductoDTO.class);
         }
         return response;
+
     }
 
     @Override

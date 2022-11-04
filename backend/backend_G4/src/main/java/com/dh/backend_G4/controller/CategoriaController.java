@@ -22,7 +22,7 @@ public class CategoriaController {
     }
 
     @GetMapping
-    public ResponseEntity<Set<CategoriaDTO>> getCategoria() throws ResourceNotFoundException {
+    public ResponseEntity<Set<CategoriaDTO>> getCategorias() throws ResourceNotFoundException {
         logger.info("Listando Categorias");
         Set<CategoriaDTO> categorias = categoriaService.listar();
         if(!categorias.isEmpty()){

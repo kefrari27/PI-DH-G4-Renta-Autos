@@ -7,7 +7,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "caracteristicas")
-//@Table
 @Getter
 @Setter
 @ToString
