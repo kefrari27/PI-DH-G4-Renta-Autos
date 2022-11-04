@@ -1,0 +1,111 @@
+
+.politica-producto {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 100px;
+    padding: 0 40px;
+}
+
+.politica-producto-separador {
+    width: 98%;
+    background-color: var(--primario);
+    height: 2px;
+    color: var(--primario);
+    border-width: 0;
+}
+
+.politica-producto__columna-general {
+    width: 100%;
+    height: 70px;
+    display: inline-table;
+}
+
+.politica-producto__columna-general ul {
+    list-style: none;
+    padding: 0 20px;
+}
+
+.politica-producto__columna-general ul li {
+    margin-bottom: 15px;
+}
+
+.politica-producto__columna-general h3 {
+    padding: 0 20px;
+    color: var(--terciario);
+}
+
+.politica-producto__columna-uno {
+    grid-column: 1 / 1;
+    grid-row: 1;
+    margin-top: 0;
+}
+
+.politica-producto__columna-dos {
+    grid-column: 2 / 2;
+    grid-row: 1;
+}
+
+.politica-producto__columna-tres {
+    grid-column: 3 / 3;
+    grid-row: 1;
+}
+
+@media screen and (max-width: 1024px) {
+    .politica-producto {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .politica-producto__columna-general ul {
+        padding: 0;
+    }
+
+    .politica-producto__columna-general h3 {
+        padding: 0;
+    }
+
+    .politica-producto__columna-uno {
+        grid-column: 1 / 1;
+        grid-row: 1;
+    }
+    
+    .politica-producto__columna-dos {
+        grid-column: 2 / 2;
+        grid-row: 1;
+    }
+    
+    .politica-producto__columna-tres {
+        grid-column: 1 / 1;
+        grid-row: 2;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .politica-producto {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .politica-producto__columna-general ul {
+        padding: 0;
+    }
+
+    .politica-producto__columna-general h3 {
+        padding: 0;
+    }
+
+    .politica-producto__columna-uno {
+        grid-column: 1 / 1;
+        grid-row: 1;
+    }
+    
+    .politica-producto__columna-dos {
+        grid-column: 1 / 1;
+        grid-row: 2;
+    }
+    
+    .politica-producto__columna-tres {
+        grid-column: 1 / 1;
+        grid-row: 3;
+    }
+}
