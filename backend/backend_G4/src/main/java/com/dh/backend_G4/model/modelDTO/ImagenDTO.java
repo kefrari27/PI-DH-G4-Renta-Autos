@@ -10,6 +10,7 @@ public class ImagenDTO {
     private static final long serialVersionUID = 1L;
     private Long id;
     private String titulo;
+    private String descripcion;
     private String urlImagen;
     private Producto producto;
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/api/vi/caracteristicas")
+@RequestMapping("/api/v1/caracteristicas")
 public class CaracteristicaController {
 
     final static Logger logger = Logger.getLogger(CategoriaController.class);

@@ -24,7 +24,7 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "ciudad_id", referencedColumnName = "id", nullable = false)
     private Ciudad ciudad;
-    @OneToMany(mappedBy = "producto", orphanRemoval = true)
+    @OneToMany(mappedBy = "producto")
     private Set<Imagen> imagenes;
     private String descripcion;
     @ManyToMany

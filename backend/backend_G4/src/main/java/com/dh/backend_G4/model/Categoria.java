@@ -20,6 +20,6 @@ public class Categoria {
     private String titulo;
     private String descripcion;
     private String urlImagen;
-    @OneToMany(mappedBy = "categoria", orphanRemoval = true)
+    @OneToMany(mappedBy = "categoria")
     private Set<Producto> productos;
 }
