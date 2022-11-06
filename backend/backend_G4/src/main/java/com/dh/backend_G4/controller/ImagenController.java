@@ -83,6 +83,23 @@ public class ImagenController {
         return response;
     }
 
+    @GetMapping("/imagenesByProductoId/{id}")
+    public ResponseEntity<Set<ImagenDTO>> getImagenesByProductoId(@PathVariable("id") Long id) throws ResourceNotFoundException{
+        logger.info("Buscando Imagenes por ProductoId " + id);
+        ResponseEntity<Set<ImagenDTO>> response = null;
+        if(id !=0){
+            Set<ImagenDTO> imagenDTOByProductoId = imagenService.listarImagenesByProducto(id);
+            if(!imagenDTOByProductoId.isEmpty()){
+                response = ResponseEntity.ok(imagenDTOByProductoId);
+            }else{
+                throw new ResourceNotFoundException("Imagen no encontrada para producto id = "+id);
+            }
+        }else{
+            throw new ResourceNotFoundException("id no válido");
+        }
+
+        return response;
+    }
 
 
 

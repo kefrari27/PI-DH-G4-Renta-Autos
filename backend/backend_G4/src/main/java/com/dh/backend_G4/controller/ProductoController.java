@@ -2,6 +2,8 @@ package com.dh.backend_G4.controller;
 
 
 import com.dh.backend_G4.exceptions.ResourceNotFoundException;
+import com.dh.backend_G4.model.modelDTO.AddCaracteristicaDTO;
+import com.dh.backend_G4.model.modelDTO.ImagenDTO;
 import com.dh.backend_G4.model.modelDTO.ProductoDTO;
 import com.dh.backend_G4.service.interfaceService.IProductoService;
 import org.apache.log4j.*;
@@ -78,6 +80,9 @@ public class ProductoController {
         ResponseEntity<HttpStatus> response;
         if(id != 0 && productoService.buscar(id) != null){
             logger.info("Eliminando Producto con id "+id);
+            //Se eliminan las imágenes relacionadas primero
+            deleteImagenesByProducto(id);
+            //Se elimina el producto
             productoService.eliminar(id);
             response = new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else{
@@ -85,5 +90,43 @@ public class ProductoController {
         }
         return response;
     }
-    
+
+    @GetMapping("/imagenesByProductoId/{id}")
+    public ResponseEntity<Set<ImagenDTO>> getImagenesByProductoId(@PathVariable("id") Long id) throws ResourceNotFoundException{
+        logger.info("Buscando Imagenes por ProductoId " + id);
+        ResponseEntity<Set<ImagenDTO>> response = null;
+        if(id !=0){
+            Set<ImagenDTO> imagenDTOByProductoId = productoService.listarImagenesByProducto(id);
+            if(!imagenDTOByProductoId.isEmpty()){
+                response = ResponseEntity.ok(imagenDTOByProductoId);
+            }else{
+                throw new ResourceNotFoundException("Imagen no encontrada para producto id = "+id);
+            }
+        }else{
+            throw new ResourceNotFoundException("id no válido");
+        }
+
+        return response;
+    }
+
+    @DeleteMapping("/imagenesByProductoId/{id}")
+    public ResponseEntity<HttpStatus> deleteImagenesByProducto(@PathVariable Long id) throws ResourceNotFoundException{
+        ResponseEntity<HttpStatus> response;
+        if(id != 0 && productoService.buscar(id) != null){
+            logger.info("Eliminando Imagenes de Producto con id "+id);
+            productoService.eliminarImagenesByProducto(id);
+            response = new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }else{
+            throw new ResourceNotFoundException("Producto no encontrado para ser eliminado");
+        }
+        return response;
+    }
+
+    @PostMapping("/addCaracteristica")
+    public ResponseEntity<ProductoDTO> addCaracteristica(@RequestBody AddCaracteristicaDTO addCaracteristicaDTO) throws ResourceNotFoundException{
+        logger.info("Agregando Caracteristica");
+        return new ResponseEntity<>(productoService.addCaracteristica(addCaracteristicaDTO), HttpStatus.OK);
+    }
+
+
 }

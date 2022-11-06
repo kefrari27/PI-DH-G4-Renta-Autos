@@ -1,7 +1,12 @@
 package com.dh.backend_G4.service;
 
+import com.dh.backend_G4.exceptions.ResourceNotFoundException;
+import com.dh.backend_G4.model.Imagen;
 import com.dh.backend_G4.model.Producto;
+import com.dh.backend_G4.model.modelDTO.AddCaracteristicaDTO;
+import com.dh.backend_G4.model.modelDTO.ImagenDTO;
 import com.dh.backend_G4.model.modelDTO.ProductoDTO;
+import com.dh.backend_G4.repository.IImagenRepository;
 import com.dh.backend_G4.repository.IProductoRepository;
 import com.dh.backend_G4.service.interfaceService.IProductoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,10 +20,13 @@ import java.util.Set;
 @Service
 public class ProductoService implements IProductoService {
     private final IProductoRepository productoRepository;
+    private final IImagenRepository imagenRepository;
+
     private final ObjectMapper mapper;
 
-    public ProductoService(IProductoRepository productoRepository, ObjectMapper mapper) {
+    public ProductoService(IProductoRepository productoRepository, IImagenRepository imagenRepository, ObjectMapper mapper) {
         this.productoRepository = productoRepository;
+        this.imagenRepository = imagenRepository;
         this.mapper = mapper;
     }
 
@@ -67,4 +75,37 @@ public class ProductoService implements IProductoService {
     public void eliminar(Long id) {
         productoRepository.deleteById(id);
     }
+
+    @Override
+    public Set<ImagenDTO> listarImagenesByProducto(Long id) {
+        List<Imagen> imagenes = imagenRepository.getImagenesByProductoId(id);
+        Set<ImagenDTO> imagenesDTOS = new HashSet<>();
+        for (Imagen imagen:imagenes) {
+            imagenesDTOS.add(mapper.convertValue(imagen, ImagenDTO.class));
+        }
+        return imagenesDTOS;
+    }
+
+    @Override
+    public void eliminarImagenesByProducto(Long id) {
+        List<Imagen> imagenes = imagenRepository.getImagenesByProductoId(id);
+        if(!imagenes.isEmpty()){
+            for (Imagen imagen:imagenes) {
+                imagenRepository.deleteById(imagen.getId());
+            }
+        }
+    }
+
+    @Override
+    public ProductoDTO addCaracteristica(AddCaracteristicaDTO addCaracteristicaDTO) throws ResourceNotFoundException {
+        Optional<Producto> producto = productoRepository.findById(addCaracteristicaDTO.getProductoId());
+        if(producto.isPresent()) {
+            producto.get().getCaracteristicas().addAll(addCaracteristicaDTO.getCaracteristicas());
+            productoRepository.saveAndFlush(producto.get());
+            return mapper.convertValue(producto.get(), ProductoDTO.class);
+        }
+        throw new ResourceNotFoundException("No existe el producto");
+
+    }
+
 }

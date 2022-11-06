@@ -20,4 +20,5 @@ public class ProductoDTO implements Serializable {
     private String descripcion;
     private String disponibilidad;
     private String politica;
+    private Set<Caracteristica> caracteristicas;
 }

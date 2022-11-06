@@ -61,4 +61,14 @@ public class ImagenService implements IImagenService {
     public void eliminar(Long id) {
         imagenRepository.deleteById(id);
     }
+
+    @Override
+    public Set<ImagenDTO> listarImagenesByProducto(Long id) {
+        List<Imagen> imagenes = imagenRepository.getImagenesByProductoId(id);
+        Set<ImagenDTO> imagenesDTOS = new HashSet<>();
+        for (Imagen imagen:imagenes) {
+            imagenesDTOS.add(mapper.convertValue(imagen, ImagenDTO.class));
+        }
+        return imagenesDTOS;
+    }
 }

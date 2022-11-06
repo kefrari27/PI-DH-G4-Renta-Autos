@@ -10,4 +10,5 @@ public interface IImagenService {
     public ImagenDTO buscar(Long id);
     public ImagenDTO actualizar(ImagenDTO imagenDTO);
     public void eliminar(Long id);
+    public Set<ImagenDTO> listarImagenesByProducto(Long id);
 }
