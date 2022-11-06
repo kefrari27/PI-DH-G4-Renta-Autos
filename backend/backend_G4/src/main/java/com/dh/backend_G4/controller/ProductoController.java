@@ -76,7 +76,7 @@ public class ProductoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<HttpStatus> deleteProducto(@PathVariable Long id) throws ResourceNotFoundException{
+    public ResponseEntity<HttpStatus> deleteProducto(@PathVariable("id") Long id) throws ResourceNotFoundException{
         ResponseEntity<HttpStatus> response;
         if(id != 0 && productoService.buscar(id) != null){
             logger.info("Eliminando Producto con id "+id);
@@ -110,7 +110,7 @@ public class ProductoController {
     }
 
     @DeleteMapping("/imagenesByProductoId/{id}")
-    public ResponseEntity<HttpStatus> deleteImagenesByProducto(@PathVariable Long id) throws ResourceNotFoundException{
+    public ResponseEntity<HttpStatus> deleteImagenesByProducto(@PathVariable("id") Long id) throws ResourceNotFoundException{
         ResponseEntity<HttpStatus> response;
         if(id != 0 && productoService.buscar(id) != null){
             logger.info("Eliminando Imagenes de Producto con id "+id);
@@ -128,5 +128,26 @@ public class ProductoController {
         return new ResponseEntity<>(productoService.addCaracteristica(addCaracteristicaDTO), HttpStatus.OK);
     }
 
+    @GetMapping("/productosByCategoria/{id}")
+    public ResponseEntity<Set<ProductoDTO>> getProductosByCategoriaId(@PathVariable("id") Long id) throws ResourceNotFoundException {
+        logger.info("Listando Productos por Categoria");
+        Set<ProductoDTO> productos = productoService.listarProductosByCategoria(id);
+        if(!productos.isEmpty()){
+            return ResponseEntity.ok(productos);
+        }else{
+            throw new ResourceNotFoundException("No hay Productos para listar para la Categoria seleccionada");
+        }
+    }
+
+    @GetMapping("/productosByCiudad/{id}")
+    public ResponseEntity<Set<ProductoDTO>> getProductosByCiudadId(@PathVariable("id") Long id) throws ResourceNotFoundException {
+        logger.info("Listando Productos por Ciudad");
+        Set<ProductoDTO> productos = productoService.listarProductosByCiudad(id);
+        if(!productos.isEmpty()){
+            return ResponseEntity.ok(productos);
+        }else{
+            throw new ResourceNotFoundException("No hay Productos para listar para la Ciudad seleccionada");
+        }
+    }
 
 }

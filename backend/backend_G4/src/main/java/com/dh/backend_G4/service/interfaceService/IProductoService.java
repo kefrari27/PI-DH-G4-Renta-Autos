@@ -16,4 +16,9 @@ public interface IProductoService {
     public Set<ImagenDTO> listarImagenesByProducto(Long id);
     public void eliminarImagenesByProducto(Long id);
     public ProductoDTO addCaracteristica(AddCaracteristicaDTO addCaracteristicaDTO) throws ResourceNotFoundException;
+
+    public Set<ProductoDTO>listarProductosByCategoria(Long id);
+    public Set<ProductoDTO>listarProductosByCiudad(Long id);
+
+
 }

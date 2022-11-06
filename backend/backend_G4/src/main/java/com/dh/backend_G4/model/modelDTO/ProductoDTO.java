@@ -3,6 +3,7 @@ package com.dh.backend_G4.model.modelDTO;
 import com.dh.backend_G4.model.Caracteristica;
 import com.dh.backend_G4.model.Categoria;
 import com.dh.backend_G4.model.Ciudad;
+import com.dh.backend_G4.model.Imagen;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,4 +22,5 @@ public class ProductoDTO implements Serializable {
     private String disponibilidad;
     private String politica;
     private Set<Caracteristica> caracteristicas;
+    private Set<Imagen> imagenes;
 }

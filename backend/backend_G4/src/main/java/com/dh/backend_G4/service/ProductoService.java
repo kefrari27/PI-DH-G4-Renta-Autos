@@ -108,4 +108,26 @@ public class ProductoService implements IProductoService {
 
     }
 
+    @Override
+    public Set<ProductoDTO> listarProductosByCategoria(Long id) {
+        List<Producto> productos = productoRepository.getProductoByCategoria(id);
+        Set<ProductoDTO> productoDTOS = new HashSet<>();
+
+        for(Producto producto: productos){
+            productoDTOS.add(mapper.convertValue(producto, ProductoDTO.class));
+        }
+        return productoDTOS;
+    }
+
+    @Override
+    public Set<ProductoDTO> listarProductosByCiudad(Long id) {
+        List<Producto> productos = productoRepository.getProductoByCiudad(id);
+        Set<ProductoDTO> productoDTOS = new HashSet<>();
+
+        for(Producto producto: productos){
+            productoDTOS.add(mapper.convertValue(producto, ProductoDTO.class));
+        }
+        return productoDTOS;
+    }
+
 }
