@@ -27,6 +27,6 @@ public class Ciudad {
     private String pais;
     private String latitud;
     private String longitud;
-    @OneToMany(mappedBy = "ciudad", orphanRemoval = true)
+    @OneToMany(mappedBy = "ciudad")
     private Set<Producto> productos;
 }

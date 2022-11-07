@@ -1,7 +1,9 @@
 package com.dh.backend_G4.service;
 
 import com.dh.backend_G4.model.Ciudad;
+import com.dh.backend_G4.model.Imagen;
 import com.dh.backend_G4.model.modelDTO.CiudadDTO;
+import com.dh.backend_G4.model.modelDTO.ProductoDTO;
 import com.dh.backend_G4.repository.ICiudadRepository;
 import com.dh.backend_G4.service.interfaceService.ICiudadService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -62,4 +64,5 @@ public class CiudadService implements ICiudadService {
     public void eliminar(Long id) {
         ciudadRepository.deleteById(id);
     }
+
 }

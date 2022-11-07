@@ -12,7 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Set;
+import java.util.*;
 
 
 @RestController
@@ -80,9 +80,6 @@ public class ProductoController {
         ResponseEntity<HttpStatus> response;
         if(id != 0 && productoService.buscar(id) != null){
             logger.info("Eliminando Producto con id "+id);
-            //Se eliminan las imágenes relacionadas primero
-            deleteImagenesByProducto(id);
-            //Se elimina el producto
             productoService.eliminar(id);
             response = new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else{
@@ -147,6 +144,17 @@ public class ProductoController {
             return ResponseEntity.ok(productos);
         }else{
             throw new ResourceNotFoundException("No hay Productos para listar para la Ciudad seleccionada");
+        }
+    }
+
+    @GetMapping("/productosAleatorios/{cantidad}")
+    public ResponseEntity<Set<ProductoDTO>> getProductosAleatorios(@PathVariable("cantidad") Integer cantidad) throws ResourceNotFoundException{
+        logger.info("Generando " + cantidad + " productos aleatorios");
+        Set<ProductoDTO> productosAleatorios = productoService.listarProductosAleatorios(cantidad);
+        if(!productosAleatorios.isEmpty()){
+            return ResponseEntity.ok(productosAleatorios);
+        }else{
+            throw new ResourceNotFoundException("No hay Productos para mostrar aleatoriamente");
         }
     }
 

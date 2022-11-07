@@ -2,7 +2,9 @@ package com.dh.backend_G4.controller;
 
 import com.dh.backend_G4.exceptions.ResourceNotFoundException;
 import com.dh.backend_G4.model.modelDTO.CiudadDTO;
+import com.dh.backend_G4.model.modelDTO.ProductoDTO;
 import com.dh.backend_G4.service.interfaceService.ICiudadService;
+import com.dh.backend_G4.service.interfaceService.IProductoService;
 import org.apache.log4j.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +18,11 @@ public class CiudadController {
 
     public static Logger logger = Logger.getLogger(CiudadController.class);
     private final ICiudadService ciudadService;
+    private final IProductoService productoService;
 
-    public CiudadController(ICiudadService ciudadService) {
+    public CiudadController(ICiudadService ciudadService, IProductoService productoService) {
         this.ciudadService = ciudadService;
+        this.productoService = productoService;
     }
 
     @GetMapping
@@ -76,6 +80,14 @@ public class CiudadController {
         ResponseEntity<HttpStatus> response;
         if(id != 0 && ciudadService.buscar(id) != null){
             logger.info("Eliminando Ciudad con id "+id);
+            //Se eliminan los productos relacionados con la Ciudad
+            Set<ProductoDTO> productos = productoService.listarProductosByCiudad(id);
+            if(!productos.isEmpty()){
+                logger.info("Eliminando Productos relacionados con la Ciudad con id "+id);
+                for (ProductoDTO producto:productos) {
+                    productoService.eliminar(producto.getId());
+                }
+            }
             ciudadService.eliminar(id);
             response = new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else{

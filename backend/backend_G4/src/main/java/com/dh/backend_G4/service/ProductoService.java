@@ -10,12 +10,10 @@ import com.dh.backend_G4.repository.IImagenRepository;
 import com.dh.backend_G4.repository.IProductoRepository;
 import com.dh.backend_G4.service.interfaceService.IProductoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class ProductoService implements IProductoService {
@@ -73,6 +71,8 @@ public class ProductoService implements IProductoService {
 
     @Override
     public void eliminar(Long id) {
+        //Se eliminan las imágenes relacionadas con el producto
+        eliminarImagenesByProducto(id);
         productoRepository.deleteById(id);
     }
 
@@ -129,5 +129,41 @@ public class ProductoService implements IProductoService {
         }
         return productoDTOS;
     }
+
+    @Override
+    public Set<ProductoDTO> listarProductosAleatorios(int cantidad) {
+        Set<ProductoDTO> productos = listar();
+        List<ProductoDTO> productosList = new ArrayList<>(productos);
+        Set<ProductoDTO> productosAleatorios = new HashSet<>();
+        Set<Integer> posiciones = new HashSet<>();
+        //Si existen más productos en total de los solicitados
+        if(productos.size()>cantidad){
+
+            //Se generan las posiciones aleatorias
+            for (int i = 0; i < cantidad; i++) {
+                boolean generado = false;
+                while (!generado){
+                    Integer min = 0;
+                    Integer max = productos.size();
+                    Random random = new Random();
+                    Integer pos = random.nextInt(max) + min;
+                    if(!posiciones.contains(pos)){
+                        posiciones.add(pos);
+                        generado = true;
+                    }
+                }
+            }
+            //A partir de las posiciones se almacenan los productos en productosAleatorios
+            for (int i = 0; i < posiciones.size(); i++) {
+                productosAleatorios.add(productosList.get(i));
+            }
+        }else{
+            for (int i = 0; i < productosList.size(); i++) {
+                productosAleatorios.add(productosList.get(i));
+            }
+        }
+        return productosAleatorios;
+    }
+
 
 }
