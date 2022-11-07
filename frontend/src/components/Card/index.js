@@ -1,32 +1,29 @@
-import "./CardStyle.css"
+import { useNavigate } from "react-router-dom";
+import "./styles.css"
 
 const Card = ({itemInfo}) => {
-   
+  const navigate = useNavigate();
 
+  const onDetalles = () => {
+    navigate("/producto")
+  }
+  
     return (
-      <>
-        <div className="carCard">
-          <div
-            className="imgCard"
-            style={{ backgroundImage: `url(${itemInfo.img})` }}
-          ></div>
+      <div className="carCard">
+        <div
+          className="imgCard"
+          style={{ backgroundImage: `url(${itemInfo.urlImagen})` }}
+        ></div>
 
-          <div className="infoCard">
-            <h3>{itemInfo.product.title}</h3>
-            <p>
-             
-              {itemInfo.product.location}
-            </p>
-            <p>
-                {itemInfo.product.category}
-            </p>
-            <p>
-                {itemInfo.product.description}
-            </p>
-          
-          </div>
+        <div className="infoCard">
+          <h3>{itemInfo.titulo}</h3>            
+          <p>
+              {itemInfo.descripcion}
+          </p>
         </div>
-      </>
+
+        <button onClick={onDetalles}>Detalles</button>
+      </div>
     );
 }
 

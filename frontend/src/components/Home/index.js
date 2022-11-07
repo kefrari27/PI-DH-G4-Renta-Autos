@@ -1,10 +1,12 @@
+import Browser from "../Browser";
 import CardList from "../CardList";
 
 const Home = () => {
     return (
-        <div>
+        <>
+            <Browser />
             <CardList />
-        </div>
+        </>
     );
 };
 
