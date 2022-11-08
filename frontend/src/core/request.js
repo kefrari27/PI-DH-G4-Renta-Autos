@@ -18,54 +18,47 @@ const PRODUCTOS_POR_CATEGORIA_API_URL = `${PRODUCTOS_API_URL}/productosByCategor
 const PRODUCTOS_POR_CIUDAD_API_URL = `${PRODUCTOS_API_URL}/productosByCiudad/{id}`;
 const PRODUCTOS_ALEATORIOS_API_URL = `${PRODUCTOS_API_URL}/productosAleatorios/{cantidad}`;
 
-const consultarCaracteristicas = async()=>{
-    const url = CARACTERISTICAS_API_URL;    
+
+const getFetch = async(url)=>{      
     const response = await fetch(url);
     const data = await response.json();
-    console.log("caracteristicas");
-    console.log(data);
     return data;
 }
 
-const consultarCategorias = async()=>{
-    const url = CATEGORIAS_API_URL;    
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log("categorias");
-    console.log(data);
-    return data;
+const postFetch = async(url, datos)=>{  
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(datos)
+      });      
+      const data = await response.json();
+      return data;
 }
 
-const consultarCiudades = async()=>{
-    const url = CIUDADES_API_URL;    
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log("ciudades");
-    console.log(data);
-    return data;
+const putFetch = async(url, datos)=>{  
+    const response = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(datos)
+      });      
+      const data = await response.json();
+      return data;
 }
 
-const consultarImagenes = async()=>{
-    const url = IMAGENES_API_URL;    
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log("imagenes");
-    console.log(data);
-    return data;
-}
-
-const consultarProductos = async()=>{
-    const url = PRODUCTOS_API_URL;    
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log("productos");
-    console.log(data);
-    return data;
+const deleteFetch = async(url)=>{  
+    const response = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },       
+      });      
+      const data = await response.json();
+      return data;
 }
 
 
-
-
- 
-
-export{consultarCaracteristicas, consultarCategorias, consultarCiudades, consultarImagenes, consultarProductos,}
+export{getFetch, postFetch, putFetch, deleteFetch}

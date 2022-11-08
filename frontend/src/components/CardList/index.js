@@ -1,33 +1,21 @@
 import { useState, useEffect } from 'react';
-import { consultarProductos, consultarCaracteristicas, consultarCiudades, consultarImagenes } from '../../core/request';
+import { deleteFetch, getFetch, postFetch, putFetch } from '../../core/request';
 import Card from '../Card';
-import Data from'./data2.json'
 import "./styles.css"
-const CardList = () => {
-   
-    const infoItems= Data;
-    const [dataCategorias, setdataCategorias] = useState(infoItems);
+const CardList = () => {   
 
-    const CATEGORIAS_API_URL = 'http://localhost:8080/api/v1/categorias';
-    const consultarCategorias = async()=>{
-      const url = CATEGORIAS_API_URL;    
-      const response = await fetch(url);
-      const data = await response.json();
+    const CATEGORIAS_API_URL = 'http://localhost:8080/api/v1/categorias';   
+    
+    const [dataCategorias, setdataCategorias] = useState([]);     
+
+    const consultarCategorias = async()=>{     
+      const data = await getFetch(CATEGORIAS_API_URL);     
       setdataCategorias(data);
-    }
+    }   
 
-    useEffect(() => {
-       
-      consultarCategorias();       
-      
-      //const caracteristicas = consultarCaracteristicas();
-      // const ciudades = consultarCiudades();
-      // const imagenes = consultarImagenes();
-      // const productos = consultarProductos(); 
-         
-           
+    useEffect(() => {       
+      consultarCategorias();          
     }, [])
-
     
     return (
       <>
