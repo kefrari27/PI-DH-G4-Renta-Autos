@@ -11,20 +11,22 @@ import java.util.Set;
 
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-@Table (name = "categorias")
+@Table(name = "ciudades")
 @Getter
 @Setter
 @ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Categoria {
+public class Ciudad {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String titulo;
-    private String descripcion;
-    private String urlImagen;
-    @OneToMany(mappedBy = "categoria")
+    private String nombre;
+    private String provincia;
+    private String pais;
+    private String latitud;
+    private String longitud;
+    @OneToMany(mappedBy = "ciudad")
     private Set<Producto> productos;
 }
