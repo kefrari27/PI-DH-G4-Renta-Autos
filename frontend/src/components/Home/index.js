@@ -1,10 +1,10 @@
-import Browser from "../Browser";
+import Buscador from "../Buscador";
 import CardList from "../CardList";
 
 const Home = () => {
     return (
         <>
-            <Browser />
+            <Buscador />
             <CardList />
         </>
     );
