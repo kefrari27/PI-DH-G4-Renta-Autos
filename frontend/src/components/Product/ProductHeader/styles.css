@@ -1,0 +1,61 @@
+.header-producto {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px 5px 43px;
+    background-color: var(--terciario);
+    color: var(--blanco);
+}
+
+.header-producto__informacion h4 {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.header-producto__informacion h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.header-producto__volver {
+    display: flex;
+    align-items: center;
+    padding-right: 50px;
+}
+
+.header-producto__volver button {
+    background: url('../../../assets/icon_flecha_back.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    padding-right: 49px;
+    width: 30px;
+    height: 33px;
+    border: none;
+}
+
+@media screen and (max-width: 480px) {
+    .header-producto {
+        padding-left: 9px;
+    }
+
+    .header-producto__volver {
+        padding-right: 35px;
+    }
+
+    .header-producto__volver button {
+        padding-right: 0px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .header-producto {
+        padding-left: 30px;
+    }
+
+
+    .header-producto__volver button {
+        padding-right: 0px;
+    }
+}

@@ -5,6 +5,8 @@ import contextAplicacion from "./provider/contextAutenticacion";
 import '../src/styles.css'
 
 function App() {
+
+  /** refactorizar el contexto para que sea escalable */
   
   const [autenticacionEstado, setAutenticacionEstado] = useState(false);
   const [esVersionMobileHeaderMenu, setEsVersionMobileHeaderMenu] = useState(false);
@@ -26,7 +28,6 @@ function App() {
       esVersionMobileHeaderMenu,
       setVersionMobileHeaderMenu
     }
-
   }
 
   return (
