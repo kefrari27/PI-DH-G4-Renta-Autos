@@ -15,7 +15,7 @@ const Header = () => {
         <header className="header">
             <div className="header__container">
                 <Link to="/"><span className="header__container-imagen"></span></Link>
-                <Link to="/" className='header__container-title'>Sentirte como en tu hogar</Link>
+                <Link to="/" className='header__container-title'>Seguridad y confianza al volante</Link>
             </div>
             <div className="header__botones">
                 {!estadoAutenticacion && <button className='header__botones-boton'><Link to="/crearCuenta">Crear Cuenta</Link></button>}
