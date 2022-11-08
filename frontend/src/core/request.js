@@ -1,4 +1,7 @@
 
+/* 
+Información end-points
+
 const API_URL = 'http://localhost:8080/api/v1';
 const CARACTERISTICAS_API_URL = `${API_URL}/caracteristicas`;
 const CATEGORIAS_API_URL = `${API_URL}/categorias`;
@@ -16,7 +19,9 @@ const ADICIONAR_CARACTERISTICA_PRODUCTO_API_URL = `${PRODUCTOS_API_URL}/addCarac
 const PRODUCTOS_POR_PRODUCTOID_API_URL = `${PRODUCTOS_API_URL}/addCaracteristica`;
 const PRODUCTOS_POR_CATEGORIA_API_URL = `${PRODUCTOS_API_URL}/productosByCategoria/{id}`;
 const PRODUCTOS_POR_CIUDAD_API_URL = `${PRODUCTOS_API_URL}/productosByCiudad/{id}`;
-const PRODUCTOS_ALEATORIOS_API_URL = `${PRODUCTOS_API_URL}/productosAleatorios/{cantidad}`;
+const PRODUCTOS_ALEATORIOS_API_URL = `${PRODUCTOS_API_URL}/productosAleatorios/{cantidad}`; 
+
+*/
 
 
 const getFetch = async(url)=>{      
