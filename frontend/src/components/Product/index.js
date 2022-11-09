@@ -4,6 +4,7 @@ import GaleriaImagenesProducto from "./GaleriaImagenesProducto";
 import PoliticaProducto from "./PoliticaProducto";
 import ProductHeader from "./ProductHeader";
 import ProductLocation from "./ProductLocation";import * as React from 'react';
+import CalendarioReservasProducto from "./CalendarioReservasProducto";
 
 const Product = () => {
 
@@ -14,6 +15,7 @@ const Product = () => {
           <GaleriaImagenesProducto />
           <DescripcionProducto />
           <CaracteristicasProducto />
+          <CalendarioReservasProducto />
           <PoliticaProducto />
         </>
     )

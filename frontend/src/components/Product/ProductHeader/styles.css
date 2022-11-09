@@ -2,9 +2,13 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 10px 0px 5px 43px;
     background-color: var(--terciario);
     color: var(--blanco);
+    padding: 10px 0;
+}
+
+.header-producto__informacion {
+    padding-left: 40px ;
 }
 
 .header-producto__informacion h4 {
@@ -22,7 +26,7 @@
 .header-producto__volver {
     display: flex;
     align-items: center;
-    padding-right: 50px;
+    padding-right: 10px;
 }
 
 .header-producto__volver button {
@@ -37,25 +41,21 @@
 
 @media screen and (max-width: 480px) {
     .header-producto {
-        padding-left: 9px;
+        padding-left: 0;
     }
 
     .header-producto__volver {
         padding-right: 35px;
     }
-
-    .header-producto__volver button {
-        padding-right: 0px;
-    }
 }
 
 @media screen and (max-width: 1024px) {
-    .header-producto {
+    .header-producto__informacion {
         padding-left: 20px;
     }
 
 
-    .header-producto__volver button {
+    .header-producto__volver {
         padding-right: 0px;
     }
 }
