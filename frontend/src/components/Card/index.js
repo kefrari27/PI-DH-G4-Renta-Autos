@@ -12,7 +12,7 @@ const Card = ({itemInfo}) => {
       <div className="carCard">
         <div
           className="imgCard"
-          style={{ backgroundImage: `url(${itemInfo.urlImagen ? itemInfo.urlImagen : itemInfo.imagenes[0].urlImagen })` }}
+          style={{ backgroundImage: `url(${itemInfo?.urlImagen ? itemInfo?.urlImagen : itemInfo?.imagenes[0]?.urlImagen })` }}
         >
           <img src="" alt=""/>
         </div>
