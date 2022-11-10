@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./styles.css"
 
-const ProductHeader = () => {
+const ProductHeader = ({titulo}) => {
     const navigate = useNavigate();
     
     const onVolverAtras = () => {
@@ -12,7 +12,7 @@ const ProductHeader = () => {
         <div className="header-producto">
             <div className="header-producto__informacion">
                 <h4>Vehiculo</h4>
-                <h2>Wrangler rubicon 2022 4xe</h2>
+                <h2>{titulo}</h2>
             </div>
             <div className="header-producto__volver">
                 <button onClick={onVolverAtras}/>
