@@ -1,0 +1,1665 @@
+{
+	"id": "e84d1e1e-4f57-4170-888d-404de9dc65f2",
+	"name": "Backend_G4_EC2",
+	"timestamp": "2022-11-10T04:55:02.012Z",
+	"collection_id": "18574377-7eb28b18-8a95-4f24-8bdb-6a3c331455c8",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 131,
+	"totalFail": 7,
+	"results": [
+		{
+			"id": "1860e40a-7537-49f2-9da6-a591633b562e",
+			"name": "GetCiudades",
+			"url": "http://18.218.111.107:8080/api/v1/ciudades",
+			"time": 246,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Ciudades incluye nombre": true,
+				"Ciudades incluye provincia": true,
+				"Ciudades incluye pais": true,
+				"Ciudades incluye latitud": true,
+				"Ciudades incluye longitud": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				246
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Ciudades incluye nombre": true,
+					"Ciudades incluye provincia": true,
+					"Ciudades incluye pais": true,
+					"Ciudades incluye latitud": true,
+					"Ciudades incluye longitud": true
+				}
+			]
+		},
+		{
+			"id": "75749712-f38a-49a0-a855-fca6f4b816f6",
+			"name": "GetCiudadById",
+			"url": "http://18.218.111.107:8080/api/v1/ciudades/24",
+			"time": 230,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Ciudades incluye nombre": true,
+				"Ciudades incluye provincia": true,
+				"Ciudades incluye pais": true,
+				"Ciudades incluye latitud": true,
+				"Ciudades incluye longitud": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				230
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Ciudades incluye nombre": true,
+					"Ciudades incluye provincia": true,
+					"Ciudades incluye pais": true,
+					"Ciudades incluye latitud": true,
+					"Ciudades incluye longitud": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "532e05ec-f226-4f04-a5bf-a62ac0364c38",
+			"name": "CreateCiudad",
+			"url": "http://18.218.111.107:8080/api/v1/ciudades",
+			"time": 335,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Status code name has string": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				335
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Status code name has string": true
+				}
+			]
+		},
+		{
+			"id": "aa35845f-543a-4498-9bca-1c2a2dd3b4da",
+			"name": "UpdateCiudad",
+			"url": "http://18.218.111.107:8080/api/v1/ciudades",
+			"time": 301,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Ciudad incluye nombre": true,
+				"Ciudad incluye provincia": true,
+				"Ciudad incluye pais": true,
+				"Ciudad incluye latitud": true,
+				"Ciudad incluye longitud": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudad incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudad incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudad incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudad incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudad incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				301
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Ciudad incluye nombre": true,
+					"Ciudad incluye provincia": true,
+					"Ciudad incluye pais": true,
+					"Ciudad incluye latitud": true,
+					"Ciudad incluye longitud": true
+				}
+			]
+		},
+		{
+			"id": "0c106173-252e-4d49-852d-697e20586547",
+			"name": "DeleteCiudad",
+			"url": "http://18.218.111.107:8080/api/v1/ciudades/125",
+			"time": 224,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code es 200": false
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				224
+			],
+			"allTests": [
+				{
+					"Status code es 200": false
+				}
+			]
+		},
+		{
+			"id": "fa2c12e4-0671-44b2-8ccb-43d2f6edc2d8",
+			"name": "GetImagenes",
+			"url": "http://18.218.111.107:8080/api/v1/imagenes",
+			"time": 1618,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Imagen incluye nombre": true,
+				"Imagen incluye provincia": true,
+				"Imagen incluye pais": true,
+				"Imagen incluye latitud": true,
+				"Imagen incluye longitud": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1618
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Imagen incluye nombre": true,
+					"Imagen incluye provincia": true,
+					"Imagen incluye pais": true,
+					"Imagen incluye latitud": true,
+					"Imagen incluye longitud": true
+				}
+			]
+		},
+		{
+			"id": "f7abba18-0089-42fd-aa67-13462c16c61e",
+			"name": "GetImagenById",
+			"url": "http://18.218.111.107:8080/api/v1/imagenes",
+			"time": 578,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Imagen incluye nombre": true,
+				"Imagen incluye provincia": true,
+				"Imagen incluye pais": true,
+				"Imagen incluye latitud": true,
+				"Imagen incluye longitud": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				578
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Imagen incluye nombre": true,
+					"Imagen incluye provincia": true,
+					"Imagen incluye pais": true,
+					"Imagen incluye latitud": true,
+					"Imagen incluye longitud": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "d7641573-ac72-4a8b-a038-7c05d26185f5",
+			"name": "CreateImagen",
+			"url": "http://18.218.111.107:8080/api/v1/imagenes",
+			"time": 380,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				380
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f8d44a3f-7936-4030-96e7-8b810d360779",
+			"name": "UpdateImagen",
+			"url": "http://18.218.111.107:8080/api/v1/imagenes",
+			"time": 1260,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Imagen incluye nombre": true,
+				"Imagen incluye provincia": true,
+				"Imagen incluye pais": true,
+				"Imagen incluye latitud": true,
+				"Imagen incluye longitud": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1260
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Imagen incluye nombre": true,
+					"Imagen incluye provincia": true,
+					"Imagen incluye pais": true,
+					"Imagen incluye latitud": true,
+					"Imagen incluye longitud": true
+				}
+			]
+		},
+		{
+			"id": "1397b6d6-50e5-46a0-aa9b-f44059e9f610",
+			"name": "DeleteImagen",
+			"url": "http://18.218.111.107:8080/api/v1/imagenes",
+			"time": 239,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code es 200": false
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				239
+			],
+			"allTests": [
+				{
+					"Status code es 200": false
+				}
+			]
+		},
+		{
+			"id": "111df715-8e36-4334-99c6-d31bb2364742",
+			"name": "GetImagenesByProductoId",
+			"url": "http://18.218.111.107:8080/api/v1/productos/imagenesByProductoId/50",
+			"time": 1149,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Imagen incluye nombre": true,
+				"Imagen incluye provincia": true,
+				"Imagen incluye pais": true,
+				"Imagen incluye latitud": true,
+				"Imagen incluye longitud": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1149
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Imagen incluye nombre": true,
+					"Imagen incluye provincia": true,
+					"Imagen incluye pais": true,
+					"Imagen incluye latitud": true,
+					"Imagen incluye longitud": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "b120c285-2481-481c-9fd0-e68e9a7d38c7",
+			"name": "GetCategorias",
+			"url": "http://localhost:8080/api/v1/categorias",
+			"time": 34,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Categoría incluye titulo": true,
+				"Categoría incluye descripcion": true,
+				"Categoría incluye urlImagen": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye titulo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye descripcion": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye urlImagen": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				34
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Categoría incluye titulo": true,
+					"Categoría incluye descripcion": true,
+					"Categoría incluye urlImagen": true
+				}
+			]
+		},
+		{
+			"id": "e4f40574-ef0e-46e8-a796-d8bf9f581d58",
+			"name": "GetCategoriaById",
+			"url": "http://18.218.111.107:8080/api/v1/categorias/20",
+			"time": 351,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Categoría incluye titulo": true,
+				"Categoría incluye descripcion": true,
+				"Categoría incluye urlImagen": true,
+				"Verificar id": false
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye titulo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye descripcion": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye urlImagen": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				351
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Categoría incluye titulo": true,
+					"Categoría incluye descripcion": true,
+					"Categoría incluye urlImagen": true,
+					"Verificar id": false
+				}
+			]
+		},
+		{
+			"id": "a0add208-34de-42e6-a27e-71eedf3e3c86",
+			"name": "CreateCategoria",
+			"url": "http://18.218.111.107:8080/api/v1/categorias",
+			"time": 238,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Status code name has string": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				238
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Status code name has string": true
+				}
+			]
+		},
+		{
+			"id": "162e7513-87e6-43ef-b057-b77a21a4eb38",
+			"name": "UpdateCategoria",
+			"url": "http://18.218.111.107:8080/api/v1/categorias",
+			"time": 453,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Categoría incluye titulo": true,
+				"Categoría incluye descripcion": true,
+				"Categoría incluye urlImagen": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye titulo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye descripcion": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye urlImagen": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				453
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Categoría incluye titulo": true,
+					"Categoría incluye descripcion": true,
+					"Categoría incluye urlImagen": true
+				}
+			]
+		},
+		{
+			"id": "8dc6d6c6-f5f4-42b6-93d7-8d5ed6abeb6d",
+			"name": "DeleteCategoria",
+			"url": "http://18.218.111.107:8080/api/v1/categorias/26",
+			"time": 261,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code es 200": false
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				261
+			],
+			"allTests": [
+				{
+					"Status code es 200": false
+				}
+			]
+		},
+		{
+			"id": "5fec2b4c-8972-4750-83ac-8b352ddad618",
+			"name": "GetProductos",
+			"url": "http://18.218.111.107:8080/api/v1/productos",
+			"time": 809,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Producto incluye titulo": true,
+				"Producto incluye categoría": true,
+				"Producto incluye ciudad": true,
+				"Producto incluye descripción": true,
+				"Producto incluye disponibilidad": true,
+				"Producto incluye política": true,
+				"Producto incluye características": true,
+				"Producto incluye imágenes": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye titulo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye categoría": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye ciudad": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye descripción": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye disponibilidad": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye política": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye características": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye imágenes": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				809
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Producto incluye titulo": true,
+					"Producto incluye categoría": true,
+					"Producto incluye ciudad": true,
+					"Producto incluye descripción": true,
+					"Producto incluye disponibilidad": true,
+					"Producto incluye política": true,
+					"Producto incluye características": true,
+					"Producto incluye imágenes": true
+				}
+			]
+		},
+		{
+			"id": "3146ecc9-169f-4f90-9bfa-a30ed16b2ff9",
+			"name": "GetProductoById",
+			"url": "http://18.218.111.107:8080/api/v1/productos/154",
+			"time": 472,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Producto incluye titulo": true,
+				"Producto incluye categoría": true,
+				"Producto incluye ciudad": true,
+				"Producto incluye descripción": true,
+				"Producto incluye disponibilidad": true,
+				"Producto incluye política": true,
+				"Producto incluye características": true,
+				"Producto incluye imágenes": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye titulo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye categoría": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye ciudad": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye descripción": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye disponibilidad": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye política": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye características": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye imágenes": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				472
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Producto incluye titulo": true,
+					"Producto incluye categoría": true,
+					"Producto incluye ciudad": true,
+					"Producto incluye descripción": true,
+					"Producto incluye disponibilidad": true,
+					"Producto incluye política": true,
+					"Producto incluye características": true,
+					"Producto incluye imágenes": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "1f5c44d7-1762-4df1-85af-106af784e39e",
+			"name": "CreateProducto",
+			"url": "http://18.218.111.107:8080/api/v1/productos",
+			"time": 408,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Status code name has string": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				408
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Status code name has string": true
+				}
+			]
+		},
+		{
+			"id": "23608731-35e1-410c-9a60-854741819917",
+			"name": "UpdateProducto",
+			"url": "http://18.218.111.107:8080/api/v1/productos",
+			"time": 451,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Producto incluye titulo": true,
+				"Producto incluye categoría": true,
+				"Producto incluye ciudad": true,
+				"Producto incluye descripción": true,
+				"Producto incluye disponibilidad": true,
+				"Producto incluye política": true,
+				"Producto incluye características": true,
+				"Producto incluye imágenes": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye titulo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye categoría": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye ciudad": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye descripción": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye disponibilidad": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye política": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye características": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye imágenes": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				451
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Producto incluye titulo": true,
+					"Producto incluye categoría": true,
+					"Producto incluye ciudad": true,
+					"Producto incluye descripción": true,
+					"Producto incluye disponibilidad": true,
+					"Producto incluye política": true,
+					"Producto incluye características": true,
+					"Producto incluye imágenes": true
+				}
+			]
+		},
+		{
+			"id": "964ccd0a-0862-4355-bb7d-c3d7abe19176",
+			"name": "DeleteProducto",
+			"url": "http://18.218.111.107:8080/api/v1/productos/155",
+			"time": 303,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code es 200": false
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				303
+			],
+			"allTests": [
+				{
+					"Status code es 200": false
+				}
+			]
+		},
+		{
+			"id": "88f00542-6069-46e8-8803-d343517b3851",
+			"name": "addCaracteristica",
+			"url": "http://18.218.111.107:8080/api/v1/productos/addCaracteristica",
+			"time": 316,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Status code name has string": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				316
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Status code name has string": true
+				}
+			]
+		},
+		{
+			"id": "025b8e93-9d2d-4101-b5ed-2799e0089ca2",
+			"name": "GetImagenesByProductoId",
+			"url": "http://18.218.111.107:8080/api/v1/productos/imagenesByProductoId/50",
+			"time": 1166,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Imagen incluye nombre": true,
+				"Imagen incluye provincia": true,
+				"Imagen incluye pais": true,
+				"Imagen incluye latitud": true,
+				"Imagen incluye longitud": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1166
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Imagen incluye nombre": true,
+					"Imagen incluye provincia": true,
+					"Imagen incluye pais": true,
+					"Imagen incluye latitud": true,
+					"Imagen incluye longitud": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "2e2a8155-6edb-4cfa-b63a-d8ac3da846b4",
+			"name": "DeleteImagenesByProductoId",
+			"url": "http://18.218.111.107:8080/api/v1/productos/imagenesByProductoId/155",
+			"time": 218,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code es 200": false
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				218
+			],
+			"allTests": [
+				{
+					"Status code es 200": false
+				}
+			]
+		},
+		{
+			"id": "46fc4a90-d124-4b4a-bc80-d8f69ba43576",
+			"name": "GetProductosByCategoria",
+			"url": "http://18.218.111.107:8080/api/v1/productos/productosByCategoria/22",
+			"time": 813,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Imagen incluye nombre": true,
+				"Imagen incluye provincia": true,
+				"Imagen incluye pais": true,
+				"Imagen incluye latitud": true,
+				"Imagen incluye longitud": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				813
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Imagen incluye nombre": true,
+					"Imagen incluye provincia": true,
+					"Imagen incluye pais": true,
+					"Imagen incluye latitud": true,
+					"Imagen incluye longitud": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "1f2cc07e-1a23-4475-a1fc-0a423cca115e",
+			"name": "GetProductosByCiudad",
+			"url": "http://18.218.111.107:8080/api/v1/productos/productosByCiudad/2",
+			"time": 432,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Imagen incluye nombre": true,
+				"Imagen incluye provincia": true,
+				"Imagen incluye pais": true,
+				"Imagen incluye latitud": true,
+				"Imagen incluye longitud": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				432
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Imagen incluye nombre": true,
+					"Imagen incluye provincia": true,
+					"Imagen incluye pais": true,
+					"Imagen incluye latitud": true,
+					"Imagen incluye longitud": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "6f42c497-25b5-4378-94d5-6f3a2c523d7a",
+			"name": "GetProductosAleatorios",
+			"url": "http://18.218.111.107:8080/api/v1/productos/productosAleatorios/2",
+			"time": 288,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				288
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d3c2b112-c3ec-4da2-8393-1e7eef410d86",
+			"name": "GetCaracteristicas Copy",
+			"url": "http://18.218.111.107:8080/api/v1/caracteristicas",
+			"time": 409,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Característica incluye icono": true,
+				"Característica incluye título": true,
+				"Característica incluye descripción": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye icono": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye título": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye descripción": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				409
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Característica incluye icono": true,
+					"Característica incluye título": true,
+					"Característica incluye descripción": true
+				}
+			]
+		},
+		{
+			"id": "b077577f-d72c-4b36-9a8d-8f93e63a43ed",
+			"name": "GetCaracteristicas",
+			"url": "http://18.218.111.107:8080/api/v1/caracteristicas",
+			"time": 384,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Característica incluye icono": true,
+				"Característica incluye título": true,
+				"Característica incluye descripción": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye icono": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye título": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye descripción": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				384
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Característica incluye icono": true,
+					"Característica incluye título": true,
+					"Característica incluye descripción": true
+				}
+			]
+		},
+		{
+			"id": "dda599e0-ba1c-41ca-93c9-84eadca1e286",
+			"name": "GetCaracteristicaById",
+			"url": "http://18.218.111.107:8080/api/v1/caracteristicas/28",
+			"time": 221,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Característica incluye icono": true,
+				"Característica incluye título": true,
+				"Característica incluye descripción": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye icono": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye título": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye descripción": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				221
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Característica incluye icono": true,
+					"Característica incluye título": true,
+					"Característica incluye descripción": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "99f96433-5524-4bfe-88a2-f4bc4239477d",
+			"name": "CreateCaracteristica",
+			"url": "http://18.218.111.107:8080/api/v1/caracteristicas",
+			"time": 449,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Status code name has string": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				449
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Status code name has string": true
+				}
+			]
+		},
+		{
+			"id": "7134efa5-66ca-438f-a87c-29c98e33ccba",
+			"name": "UpdateCaracteristica",
+			"url": "http://18.218.111.107:8080/api/v1/caracteristicas",
+			"time": 259,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Status code name has string": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				259
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Status code name has string": true
+				}
+			]
+		},
+		{
+			"id": "dd55a179-51a9-4839-9a6f-51b4d4d862f7",
+			"name": "DeleteCaracteristica",
+			"url": "http://18.218.111.107:8080/api/v1/caracteristicas",
+			"time": 254,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code es 200": false
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				254
+			],
+			"allTests": [
+				{
+					"Status code es 200": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 15549,
+	"collection": {
+		"requests": [
+			{
+				"id": "1860e40a-7537-49f2-9da6-a591633b562e",
+				"method": "GET"
+			},
+			{
+				"id": "75749712-f38a-49a0-a855-fca6f4b816f6",
+				"method": "GET"
+			},
+			{
+				"id": "532e05ec-f226-4f04-a5bf-a62ac0364c38",
+				"method": "POST"
+			},
+			{
+				"id": "aa35845f-543a-4498-9bca-1c2a2dd3b4da",
+				"method": "PUT"
+			},
+			{
+				"id": "0c106173-252e-4d49-852d-697e20586547",
+				"method": "DELETE"
+			},
+			{
+				"id": "fa2c12e4-0671-44b2-8ccb-43d2f6edc2d8",
+				"method": "GET"
+			},
+			{
+				"id": "f7abba18-0089-42fd-aa67-13462c16c61e",
+				"method": "GET"
+			},
+			{
+				"id": "d7641573-ac72-4a8b-a038-7c05d26185f5",
+				"method": "POST"
+			},
+			{
+				"id": "f8d44a3f-7936-4030-96e7-8b810d360779",
+				"method": "PUT"
+			},
+			{
+				"id": "1397b6d6-50e5-46a0-aa9b-f44059e9f610",
+				"method": "DELETE"
+			},
+			{
+				"id": "111df715-8e36-4334-99c6-d31bb2364742",
+				"method": "GET"
+			},
+			{
+				"id": "b120c285-2481-481c-9fd0-e68e9a7d38c7",
+				"method": "GET"
+			},
+			{
+				"id": "e4f40574-ef0e-46e8-a796-d8bf9f581d58",
+				"method": "GET"
+			},
+			{
+				"id": "a0add208-34de-42e6-a27e-71eedf3e3c86",
+				"method": "POST"
+			},
+			{
+				"id": "162e7513-87e6-43ef-b057-b77a21a4eb38",
+				"method": "PUT"
+			},
+			{
+				"id": "8dc6d6c6-f5f4-42b6-93d7-8d5ed6abeb6d",
+				"method": "DELETE"
+			},
+			{
+				"id": "5fec2b4c-8972-4750-83ac-8b352ddad618",
+				"method": "GET"
+			},
+			{
+				"id": "3146ecc9-169f-4f90-9bfa-a30ed16b2ff9",
+				"method": "GET"
+			},
+			{
+				"id": "1f5c44d7-1762-4df1-85af-106af784e39e",
+				"method": "POST"
+			},
+			{
+				"id": "23608731-35e1-410c-9a60-854741819917",
+				"method": "PUT"
+			},
+			{
+				"id": "964ccd0a-0862-4355-bb7d-c3d7abe19176",
+				"method": "DELETE"
+			},
+			{
+				"id": "88f00542-6069-46e8-8803-d343517b3851",
+				"method": "POST"
+			},
+			{
+				"id": "025b8e93-9d2d-4101-b5ed-2799e0089ca2",
+				"method": "GET"
+			},
+			{
+				"id": "2e2a8155-6edb-4cfa-b63a-d8ac3da846b4",
+				"method": "DELETE"
+			},
+			{
+				"id": "46fc4a90-d124-4b4a-bc80-d8f69ba43576",
+				"method": "GET"
+			},
+			{
+				"id": "1f2cc07e-1a23-4475-a1fc-0a423cca115e",
+				"method": "GET"
+			},
+			{
+				"id": "6f42c497-25b5-4378-94d5-6f3a2c523d7a",
+				"method": "GET"
+			},
+			{
+				"id": "d3c2b112-c3ec-4da2-8393-1e7eef410d86",
+				"method": "GET"
+			},
+			{
+				"id": "b077577f-d72c-4b36-9a8d-8f93e63a43ed",
+				"method": "GET"
+			},
+			{
+				"id": "dda599e0-ba1c-41ca-93c9-84eadca1e286",
+				"method": "GET"
+			},
+			{
+				"id": "99f96433-5524-4bfe-88a2-f4bc4239477d",
+				"method": "POST"
+			},
+			{
+				"id": "7134efa5-66ca-438f-a87c-29c98e33ccba",
+				"method": "PUT"
+			},
+			{
+				"id": "dd55a179-51a9-4839-9a6f-51b4d4d862f7",
+				"method": "DELETE"
+			}
+		]
+	}
+}
