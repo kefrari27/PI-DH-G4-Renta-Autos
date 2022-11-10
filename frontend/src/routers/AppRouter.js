@@ -8,7 +8,7 @@ import CrearCuenta from "../components/Formularios/CrearCuenta";
 import InicioSesion from "../components/Formularios/InicioSesion";
 import Header from "../components/Header";
 import Home from "../components/Home";
-import Product from "../components/Product";
+import Product from "../components/Producto";
 
 const AppRouter = () => {
     return (
@@ -18,7 +18,7 @@ const AppRouter = () => {
             <Route path="/" element={<Home />} />
             <Route path="/crearCuenta" element={<CrearCuenta />} />
             <Route path="/inicioSesion" element={<InicioSesion />} />
-            <Route path="/producto" element={<Product />} />
+            <Route path="/producto/:idProducto" element={<Product />} />
           </Routes>
         <Footer />
         </BrowserRouter>
