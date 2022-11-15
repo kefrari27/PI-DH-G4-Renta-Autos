@@ -13,6 +13,7 @@ public class BackendG4Application {
 		SpringApplication.run(BackendG4Application.class, args);
 	}
 
+	/*
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
@@ -24,6 +25,6 @@ public class BackendG4Application {
 				 .maxAge(3600);
 			}
 	 	};
-	}
+	}*/
 
 }

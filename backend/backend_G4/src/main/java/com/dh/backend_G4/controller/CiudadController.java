@@ -8,12 +8,13 @@ import com.dh.backend_G4.service.interfaceService.IProductoService;
 import org.apache.log4j.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
 @RestController
-@RequestMapping("api/v1/ciudades")
+@RequestMapping("api/v1/publico/ciudades")
 public class CiudadController {
 
     public static Logger logger = Logger.getLogger(CiudadController.class);
@@ -28,6 +29,13 @@ public class CiudadController {
     @GetMapping
     public ResponseEntity<Set<CiudadDTO>> getCiudades() throws ResourceNotFoundException {
         logger.info("Listando Ciudades");
+        /*var auth = SecurityContextHolder.getContext().getAuthentication();
+        logger.info("Datos del Usuario: {}");
+        logger.info(auth.getPrincipal());
+        logger.info( "Datos de los permisos {}");
+        logger.info(auth.getAuthorities());
+        logger.info("Esta autenticado {}");
+        logger.info(auth.isAuthenticated());*/
         Set<CiudadDTO> ciudades = ciudadService.listar();
         if(!ciudades.isEmpty()){
             return ResponseEntity.ok(ciudades);
