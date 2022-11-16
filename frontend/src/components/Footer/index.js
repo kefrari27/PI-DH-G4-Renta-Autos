@@ -1,13 +1,13 @@
 import { useContext } from 'react';
-import contextAplicacion from '../../provider/contextAutenticacion';
+import autenticacionContext from '../../context/autenticacion/autenticacionContext';
+import ControlMobileContext from '../../context/controlMobile/controlMobileContext';
 import '../Footer/styles.css'
 
 const Footer = () => {
-    const contextoGeneral = useContext(contextAplicacion);
-
-    const { autenticacion, versionMobileHeaderMenu } = contextoGeneral;
-    const { estadoAutenticacion } = autenticacion;
-    const { esVersionMobileHeaderMenu } = versionMobileHeaderMenu;
+    const contextoAutenticacion = useContext(autenticacionContext);
+    const contextoControlMobile = useContext(ControlMobileContext);
+    const { estadoAutenticacion } = contextoAutenticacion;
+    const { esVersionMobileHeaderMenu } = contextoControlMobile;
 
     return (
         <>
