@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -20,16 +21,22 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    UsuarioDetailsService usuarioDetailService;
+    private UsuarioDetailsService usuarioDetailService;
 
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
 
-    @Bean
+    /*@Bean
     public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }*/
+
+    @Bean
+    public BCryptPasswordEncoder bcryptPasswordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
@@ -42,10 +49,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http
-                //.httpBasic(withDefaults())
                 .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/api/v1/publico/**").permitAll()
+                    .antMatchers("/api/v1/**").permitAll()
                     .antMatchers("/api/v1/categorias").hasRole("ADMIN")
                     .anyRequest().authenticated()
                 .and().cors()
@@ -57,11 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.userDetailsService(usuarioDetailService);
-        /*auth.inMemoryAuthentication()
-                .withUser("mgrisales").password("{noop}" + "secreto").roles("USER")
-                .and()
-                .withUser("jgrisales").password("{noop}" + "secreto").roles("ADMIN");
-        */
+        //auth.userDetailsService(usuarioDetailService);
+        auth.userDetailsService(usuarioDetailService).passwordEncoder(bcryptPasswordEncoder());
     }
 }

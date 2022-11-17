@@ -80,4 +80,17 @@ public class UsuarioController {
         }
         return response;
     }
+
+    @GetMapping("/{correo}")
+    public ResponseEntity<UsuarioDTO> getUsuarioByCorreo(@PathVariable("correo") String correo) throws ResourceNotFoundException{
+        logger.info("Buscando Usuario con correo " + correo);
+        ResponseEntity<UsuarioDTO> response = null;
+        UsuarioDTO usuarioDTOByCorreo = usuarioService.buscarUsuarioByCorreo(correo);
+        if(usuarioDTOByCorreo != null){
+            response = ResponseEntity.ok(usuarioDTOByCorreo);
+        }else{
+            throw new ResourceNotFoundException("Usuario no encontrado");
+        }
+        return response;
+    }
 }

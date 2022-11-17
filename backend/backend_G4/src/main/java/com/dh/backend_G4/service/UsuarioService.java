@@ -5,18 +5,23 @@ import com.dh.backend_G4.model.modelDTO.UsuarioDTO;
 import com.dh.backend_G4.repository.IUsuarioRepository;
 import com.dh.backend_G4.service.interfaceService.IUsuarioService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class UsuarioService implements IUsuarioService {
 
     private final IUsuarioRepository usuarioRepository;
     private final ObjectMapper mapper;
+
+    @Autowired
+    private BCryptPasswordEncoder bcryptPasswordEncoder;
 
     public UsuarioService(IUsuarioRepository usuarioRepository, ObjectMapper mapper) {
         this.usuarioRepository = usuarioRepository;
@@ -26,7 +31,8 @@ public class UsuarioService implements IUsuarioService {
     @Override
     public UsuarioDTO guardar(UsuarioDTO usuarioDTO) {
         Usuario usuario =  mapper.convertValue(usuarioDTO, Usuario.class);
-        usuarioRepository.save(usuario);
+        Usuario usuarioPasswordCodificado = codificarPassword(usuario);
+        usuarioRepository.save(usuarioPasswordCodificado);
         return usuarioDTO;
     }
 
@@ -52,6 +58,16 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
+    public UsuarioDTO buscarUsuarioByCorreo(String correo) {
+        Optional<Usuario> usuario = usuarioRepository.getUsuarioByCorreo(correo);
+        UsuarioDTO usuarioDTO = null;
+        if(usuario.isPresent()){
+            usuarioDTO = mapper.convertValue(usuario, UsuarioDTO.class);
+        }
+        return usuarioDTO;
+    }
+
+    @Override
     public UsuarioDTO actualizar(UsuarioDTO usuarioDTO) {
         Usuario usuario = mapper.convertValue(usuarioDTO, Usuario.class);
         usuarioRepository.save(usuario);
@@ -62,4 +78,14 @@ public class UsuarioService implements IUsuarioService {
     public void eliminar(Long id) {
         usuarioRepository.deleteById(id);
     }
+    @Override
+    public Usuario codificarPassword(Usuario usuario){
+        usuario.setPassword(bcryptPasswordEncoder.encode(usuario.getPassword()));
+        return usuario;
+    }
+    @Override
+    public void decodificarPassword(String password, Usuario usuario){
+        bcryptPasswordEncoder.matches(password, usuario.getPassword());
+    }
+
 }
