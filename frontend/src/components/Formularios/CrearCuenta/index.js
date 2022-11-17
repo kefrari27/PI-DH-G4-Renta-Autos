@@ -1,15 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useForm from "../../../hooks/useFormulario";
-import contextAplicacion from "../../../provider/contextAutenticacion";
+import autenticacionContext from "../../../context/autenticacion/autenticacionContext";
 import '../CrearCuenta/styles.css'
 
 const CrearCuenta = () => {
 
-    const contextoGeneral = useContext(contextAplicacion);
-    const { autenticacion } = contextoGeneral;
-    const { login } = autenticacion;
-
+    const contextoAutenticacion = useContext(autenticacionContext);
+    const { login } = contextoAutenticacion;
 
     const [ confirmarContraseniaEstado, setConfirmarContraseniaEstado ] = useState('');
     const [ esConfirmarContraseniaEstado, setEsConfirmarContraseniaEstado ] = useState(true);

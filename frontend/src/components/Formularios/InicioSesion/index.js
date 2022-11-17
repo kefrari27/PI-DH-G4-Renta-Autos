@@ -1,13 +1,11 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useForm from "../../../hooks/useFormulario";
-import contextAplicacion from "../../../provider/contextAutenticacion";
+import autenticacionContext from "../../../context/autenticacion/autenticacionContext";
 
 const InicioSesion = () => {
-
-    const contextoGeneral = useContext(contextAplicacion);
-    const { autenticacion } = contextoGeneral;
-    const { login } = autenticacion;
+    const contextoAutenticacion = useContext(autenticacionContext);
+    const { login } = contextoAutenticacion;
 
     const [ formularioSubmitted, setFormularioSubmitted ] = useState(false);
     const [ esValidasCredenciales, setEsValidasCredenciales ] = useState(true);
