@@ -1,17 +1,18 @@
 import { useContext } from 'react';
-import contextAplicacion from '../../provider/contextAutenticacion';
+import autenticacionContext from '../../context/autenticacion/autenticacionContext';
+import ControlMobileContext from '../../context/controlMobile/controlMobileContext';
 import { Link } from "react-router-dom";
 import '../Header/styles.css'
 
 const Header = () => {
-    const contextoGeneral = useContext(contextAplicacion);
-    const { autenticacion, versionMobileHeaderMenu } = contextoGeneral;
-    const { estadoAutenticacion, login } = autenticacion;
-    const { esVersionMobileHeaderMenu, setVersionMobileHeaderMenu } = versionMobileHeaderMenu;
+    const contextoAutenticacion = useContext(autenticacionContext);
+    const contextoControlMobile = useContext(ControlMobileContext);
+    const { estadoAutenticacion, login } = contextoAutenticacion;
+    const { esVersionMobileHeaderMenu, setVersionMobileHeaderMenu } = contextoControlMobile;
 
     return (
         <>
-       {!esVersionMobileHeaderMenu ? 
+       {!esVersionMobileHeaderMenu ?
         <header className="header">
             <div className="header__container">
                 <Link to="/"><span className="header__container-imagen"></span></Link>
@@ -19,7 +20,7 @@ const Header = () => {
             </div>
             <div className="header__botones">
                 {!estadoAutenticacion && <button className='header__botones-boton'><Link to="/crearCuenta">Crear Cuenta</Link></button>}
-                {!estadoAutenticacion ? <button className='header__botones-boton'><Link to="/inicioSesion">Iniciar sesión</Link></button> : 
+                {!estadoAutenticacion ? <button className='header__botones-boton'><Link to="/inicioSesion">Iniciar sesión</Link></button> :
                 <div className="header__usuario-logueado">
                     <div className="header__avatar"><span>MP</span></div>
                     <div className="header__usuario">
@@ -34,7 +35,7 @@ const Header = () => {
         <div className="menu__mobile">
             <header className="menu__mobile-header">
                 <span><button className="menu__mobile-header-cerrar-sesion" onClick={setVersionMobileHeaderMenu}>X</button></span>
-                {!estadoAutenticacion ? 
+                {!estadoAutenticacion ?
                     <p className="menu__mobile-header-menu">Menú</p> :
                     <div className="menu__mobile-header__usuario">
                         <div className="menu__mobile-header__avatar"><span>MP</span></div>
