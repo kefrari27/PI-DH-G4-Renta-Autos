@@ -27,8 +27,8 @@ public class Ciudad {
     private String pais;
     private String latitud;
     private String longitud;
-    @OneToMany(mappedBy = "ciudad")
+    @OneToMany(mappedBy = "ciudad", fetch = FetchType.EAGER)
     private Set<Producto> productos;
-    @OneToMany(mappedBy = "ciudad")
+    @OneToMany(mappedBy = "ciudad", fetch = FetchType.EAGER)
     private Set<Usuario> usuarios;
 }

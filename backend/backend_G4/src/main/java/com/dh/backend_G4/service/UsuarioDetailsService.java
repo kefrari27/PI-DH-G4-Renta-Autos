@@ -15,31 +15,25 @@ import java.util.Map;
 @Service
 public class UsuarioDetailsService implements UserDetailsService {
 
-   /* private final IUsuarioService usuarioService;
+    private final IUsuarioService usuarioService;
     private final ObjectMapper mapper;
 
     public UsuarioDetailsService(IUsuarioService usuarioService, ObjectMapper mapper) {
         this.usuarioService = usuarioService;
         this.mapper = mapper;
-    }*/
-
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //Aqui se emulan los datos, podemos traer los usuarios de la base de datos
-        Map<String, String> usuarios = Map.of(
-            "mgrisales", "admin",
-            "jgrisales", "user"
-        );
-        //UsuarioDTO usuariosDTO = usuarioService.buscarUsuarioByCorreo(username);
-        //Usuario usuarios = mapper.convertValue(usuariosDTO, Usuario.class);
-
-        var rol = usuarios.get(username);
+       //En nuestro caso el username es el correo del usuario, se busca el usuario por el correo
+        UsuarioDTO usuariosDTO = usuarioService.buscarUsuarioByCorreo(username);
+        Usuario usuario = mapper.convertValue(usuariosDTO, Usuario.class);
+        //Se obtiene el rol
+        var rol = usuario.getRol();
         if(rol != null){
+            //Se crea User con datos de nuestra entidad Usuario
             User.UserBuilder userBuilder = User.withUsername(username);
-            // "secreto" => $2a$10$Hp6B8gZKaOGE7I75jf/03ujSkJE3yPQZ8Vs/j8n7701FnlZFYTt0O
-            String encryptedPassword = "$2a$10$Hp6B8gZKaOGE7I75jf/03ujSkJE3yPQZ8Vs/j8n7701FnlZFYTt0O";
-            userBuilder.password(encryptedPassword).roles(rol);
+            userBuilder.password(usuario.getPassword()).roles(rol.getNombre());
             return userBuilder.build();
         }else{
             throw new UsernameNotFoundException(username);

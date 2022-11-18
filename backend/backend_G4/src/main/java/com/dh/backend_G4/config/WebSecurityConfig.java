@@ -30,15 +30,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
 
-    /*@Bean
+    @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
-    }*/
+    }
 
+    /*
     @Bean
     public BCryptPasswordEncoder bcryptPasswordEncoder(){
         return new BCryptPasswordEncoder();
-    }
+    }*/
 
     @Override
     @Bean
@@ -51,8 +52,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/api/v1/**").permitAll()
-                    .antMatchers("/api/v1/categorias").hasRole("ADMIN")
+                    .antMatchers("/api/v1/publico/**").permitAll()
+                    .antMatchers("/api/v1/categorias").hasRole("admin")
                     .anyRequest().authenticated()
                 .and().cors()
                 .and()
@@ -63,7 +64,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-        //auth.userDetailsService(usuarioDetailService);
-        auth.userDetailsService(usuarioDetailService).passwordEncoder(bcryptPasswordEncoder());
+        auth.userDetailsService(usuarioDetailService);
+        //auth.userDetailsService(usuarioDetailService).passwordEncoder(passwordEncoder());
     }
 }

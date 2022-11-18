@@ -20,8 +20,8 @@ public class UsuarioService implements IUsuarioService {
     private final IUsuarioRepository usuarioRepository;
     private final ObjectMapper mapper;
 
-    @Autowired
-    private BCryptPasswordEncoder bcryptPasswordEncoder;
+    //@Autowired
+    //private BCryptPasswordEncoder bcryptPasswordEncoder;
 
     public UsuarioService(IUsuarioRepository usuarioRepository, ObjectMapper mapper) {
         this.usuarioRepository = usuarioRepository;
@@ -31,8 +31,9 @@ public class UsuarioService implements IUsuarioService {
     @Override
     public UsuarioDTO guardar(UsuarioDTO usuarioDTO) {
         Usuario usuario =  mapper.convertValue(usuarioDTO, Usuario.class);
-        Usuario usuarioPasswordCodificado = codificarPassword(usuario);
-        usuarioRepository.save(usuarioPasswordCodificado);
+        //Usuario usuarioPasswordCodificado = codificarPassword(usuario);
+        //usuarioRepository.save(usuarioPasswordCodificado);
+        usuarioRepository.save(usuario);
         return usuarioDTO;
     }
 
@@ -78,6 +79,7 @@ public class UsuarioService implements IUsuarioService {
     public void eliminar(Long id) {
         usuarioRepository.deleteById(id);
     }
+    /*
     @Override
     public Usuario codificarPassword(Usuario usuario){
         usuario.setPassword(bcryptPasswordEncoder.encode(usuario.getPassword()));
@@ -86,6 +88,6 @@ public class UsuarioService implements IUsuarioService {
     @Override
     public void decodificarPassword(String password, Usuario usuario){
         bcryptPasswordEncoder.matches(password, usuario.getPassword());
-    }
+    }*/
 
 }

@@ -21,6 +21,6 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nombre;
-    @OneToMany(mappedBy = "rol")
+    @OneToMany(mappedBy = "rol", fetch = FetchType.EAGER)
     private Set<Usuario> usuarios;
 }

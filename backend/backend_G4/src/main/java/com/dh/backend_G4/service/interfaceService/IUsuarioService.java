@@ -12,6 +12,6 @@ public interface IUsuarioService {
     public UsuarioDTO buscarUsuarioByCorreo(String correo);
     public UsuarioDTO actualizar(UsuarioDTO usuarioDTO);
     public void eliminar(Long id);
-    public Usuario codificarPassword(Usuario usuario);
-    public void decodificarPassword(String password, Usuario usuario);
+    //public Usuario codificarPassword(Usuario usuario);
+    //public void decodificarPassword(String password, Usuario usuario);
 }
