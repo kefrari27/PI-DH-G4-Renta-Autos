@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("api/v1/publico/ciudades")
+@RequestMapping("api/v1/ciudades")
 public class CiudadController {
 
     public static Logger logger = Logger.getLogger(CiudadController.class);

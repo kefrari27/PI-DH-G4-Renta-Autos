@@ -23,7 +23,7 @@ public class Imagen {
     private String titulo;
     private String descripcion;
     private String urlImagen;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "producto_id", referencedColumnName = "id", nullable = false)
     private Producto producto;
 

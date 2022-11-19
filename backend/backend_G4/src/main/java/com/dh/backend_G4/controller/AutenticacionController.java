@@ -48,7 +48,5 @@ public class AutenticacionController {
 
             TokenInfo tokenInfo = new TokenInfo(jwt);
             return ResponseEntity.ok(tokenInfo);
-
-
     }
 }

@@ -22,7 +22,7 @@ public class Caracteristica {
     private String icono;
     private String titulo;
     private String descripcion;
-    @ManyToMany(mappedBy = "caracteristicas", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "caracteristicas", fetch = FetchType.EAGER)
     private Set<Producto> productos;
 
 }

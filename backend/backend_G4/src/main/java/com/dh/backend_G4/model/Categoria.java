@@ -25,6 +25,6 @@ public class Categoria {
     private String titulo;
     private String descripcion;
     private String urlImagen;
-    @OneToMany(mappedBy = "categoria")
+    @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER)
     private Set<Producto> productos;
 }

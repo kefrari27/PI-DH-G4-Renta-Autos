@@ -29,10 +29,10 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "ciudad_id", referencedColumnName = "id", nullable = false)
     private Ciudad ciudad;
-    @OneToMany(mappedBy = "producto")
+    @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
     private Set<Imagen> imagenes;
     private String descripcion;
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "productos_has_caracteristicas",
             joinColumns = {@JoinColumn(name = "producto_id", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "caracteristica_id", nullable = false)})

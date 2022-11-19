@@ -6,10 +6,8 @@ import com.dh.backend_G4.repository.IUsuarioRepository;
 import com.dh.backend_G4.service.interfaceService.IUsuarioService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -20,17 +18,18 @@ public class UsuarioService implements IUsuarioService {
     private final IUsuarioRepository usuarioRepository;
     private final ObjectMapper mapper;
 
-    //@Autowired
-    //private BCryptPasswordEncoder bcryptPasswordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-    public UsuarioService(IUsuarioRepository usuarioRepository, ObjectMapper mapper) {
+    public UsuarioService(IUsuarioRepository usuarioRepository, ObjectMapper mapper, @Lazy PasswordEncoder passwordEncoder) {
         this.usuarioRepository = usuarioRepository;
         this.mapper = mapper;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public UsuarioDTO guardar(UsuarioDTO usuarioDTO) {
         Usuario usuario =  mapper.convertValue(usuarioDTO, Usuario.class);
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         //Usuario usuarioPasswordCodificado = codificarPassword(usuario);
         //usuarioRepository.save(usuarioPasswordCodificado);
         usuarioRepository.save(usuario);
