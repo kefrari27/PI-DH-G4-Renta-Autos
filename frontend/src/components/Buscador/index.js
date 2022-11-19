@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getFetch, CONSTANTES } from "../../core/request";
 import CalendarioBuscador from "./CalendarioBuscador";
 import './styles.css'
 
@@ -28,6 +29,31 @@ const ciudades = [
 
 const Buscador = () => {
 
+    const { CIUDADES_API_URL, PRODUCTOS_POR_CIUDAD_API_URL } = CONSTANTES;
+    
+    const [listaCiudades, setListaCiudades] = useState(ciudades);
+    const [idCiudad, setIdCiudad] = useState();    
+
+    const consultarCiudades = async()=> {     
+      const data = await getFetch(CIUDADES_API_URL);     
+      setListaCiudades(data);
+    }   
+
+    useEffect(() => {
+        consultarCiudades();          
+    }, [])
+
+    const onSeleccionarCiudad = (event) => {
+        setIdCiudad(event.target.value)
+    };
+
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        const url = `${PRODUCTOS_POR_CIUDAD_API_URL}/${idCiudad}`
+        const productosCiudad = await getFetch(url);        
+        console.log("🚀 ~ file: index.js ~ line 54 ~ onSubmit ~ productosCiudad", productosCiudad)
+    };
+
     return (
         <nav className='buscador'>
             <div className='buscador-titulo__contenedor'>
@@ -35,15 +61,15 @@ const Buscador = () => {
                 <p></p>
             </div>
             <div className='buscador-formulario__contenedor'>
-                <form className='buscador-formulario'>
+                <form className='buscador-formulario' onSubmit={onSubmit}>
                     <div className='buscador-formulario-ciudad__contenedor'>
-                        <select className='buscador-formulario-ciudad' name='ciudades' id="city-select">
+                        <select className='buscador-formulario-ciudad' name='ciudades' id="city-select" onChange={onSeleccionarCiudad}>
                             <option disabled selected><span className="select-placeholder">¿A dónde vamos?</span></option>
-                            {ciudades.map(element => (
-                                <option id="buscador-formulario-ciudad-item" className="buscador-formulario-ciudad-item" key={element.id}>
+                            {listaCiudades.map(element => (
+                                <option id="buscador-formulario-ciudad-item" className="buscador-formulario-ciudad-item" key={element.id} value={element.id}>
                                     <span class="icon__location"/>
-                                    <span className="city-select__item-name">{element.name}</span>
-                                    <span className="city-select__item-country">{element.country}</span>
+                                    <span className="city-select__item-name">{element.nombre}</span>
+                                    <span className="city-select__item-country">{element.pais}</span>
                                 </option>
                             ))}
                         </select>

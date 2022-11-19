@@ -1,0 +1,1850 @@
+{
+	"info": {
+		"_postman_id": "7eb28b18-8a95-4f24-8bdb-6a3c331455c8",
+		"name": "Backend_G4_EC2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18574377"
+	},
+	"item": [
+		{
+			"name": "Ciudades",
+			"item": [
+				{
+					"name": "GetCiudades",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ciudades incluye nombre\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"nombre\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ciudades incluye provincia\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ciudades incluye pais\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ciudades incluye latitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"latitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"pm.test(\"Ciudades incluye longitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"longitud\");\r",
+									"\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/ciudades",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ciudades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCiudadById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ciudades incluye nombre\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"nombre\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ciudades incluye provincia\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ciudades incluye pais\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ciudades incluye latitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"latitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"pm.test(\"Ciudades incluye longitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"longitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verificar id\", function (){\r",
+									"    var response = pm.response.json();    \r",
+									"    pm.expect(response.id).to.eql(24);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/ciudades/24",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ciudades",
+								"24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCiudad",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Buenos Aires (CABA)\",\r\n    \"provincia\":\"Buenos Aires\",\r\n    \"pais\":\"Argentina\",\r\n    \"latitud\": \" -34.61315\",\r\n    \"longitud\":\"-58.37723\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/ciudades",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ciudades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCiudad",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ciudad incluye nombre\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"nombre\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ciudad incluye provincia\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ciudad incluye pais\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Ciudad incluye latitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"latitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"pm.test(\"Ciudad incluye longitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"longitud\");\r",
+									"\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \"id\": 2,\r\n    \"nombre\":\"Bariloche \",\r\n    \"provincia\":\"Rio Negro\",\r\n    \"pais\":\"Argentina\",\r\n    \"latitud\": \" -41.14557\",\r\n    \"longitud\":\"-71.30822\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/ciudades",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ciudades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCiudad",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/ciudades/125",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ciudades",
+								"125"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Imagenes",
+			"item": [
+				{
+					"name": "GetImagenes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye nombre\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"nombre\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye provincia\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye pais\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye latitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"latitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"pm.test(\"Imagen incluye longitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"longitud\");\r",
+									"\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/imagenes",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"imagenes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetImagenById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye nombre\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"nombre\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye provincia\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye pais\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye latitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"latitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"pm.test(\"Imagen incluye longitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"longitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verificar id\", function (){\r",
+									"    var response = pm.response.json();    \r",
+									"    pm.expect(response.id).to.eql();\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/imagenes",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"imagenes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateImagen",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\":\"Dcbel Electric movimiento\",\r\n    \"urlImagen\": \"https://images.unsplash.com/photo-1487101588220-01e039029925?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80\",\r\n    \"descripcion\":\"Movimiento de vehículo\",\r\n    \"producto\":{\"id\": 31}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/imagenes",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"imagenes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateImagen",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye nombre\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"nombre\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye provincia\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye pais\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye latitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"latitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"pm.test(\"Imagen incluye longitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"longitud\");\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 85,\r\n        \"titulo\": \"Audi TT Frontal3\",\r\n        \"descripcion\": \"Audi TT Frontal3\",\r\n        \"urlImagen\": \"https://images.unsplash.com/photo-1617195920904-3dea1f5e237b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGF1ZGklMjB0dHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n        \"producto\": {\r\n            \"id\": 52,\r\n            \"titulo\": \"Audi TT\",\r\n            \"categoria\": {\r\n                \"id\": 22,\r\n                \"titulo\": \"Económicos\",\r\n                \"descripcion\": \"Autos Económicos\",\r\n                \"urlImagen\": \"https://images.unsplash.com/photo-1609951109533-9bc1d83a6572?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGF1dG8lMjBzZWRhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                \"productos\": [\r\n                    52,\r\n                    {\r\n                        \"id\": 41,\r\n                        \"titulo\": \"Dodge Challenger prueba\",\r\n                        \"categoria\": 22,\r\n                        \"ciudad\": {\r\n                            \"id\": 24,\r\n                            \"nombre\": \"Cali\",\r\n                            \"provincia\": \"Valle del Cauca\",\r\n                            \"pais\": \"Colombia\",\r\n                            \"latitud\": \"3.43722\",\r\n                            \"longitud\": \"-76.5225\",\r\n                            \"productos\": [\r\n                                52,\r\n                                41,\r\n                                {\r\n                                    \"id\": 51,\r\n                                    \"titulo\": \"Chevrolet Camaro Six SS\",\r\n                                    \"categoria\": {\r\n                                        \"id\": 21,\r\n                                        \"titulo\": \"Clasicos\",\r\n                                        \"descripcion\": \"Autos Clasicos de Colección\",\r\n                                        \"urlImagen\": \"https://images.unsplash.com/photo-1610831176233-ff0dbf203815?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80\",\r\n                                        \"productos\": [\r\n                                            {\r\n                                                \"id\": 42,\r\n                                                \"titulo\": \"Ford Mustang\",\r\n                                                \"categoria\": 21,\r\n                                                \"ciudad\": {\r\n                                                    \"id\": 2,\r\n                                                    \"nombre\": \"Bariloche \",\r\n                                                    \"provincia\": \"Rio Negro\",\r\n                                                    \"pais\": \"Argentina\",\r\n                                                    \"latitud\": \" -41.14557\",\r\n                                                    \"longitud\": \"-71.30822\",\r\n                                                    \"productos\": [\r\n                                                        {\r\n                                                            \"id\": 46,\r\n                                                            \"titulo\": \"Toyota Yaris\",\r\n                                                            \"categoria\": {\r\n                                                                \"id\": 1,\r\n                                                                \"titulo\": \"Todo Terreno\",\r\n                                                                \"descripcion\": \"Autos Todo Terreno 4x4\",\r\n                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1541789575190-4dcfb12b6793?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1202&q=80\",\r\n                                                                \"productos\": [\r\n                                                                    46,\r\n                                                                    {\r\n                                                                        \"id\": 44,\r\n                                                                        \"titulo\": \"Jeep Wrangler\",\r\n                                                                        \"categoria\": 1,\r\n                                                                        \"ciudad\": {\r\n                                                                            \"id\": 25,\r\n                                                                            \"nombre\": \"Bogotá\",\r\n                                                                            \"provincia\": \"Cundinamarca\",\r\n                                                                            \"pais\": \"Colombia\",\r\n                                                                            \"latitud\": \" 4.60971\",\r\n                                                                            \"longitud\": \"-74.08175\",\r\n                                                                            \"productos\": [\r\n                                                                                44,\r\n                                                                                {\r\n                                                                                    \"id\": 156,\r\n                                                                                    \"titulo\": \"Honda Civic eliminar\",\r\n                                                                                    \"categoria\": 22,\r\n                                                                                    \"ciudad\": 25,\r\n                                                                                    \"imagenes\": [],\r\n                                                                                    \"descripcion\": \"Vehículo Deportivo económico, práctico y divertido, con un sprint de 0 a 60 mph en sólo 5.4 seg\",\r\n                                                                                    \"caracteristicas\": [],\r\n                                                                                    \"disponibilidad\": \"Inmediata\",\r\n                                                                                    \"politica\": \"Sin depósitos ni franquicias\"\r\n                                                                                },\r\n                                                                                {\r\n                                                                                    \"id\": 45,\r\n                                                                                    \"titulo\": \"Jeep Grand Cherokee\",\r\n                                                                                    \"categoria\": 1,\r\n                                                                                    \"ciudad\": 25,\r\n                                                                                    \"imagenes\": [\r\n                                                                                        {\r\n                                                                                            \"id\": 101,\r\n                                                                                            \"titulo\": \"Jeep Grand Cherokee Lateral Izquierdo\",\r\n                                                                                            \"descripcion\": \"Jeep Grand Cherokee Lateral Izquierdo\",\r\n                                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1616452647790-c14899d4982b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8amVlcCUyMGdyYW5kJTIwY2hlcm9rZWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                            \"producto\": 45\r\n                                                                                        },\r\n                                                                                        {\r\n                                                                                            \"id\": 105,\r\n                                                                                            \"titulo\": \"Jeep Grand Cherokee Frontal2\",\r\n                                                                                            \"descripcion\": \"Jeep Grand Cherokee Frontal2\",\r\n                                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1616452862943-c72ddc54b39e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGplZXAlMjBncmFuZCUyMGNoZXJva2VlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                            \"producto\": 45\r\n                                                                                        },\r\n                                                                                        {\r\n                                                                                            \"id\": 100,\r\n                                                                                            \"titulo\": \"Jeep Grand Cherokee Frontal\",\r\n                                                                                            \"descripcion\": \"Jeep Grand Cherokee Frontal\",\r\n                                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1616452472909-13bec53a2b0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8amVlcCUyMGdyYW5kJTIwY2hlcm9rZWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                            \"producto\": 45\r\n                                                                                        },\r\n                                                                                        {\r\n                                                                                            \"id\": 104,\r\n                                                                                            \"titulo\": \"Jeep Grand Cherokee Posterior\",\r\n                                                                                            \"descripcion\": \"Jeep Grand Cherokee Posterior\",\r\n                                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1616452862884-f170c90ddb03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8amVlcCUyMGdyYW5kJTIwY2hlcm9rZWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                            \"producto\": 45\r\n                                                                                        },\r\n                                                                                        {\r\n                                                                                            \"id\": 102,\r\n                                                                                            \"titulo\": \"Jeep Grand Cherokee Lateral Derecho\",\r\n                                                                                            \"descripcion\": \"Jeep Grand Cherokee Lateral Derecho\",\r\n                                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1616452958606-42e028f838cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8amVlcCUyMGdyYW5kJTIwY2hlcm9rZWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                            \"producto\": 45\r\n                                                                                        },\r\n                                                                                        {\r\n                                                                                            \"id\": 103,\r\n                                                                                            \"titulo\": \"Jeep Grand Cherokee Sección Marca\",\r\n                                                                                            \"descripcion\": \"Jeep Grand Cherokee Sección Marca\",\r\n                                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1616452958294-aea7fbb41a4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGplZXAlMjBncmFuZCUyMGNoZXJva2VlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                            \"producto\": 45\r\n                                                                                        }\r\n                                                                                    ],\r\n                                                                                    \"descripcion\": \"Vehículo Todo Terreno, tipo SUV con motor de 6.4 lts que posee un respetable sprint de 0 a 60 mph en sólo 4.5 seg\",\r\n                                                                                    \"caracteristicas\": [],\r\n                                                                                    \"disponibilidad\": \"Inmediata\",\r\n                                                                                    \"politica\": \"Sin depósitos ni franquicias\"\r\n                                                                                },\r\n                                                                                {\r\n                                                                                    \"id\": 154,\r\n                                                                                    \"titulo\": \"Honda Civic eliminar2\",\r\n                                                                                    \"categoria\": 22,\r\n                                                                                    \"ciudad\": 25,\r\n                                                                                    \"imagenes\": [],\r\n                                                                                    \"descripcion\": \"Vehículo Deportivo económico, práctico y divertido, con un sprint de 0 a 60 mph en sólo 5.4 seg\",\r\n                                                                                    \"caracteristicas\": [],\r\n                                                                                    \"disponibilidad\": \"Inmediata\",\r\n                                                                                    \"politica\": \"Sin depósitos ni franquicias\"\r\n                                                                                },\r\n                                                                                {\r\n                                                                                    \"id\": 43,\r\n                                                                                    \"titulo\": \"Honda Civic\",\r\n                                                                                    \"categoria\": 22,\r\n                                                                                    \"ciudad\": 25,\r\n                                                                                    \"imagenes\": [\r\n                                                                                        {\r\n                                                                                            \"id\": 90,\r\n                                                                                            \"titulo\": \"Honda Civic Posterior Sección\",\r\n                                                                                            \"descripcion\": \"Honda Civic Posterior Sección\",\r\n                                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1606004649694-fbb8757fd6c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8aG9uZGElMjBjaXZpY3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                            \"producto\": 43\r\n                                                                                        },\r\n                                                                                        {\r\n                                                                                            \"id\": 89,\r\n                                                                                            \"titulo\": \"Honda Civic Frontal Sección\",\r\n                                                                                            \"descripcion\": \"Honda Civic Frontal Sección\",\r\n                                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1606836796794-279e92b7612b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGhvbmRhJTIwY2l2aWN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                            \"producto\": 43\r\n                                                                                        },\r\n                                                                                        {\r\n                                                                                            \"id\": 91,\r\n                                                                                            \"titulo\": \"Honda Civic Frontal\",\r\n                                                                                            \"descripcion\": \"Honda Civic Frontal\",\r\n                                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1578659258511-4a4e7dee7344?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGhvbmRhJTIwY2l2aWN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                            \"producto\": 43\r\n                                                                                        },\r\n                                                                                        {\r\n                                                                                            \"id\": 92,\r\n                                                                                            \"titulo\": \"Honda Civic Lateral Sección Posterior\",\r\n                                                                                            \"descripcion\": \"Honda Civic Lateral Sección Posterior\",\r\n                                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1610993917108-70fdd42d9344?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8aG9uZGElMjBjaXZpY3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                            \"producto\": 43\r\n                                                                                        },\r\n                                                                                        {\r\n                                                                                            \"id\": 93,\r\n                                                                                            \"titulo\": \"Honda Civic Sección Nocturna\",\r\n                                                                                            \"descripcion\": \"Honda Civic Sección Nocturna\",\r\n                                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1623591457247-9dff667eae42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aG9uZGElMjBjaXZpY3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                            \"producto\": 43\r\n                                                                                        }\r\n                                                                                    ],\r\n                                                                                    \"descripcion\": \"Vehículo Deportivo económico, práctico y divertido, con un sprint de 0 a 60 mph en sólo 5.4 seg\",\r\n                                                                                    \"caracteristicas\": [\r\n                                                                                        {\r\n                                                                                            \"id\": 33,\r\n                                                                                            \"icono\": \"fa-solid fa-gas-pump\",\r\n                                                                                            \"titulo\": \"Nafta\",\r\n                                                                                            \"descripcion\": \"Tipo de Combustible\",\r\n                                                                                            \"productos\": [\r\n                                                                                                43\r\n                                                                                            ]\r\n                                                                                        },\r\n                                                                                        {\r\n                                                                                            \"id\": 32,\r\n                                                                                            \"icono\": \"fa-solid fa-battery-full\",\r\n                                                                                            \"titulo\": \"Bateria de larga duración\",\r\n                                                                                            \"descripcion\": \"Rango de manejo de 80 km\",\r\n                                                                                            \"productos\": [\r\n                                                                                                43\r\n                                                                                            ]\r\n                                                                                        },\r\n                                                                                        {\r\n                                                                                            \"id\": 34,\r\n                                                                                            \"icono\": \"fa-solid fa-leaf\",\r\n                                                                                            \"titulo\": \"Eco Amigable\",\r\n                                                                                            \"descripcion\": \"Cero emisiones\",\r\n                                                                                            \"productos\": [\r\n                                                                                                43\r\n                                                                                            ]\r\n                                                                                        }\r\n                                                                                    ],\r\n                                                                                    \"disponibilidad\": \"Inmediata\",\r\n                                                                                    \"politica\": \"Sin depósitos ni franquicias\"\r\n                                                                                }\r\n                                                                            ]\r\n                                                                        },\r\n                                                                        \"imagenes\": [\r\n                                                                            {\r\n                                                                                \"id\": 99,\r\n                                                                                \"titulo\": \"Jeep Wrangler Interior\",\r\n                                                                                \"descripcion\": \"Jeep Wrangler Interior\",\r\n                                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1572304320990-dcf301303d93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGplZXAlMjB3cmFuZ2xlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                \"producto\": 44\r\n                                                                            },\r\n                                                                            {\r\n                                                                                \"id\": 98,\r\n                                                                                \"titulo\": \"Jeep Wrangler Posterior\",\r\n                                                                                \"descripcion\": \"Jeep Wrangler Posterior\",\r\n                                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1588899451848-d1e3418c126f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8amVlcCUyMHdyYW5nbGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                \"producto\": 44\r\n                                                                            },\r\n                                                                            {\r\n                                                                                \"id\": 95,\r\n                                                                                \"titulo\": \"Jeep Wrangler Lateral Derecho\",\r\n                                                                                \"descripcion\": \"Jeep Wrangler Lateral Derecho\",\r\n                                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1506015391300-4802dc74de2e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8amVlcCUyMHdyYW5nbGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                \"producto\": 44\r\n                                                                            },\r\n                                                                            {\r\n                                                                                \"id\": 94,\r\n                                                                                \"titulo\": \"Jeep Wrangler Frontal Sección\",\r\n                                                                                \"descripcion\": \"Jeep Wrangler Frontal Sección\",\r\n                                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1595392004747-3d9b64a4b013?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8amVlcCUyMHdyYW5nbGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                \"producto\": 44\r\n                                                                            },\r\n                                                                            {\r\n                                                                                \"id\": 97,\r\n                                                                                \"titulo\": \"Jeep Wrangler Frontal\",\r\n                                                                                \"descripcion\": \"Jeep Wrangler Frontal\",\r\n                                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1533127321739-d5dc53c221c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8amVlcCUyMHdyYW5nbGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                \"producto\": 44\r\n                                                                            },\r\n                                                                            {\r\n                                                                                \"id\": 96,\r\n                                                                                \"titulo\": \"Jeep Wrangler Lateral Izquierdo\",\r\n                                                                                \"descripcion\": \"Jeep Wrangler Lateral Izquierdo\",\r\n                                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1595603895326-dcd716dafacd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8amVlcCUyMHdyYW5nbGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                \"producto\": 44\r\n                                                                            }\r\n                                                                        ],\r\n                                                                        \"descripcion\": \"Vehículo Todo Terreno 4x4, carrocería larga cuatro puertas, ideal para los terrenos agrestes y escarpados, combinando potencia y elegancia\",\r\n                                                                        \"caracteristicas\": [],\r\n                                                                        \"disponibilidad\": \"Inmediata\",\r\n                                                                        \"politica\": \"Sin depósitos ni franquicias\"\r\n                                                                    },\r\n                                                                    45\r\n                                                                ]\r\n                                                            },\r\n                                                            \"ciudad\": 2,\r\n                                                            \"imagenes\": [\r\n                                                                {\r\n                                                                    \"id\": 106,\r\n                                                                    \"titulo\": \"Toyota Yaris Frontal\",\r\n                                                                    \"descripcion\": \"Toyota Yaris Frontal\",\r\n                                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1647269896060-953d56d0badb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dG95b3RhJTIweWFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                    \"producto\": 46\r\n                                                                },\r\n                                                                {\r\n                                                                    \"id\": 109,\r\n                                                                    \"titulo\": \"Toyota Yaris Lateral\",\r\n                                                                    \"descripcion\": \"Toyota Yaris Lateral\",\r\n                                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1647269855378-6ecf52eb9a8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dG95b3RhJTIweWFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                    \"producto\": 46\r\n                                                                },\r\n                                                                {\r\n                                                                    \"id\": 108,\r\n                                                                    \"titulo\": \"Toyota Yaris Lateral Izquierdo\",\r\n                                                                    \"descripcion\": \"Toyota Yaris Lateral Izquierdo\",\r\n                                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1596429916858-6f97b5b9cf48?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dG95b3RhJTIweWFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                    \"producto\": 46\r\n                                                                },\r\n                                                                {\r\n                                                                    \"id\": 107,\r\n                                                                    \"titulo\": \"Toyota Yaris Frontal2\",\r\n                                                                    \"descripcion\": \"Toyota Yaris Frontal2\",\r\n                                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1647269826024-2bf241770b6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dG95b3RhJTIweWFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                    \"producto\": 46\r\n                                                                }\r\n                                                            ],\r\n                                                            \"descripcion\": \"Vehículo Deportivo Económico con motor de 1.6 lts, con un gran sistema de frenos y transmisión manual de 6 velocidades\",\r\n                                                            \"caracteristicas\": [],\r\n                                                            \"disponibilidad\": \"Inmediata\",\r\n                                                            \"politica\": \"Sin depósitos ni franquicias\"\r\n                                                        },\r\n                                                        42,\r\n                                                        {\r\n                                                            \"id\": 50,\r\n                                                            \"titulo\": \"Porshe 911\",\r\n                                                            \"categoria\": 21,\r\n                                                            \"ciudad\": 2,\r\n                                                            \"imagenes\": [\r\n                                                                {\r\n                                                                    \"id\": 72,\r\n                                                                    \"titulo\": \"Porshe 911 Lateral\",\r\n                                                                    \"descripcion\": \"Porshe 911 Lateral\",\r\n                                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1634673970798-a15ae56f6c65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cG9yc2NoZSUyMDkxMXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                    \"producto\": 50\r\n                                                                },\r\n                                                                {\r\n                                                                    \"id\": 77,\r\n                                                                    \"titulo\": \"Porshe 911 Lateral en Movimiento\",\r\n                                                                    \"descripcion\": \"Porshe 911 Lateral en Movimiento\",\r\n                                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1576621097105-6b7e62b188e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHBvcnNjaGUlMjA5MTF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                    \"producto\": 50\r\n                                                                },\r\n                                                                {\r\n                                                                    \"id\": 74,\r\n                                                                    \"titulo\": \"Porshe 911 Interior\",\r\n                                                                    \"descripcion\": \"Porshe 911 Interior\",\r\n                                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1615125468484-088e3dfcabb6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBvcnNjaGUlMjA5MTF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                    \"producto\": 50\r\n                                                                },\r\n                                                                {\r\n                                                                    \"id\": 76,\r\n                                                                    \"titulo\": \"Porshe 911 Marca\",\r\n                                                                    \"descripcion\": \"Porshe 911 Marca\",\r\n                                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1555596899-d634257b55bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBvcnNjaGUlMjA5MTF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                    \"producto\": 50\r\n                                                                },\r\n                                                                {\r\n                                                                    \"id\": 75,\r\n                                                                    \"titulo\": \"Porshe 911 Frontal\",\r\n                                                                    \"descripcion\": \"Porshe 911 Frontal\",\r\n                                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1593353798398-6024b7444bb6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9yc2NoZSUyMDkxMXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                    \"producto\": 50\r\n                                                                },\r\n                                                                {\r\n                                                                    \"id\": 73,\r\n                                                                    \"titulo\": \"Porshe 911 Posterior\",\r\n                                                                    \"descripcion\": \"Porshe 911 Posterior\",\r\n                                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1611651336487-802fe164d3e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cG9yc2NoZSUyMDkxMXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                    \"producto\": 50\r\n                                                                }\r\n                                                            ],\r\n                                                            \"descripcion\": \"Vehículo Clasico Deportivo, con silueta inconfundible y gran aerodinámica que brindan una gran estabilidad en conjunto con su centro de gravedad bajo\",\r\n                                                            \"caracteristicas\": [],\r\n                                                            \"disponibilidad\": \"Inmediata\",\r\n                                                            \"politica\": \"Sin depósitos ni franquicias\"\r\n                                                        }\r\n                                                    ]\r\n                                                },\r\n                                                \"imagenes\": [\r\n                                                    {\r\n                                                        \"id\": 88,\r\n                                                        \"titulo\": \"Ford Mustang Frontal3\",\r\n                                                        \"descripcion\": \"Ford Mustang Frontal3\",\r\n                                                        \"urlImagen\": \"https://images.unsplash.com/photo-1625231334168-35067f8853ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9yZCUyMG11c3Rhbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                        \"producto\": 42\r\n                                                    },\r\n                                                    {\r\n                                                        \"id\": 70,\r\n                                                        \"titulo\": \"Ford Mustang Frontal2\",\r\n                                                        \"descripcion\": \"Ford Mustang Frontal2\",\r\n                                                        \"urlImagen\": \"https://images.unsplash.com/photo-1546356594-3bb0e904d8dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZvcmQlMjBtdXN0YW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                        \"producto\": 42\r\n                                                    },\r\n                                                    {\r\n                                                        \"id\": 64,\r\n                                                        \"titulo\": \"Ford Mustang Posterior\",\r\n                                                        \"descripcion\": \"Ford Mustang Posterior\",\r\n                                                        \"urlImagen\": \"https://images.unsplash.com/photo-1547744152-14d985cb937f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9yZCUyMG11c3Rhbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                        \"producto\": 42\r\n                                                    },\r\n                                                    {\r\n                                                        \"id\": 62,\r\n                                                        \"titulo\": \"Ford Mustang Frontal\",\r\n                                                        \"descripcion\": \"Ford Mustang Frontal\",\r\n                                                        \"urlImagen\": \"https://images.unsplash.com/photo-1547744152-14d985cb937f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9yZCUyMG11c3Rhbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                        \"producto\": 42\r\n                                                    },\r\n                                                    {\r\n                                                        \"id\": 67,\r\n                                                        \"titulo\": \"Ford Mustang Frontal Nocturno\",\r\n                                                        \"descripcion\": \"Ford Mustang Frontal Nocturno\",\r\n                                                        \"urlImagen\": \"https://images.unsplash.com/photo-1588814547572-13d8fb9bda3d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Zm9yZCUyMG11c3Rhbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                        \"producto\": 42\r\n                                                    }\r\n                                                ],\r\n                                                \"descripcion\": \"Vehículo Deportivo asequible, icónico y un automóvil para el conductor en todo el sentido de la palabra\",\r\n                                                \"caracteristicas\": [],\r\n                                                \"disponibilidad\": \"Inmediata\",\r\n                                                \"politica\": \"Sin depósitos ni franquicias\"\r\n                                            },\r\n                                            50,\r\n                                            51\r\n                                        ]\r\n                                    },\r\n                                    \"ciudad\": 24,\r\n                                    \"imagenes\": [\r\n                                        {\r\n                                            \"id\": 80,\r\n                                            \"titulo\": \"Chevrolet Camaro Six SS Lateral Derecho\",\r\n                                            \"descripcion\": \"Chevrolet Camaro Six SS Lateral Derecho\",\r\n                                            \"urlImagen\": \"https://images.unsplash.com/photo-1573074480171-859c70091587?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FtYXJvJTIwc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                            \"producto\": 51\r\n                                        },\r\n                                        {\r\n                                            \"id\": 78,\r\n                                            \"titulo\": \"Chevrolet Camaro Six SS Frontal\",\r\n                                            \"descripcion\": \"Chevrolet Camaro Six SS Frontal\",\r\n                                            \"urlImagen\": \"https://images.unsplash.com/photo-1573074513856-c8e3ed0f61ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2FtYXJvJTIwc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                            \"producto\": 51\r\n                                        },\r\n                                        {\r\n                                            \"id\": 82,\r\n                                            \"titulo\": \"Chevrolet Camaro Six SS Lateral Derecho2\",\r\n                                            \"descripcion\": \"Chevrolet Camaro Six SS Lateral Derecho2\",\r\n                                            \"urlImagen\": \"https://images.unsplash.com/photo-1573074617613-fc8ef27eaa2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y2FtYXJvJTIwc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                            \"producto\": 51\r\n                                        },\r\n                                        {\r\n                                            \"id\": 79,\r\n                                            \"titulo\": \"Chevrolet Camaro Six SS Lateral Izquierdo\",\r\n                                            \"descripcion\": \"Chevrolet Camaro Six SS Lateral Izquierdo\",\r\n                                            \"urlImagen\": \"https://images.unsplash.com/photo-1573074596012-ad09948dbd8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FtYXJvJTIwc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                            \"producto\": 51\r\n                                        },\r\n                                        {\r\n                                            \"id\": 81,\r\n                                            \"titulo\": \"Chevrolet Camaro Six SS Marca\",\r\n                                            \"descripcion\": \"Chevrolet Camaro Six SS Marca\",\r\n                                            \"urlImagen\": \"https://images.unsplash.com/photo-1590456744140-d196318f23cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNhbWFybyUyMHNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                            \"producto\": 51\r\n                                        }\r\n                                    ],\r\n                                    \"descripcion\": \"Vehículo Deportivo referente en desempeño y rendimiento, sus lineas afiladas le permiten obtener una gran aerodinámica que le suma gran velocidad\",\r\n                                    \"caracteristicas\": [],\r\n                                    \"disponibilidad\": \"Inmediata\",\r\n                                    \"politica\": \"Sin depósitos ni franquicias\"\r\n                                }\r\n                            ]\r\n                        },\r\n                        \"imagenes\": [\r\n                            {\r\n                                \"id\": 113,\r\n                                \"titulo\": \"Dodge Challenger Izquierdo2\",\r\n                                \"descripcion\": \"Dodge Challenger Izquierdo2\",\r\n                                \"urlImagen\": \"https://images.unsplash.com/photo-1622994617144-bab4c11a739a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9kZ2UlMjBjaGFsbGVuZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                \"producto\": 41\r\n                            },\r\n                            {\r\n                                \"id\": 114,\r\n                                \"titulo\": \"Dodge Challenger Derecho2\",\r\n                                \"descripcion\": \"Dodge Challenger Derecho2\",\r\n                                \"urlImagen\": \"https://images.unsplash.com/photo-1612813562440-f3f455f77bf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZG9kZ2UlMjBjaGFsbGVuZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                \"producto\": 41\r\n                            },\r\n                            {\r\n                                \"id\": 112,\r\n                                \"titulo\": \"Dodge Challenger Posterior\",\r\n                                \"descripcion\": \"Dodge Challenger Posterior\",\r\n                                \"urlImagen\": \"https://images.unsplash.com/photo-1609386463693-caf39be25c6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZG9kZ2UlMjBjaGFsbGVuZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                \"producto\": 41\r\n                            },\r\n                            {\r\n                                \"id\": 111,\r\n                                \"titulo\": \"Dodge Challenger Frontal Izquierdo\",\r\n                                \"descripcion\": \"Dodge Challenger Frontal Izquierdo\",\r\n                                \"urlImagen\": \"https://images.unsplash.com/photo-1612814251241-6089fc8fee42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZG9kZ2UlMjBjaGFsbGVuZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                \"producto\": 41\r\n                            },\r\n                            {\r\n                                \"id\": 115,\r\n                                \"titulo\": \"Posterior Movimiento\",\r\n                                \"descripcion\": \"Posterior Movimiento\",\r\n                                \"urlImagen\": \"https://images.unsplash.com/photo-1609520505176-5f198201a41a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGRvZGdlJTIwY2hhbGxlbmdlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                \"producto\": 41\r\n                            },\r\n                            {\r\n                                \"id\": 110,\r\n                                \"titulo\": \"Dodge Challenger Frontal Derecho\",\r\n                                \"descripcion\": \"Dodge Challenger Frontal Derecho\",\r\n                                \"urlImagen\": \"https://images.unsplash.com/photo-1609386464913-4cbfa39de540?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9kZ2UlMjBjaGFsbGVuZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                \"producto\": 41\r\n                            }\r\n                        ],\r\n                        \"descripcion\": \"Vehículo Deportivo Clasico, con estilo atemporal, diseño y desempeño sin igual\",\r\n                        \"caracteristicas\": [],\r\n                        \"disponibilidad\": \"Inmediata\",\r\n                        \"politica\": \"Sin depósitos ni franquicias\"\r\n                    },\r\n                    156,\r\n                    154,\r\n                    43\r\n                ]\r\n            },\r\n            \"ciudad\": 24,\r\n            \"imagenes\": [\r\n                {\r\n                    \"id\": 83,\r\n                    \"titulo\": \"Audi TT Frontal1\",\r\n                    \"descripcion\": \"Audi TT Frontal1\",\r\n                    \"urlImagen\": \"https://images.unsplash.com/photo-1617195920950-1145bf9a9c72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXVkaSUyMHR0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                    \"producto\": 52\r\n                },\r\n                {\r\n                    \"id\": 86,\r\n                    \"titulo\": \"Audi TT Interior\",\r\n                    \"descripcion\": \"Audi TT Interior\",\r\n                    \"urlImagen\": \"https://images.unsplash.com/photo-1521743390577-228b07ad674c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGF1ZGklMjB0dHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                    \"producto\": 52\r\n                },\r\n                {\r\n                    \"id\": 87,\r\n                    \"titulo\": \"Audi TT Posterior Sección Nocturno\",\r\n                    \"descripcion\": \"Audi TT Posterior Sección Nocturno\",\r\n                    \"urlImagen\": \"https://images.unsplash.com/photo-1629935389411-1bb0ae0d1ffe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGF1ZGklMjB0dHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                    \"producto\": 52\r\n                },\r\n                {\r\n                    \"id\": 84,\r\n                    \"titulo\": \"Audi TT Frontal2\",\r\n                    \"descripcion\": \"Audi TT Frontal2\",\r\n                    \"urlImagen\": \"https://images.unsplash.com/photo-1617195920791-e42b4d1e559a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXVkaSUyMHR0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                    \"producto\": 52\r\n                }\r\n            ],\r\n            \"descripcion\": \"Vehículo Deportivo Descapotado inspirado en el R8, gran desempeño gracias a su turbo con caja de cambios manual de 6 velocidades\",\r\n            \"caracteristicas\": [],\r\n            \"disponibilidad\": \"Inmediata\",\r\n            \"politica\": \"Sin depósitos ni franquicias\"\r\n        }\r\n    },",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/imagenes",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"imagenes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImagen",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/imagenes",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"imagenes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetImagenesByProductoId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye nombre\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"nombre\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye provincia\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye pais\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye latitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"latitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"pm.test(\"Imagen incluye longitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"longitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verificar id\", function (){\r",
+									"    var response = pm.response.json();    \r",
+									"    pm.expect(response.id).to.eql();\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/imagenesByProductoId/50",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"imagenesByProductoId",
+								"50"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "GetCategorias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye titulo\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"titulo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye descripcion\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"descripcion\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye urlImagen\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"urlImagen\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCategoriaById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye titulo\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"titulo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye descripcion\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"descripcion\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye urlImagen\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"urlImagen\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verificar id\", function (){\r",
+									"    var response = pm.response.json();    \r",
+									"    pm.expect(response.id).to.eql(1);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/categorias/20",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categorias",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCategoria",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Todo Terreno\",\r\n        \"descripcion\": \"Autos Todo Terreno 4x4\",\r\n        \"urlImagen\": \"https://images.unsplash.com/photo-1541789575190-4dcfb12b6793?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1202&q=80\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/categorias",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCategoria",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye titulo\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"titulo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye descripcion\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"descripcion\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye urlImagen\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"urlImagen\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 22,\r\n    \"titulo\": \"Económicos\",\r\n    \"descripcion\": \"Autos Económicos\",\r\n    \"urlImagen\": \"https://images.unsplash.com/photo-1609951109533-9bc1d83a6572?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGF1dG8lMjBzZWRhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/categorias",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategoria",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/categorias/26",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categorias",
+								"26"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "GetProductos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Producto incluye titulo\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"titulo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Producto incluye categoría\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"categoria\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Producto incluye ciudad\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"ciudad\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye descripción\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"descripcion\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye disponibilidad\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"disponibilidad\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye política\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"politica\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye características\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"caracteristicas\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye imágenes\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"imagenes\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductoById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Producto incluye titulo\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"titulo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Producto incluye categoría\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"categoria\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Producto incluye ciudad\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"ciudad\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye descripción\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"descripcion\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye disponibilidad\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"disponibilidad\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye política\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"politica\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye características\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"caracteristicas\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye imágenes\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"imagenes\");\r",
+									"});\r",
+									"pm.test(\"Verificar id\", function (){\r",
+									"    var response = pm.response.json();    \r",
+									"    pm.expect(response.id).to.eql(154);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/154",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"154"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProducto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n\r\n        \"titulo\": \"Honda Civic eliminar\",\r\n        \"categoria\": {\r\n            \"id\": 22,\r\n            \"titulo\": \"Económicos\",\r\n            \"descripcion\": \"Autos Económicos\",\r\n            \"urlImagen\": \"https://images.unsplash.com/photo-1609951109533-9bc1d83a6572?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGF1dG8lMjBzZWRhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n            \"productos\": [\r\n                {\r\n                    \"id\": 52,\r\n                    \"titulo\": \"Audi TT\",\r\n                    \"categoria\": 22,\r\n                    \"ciudad\": {\r\n                        \"id\": 24,\r\n                        \"nombre\": \"Cali\",\r\n                        \"provincia\": \"Valle del Cauca\",\r\n                        \"pais\": \"Colombia\",\r\n                        \"latitud\": \"3.43722\",\r\n                        \"longitud\": \"-76.5225\",\r\n                        \"productos\": [\r\n                            {\r\n                                \"id\": 51,\r\n                                \"titulo\": \"Chevrolet Camaro Six SS\",\r\n                                \"categoria\": {\r\n                                    \"id\": 21,\r\n                                    \"titulo\": \"Clasicos\",\r\n                                    \"descripcion\": \"Autos Clasicos de Colección\",\r\n                                    \"urlImagen\": \"https://images.unsplash.com/photo-1610831176233-ff0dbf203815?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80\",\r\n                                    \"productos\": [\r\n                                        51,\r\n                                        {\r\n                                            \"id\": 42,\r\n                                            \"titulo\": \"Ford Mustang\",\r\n                                            \"categoria\": 21,\r\n                                            \"ciudad\": {\r\n                                                \"id\": 2,\r\n                                                \"nombre\": \"Bariloche \",\r\n                                                \"provincia\": \"Rio Negro\",\r\n                                                \"pais\": \"Argentina\",\r\n                                                \"latitud\": \" -41.14557\",\r\n                                                \"longitud\": \"-71.30822\",\r\n                                                \"productos\": [\r\n                                                    42,\r\n                                                    {\r\n                                                        \"id\": 50,\r\n                                                        \"titulo\": \"Porshe 911\",\r\n                                                        \"categoria\": 21,\r\n                                                        \"ciudad\": 2,\r\n                                                        \"imagenes\": [\r\n                                                            {\r\n                                                                \"id\": 77,\r\n                                                                \"titulo\": \"Porshe 911 Lateral en Movimiento\",\r\n                                                                \"descripcion\": \"Porshe 911 Lateral en Movimiento\",\r\n                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1576621097105-6b7e62b188e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHBvcnNjaGUlMjA5MTF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                \"producto\": 50\r\n                                                            },\r\n                                                            {\r\n                                                                \"id\": 76,\r\n                                                                \"titulo\": \"Porshe 911 Marca\",\r\n                                                                \"descripcion\": \"Porshe 911 Marca\",\r\n                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1555596899-d634257b55bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBvcnNjaGUlMjA5MTF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                \"producto\": 50\r\n                                                            },\r\n                                                            {\r\n                                                                \"id\": 74,\r\n                                                                \"titulo\": \"Porshe 911 Interior\",\r\n                                                                \"descripcion\": \"Porshe 911 Interior\",\r\n                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1615125468484-088e3dfcabb6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBvcnNjaGUlMjA5MTF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                \"producto\": 50\r\n                                                            },\r\n                                                            {\r\n                                                                \"id\": 73,\r\n                                                                \"titulo\": \"Porshe 911 Posterior\",\r\n                                                                \"descripcion\": \"Porshe 911 Posterior\",\r\n                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1611651336487-802fe164d3e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cG9yc2NoZSUyMDkxMXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                \"producto\": 50\r\n                                                            },\r\n                                                            {\r\n                                                                \"id\": 75,\r\n                                                                \"titulo\": \"Porshe 911 Frontal\",\r\n                                                                \"descripcion\": \"Porshe 911 Frontal\",\r\n                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1593353798398-6024b7444bb6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9yc2NoZSUyMDkxMXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                \"producto\": 50\r\n                                                            },\r\n                                                            {\r\n                                                                \"id\": 72,\r\n                                                                \"titulo\": \"Porshe 911 Lateral\",\r\n                                                                \"descripcion\": \"Porshe 911 Lateral\",\r\n                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1634673970798-a15ae56f6c65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cG9yc2NoZSUyMDkxMXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                \"producto\": 50\r\n                                                            }\r\n                                                        ],\r\n                                                        \"descripcion\": \"Vehículo Clasico Deportivo, con silueta inconfundible y gran aerodinámica que brindan una gran estabilidad en conjunto con su centro de gravedad bajo\",\r\n                                                        \"caracteristicas\": [],\r\n                                                        \"disponibilidad\": \"Inmediata\",\r\n                                                        \"politica\": \"Sin depósitos ni franquicias\"\r\n                                                    },\r\n                                                    {\r\n                                                        \"id\": 46,\r\n                                                        \"titulo\": \"Toyota Yaris\",\r\n                                                        \"categoria\": {\r\n                                                            \"id\": 1,\r\n                                                            \"titulo\": \"Todo Terreno\",\r\n                                                            \"descripcion\": \"Autos Todo Terreno 4x4\",\r\n                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1541789575190-4dcfb12b6793?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1202&q=80\",\r\n                                                            \"productos\": [\r\n                                                                {\r\n                                                                    \"id\": 45,\r\n                                                                    \"titulo\": \"Jeep Grand Cherokee\",\r\n                                                                    \"categoria\": 1,\r\n                                                                    \"ciudad\": {\r\n                                                                        \"id\": 25,\r\n                                                                        \"nombre\": \"Bogotá\",\r\n                                                                        \"provincia\": \"Cundinamarca\",\r\n                                                                        \"pais\": \"Colombia\",\r\n                                                                        \"latitud\": \" 4.60971\",\r\n                                                                        \"longitud\": \"-74.08175\",\r\n                                                                        \"productos\": [\r\n                                                                            {\r\n                                                                                \"id\": 44,\r\n                                                                                \"titulo\": \"Jeep Wrangler\",\r\n                                                                                \"categoria\": 1,\r\n                                                                                \"ciudad\": 25,\r\n                                                                                \"imagenes\": [\r\n                                                                                    {\r\n                                                                                        \"id\": 95,\r\n                                                                                        \"titulo\": \"Jeep Wrangler Lateral Derecho\",\r\n                                                                                        \"descripcion\": \"Jeep Wrangler Lateral Derecho\",\r\n                                                                                        \"urlImagen\": \"https://images.unsplash.com/photo-1506015391300-4802dc74de2e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8amVlcCUyMHdyYW5nbGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                        \"producto\": 44\r\n                                                                                    },\r\n                                                                                    {\r\n                                                                                        \"id\": 98,\r\n                                                                                        \"titulo\": \"Jeep Wrangler Posterior\",\r\n                                                                                        \"descripcion\": \"Jeep Wrangler Posterior\",\r\n                                                                                        \"urlImagen\": \"https://images.unsplash.com/photo-1588899451848-d1e3418c126f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8amVlcCUyMHdyYW5nbGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                        \"producto\": 44\r\n                                                                                    },\r\n                                                                                    {\r\n                                                                                        \"id\": 99,\r\n                                                                                        \"titulo\": \"Jeep Wrangler Interior\",\r\n                                                                                        \"descripcion\": \"Jeep Wrangler Interior\",\r\n                                                                                        \"urlImagen\": \"https://images.unsplash.com/photo-1572304320990-dcf301303d93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGplZXAlMjB3cmFuZ2xlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                        \"producto\": 44\r\n                                                                                    },\r\n                                                                                    {\r\n                                                                                        \"id\": 97,\r\n                                                                                        \"titulo\": \"Jeep Wrangler Frontal\",\r\n                                                                                        \"descripcion\": \"Jeep Wrangler Frontal\",\r\n                                                                                        \"urlImagen\": \"https://images.unsplash.com/photo-1533127321739-d5dc53c221c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8amVlcCUyMHdyYW5nbGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                        \"producto\": 44\r\n                                                                                    },\r\n                                                                                    {\r\n                                                                                        \"id\": 96,\r\n                                                                                        \"titulo\": \"Jeep Wrangler Lateral Izquierdo\",\r\n                                                                                        \"descripcion\": \"Jeep Wrangler Lateral Izquierdo\",\r\n                                                                                        \"urlImagen\": \"https://images.unsplash.com/photo-1595603895326-dcd716dafacd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8amVlcCUyMHdyYW5nbGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                        \"producto\": 44\r\n                                                                                    },\r\n                                                                                    {\r\n                                                                                        \"id\": 94,\r\n                                                                                        \"titulo\": \"Jeep Wrangler Frontal Sección\",\r\n                                                                                        \"descripcion\": \"Jeep Wrangler Frontal Sección\",\r\n                                                                                        \"urlImagen\": \"https://images.unsplash.com/photo-1595392004747-3d9b64a4b013?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8amVlcCUyMHdyYW5nbGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                                        \"producto\": 44\r\n                                                                                    }\r\n                                                                                ],\r\n                                                                                \"descripcion\": \"Vehículo Todo Terreno 4x4, carrocería larga cuatro puertas, ideal para los terrenos agrestes y escarpados, combinando potencia y elegancia\",\r\n                                                                                \"caracteristicas\": [],\r\n                                                                                \"disponibilidad\": \"Inmediata\",\r\n                                                                                \"politica\": \"Sin depósitos ni franquicias\"\r\n                                                                            }\r\n                                                                        ]\r\n                                                                    },\r\n                                                                    \"imagenes\": [\r\n                                                                        {\r\n                                                                            \"id\": 104,\r\n                                                                            \"titulo\": \"Jeep Grand Cherokee Posterior\",\r\n                                                                            \"descripcion\": \"Jeep Grand Cherokee Posterior\",\r\n                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1616452862884-f170c90ddb03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8amVlcCUyMGdyYW5kJTIwY2hlcm9rZWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                            \"producto\": 45\r\n                                                                        },\r\n                                                                        {\r\n                                                                            \"id\": 102,\r\n                                                                            \"titulo\": \"Jeep Grand Cherokee Lateral Derecho\",\r\n                                                                            \"descripcion\": \"Jeep Grand Cherokee Lateral Derecho\",\r\n                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1616452958606-42e028f838cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8amVlcCUyMGdyYW5kJTIwY2hlcm9rZWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                            \"producto\": 45\r\n                                                                        },\r\n                                                                        {\r\n                                                                            \"id\": 105,\r\n                                                                            \"titulo\": \"Jeep Grand Cherokee Frontal2\",\r\n                                                                            \"descripcion\": \"Jeep Grand Cherokee Frontal2\",\r\n                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1616452862943-c72ddc54b39e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGplZXAlMjBncmFuZCUyMGNoZXJva2VlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                            \"producto\": 45\r\n                                                                        },\r\n                                                                        {\r\n                                                                            \"id\": 103,\r\n                                                                            \"titulo\": \"Jeep Grand Cherokee Sección Marca\",\r\n                                                                            \"descripcion\": \"Jeep Grand Cherokee Sección Marca\",\r\n                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1616452958294-aea7fbb41a4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGplZXAlMjBncmFuZCUyMGNoZXJva2VlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                                            \"producto\": 45\r\n                                                                        },\r\n                                                                        {\r\n                                                                            \"id\": 100,\r\n                                                                            \"titulo\": \"Jeep Grand Cherokee Frontal\",\r\n                                                                            \"descripcion\": \"Jeep Grand Cherokee Frontal\",\r\n                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1616452472909-13bec53a2b0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8amVlcCUyMGdyYW5kJTIwY2hlcm9rZWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                            \"producto\": 45\r\n                                                                        },\r\n                                                                        {\r\n                                                                            \"id\": 101,\r\n                                                                            \"titulo\": \"Jeep Grand Cherokee Lateral Izquierdo\",\r\n                                                                            \"descripcion\": \"Jeep Grand Cherokee Lateral Izquierdo\",\r\n                                                                            \"urlImagen\": \"https://images.unsplash.com/photo-1616452647790-c14899d4982b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8amVlcCUyMGdyYW5kJTIwY2hlcm9rZWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                            \"producto\": 45\r\n                                                                        }\r\n                                                                    ],\r\n                                                                    \"descripcion\": \"Vehículo Todo Terreno, tipo SUV con motor de 6.4 lts que posee un respetable sprint de 0 a 60 mph en sólo 4.5 seg\",\r\n                                                                    \"caracteristicas\": [],\r\n                                                                    \"disponibilidad\": \"Inmediata\",\r\n                                                                    \"politica\": \"Sin depósitos ni franquicias\"\r\n                                                                },\r\n                                                                44,\r\n                                                                46\r\n                                                            ]\r\n                                                        },\r\n                                                        \"ciudad\": 2,\r\n                                                        \"imagenes\": [\r\n                                                            {\r\n                                                                \"id\": 106,\r\n                                                                \"titulo\": \"Toyota Yaris Frontal\",\r\n                                                                \"descripcion\": \"Toyota Yaris Frontal\",\r\n                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1647269896060-953d56d0badb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dG95b3RhJTIweWFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                \"producto\": 46\r\n                                                            },\r\n                                                            {\r\n                                                                \"id\": 108,\r\n                                                                \"titulo\": \"Toyota Yaris Lateral Izquierdo\",\r\n                                                                \"descripcion\": \"Toyota Yaris Lateral Izquierdo\",\r\n                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1596429916858-6f97b5b9cf48?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dG95b3RhJTIweWFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                \"producto\": 46\r\n                                                            },\r\n                                                            {\r\n                                                                \"id\": 109,\r\n                                                                \"titulo\": \"Toyota Yaris Lateral\",\r\n                                                                \"descripcion\": \"Toyota Yaris Lateral\",\r\n                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1647269855378-6ecf52eb9a8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dG95b3RhJTIweWFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                \"producto\": 46\r\n                                                            },\r\n                                                            {\r\n                                                                \"id\": 107,\r\n                                                                \"titulo\": \"Toyota Yaris Frontal2\",\r\n                                                                \"descripcion\": \"Toyota Yaris Frontal2\",\r\n                                                                \"urlImagen\": \"https://images.unsplash.com/photo-1647269826024-2bf241770b6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dG95b3RhJTIweWFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                                \"producto\": 46\r\n                                                            }\r\n                                                        ],\r\n                                                        \"descripcion\": \"Vehículo Deportivo Económico con motor de 1.6 lts, con un gran sistema de frenos y transmisión manual de 6 velocidades\",\r\n                                                        \"caracteristicas\": [],\r\n                                                        \"disponibilidad\": \"Inmediata\",\r\n                                                        \"politica\": \"Sin depósitos ni franquicias\"\r\n                                                    }\r\n                                                ]\r\n                                            },\r\n                                            \"imagenes\": [\r\n                                                {\r\n                                                    \"id\": 70,\r\n                                                    \"titulo\": \"Ford Mustang Frontal2\",\r\n                                                    \"descripcion\": \"Ford Mustang Frontal2\",\r\n                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1546356594-3bb0e904d8dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZvcmQlMjBtdXN0YW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                                    \"producto\": 42\r\n                                                },\r\n                                                {\r\n                                                    \"id\": 88,\r\n                                                    \"titulo\": \"Ford Mustang Frontal3\",\r\n                                                    \"descripcion\": \"Ford Mustang Frontal3\",\r\n                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1625231334168-35067f8853ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9yZCUyMG11c3Rhbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                    \"producto\": 42\r\n                                                },\r\n                                                {\r\n                                                    \"id\": 64,\r\n                                                    \"titulo\": \"Ford Mustang Posterior\",\r\n                                                    \"descripcion\": \"Ford Mustang Posterior\",\r\n                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1547744152-14d985cb937f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9yZCUyMG11c3Rhbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                    \"producto\": 42\r\n                                                },\r\n                                                {\r\n                                                    \"id\": 67,\r\n                                                    \"titulo\": \"Ford Mustang Frontal Nocturno\",\r\n                                                    \"descripcion\": \"Ford Mustang Frontal Nocturno\",\r\n                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1588814547572-13d8fb9bda3d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Zm9yZCUyMG11c3Rhbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                    \"producto\": 42\r\n                                                },\r\n                                                {\r\n                                                    \"id\": 62,\r\n                                                    \"titulo\": \"Ford Mustang Frontal\",\r\n                                                    \"descripcion\": \"Ford Mustang Frontal\",\r\n                                                    \"urlImagen\": \"https://images.unsplash.com/photo-1547744152-14d985cb937f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9yZCUyMG11c3Rhbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                                    \"producto\": 42\r\n                                                }\r\n                                            ],\r\n                                            \"descripcion\": \"Vehículo Deportivo asequible, icónico y un automóvil para el conductor en todo el sentido de la palabra\",\r\n                                            \"caracteristicas\": [],\r\n                                            \"disponibilidad\": \"Inmediata\",\r\n                                            \"politica\": \"Sin depósitos ni franquicias\"\r\n                                        },\r\n                                        50\r\n                                    ]\r\n                                },\r\n                                \"ciudad\": 24,\r\n                                \"imagenes\": [\r\n                                    {\r\n                                        \"id\": 80,\r\n                                        \"titulo\": \"Chevrolet Camaro Six SS Lateral Derecho\",\r\n                                        \"descripcion\": \"Chevrolet Camaro Six SS Lateral Derecho\",\r\n                                        \"urlImagen\": \"https://images.unsplash.com/photo-1573074480171-859c70091587?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FtYXJvJTIwc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                        \"producto\": 51\r\n                                    },\r\n                                    {\r\n                                        \"id\": 78,\r\n                                        \"titulo\": \"Chevrolet Camaro Six SS Frontal\",\r\n                                        \"descripcion\": \"Chevrolet Camaro Six SS Frontal\",\r\n                                        \"urlImagen\": \"https://images.unsplash.com/photo-1573074513856-c8e3ed0f61ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2FtYXJvJTIwc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                        \"producto\": 51\r\n                                    },\r\n                                    {\r\n                                        \"id\": 81,\r\n                                        \"titulo\": \"Chevrolet Camaro Six SS Marca\",\r\n                                        \"descripcion\": \"Chevrolet Camaro Six SS Marca\",\r\n                                        \"urlImagen\": \"https://images.unsplash.com/photo-1590456744140-d196318f23cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNhbWFybyUyMHNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                        \"producto\": 51\r\n                                    },\r\n                                    {\r\n                                        \"id\": 82,\r\n                                        \"titulo\": \"Chevrolet Camaro Six SS Lateral Derecho2\",\r\n                                        \"descripcion\": \"Chevrolet Camaro Six SS Lateral Derecho2\",\r\n                                        \"urlImagen\": \"https://images.unsplash.com/photo-1573074617613-fc8ef27eaa2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y2FtYXJvJTIwc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                        \"producto\": 51\r\n                                    },\r\n                                    {\r\n                                        \"id\": 79,\r\n                                        \"titulo\": \"Chevrolet Camaro Six SS Lateral Izquierdo\",\r\n                                        \"descripcion\": \"Chevrolet Camaro Six SS Lateral Izquierdo\",\r\n                                        \"urlImagen\": \"https://images.unsplash.com/photo-1573074596012-ad09948dbd8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y2FtYXJvJTIwc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                                        \"producto\": 51\r\n                                    }\r\n                                ],\r\n                                \"descripcion\": \"Vehículo Deportivo referente en desempeño y rendimiento, sus lineas afiladas le permiten obtener una gran aerodinámica que le suma gran velocidad\",\r\n                                \"caracteristicas\": [],\r\n                                \"disponibilidad\": \"Inmediata\",\r\n                                \"politica\": \"Sin depósitos ni franquicias\"\r\n                            },\r\n                            52,\r\n                            {\r\n                                \"id\": 41,\r\n                                \"titulo\": \"Dodge Challenger prueba\",\r\n                                \"categoria\": 22,\r\n                                \"ciudad\": 24,\r\n                                \"imagenes\": [\r\n                                    {\r\n                                        \"id\": 110,\r\n                                        \"titulo\": \"Dodge Challenger Frontal Derecho\",\r\n                                        \"descripcion\": \"Dodge Challenger Frontal Derecho\",\r\n                                        \"urlImagen\": \"https://images.unsplash.com/photo-1609386464913-4cbfa39de540?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9kZ2UlMjBjaGFsbGVuZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                        \"producto\": 41\r\n                                    },\r\n                                    {\r\n                                        \"id\": 113,\r\n                                        \"titulo\": \"Dodge Challenger Izquierdo2\",\r\n                                        \"descripcion\": \"Dodge Challenger Izquierdo2\",\r\n                                        \"urlImagen\": \"https://images.unsplash.com/photo-1622994617144-bab4c11a739a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9kZ2UlMjBjaGFsbGVuZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                        \"producto\": 41\r\n                                    },\r\n                                    {\r\n                                        \"id\": 111,\r\n                                        \"titulo\": \"Dodge Challenger Frontal Izquierdo\",\r\n                                        \"descripcion\": \"Dodge Challenger Frontal Izquierdo\",\r\n                                        \"urlImagen\": \"https://images.unsplash.com/photo-1612814251241-6089fc8fee42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZG9kZ2UlMjBjaGFsbGVuZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                        \"producto\": 41\r\n                                    },\r\n                                    {\r\n                                        \"id\": 114,\r\n                                        \"titulo\": \"Dodge Challenger Derecho2\",\r\n                                        \"descripcion\": \"Dodge Challenger Derecho2\",\r\n                                        \"urlImagen\": \"https://images.unsplash.com/photo-1612813562440-f3f455f77bf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZG9kZ2UlMjBjaGFsbGVuZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                        \"producto\": 41\r\n                                    },\r\n                                    {\r\n                                        \"id\": 112,\r\n                                        \"titulo\": \"Dodge Challenger Posterior\",\r\n                                        \"descripcion\": \"Dodge Challenger Posterior\",\r\n                                        \"urlImagen\": \"https://images.unsplash.com/photo-1609386463693-caf39be25c6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZG9kZ2UlMjBjaGFsbGVuZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                        \"producto\": 41\r\n                                    },\r\n                                    {\r\n                                        \"id\": 115,\r\n                                        \"titulo\": \"Posterior Movimiento\",\r\n                                        \"descripcion\": \"Posterior Movimiento\",\r\n                                        \"urlImagen\": \"https://images.unsplash.com/photo-1609520505176-5f198201a41a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGRvZGdlJTIwY2hhbGxlbmdlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                                        \"producto\": 41\r\n                                    }\r\n                                ],\r\n                                \"descripcion\": \"Vehículo Deportivo Clasico, con estilo atemporal, diseño y desempeño sin igual\",\r\n                                \"caracteristicas\": [],\r\n                                \"disponibilidad\": \"Inmediata\",\r\n                                \"politica\": \"Sin depósitos ni franquicias\"\r\n                            }\r\n                        ]\r\n                    },\r\n                    \"imagenes\": [\r\n                        {\r\n                            \"id\": 85,\r\n                            \"titulo\": \"Audi TT Frontal3\",\r\n                            \"descripcion\": \"Audi TT Frontal3\",\r\n                            \"urlImagen\": \"https://images.unsplash.com/photo-1617195920904-3dea1f5e237b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGF1ZGklMjB0dHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                            \"producto\": 52\r\n                        },\r\n                        {\r\n                            \"id\": 86,\r\n                            \"titulo\": \"Audi TT Interior\",\r\n                            \"descripcion\": \"Audi TT Interior\",\r\n                            \"urlImagen\": \"https://images.unsplash.com/photo-1521743390577-228b07ad674c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGF1ZGklMjB0dHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                            \"producto\": 52\r\n                        },\r\n                        {\r\n                            \"id\": 87,\r\n                            \"titulo\": \"Audi TT Posterior Sección Nocturno\",\r\n                            \"descripcion\": \"Audi TT Posterior Sección Nocturno\",\r\n                            \"urlImagen\": \"https://images.unsplash.com/photo-1629935389411-1bb0ae0d1ffe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGF1ZGklMjB0dHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                            \"producto\": 52\r\n                        },\r\n                        {\r\n                            \"id\": 84,\r\n                            \"titulo\": \"Audi TT Frontal2\",\r\n                            \"descripcion\": \"Audi TT Frontal2\",\r\n                            \"urlImagen\": \"https://images.unsplash.com/photo-1617195920791-e42b4d1e559a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXVkaSUyMHR0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                            \"producto\": 52\r\n                        },\r\n                        {\r\n                            \"id\": 83,\r\n                            \"titulo\": \"Audi TT Frontal1\",\r\n                            \"descripcion\": \"Audi TT Frontal1\",\r\n                            \"urlImagen\": \"https://images.unsplash.com/photo-1617195920950-1145bf9a9c72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXVkaSUyMHR0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                            \"producto\": 52\r\n                        }\r\n                    ],\r\n                    \"descripcion\": \"Vehículo Deportivo Descapotado inspirado en el R8, gran desempeño gracias a su turbo con caja de cambios manual de 6 velocidades\",\r\n                    \"caracteristicas\": [],\r\n                    \"disponibilidad\": \"Inmediata\",\r\n                    \"politica\": \"Sin depósitos ni franquicias\"\r\n                },\r\n                41\r\n            ]\r\n        },\r\n        \"ciudad\": 25,\r\n        \"descripcion\": \"Vehículo Deportivo económico, práctico y divertido, con un sprint de 0 a 60 mph en sólo 5.4 seg\",\r\n        \"disponibilidad\": \"Inmediata\",\r\n        \"politica\": \"Sin depósitos ni franquicias\",\r\n        \"caracteristicas\": [],\r\n        \"imagenes\": [\r\n            {\r\n                \"id\": 91,\r\n                \"titulo\": \"Honda Civic Frontal\",\r\n                \"descripcion\": \"Honda Civic Frontal\",\r\n                \"urlImagen\": \"https://images.unsplash.com/photo-1578659258511-4a4e7dee7344?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGhvbmRhJTIwY2l2aWN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                \"producto\": null\r\n            },\r\n            {\r\n                \"id\": 89,\r\n                \"titulo\": \"Honda Civic Frontal Sección\",\r\n                \"descripcion\": \"Honda Civic Frontal Sección\",\r\n                \"urlImagen\": \"https://images.unsplash.com/photo-1606836796794-279e92b7612b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGhvbmRhJTIwY2l2aWN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60\",\r\n                \"producto\": null\r\n            },\r\n            {\r\n                \"id\": 92,\r\n                \"titulo\": \"Honda Civic Lateral Sección Posterior\",\r\n                \"descripcion\": \"Honda Civic Lateral Sección Posterior\",\r\n                \"urlImagen\": \"https://images.unsplash.com/photo-1610993917108-70fdd42d9344?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8aG9uZGElMjBjaXZpY3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                \"producto\": null\r\n            },\r\n            {\r\n                \"id\": 93,\r\n                \"titulo\": \"Honda Civic Sección Nocturna\",\r\n                \"descripcion\": \"Honda Civic Sección Nocturna\",\r\n                \"urlImagen\": \"https://images.unsplash.com/photo-1623591457247-9dff667eae42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aG9uZGElMjBjaXZpY3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                \"producto\": null\r\n            },\r\n            {\r\n                \"id\": 90,\r\n                \"titulo\": \"Honda Civic Posterior Sección\",\r\n                \"descripcion\": \"Honda Civic Posterior Sección\",\r\n                \"urlImagen\": \"https://images.unsplash.com/photo-1606004649694-fbb8757fd6c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8aG9uZGElMjBjaXZpY3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n                \"producto\": null\r\n            }\r\n        ]\r\n    },",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProducto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Producto incluye titulo\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"titulo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Producto incluye categoría\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"categoria\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Producto incluye ciudad\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"ciudad\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye descripción\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"descripcion\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye disponibilidad\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"disponibilidad\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye política\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"politica\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye características\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"caracteristicas\");\r",
+									"});\r",
+									"pm.test(\"Producto incluye imágenes\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"imagenes\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 41,\r\n        \"titulo\": \"Dodge Challenger prueba\",\r\n        \"categoria\": {\r\n            \"id\": 22,\r\n            \"titulo\": \"Económicos\",\r\n            \"descripcion\": \"Autos Económicos\",\r\n            \"urlImagen\": \"https://images.unsplash.com/photo-1609951109533-9bc1d83a6572?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGF1dG8lMjBzZWRhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60\",\r\n            \"productos\": []\r\n        },\r\n        \"ciudad\": {\r\n            \"id\": 24,\r\n            \"nombre\": \"Cali\",\r\n            \"provincia\": \"Valle del Cauca\",\r\n            \"pais\": \"Colombia\",\r\n            \"latitud\": \"3.43722\",\r\n            \"longitud\": \"-76.5225\",\r\n            \"productos\": []\r\n        },\r\n        \"descripcion\": \"Vehículo Deportivo Clasico, con estilo atemporal, diseño y desempeño sin igual\",\r\n        \"disponibilidad\": \"Inmediata\",\r\n        \"politica\": \"Sin depósitos ni franquicias\",\r\n        \"caracteristicas\": [],\r\n        \"imagenes\": [\r\n            {\r\n                \"id\": 110,\r\n                \"titulo\": \"Dodge Challenger Frontal Derecho\",\r\n                \"descripcion\": \"Dodge Challenger Frontal Derecho\",\r\n                \"urlImagen\": \"https://images.unsplash.com/photo-1609386464913-4cbfa39de540?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9kZ2UlMjBjaGFsbGVuZ2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60\",\r\n                \"producto\": null\r\n            }]\r\n            }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProducto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/155",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"155"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCaracteristica",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202, 200]);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productoId\": 43,\r\n    \"caracteristicas\":[{\"id\": 32}, {\"id\":33}, {\"id\":34}] \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/addCaracteristica",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"addCaracteristica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetImagenesByProductoId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye nombre\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"nombre\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye provincia\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye pais\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye latitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"latitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"pm.test(\"Imagen incluye longitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"longitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verificar id\", function (){\r",
+									"    var response = pm.response.json();    \r",
+									"    pm.expect(response.id).to.eql();\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/imagenesByProductoId/50",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"imagenesByProductoId",
+								"50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImagenesByProductoId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/imagenesByProductoId/155",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"imagenesByProductoId",
+								"155"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductosByCategoria",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye nombre\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"nombre\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye provincia\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye pais\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye latitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"latitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"pm.test(\"Imagen incluye longitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"longitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verificar id\", function (){\r",
+									"    var response = pm.response.json();    \r",
+									"    pm.expect(response.id).to.eql();\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/productosByCategoria/22",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"productosByCategoria",
+								"22"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductosByCiudad",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye nombre\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"nombre\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye provincia\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye pais\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"provincia\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Imagen incluye latitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"latitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"pm.test(\"Imagen incluye longitud\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"longitud\");\r",
+									"\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verificar id\", function (){\r",
+									"    var response = pm.response.json();    \r",
+									"    pm.expect(response.id).to.eql();\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/productosByCiudad/2",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"productosByCiudad",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductosAleatorios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/productosAleatorios/2",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"productosAleatorios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCaracteristicas Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Característica incluye icono\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"icono\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Característica incluye título\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"titulo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Característica incluye descripción\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"descripcion\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/caracteristicas",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"caracteristicas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Caracteristicas",
+			"item": [
+				{
+					"name": "GetCaracteristicas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Característica incluye icono\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"icono\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Característica incluye título\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"titulo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Característica incluye descripción\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"descripcion\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/caracteristicas",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"caracteristicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCaracteristicaById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Característica incluye icono\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"icono\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Característica incluye título\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"titulo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Característica incluye descripción\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"descripcion\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verificar id\", function (){\r",
+									"    var response = pm.response.json();    \r",
+									"    pm.expect(response.id).to.eql(28);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/caracteristicas/28",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"caracteristicas",
+								"28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCaracteristica",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"icono\": \"fa-solid fa-leaf\",\r\n    \"titulo\": \"Eco Amigable\",\r\n    \"descripcion\":\"Cero emisiones\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/caracteristicas",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"caracteristicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCaracteristica",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202, 200]);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 28,\r\n    \"icono\": \"fa-solid fa-bolt\",\r\n    \"titulo\": \"Motor Eléctrico\",\r\n    \"descripcion\": \"Vehiculo con motor Eléctrico\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/caracteristicas",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"caracteristicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCaracteristica",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/caracteristicas",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"caracteristicas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
