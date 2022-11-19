@@ -1,11 +1,13 @@
 import React from 'react'
 import { useParams } from "react-router-dom";
-import CalendarioReservasProducto from '../Producto/CalendarioReservasProducto';
 import CrearReserva from './CrearReserva';
-import DetalleReserva from './DetalleReserva';
+import DetalleReserva from './DetalleReserva'; 
+import HeaderReserva from './HeaderReserva';
+import '../Reserva/styles.css';
+
 const Reserva = () => {
-        const { idProducto } = useParams();
-  /*   const { PRODUCTOS_ID_API_URL } = CONSTANTES;
+  /*      const { idProducto } = useParams();
+     const { PRODUCTOS_ID_API_URL } = CONSTANTES;
       
     const [dataProducto, setDataProducto] = useState();
     
@@ -29,10 +31,11 @@ const Reserva = () => {
           <CaracteristicasProducto />
           
           <PoliticaProducto /> */}
-          <CrearReserva/>
-           <CalendarioReservasProducto />
-          <DetalleReserva/>
-
+          <HeaderReserva/>
+          <div className='reserva__contenedor'>
+            <CrearReserva />
+            <DetalleReserva />
+          </div>
         </>
     )
 };

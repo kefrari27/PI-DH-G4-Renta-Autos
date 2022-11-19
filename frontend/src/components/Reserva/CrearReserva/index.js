@@ -1,57 +1,67 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useForm from "../../../hooks/useFormulario";
 import autenticacionContext from "../../../context/autenticacion/autenticacionContext";
+import CalendarioReservas from './CalendarioReservas';
 import './styles.css'
 
 const CrearReserva = () => {
 
+    /* Listado horarios */
+
+    const horarios = [
+        { value: "00:00:00", label: "00:00 AM" },
+        { value: "01:00:00", label: "01:00 AM" },
+        { value: "02:00:00", label: "02:00 AM" },
+        { value: "03:00:00", label: "03:00 AM" },
+        { value: "04:00:00", label: "04:00 AM" },
+        { value: "05:00:00", label: "05:00 AM" },
+        { value: "06:00:00", label: "06:00 AM" },
+        { value: "07:00:00", label: "07:00 AM" },
+        { value: "08:00:00", label: "08:00 AM" },
+        { value: "09:00:00", label: "09:00 AM" },
+        { value: "10:00:00", label: "10:00 AM" },
+        { value: "11:00:00", label: "11:00 AM" },
+        { value: "12:00:00", label: "12:00 PM" },
+        { value: "13:00:00", label: "01:00 PM" },
+        { value: "14:00:00", label: "02:00 PM" },
+        { value: "15:00:00", label: "03:00 PM" },
+        { value: "16:00:00", label: "04:00 PM" },
+        { value: "17:00:00", label: "05:00 PM" },
+        { value: "18:00:00", label: "06:00 PM" },
+        { value: "19:00:00", label: "07:00 PM" },
+        { value: "20:00:00", label: "08:00 PM" },
+        { value: "21:00:00", label: "09:00 PM" },
+        { value: "22:00:00", label: "10:00 PM" },
+        { value: "23:00:00", label: "11:00 PM" },
+    ];
+
     const contextoAutenticacion = useContext(autenticacionContext);
     const { login } = contextoAutenticacion;
 
-    const [ confirmarContraseniaEstado, setConfirmarContraseniaEstado ] = useState('');
-    const [ esConfirmarContraseniaEstado, setEsConfirmarContraseniaEstado ] = useState(true);
     const [ formularioSubmitted, setFormularioSubmitted ] = useState(false);
-    const [ esContraseniasValidas, setEsContraseniasValidas ] = useState(false);
     const [ formularioValido, setFormularioValido ] = useState(true);
 
     const navigate = useNavigate();
 
     const formularioDatosIniciales = {
         nombre: '',
-        apellido: '',
+        ciudad: '',
         email: '',
-        contrasenia: '',
-        confirmarContrasenia: ''
+        ciudad: '',
     }
 
     const formularioValidaciones = {
         email: [(parametro) => parametro.includes('@'), 'El correo debe ser un email válido'],
-        contrasenia: [(parametro) => parametro.length > 6, 'La contraseña debe tener minimo 6 caracteres']
     }
 
-    const { email, emailValido, contrasenia, contraseniaValido, onInputChange, EsValidoFormulario } = useForm(formularioDatosIniciales, formularioValidaciones);
-
-
-    const onValidarConfirmarContrasenia = (e) => {
-        const valorIngresado = e.target.value;
-        setConfirmarContraseniaEstado(valorIngresado);
-        let esConfirmarContraseniaValido = true;
-
-        if (valorIngresado === contrasenia){
-            esConfirmarContraseniaValido = false;
-            setEsContraseniasValidas(true)
-        }else {
-            setEsContraseniasValidas(false)
-        }
-        setEsConfirmarContraseniaEstado(esConfirmarContraseniaValido);
-    };
+    const { email, emailValido, onInputChange, EsValidoFormulario } = useForm(formularioDatosIniciales, formularioValidaciones);
 
     useEffect(() => {
-        const esValidoFor = !EsValidoFormulario || !esContraseniasValidas ? false : true;
+        const esValidoFor = !EsValidoFormulario ? false : true;
         setFormularioValido(esValidoFor);
     
-    }, [esContraseniasValidas, EsValidoFormulario])
+    }, [EsValidoFormulario])
 
 
     const onSubmit = (event) => {
@@ -65,78 +75,75 @@ const CrearReserva = () => {
     };
 
     return (
-        <div className="seccion__crear-cuenta">
-            <h1>Crear cuenta</h1>
-            <form onSubmit={onSubmit} className="formulario__crear-cuenta">
-                <div className="formulario__crear-cuenta__bloque">
-                    <div className="formulario__crear-cuenta__row formulario__crear-cuenta__row-nombre-apellido">
-                        <label htmlFor="nombre">Nombre</label>
-                        <input 
-                            className="input__nombre-apellido" 
-                            id="nombre"
-                            name="nombre"
-                            type="text"
-                            required
-                        />
+        <div className="seccion__crear-reserva">
+            <form onSubmit={onSubmit} className="formulario__crear-reserva">
+                <section className="formulario__crear-reserva-datos__seccion">
+                    <h2>Completá tus datos</h2>
+                    <div className="formulario__crear-reserva__container">
+                        <div className="formulario__crear-reserva__bloque">
+                            <div className="formulario__crear-reserva-nombre__row">
+                                <label htmlFor="nombre">Nombre</label>
+                                <input 
+                                    className="input__nombre" 
+                                    id="nombre"
+                                    name="nombre"
+                                    type="text"
+                                    disabled
+                                />
+                            </div>
+                            <div className="formulario__crear-reserva-apellido__row">
+                                <label htmlFor="apellido">Apellido</label>
+                                <input 
+                                    className="input__apellido"
+                                    type="text" 
+                                    id="apellido" 
+                                    name="apellido"
+                                    disabled
+                                />
+                            </div>
+                            <div className="formulario__crear-reserva-email__row" >
+                                <label htmlFor="email">Correo electrónico</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email"
+                                    className="input__email"
+                                    required
+                                    value={email}
+                                    onChange={onInputChange}
+                                    disabled
+                                />
+                                {formularioSubmitted && emailValido && <p>{emailValido}</p> }
+                            </div>
+                            <div className="formulario__crear-reserva-ciudad__row">
+                                <label htmlFor="ciudad">Ciudad</label>
+                                <input
+                                    className="input__ciudad"
+                                    type="text" 
+                                    id="ciudad" 
+                                    name="ciudad"
+                                    placeholder="Ciudad"
+                                    required
+                                />
+                            </div>
+                        </div>
                     </div>
-                    <div className="formulario__crear-cuenta__row formulario__crear-cuenta__row-nombre-apellido">
-                        <label htmlFor="apellido">Apellido</label>
-                        <input 
-                            className="input__nombre-apellido"
-                            type="text" 
-                            id="apellido" 
-                            name="apellido"
-                            required
-                        />
+                </section>
+                <section className="formulario__crear-reserva-fecha__seccion">
+                    <h2>Seleccioná tu fecha de reserva</h2>
+                    <CalendarioReservas/>
+                </section>
+                <section className="formulario__crear-reserva-horario__seccion">
+                    <h2>Tu horario de llegada</h2>
+                    <div className="formulario__crear-reserva-horario__bloque">
+                        <h3><span>00</span>Tu habitación va a estar lista para el check-in entre las 10:00 AM y las 11:00 PM</h3>
+                        <p>Indica tu horario estimado de llegada</p>
+                        <select id="horaReserva">
+                            <option selected disabled value="">Selecciona tu horario</option>
+                            {horarios.map((i) => <option value={i.value}>{i.label}</option>)}
+                        </select>
                     </div>
-                </div>
-                <div className="formulario__crear-cuenta__row" >
-                    <label htmlFor="email">Correo electrónico</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email"
-                        className={`${emailValido ? 'invalidInput' : 'validInput'}`}
-                        required
-                        value={email}
-                        onChange={onInputChange}
-                    />
-                    {formularioSubmitted && emailValido && <p>{emailValido}</p> }
-                </div>
-                <div className="formulario__crear-cuenta__row">
-                    <label htmlFor="contrasenia">Contraseña</label>
-                    <div className="formulario__crear-cuenta__row-password">
-                        <input 
-                            type="password" 
-                            id="contrasenia" 
-                            name="contrasenia"
-                            className={`${contraseniaValido ? 'invalidInput' : 'validInput'}`}
-                            required
-                            value={contrasenia}
-                            onChange={onInputChange}
-                        />
-                        <button onClick={() => {console.log('boton ojo')}}><span/></button>
-                    </div>
-                    {formularioSubmitted && contraseniaValido && <p>{contraseniaValido}</p> }
-                </div>
-                <div className="formulario__crear-cuenta__row">
-                    <label htmlFor="confirmarContrasenia">Confirmar contraseña</label>
-                    <input 
-                        type="password" 
-                        id="confirmarContrasenia" 
-                        name="confirmarContrasenia"
-                        className={`${esConfirmarContraseniaEstado ? 'invalidInput' : 'validInput'}`}
-                        required
-                        value={confirmarContraseniaEstado}
-                        onChange={onValidarConfirmarContrasenia}
-                    />
-                    {formularioSubmitted && esConfirmarContraseniaEstado && <p>Las contraseñas deben ser iguales</p> }
-                </div>
-                {formularioSubmitted && !formularioValido && <p className="formulario__crear-cuenta-invalido">Por favor vuelva a intentarlo, sus credenciales son inválidas!</p> }
-                <div className="formulario__crear-cuenta__row-boton">
-                    <button type="submit" className='formulario__crear-cuenta__boton'>Crear cuenta</button>
-                    <p>¿Ya tienes una cuenta? <Link to="/inicioSesion">Iniciar sesión</Link></p>
-                </div>
+                </section>
             </form>
         </div>
     )
