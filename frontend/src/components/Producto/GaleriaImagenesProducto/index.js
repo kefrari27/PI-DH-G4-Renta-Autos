@@ -3,7 +3,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import "./styles.css"
 
 const GaleriaImagenesProducto = ({imagenes}) => {
-console.log("🚀 ~ file: index.js ~ line 6 ~ GaleriaImagenesProducto ~ imagenes", imagenes)
+
 
     const imagenesGaleria = imagenes?.map(imagen => {
         return (
@@ -15,7 +15,7 @@ console.log("🚀 ~ file: index.js ~ line 6 ~ GaleriaImagenesProducto ~ imagenes
             }
         )
     });
-    console.log("🚀 ~ file: index.js ~ line 18 ~ imagenesGaleria ~ imagenesGaleria", imagenesGaleria)
+    
 
 
 
