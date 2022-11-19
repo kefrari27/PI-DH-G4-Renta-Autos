@@ -2,6 +2,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { addDays, add } from "date-fns";
 import "./styles.css"
+import IniciarReserva from "../IniciarReserva";
 
 const CalendarioReservasProducto = () => {
     const [fechaInicial, setFechaInicial] = useState(new Date());
@@ -29,10 +30,7 @@ const CalendarioReservasProducto = () => {
                 calendarClassName="calendario-reserva"
                 locale="es"
                 />
-                <div className="boton-reserva-contenedor">
-                    <p>Agrega tus fechas de viaje para obtener precios exactos</p>
-                    <button>Iniciar reserva</button>
-                </div>
+              <IniciarReserva/>
             </div>
         </div>
     );

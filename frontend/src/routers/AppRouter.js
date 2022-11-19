@@ -9,6 +9,7 @@ import InicioSesion from "../components/Formularios/InicioSesion";
 import Header from "../components/Header";
 import Home from "../components/Home";
 import Product from "../components/Producto";
+import Reserva from "../components/Reserva";
 
 const AppRouter = () => {
     return (
@@ -19,6 +20,7 @@ const AppRouter = () => {
             <Route path="/crearCuenta" element={<CrearCuenta />} />
             <Route path="/inicioSesion" element={<InicioSesion />} />
             <Route path="/producto/:idProducto" element={<Product />} />
+            <Route path="/reserva" element={<Reserva />} />
           </Routes>
         <Footer />
         </BrowserRouter>
