@@ -19,7 +19,6 @@ public interface IProductoService {
 
     public Set<ProductoDTO>listarProductosByCategoria(Long id);
     public Set<ProductoDTO>listarProductosByCiudad(Long id);
-
     public Set<ProductoDTO>listarProductosAleatorios(int cantidad);
 
 

@@ -39,5 +39,7 @@ public class Producto {
     private Set<Caracteristica> caracteristicas;
     private String disponibilidad;
     private String politica;
+    @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
+    private Set<Reserva> reservas;
 
 }
