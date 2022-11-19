@@ -29,13 +29,6 @@ public class CiudadController {
     @GetMapping
     public ResponseEntity<Set<CiudadDTO>> getCiudades() throws ResourceNotFoundException {
         logger.info("Listando Ciudades");
-        /*var auth = SecurityContextHolder.getContext().getAuthentication();
-        logger.info("Datos del Usuario: {}");
-        logger.info(auth.getPrincipal());
-        logger.info( "Datos de los permisos {}");
-        logger.info(auth.getAuthorities());
-        logger.info("Esta autenticado {}");
-        logger.info(auth.isAuthenticated());*/
         Set<CiudadDTO> ciudades = ciudadService.listar();
         if(!ciudades.isEmpty()){
             return ResponseEntity.ok(ciudades);
@@ -102,6 +95,17 @@ public class CiudadController {
             throw new ResourceNotFoundException("Ciudad no encontrada para ser eliminada");
         }
         return response;
+    }
+
+    @GetMapping("/ciudadesConProductos")
+    public ResponseEntity<Set<CiudadDTO>> getCiudadesWithProducto() throws ResourceNotFoundException {
+        logger.info("Listando Ciudades con Productos");
+        Set<CiudadDTO> ciudades = ciudadService.listarCiudadesConProductos();
+        if(!ciudades.isEmpty()){
+            return ResponseEntity.ok(ciudades);
+        }else{
+            throw new ResourceNotFoundException("No hay Ciudades con productos para listar");
+        }
     }
 
 }
