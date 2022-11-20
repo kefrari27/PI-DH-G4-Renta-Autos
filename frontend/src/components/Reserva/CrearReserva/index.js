@@ -46,7 +46,7 @@ const CrearReserva = () => {
 
     const formularioDatosIniciales = {
         nombre: '',
-        ciudad: '',
+        apellido: '',
         email: '',
         ciudad: '',
     }
@@ -136,9 +136,9 @@ const CrearReserva = () => {
                 <section className="formulario__crear-reserva-horario__seccion">
                     <h2>Tu horario de llegada</h2>
                     <div className="formulario__crear-reserva-horario__bloque">
-                        <h3><span>00</span>Tu habitación va a estar lista para el check-in entre las 10:00 AM y las 11:00 PM</h3>
+                        <h4><span>00</span> Tu habitación va a estar lista para el check-in entre las 10:00 AM y las 11:00 PM</h4>
                         <p>Indica tu horario estimado de llegada</p>
-                        <select id="horaReserva">
+                        <select className="formulario__crear-reserva-horario" id="horaReserva">
                             <option selected disabled value="">Selecciona tu horario</option>
                             {horarios.map((i) => <option value={i.value}>{i.label}</option>)}
                         </select>

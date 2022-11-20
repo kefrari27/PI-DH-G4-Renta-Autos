@@ -19,7 +19,6 @@ Botón de confirmación de reserva del formulario de reserva. */
 
     return (
       <div className="carCard">
-        
         <h3>Detalle de reserva</h3>                   
         <div
           className="imgCard"
@@ -27,14 +26,24 @@ Botón de confirmación de reserva del formulario de reserva. */
         >
           <img src="" alt=""/>
         </div>
-        <p>
-          {/* {itemInfo.categoria} */}
-          categoria
-        </p>
-        <h4>{itemInfo.titulo}</h4>
-        <p>{/* {itemInfo.ubicacion} */}
-          Ubicación
-        </p>
+        <div>
+          <p>
+            {/* {itemInfo.categoria} */}
+            Categoría
+          </p>
+          <h4>{itemInfo.titulo}</h4>
+          <p>{/* {itemInfo.ubicacion} */}
+            Ubicación
+          </p>
+        </div>
+        <div>
+          <h5>Check in</h5>
+          <p>hora</p>
+        </div>
+        <div>
+          <h5>Check out</h5>
+          <p>hora</p>
+        </div>
       <IniciarReserva/>
       </div>
     );

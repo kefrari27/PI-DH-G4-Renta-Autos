@@ -1,25 +1,31 @@
 @import url("../../../estilos_globales.css");
 
-.calendario-reserva-boton-reserva {
+.calendario-reserva__contenedor {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendario-reserva__contenedor > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .calendario-reserva {
     background-color: var(--blanco);
     border: none;
     display: flex;
-    justify-content: center;
     width: 100%;
     
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
-    padding: 20px;
-    margin-right: 50px;
+    padding: 30px;
+    margin: 0;
 }
 
 .calendario-reserva > .react-datepicker__month-container {
-    padding: 0 50px;
+    padding: 15px 30px;
 }
 
 .calendario-reserva > .react-datepicker__month-container > .react-datepicker__header {
@@ -31,29 +37,28 @@
     top: 45%;
     background-color: var(--primario);
     border-radius: 50%;
-    margin: 0 20px;
 }
 
 .calendario-reserva > .react-datepicker__navigation > span::before {
     border-color: var(--blanco);
 }
 
+/* Media Queries Estilos */
+
 @media screen and (max-width: 1024px) {
-    .calendario-reserva-boton-reserva {
-        justify-content: center;
-        flex-wrap: wrap;
+    .calendario-reserva {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
     }
 
-    .calendario-reserva  {
-        margin-bottom: 20px;
-        flex-wrap: wrap;
-        margin-right: 0;
+    .calendario-reserva > .react-datepicker__month-container {
+        padding: 30px 35px;
     }
+}
 
-    .boton-reserva-contenedor{
-        display: flex;
-        background-color: transparent;
-        box-shadow: none;
-        justify-content: space-between;
+@media screen and (max-width: 480px) {
+    .calendario-reserva {
+        width: 80%;
     }
 }

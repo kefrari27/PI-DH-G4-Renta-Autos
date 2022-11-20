@@ -6,7 +6,6 @@ const datos = data;
     return (
   <>
     <CardReserva itemInfo={datos[0]}/> 
-    
   </>
   )
 }
