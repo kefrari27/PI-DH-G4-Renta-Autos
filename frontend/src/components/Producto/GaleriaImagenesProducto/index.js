@@ -4,7 +4,6 @@ import "./styles.css"
 
 const GaleriaImagenesProducto = ({imagenes}) => {
 
-
     const imagenesGaleria = imagenes?.map(imagen => {
         return (
             {
@@ -15,9 +14,6 @@ const GaleriaImagenesProducto = ({imagenes}) => {
             }
         )
     });
-    
-
-
 
     return (
         <div className="galeria-imagenes-producto">
