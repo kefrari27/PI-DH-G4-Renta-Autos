@@ -7,7 +7,8 @@ import '../Header/styles.css'
 const Header = () => {
     const contextoAutenticacion = useContext(autenticacionContext);
     const contextoControlMobile = useContext(ControlMobileContext);
-    const { estadoAutenticacion, login } = contextoAutenticacion;
+    const { estadoAutenticacion, login, formularioRegistroDatos } = contextoAutenticacion;
+    console.log("🚀 ~ file: index.js ~ line 11 ~ Header ~ formularioRegistroDatos", formularioRegistroDatos)
     const { esVersionMobileHeaderMenu, setVersionMobileHeaderMenu } = contextoControlMobile;
 
     return (
