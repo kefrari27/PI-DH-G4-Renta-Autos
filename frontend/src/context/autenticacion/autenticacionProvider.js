@@ -4,13 +4,16 @@ import AutenticacionContext from "./autenticacionContext";
 const AutenticacionProvider = ({children}) => {
 
     const [autenticacionEstado, setAutenticacionEstado] = useState(false);
+    const [formularioRegistroDatos, setFormularioRegistroDatos] = useState({});
     const login = () => {
       setAutenticacionEstado(!autenticacionEstado);
     };
 
     const autenticacionContextValue = {
         estadoAutenticacion: autenticacionEstado, 
-        login
+        login,
+        setFormularioRegistroDatos,
+        formularioRegistroDatos
     }
 
     return (

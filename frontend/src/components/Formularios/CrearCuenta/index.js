@@ -7,7 +7,7 @@ import '../CrearCuenta/styles.css'
 const CrearCuenta = () => {
 
     const contextoAutenticacion = useContext(autenticacionContext);
-    const { login } = contextoAutenticacion;
+    const { login, setFormularioRegistroDatos } = contextoAutenticacion;
 
     const [ confirmarContraseniaEstado, setConfirmarContraseniaEstado ] = useState('');
     const [ esConfirmarContraseniaEstado, setEsConfirmarContraseniaEstado ] = useState(true);
@@ -30,8 +30,8 @@ const CrearCuenta = () => {
         contrasenia: [(parametro) => parametro.length > 6, 'La contraseña debe tener minimo 6 caracteres']
     }
 
-    const { email, emailValido, contrasenia, contraseniaValido, onInputChange, EsValidoFormulario } = useForm(formularioDatosIniciales, formularioValidaciones);
-
+    const { nombre, apellido, email, emailValido, contrasenia, contraseniaValido, onInputChange, EsValidoFormulario, formularioEstado } = 
+    useForm(formularioDatosIniciales, formularioValidaciones);
 
     const onValidarConfirmarContrasenia = (e) => {
         const valorIngresado = e.target.value;
@@ -62,6 +62,12 @@ const CrearCuenta = () => {
             navigate("/");
             login();
         }
+
+        const valoresFormulario = {
+            ...formularioEstado,
+            confirmarContrasenia: confirmarContraseniaEstado
+        }
+        setFormularioRegistroDatos(valoresFormulario)
     };
 
     return (
@@ -77,6 +83,8 @@ const CrearCuenta = () => {
                             name="nombre"
                             type="text"
                             required
+                            value={nombre}
+                            onChange={onInputChange}
                         />
                     </div>
                     <div className="formulario__crear-cuenta__row formulario__crear-cuenta__row-nombre-apellido">
@@ -87,6 +95,8 @@ const CrearCuenta = () => {
                             id="apellido" 
                             name="apellido"
                             required
+                            value={apellido}
+                            onChange={onInputChange}
                         />
                     </div>
                 </div>

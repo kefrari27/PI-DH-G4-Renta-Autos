@@ -1,13 +1,13 @@
 import "./styles.css"
 
-const ProductLocation = () => {
+const ProductLocation = ({ubicacion}) => {
+    const { pais, nombre, provincia} = ubicacion;
 
     return (
         <div className="producto-ubicacion">
             <div className="producto-ubicacion__informacion">
                 <span>a</span>
-                <p> Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina <br />
-                    A 940 m del centro </p>
+                {(pais && nombre && provincia) ? <p>{pais}, {provincia}, {nombre}</p> : <p>La ubicación no está disponible en este momento</p>}
             </div>
             <div className="producto-ubicacion__calificacion">
                 <div className="producto-ubicacion__calificacion__general">
