@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/v1/publico")
+@RequestMapping("/api/v1/autenticacion")
 public class AutenticacionController {
 
    @Autowired

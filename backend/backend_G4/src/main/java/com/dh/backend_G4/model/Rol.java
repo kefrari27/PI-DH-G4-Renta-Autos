@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-@Table(name = "roles_usuarios")
+@Table(name = "roles")
 @Getter
 @Setter
 @ToString

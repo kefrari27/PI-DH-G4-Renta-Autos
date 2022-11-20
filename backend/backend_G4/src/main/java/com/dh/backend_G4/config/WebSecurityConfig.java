@@ -35,12 +35,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    /*
-    @Bean
-    public BCryptPasswordEncoder bcryptPasswordEncoder(){
-        return new BCryptPasswordEncoder();
-    }*/
-
     @Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception{
@@ -52,8 +46,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/api/v1/publico/**").permitAll()
-                    .antMatchers("/api/v1/categorias").hasRole("admin")
+                    .antMatchers("/api/v1/autenticacion",
+                                "/api/v1/productos/**",
+                                "/api/v1/ciudades/**",
+                                "/api/v1/categorias/**").permitAll()
+                    //.antMatchers("/api/v1/reservas").hasRole("admin")
+                    .antMatchers("/api/v1/reservas/**").authenticated()
                     .anyRequest().authenticated()
                 .and().cors()
                 .and()
