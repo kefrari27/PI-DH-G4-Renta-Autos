@@ -2,16 +2,25 @@ package com.dh.backend_G4.controller;
 
 
 import com.dh.backend_G4.exceptions.ResourceNotFoundException;
+import com.dh.backend_G4.model.Ciudad;
+import com.dh.backend_G4.model.FiltroProductoReq;
+import com.dh.backend_G4.model.Producto;
+import com.dh.backend_G4.model.Usuario;
 import com.dh.backend_G4.model.modelDTO.AddCaracteristicaDTO;
 import com.dh.backend_G4.model.modelDTO.ImagenDTO;
 import com.dh.backend_G4.model.modelDTO.ProductoDTO;
+import com.dh.backend_G4.model.modelDTO.ReservaDTO;
 import com.dh.backend_G4.service.interfaceService.IProductoService;
+import com.dh.backend_G4.service.interfaceService.IReservaService;
 import org.apache.log4j.*;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 
@@ -20,9 +29,11 @@ import java.util.*;
 public class ProductoController {
     public static Logger logger = Logger.getLogger(ProductoController.class);
     private final IProductoService productoService;
+    private final IReservaService reservaService;
 
-    public ProductoController(IProductoService productoService) {
+    public ProductoController(IProductoService productoService, IReservaService reservaService) {
         this.productoService = productoService;
+        this.reservaService = reservaService;
     }
 
     @GetMapping
@@ -156,6 +167,29 @@ public class ProductoController {
         }else{
             throw new ResourceNotFoundException("No hay Productos para mostrar aleatoriamente");
         }
+    }
+
+    @PostMapping("/filtroProductosByFechas")
+    public List<Boolean> getProductosByFechas(@RequestBody FiltroProductoReq filtro) throws ResourceNotFoundException{
+        logger.info("Filtrando Productos con fechaCheckIn = "+filtro.getFechaCheckIn()+" y fechaCheckOut = "+filtro.getFechaCheckOut());
+
+        LocalDate fechaCheckIn = LocalDate.parse(filtro.getFechaCheckIn());
+        LocalDate fechaCheckOut = LocalDate.parse(filtro.getFechaCheckOut());
+        Long ciudadId = filtro.getCiudad().getId();
+        //Se obtiene la lista de productos por ciudad
+        Set<ProductoDTO> productosCiudad = productoService.listarProductosByCiudad(ciudadId);
+        Set<ReservaDTO> reservasDTOS = new HashSet<>();
+        List<Boolean> isRango = new ArrayList<>();
+        //Se buscan las reservas por cada uno de los productos
+        for (ProductoDTO productoDTO:productosCiudad) {
+            reservasDTOS = reservaService.buscarReservabyProducto(productoDTO.getId());
+            for (ReservaDTO reservaDTO:reservasDTOS) {
+                isRango.add(reservaService.comprobarDisponibilidadFechaNuevaReserva(reservaDTO, fechaCheckIn, fechaCheckOut));
+            }
+        }
+        //String resultado = "Filtrando Productos con fechaCheckIn = "+fechaCheckIn+" fechaCheckOut = "+fechaCheckOut+ "y ciudad id= "+ciudadId;
+        //return resultado;
+        return isRango;
     }
 
 }

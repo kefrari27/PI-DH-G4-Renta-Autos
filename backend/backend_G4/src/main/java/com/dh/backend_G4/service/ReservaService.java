@@ -11,6 +11,8 @@ import com.dh.backend_G4.service.interfaceService.IReservaService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -76,5 +78,20 @@ public class ReservaService implements IReservaService {
             reservaDTOS.add(mapper.convertValue(reserva, ReservaDTO.class));
         }
         return reservaDTOS;
+    }
+   @Override
+    public Boolean comprobarDisponibilidadFechaNuevaReserva(ReservaDTO reservaDTO, LocalDate fechaCheckIn, LocalDate fechaCheckOut){
+        Boolean result = true;
+        Reserva reserva = mapper.convertValue(reservaDTO, Reserva.class);
+        LocalDate reservaCheckIn = reserva.getFechaCheckIn().toLocalDate();
+        LocalDate reservaCheckOut = reserva.getFechaCheckOut().toLocalDate();
+        if(((fechaCheckIn.isAfter(reservaCheckIn) || fechaCheckIn.isEqual(reservaCheckIn))
+            && (fechaCheckIn.isBefore(reservaCheckOut) || fechaCheckIn.isEqual(reservaCheckOut)))
+            ||
+            ((fechaCheckOut.isAfter(reservaCheckIn) || fechaCheckOut.isEqual(reservaCheckIn))
+            && (fechaCheckOut.isBefore(reservaCheckOut) || fechaCheckOut.isEqual(reservaCheckOut)))){
+                    result = false;
+        }
+        return result;
     }
 }
