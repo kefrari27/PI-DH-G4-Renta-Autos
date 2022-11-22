@@ -1,9 +1,12 @@
 package com.dh.backend_G4.controller;
 
 import com.dh.backend_G4.exceptions.ResourceNotFoundException;
+import com.dh.backend_G4.model.Rol;
 import com.dh.backend_G4.model.modelDTO.RolDTO;
 import com.dh.backend_G4.model.modelDTO.UsuarioDTO;
+import com.dh.backend_G4.service.interfaceService.IRolService;
 import com.dh.backend_G4.service.interfaceService.IUsuarioService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +19,14 @@ import java.util.Set;
 public class UsuarioController {
     final static Logger logger = Logger.getLogger(UsuarioController.class);
     private final IUsuarioService usuarioService;
+    private final IRolService rolService;
 
-    public UsuarioController(IUsuarioService usuarioService) {
+    private final ObjectMapper mapper;
+
+    public UsuarioController(IUsuarioService usuarioService, IRolService rolService, ObjectMapper mapper) {
         this.usuarioService = usuarioService;
+        this.rolService = rolService;
+        this.mapper = mapper;
     }
 
     @GetMapping
@@ -53,7 +61,8 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity<UsuarioDTO> createUsuario(@RequestBody UsuarioDTO usuarioDTO) throws ResourceNotFoundException{
         logger.info("Agregando Usuario");
-        return new ResponseEntity<>(usuarioService.guardar(usuarioDTO), HttpStatus.CREATED);
+        UsuarioDTO usuario = usuarioService.guardar(usuarioDTO);
+        return new ResponseEntity<>(usuario, HttpStatus.CREATED);
     }
 
     @PutMapping
@@ -81,17 +90,17 @@ public class UsuarioController {
         return response;
     }
 
-    /*
-    @GetMapping("/{correo}")
+    @GetMapping("/correo/{correo}")
     public ResponseEntity<UsuarioDTO> getUsuarioByCorreo(@PathVariable("correo") String correo) throws ResourceNotFoundException{
         logger.info("Buscando Usuario con correo " + correo);
         ResponseEntity<UsuarioDTO> response = null;
         UsuarioDTO usuarioDTOByCorreo = usuarioService.buscarUsuarioByCorreo(correo);
+        logger.info("usuarioDTOByCorreo = "+usuarioDTOByCorreo);
         if(usuarioDTOByCorreo != null){
             response = ResponseEntity.ok(usuarioDTOByCorreo);
         }else{
             throw new ResourceNotFoundException("Usuario no encontrado");
         }
         return response;
-    }*/
+    }
 }

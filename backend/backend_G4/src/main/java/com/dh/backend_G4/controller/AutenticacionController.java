@@ -2,8 +2,11 @@ package com.dh.backend_G4.controller;
 
 import com.dh.backend_G4.model.modelDTO.AuthenticationReq;
 import com.dh.backend_G4.model.modelDTO.TokenInfo;
+import com.dh.backend_G4.model.modelDTO.UsuarioDTO;
 import com.dh.backend_G4.service.JwtUtilService;
 import com.dh.backend_G4.service.UsuarioDetailsService;
+import com.dh.backend_G4.service.UsuarioService;
+import com.dh.backend_G4.service.interfaceService.IUsuarioService;
 import org.apache.log4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +33,9 @@ public class AutenticacionController {
    @Autowired
    private JwtUtilService jwtUtilService;
 
+   @Autowired
+    private IUsuarioService usuarioService;
+
    final static Logger logger = Logger.getLogger(AutenticacionController.class);
 
     @PostMapping
@@ -46,7 +52,9 @@ public class AutenticacionController {
 
             final String jwt = jwtUtilService.generateToken(userDetails);
 
-            TokenInfo tokenInfo = new TokenInfo(jwt);
+            UsuarioDTO usuario = usuarioService.buscarUsuarioByCorreo(authenticationReq.getUsuario());
+
+            TokenInfo tokenInfo = new TokenInfo(jwt, usuario.getId());
             return ResponseEntity.ok(tokenInfo);
     }
 }

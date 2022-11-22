@@ -49,7 +49,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/api/v1/autenticacion",
                                 "/api/v1/productos/**",
                                 "/api/v1/ciudades/**",
-                                "/api/v1/categorias/**").permitAll()
+                                "/api/v1/categorias/**",
+                                "/api/v1/usuarios/**",
+                                "/api/v1/caracteristicas/**",
+                                "/api/v1/imagenes/**",
+                                "/api/v1/roles/**").permitAll()
                     //.antMatchers("/api/v1/reservas").hasRole("admin")
                     .antMatchers("/api/v1/reservas/**").authenticated()
                     .anyRequest().authenticated()

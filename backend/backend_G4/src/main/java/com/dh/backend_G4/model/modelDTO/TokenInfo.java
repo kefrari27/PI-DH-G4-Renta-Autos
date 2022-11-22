@@ -14,4 +14,5 @@ import java.io.Serializable;
 public class TokenInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     private String jwtToken;
+    private Long usuarioId;
 }

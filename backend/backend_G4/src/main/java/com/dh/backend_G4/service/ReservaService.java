@@ -32,6 +32,9 @@ public class ReservaService implements IReservaService {
 
     @Override
     public ReservaDTO guardar(ReservaDTO reservaDTO) {
+        LocalDate reservaCheckIn = reservaDTO.getFechaCheckIn().toLocalDate();
+        LocalDate reservaCheckOut = reservaDTO.getFechaCheckOut().toLocalDate();
+
         Reserva reserva = mapper.convertValue(reservaDTO, Reserva.class);
         reservaRepository.save(reserva);
         return reservaDTO;
@@ -83,8 +86,10 @@ public class ReservaService implements IReservaService {
     public Boolean comprobarDisponibilidadFechaNuevaReserva(ReservaDTO reservaDTO, LocalDate fechaCheckIn, LocalDate fechaCheckOut){
         Boolean result = true;
         Reserva reserva = mapper.convertValue(reservaDTO, Reserva.class);
+
         LocalDate reservaCheckIn = reserva.getFechaCheckIn().toLocalDate();
         LocalDate reservaCheckOut = reserva.getFechaCheckOut().toLocalDate();
+
         if(((fechaCheckIn.isAfter(reservaCheckIn) || fechaCheckIn.isEqual(reservaCheckIn))
             && (fechaCheckIn.isBefore(reservaCheckOut) || fechaCheckIn.isEqual(reservaCheckOut)))
             ||
@@ -93,5 +98,11 @@ public class ReservaService implements IReservaService {
                     result = false;
         }
         return result;
+    }
+
+    @Override
+    public List<Reserva> obtenerReservasPorRango(LocalDate fechaCheckIn, LocalDate fechaCheckOut){
+        List<Reserva> reservas = reservaRepository.getReservasByRango(fechaCheckIn, fechaCheckOut);
+        return reservas;
     }
 }

@@ -6,10 +6,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
 public interface IReservaRepository extends JpaRepository<Reserva, Long> {
     @Query("from Reserva r where r.producto.id =:id_producto")
     List<Reserva> getReservasByProductoId(@Param("id_producto") Long id_producto);
+
+    @Query("from Reserva r where r.fechaCheckIn BETWEEN :startDate AND :endDate")
+    List<Reserva> getReservasByRango(@Param("startDate")LocalDate startDate, @Param("endDate")LocalDate endDate);
 }

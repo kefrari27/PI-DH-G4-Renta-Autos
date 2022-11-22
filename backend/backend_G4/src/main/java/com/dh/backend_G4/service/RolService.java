@@ -62,4 +62,14 @@ public class RolService implements IRolService {
     public void eliminar(Long id) {
         rolRepository.deleteById(id);
     }
+
+    @Override
+    public RolDTO buscarRolPorNombre(String nombre) {
+        Rol rol = rolRepository.getRolByNombre(nombre);
+        RolDTO rolDTO = null;
+        if(rol != null){
+            rolDTO = mapper.convertValue(rol, RolDTO.class);
+        }
+        return rolDTO;
+    }
 }

@@ -1,11 +1,13 @@
 package com.dh.backend_G4.service;
 
+import com.dh.backend_G4.model.Rol;
 import com.dh.backend_G4.model.Usuario;
+import com.dh.backend_G4.model.modelDTO.RolDTO;
 import com.dh.backend_G4.model.modelDTO.UsuarioDTO;
+import com.dh.backend_G4.repository.IRolRepository;
 import com.dh.backend_G4.repository.IUsuarioRepository;
 import com.dh.backend_G4.service.interfaceService.IUsuarioService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,18 +18,24 @@ import java.util.*;
 public class UsuarioService implements IUsuarioService {
 
     private final IUsuarioRepository usuarioRepository;
+    private final IRolRepository rolRepository;
     private final ObjectMapper mapper;
 
     private final PasswordEncoder passwordEncoder;
 
-    public UsuarioService(IUsuarioRepository usuarioRepository, ObjectMapper mapper, @Lazy PasswordEncoder passwordEncoder) {
+    public UsuarioService(IUsuarioRepository usuarioRepository, IRolRepository rolRepository, ObjectMapper mapper, @Lazy PasswordEncoder passwordEncoder) {
         this.usuarioRepository = usuarioRepository;
+        this.rolRepository = rolRepository;
         this.mapper = mapper;
         this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public UsuarioDTO guardar(UsuarioDTO usuarioDTO) {
+        Rol rol = rolRepository.getRolByNombre("user");
+        Rol rolDTO = usuarioDTO.getRol();
+        rolDTO.setId(rol.getId());
+        usuarioDTO.setRol(rolDTO);
         Usuario usuario =  mapper.convertValue(usuarioDTO, Usuario.class);
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         //Usuario usuarioPasswordCodificado = codificarPassword(usuario);

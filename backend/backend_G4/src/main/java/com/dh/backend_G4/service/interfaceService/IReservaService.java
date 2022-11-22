@@ -1,8 +1,10 @@
 package com.dh.backend_G4.service.interfaceService;
 
+import com.dh.backend_G4.model.Reserva;
 import com.dh.backend_G4.model.modelDTO.ReservaDTO;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 public interface IReservaService {
@@ -13,4 +15,5 @@ public interface IReservaService {
     public void eliminar(Long id);
     public Set<ReservaDTO> buscarReservabyProducto(Long id);
     public Boolean comprobarDisponibilidadFechaNuevaReserva(ReservaDTO reservaDTO, LocalDate fechaCheckIn, LocalDate fechaCheckOut);
+    public List<Reserva> obtenerReservasPorRango(LocalDate fechaCheckIn, LocalDate fechaCheckOut);
 }

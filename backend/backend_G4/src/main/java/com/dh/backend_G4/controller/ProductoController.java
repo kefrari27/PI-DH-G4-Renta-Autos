@@ -190,6 +190,7 @@ public class ProductoController {
         //String resultado = "Filtrando Productos con fechaCheckIn = "+fechaCheckIn+" fechaCheckOut = "+fechaCheckOut+ "y ciudad id= "+ciudadId;
         //return resultado;
         return isRango;
+
     }
 
 }

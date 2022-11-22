@@ -10,4 +10,5 @@ public interface IRolService {
     public RolDTO buscar(Long id);
     public RolDTO actualizar(RolDTO rolDTO);
     public void eliminar(Long id);
+    public RolDTO buscarRolPorNombre(String nombre);
 }
