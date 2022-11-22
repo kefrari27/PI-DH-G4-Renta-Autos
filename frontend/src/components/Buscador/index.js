@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import DataProductosContext from "../../context/dataProductos/dataProducosContext";
 import { getFetch, CONSTANTES } from "../../core/request";
 import CalendarioBuscador from "./CalendarioBuscador";
 import './styles.css'
@@ -30,7 +31,9 @@ const ciudades = [
 const Buscador = () => {
 
     const { CIUDADES_API_URL, PRODUCTOS_POR_CIUDAD_API_URL } = CONSTANTES;
-    
+
+    const contextoDataProductos = useContext(DataProductosContext);
+    const { setDataProductos } = contextoDataProductos;
     const [listaCiudades, setListaCiudades] = useState(ciudades);
     const [idCiudad, setIdCiudad] = useState();    
 
@@ -50,8 +53,8 @@ const Buscador = () => {
     const onSubmit = async (event) => {
         event.preventDefault();
         const url = `${PRODUCTOS_POR_CIUDAD_API_URL}/${idCiudad}`
-        const productosCiudad = await getFetch(url);        
-        console.log("🚀 ~ file: index.js ~ line 54 ~ onSubmit ~ productosCiudad", productosCiudad)
+        const productosCiudad = await getFetch(url);
+        setDataProductos(productosCiudad);
     };
 
     return (
