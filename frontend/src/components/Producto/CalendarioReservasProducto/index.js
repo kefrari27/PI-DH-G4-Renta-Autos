@@ -1,23 +1,30 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
-import { addDays, add } from "date-fns";
-import "./styles.css"
+//import { addDays } from "date-fns";
+import "./styles.css";
 import IniciarReserva from "../IniciarReserva";
 
 const CalendarioReservasProducto = () => {
-    const [fechaInicial, setFechaInicial] = useState(new Date());
+   const [fechaInicial, setFechaInicial] = useState(new Date());
     const [fechaFinal, setFechaFinal] = useState(null);
     const onChange = (fechas) => {
         const [fechaInicio, fechaFin] = fechas;
         setFechaInicial(fechaInicio);
         setFechaFinal(fechaFin);
     };
-
-    return (
-        <div className="calendario-reserva-boton-reserva-contenedor">
-            <h2 >Fechas disponibles</h2>
-            <div className="calendario-reserva-boton-reserva">
-                <DatePicker
+ 
+  /* const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(null);
+  const onChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  }; */
+  return (
+    <div className="calendario-reserva-boton-reserva-contenedor">
+      <h2>Fechas disponibles</h2>
+      <div className="calendario-reserva-boton-reserva">
+        {/*    <DatePicker
                 onChange={onChange}
                 startDate={fechaInicial}
                 endDate={fechaFinal}
@@ -29,11 +36,26 @@ const CalendarioReservasProducto = () => {
                 monthsShown={2}
                 calendarClassName="calendario-reserva"
                 locale="es"
-                />
-              <IniciarReserva/>
-            </div>
-        </div>
-    );
+                /> */}
+        <DatePicker
+        
+          selected={fechaInicial}
+          onChange={onChange}
+          startDate={fechaInicial}
+          endDate={fechaFinal}
+          minDate={new Date()}
+          dateFormat="dd 'de' MMM"
+          //showDisabledMonthNavigation
+          selectsRange
+          //selectsDisabledDaysInRange
+          inline
+          calendarClassName="calendario-reserva"
+          monthsShown={2}
+        />
+        <IniciarReserva />
+      </div>
+    </div>
+  );
 };
 
 export default CalendarioReservasProducto;
