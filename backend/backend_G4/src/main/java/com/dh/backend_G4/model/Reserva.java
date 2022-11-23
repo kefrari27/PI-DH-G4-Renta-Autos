@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -23,8 +24,8 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private LocalTime horaCheckIn;
-    private LocalDateTime fechaCheckIn;
-    private LocalDateTime fechaCheckOut;
+    private LocalDate fechaCheckIn;
+    private LocalDate fechaCheckOut;
     @ManyToOne
     @JoinColumn(name = "producto_id", referencedColumnName = "id", nullable = false)
     private Producto producto;

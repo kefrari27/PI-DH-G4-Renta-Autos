@@ -32,8 +32,8 @@ public class ReservaService implements IReservaService {
 
     @Override
     public ReservaDTO guardar(ReservaDTO reservaDTO) {
-        LocalDate reservaCheckIn = reservaDTO.getFechaCheckIn().toLocalDate();
-        LocalDate reservaCheckOut = reservaDTO.getFechaCheckOut().toLocalDate();
+        //LocalDate reservaCheckIn = reservaDTO.getFechaCheckIn().toLocalDate();
+        //LocalDate reservaCheckOut = reservaDTO.getFechaCheckOut().toLocalDate();
 
         Reserva reserva = mapper.convertValue(reservaDTO, Reserva.class);
         reservaRepository.save(reserva);
@@ -87,8 +87,11 @@ public class ReservaService implements IReservaService {
         Boolean result = true;
         Reserva reserva = mapper.convertValue(reservaDTO, Reserva.class);
 
-        LocalDate reservaCheckIn = reserva.getFechaCheckIn().toLocalDate();
-        LocalDate reservaCheckOut = reserva.getFechaCheckOut().toLocalDate();
+        //LocalDate reservaCheckIn = reserva.getFechaCheckIn().toLocalDate();
+        //LocalDate reservaCheckOut = reserva.getFechaCheckOut().toLocalDate();
+
+       LocalDate reservaCheckIn = reserva.getFechaCheckIn();
+       LocalDate reservaCheckOut = reserva.getFechaCheckOut();
 
         if(((fechaCheckIn.isAfter(reservaCheckIn) || fechaCheckIn.isEqual(reservaCheckIn))
             && (fechaCheckIn.isBefore(reservaCheckOut) || fechaCheckIn.isEqual(reservaCheckOut)))

@@ -62,7 +62,11 @@ public class UsuarioController {
     public ResponseEntity<UsuarioDTO> createUsuario(@RequestBody UsuarioDTO usuarioDTO) throws ResourceNotFoundException{
         logger.info("Agregando Usuario");
         UsuarioDTO usuario = usuarioService.guardar(usuarioDTO);
-        return new ResponseEntity<>(usuario, HttpStatus.CREATED);
+        if(usuario.getId() == null){
+            return new ResponseEntity<>(usuario, HttpStatus.CREATED);
+        }else{
+            throw new ResourceNotFoundException("El Usuario ya se encuentra registrado");
+        }
     }
 
     @PutMapping

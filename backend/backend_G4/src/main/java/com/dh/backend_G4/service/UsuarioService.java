@@ -32,16 +32,19 @@ public class UsuarioService implements IUsuarioService {
 
     @Override
     public UsuarioDTO guardar(UsuarioDTO usuarioDTO) {
-        Rol rol = rolRepository.getRolByNombre("user");
-        Rol rolDTO = usuarioDTO.getRol();
-        rolDTO.setId(rol.getId());
-        usuarioDTO.setRol(rolDTO);
-        Usuario usuario =  mapper.convertValue(usuarioDTO, Usuario.class);
-        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
-        //Usuario usuarioPasswordCodificado = codificarPassword(usuario);
-        //usuarioRepository.save(usuarioPasswordCodificado);
-        usuarioRepository.save(usuario);
-        return usuarioDTO;
+        UsuarioDTO usuarioRegistrado = buscarUsuarioByCorreo(usuarioDTO.getCorreo());
+        if(usuarioRegistrado == null){
+            Rol rol = rolRepository.getRolByNombre("user");
+            Rol rolDTO = usuarioDTO.getRol();
+            rolDTO.setId(rol.getId());
+            usuarioDTO.setRol(rolDTO);
+            Usuario usuario =  mapper.convertValue(usuarioDTO, Usuario.class);
+            usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+            usuarioRepository.save(usuario);
+            return usuarioDTO;
+        }else{
+            return usuarioRegistrado;
+        }
     }
 
     @Override
