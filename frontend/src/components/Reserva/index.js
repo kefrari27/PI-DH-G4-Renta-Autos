@@ -6,7 +6,7 @@ import HeaderReserva from './HeaderReserva';
 import '../Reserva/styles.css';
 import { CONSTANTES, getFetch } from "../../core/request";
 import { useState, useEffect } from "react";
-import data from './data.json'
+
 const Reserva = () => {
     const { idProducto } = useParams();
     const { PRODUCTOS_ID_API_URL, CIUDADES_ID_API_URL } = CONSTANTES;
