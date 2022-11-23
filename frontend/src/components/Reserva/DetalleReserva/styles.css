@@ -1,0 +1,83 @@
+/* Importaciones */
+@import url("../../estilos_globales.css");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+.detalle-reserva__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detalle-reserva__borde {
+    border-radius: 4px;
+    height: 700px;
+    margin: 0px 10px 10px 10px;
+    background-color: var(--blanco);
+    backface-visibility: hidden;
+    box-shadow: 0px 5px 10px rgb(220, 216, 216, 0.8);    
+}
+
+.detalle-reserva-img__contenedor {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 35%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.detalle-reserva-img__contenedor img {
+    height: 200px;
+}
+
+.detalle-reserva-check {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    padding: 10px;
+}
+
+.detalle-reserva-producto__contenedor {
+    padding: 10px;
+}
+
+.detalle-reserva-separador {
+    width: 90%;
+    height: 1px;
+    color: var(--terciario);
+}
+
+.detalle-reserva-btn__contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.detalle-reserva-btn__contenedor button {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    color: var(--blanco);
+    background-color: var(--primario);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+    .carCard{
+        margin: 0px 10px 60px 10px;
+        width: 46%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carCard{       
+        width: 100%;
+    }    
+}
