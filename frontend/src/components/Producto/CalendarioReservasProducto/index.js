@@ -2,8 +2,8 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 //import { addDays } from "date-fns";
 import "./styles.css";
-
-const CalendarioReservasProducto = () => {
+import { useNavigate } from "react-router-dom";
+const CalendarioReservasProducto = ({identificador}) => {
    const [fechaInicial, setFechaInicial] = useState(new Date());
     const [fechaFinal, setFechaFinal] = useState(null);
     const onChange = (fechas) => {
@@ -11,7 +11,11 @@ const CalendarioReservasProducto = () => {
         setFechaInicial(fechaInicio);
         setFechaFinal(fechaFin);
     };
- 
+    const navigate = useNavigate();
+
+    const onIniciarReserva = () => {
+      navigate(`/producto/${identificador}/reserva`)
+    }
   /* const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
   const onChange = (dates) => {
@@ -52,7 +56,7 @@ const CalendarioReservasProducto = () => {
             />
             <div className="boton-reserva-contenedor">
                 <p>Agrega tus fechas de viaje para obtener precios exactos</p>
-                <button>Iniciar reserva</button>
+                <button onClick={onIniciarReserva}>Iniciar reserva</button>
             </div>
         </div>
     </div>

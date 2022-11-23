@@ -38,9 +38,9 @@ const Product = () => {
 
     useEffect(() => {
       consultarProducto();
-    }, [])
-
-
+    }, []);
+    
+    //console.log(dataProducto);
     return (
         <>
           <ProductHeader titulo={dataProducto?.titulo}/>
@@ -48,7 +48,7 @@ const Product = () => {
           <GaleriaImagenesProducto imagenes={dataProducto?.imagenes ? dataProducto?.imagenes : dataImagenesMock}/>
           <DescripcionProducto descripcion={dataProducto?.descripcion}/>
           <CaracteristicasProducto />
-          <CalendarioReservasProducto />
+          <CalendarioReservasProducto identificador={dataProducto?.id} />
           <PoliticaProducto />
         </>
     )

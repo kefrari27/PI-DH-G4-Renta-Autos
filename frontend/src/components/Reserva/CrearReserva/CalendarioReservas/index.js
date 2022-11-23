@@ -6,7 +6,7 @@ import "../CalendarioReservas/styles.css";
 
 const CalendarioReservas = () => {
 
-    const contextoControlMobile = useContext(ControlMobileContext);
+    /* const contextoControlMobile = useContext(ControlMobileContext);
     const { esVersionMobileCalendario, setVersionMobileCalendario } = contextoControlMobile;
 
     const [fechaInicial, setFechaInicial] = useState(new Date());
@@ -15,11 +15,19 @@ const CalendarioReservas = () => {
         const [fechaInicio, fechaFin] = fechas;
         setFechaInicial(fechaInicio);
         setFechaFinal(fechaFin);
+    }; */
+    const [fechaInicial, setFechaInicial] = useState(new Date());
+    const [fechaFinal, setFechaFinal] = useState(null);
+    const onChange = (fechas) => {
+        const [fechaInicio, fechaFin] = fechas;
+        setFechaInicial(fechaInicio);
+        setFechaFinal(fechaFin);
     };
+    
 
     return (
         <div className="calendario-reserva__contenedor">
-            {
+            {/* {
                 !esVersionMobileCalendario ?
                 <DatePicker
                     onChange={onChange}
@@ -47,7 +55,21 @@ const CalendarioReservas = () => {
                     calendarClassName="calendario-reserva"
                     locale="es"
                 />
-            }
+            } */}
+            <DatePicker
+                selected={fechaInicial}
+                onChange={onChange}
+                startDate={fechaInicial}
+                endDate={fechaFinal}
+                minDate={new Date()}
+                dateFormat="dd 'de' MMM"
+                //showDisabledMonthNavigation
+                selectsRange
+                //selectsDisabledDaysInRange
+                inline
+                calendarClassName="calendario-reserva"
+                monthsShown={2}
+            />
         </div>
     );
 };

@@ -45,6 +45,30 @@
 .detalle-reserva-producto__contenedor {
     padding: 10px;
 }
+.detalle-reserva-producto__contenedor ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.detalle-reserva-producto__contenedor ul li span{
+    background: url('../../../assets/estrella_colorido.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 30px;
+    height: 20px;
+    color: transparent;
+}
+
+.detalle-reserva-producto__contenedor p span {
+    background: url('../../../assets/localizador.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 15px;
+    height: 15px;
+    color: transparent;
+    margin-top: 17px;
+}
 
 .detalle-reserva-separador {
     width: 90%;

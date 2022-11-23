@@ -20,7 +20,7 @@ const AppRouter = () => {
             <Route path="/crearCuenta" element={<CrearCuenta />} />
             <Route path="/inicioSesion" element={<InicioSesion />} />
             <Route path="/producto/:idProducto" element={<Product />} />
-            <Route path="/reserva" element={<Reserva />} />
+            <Route path="/producto/:idProducto/reserva" element={<Reserva />} />
           </Routes>
         <Footer />
         </BrowserRouter>
