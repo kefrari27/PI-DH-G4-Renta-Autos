@@ -2,13 +2,15 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useForm from "../../../hooks/useFormulario";
 import autenticacionContext from "../../../context/autenticacion/autenticacionContext";
+import { postFetch, getFetch, CONSTANTES } from "../../../core/request"
 
 const InicioSesion = () => {
     const contextoAutenticacion = useContext(autenticacionContext);
-    const { login } = contextoAutenticacion;
+    const { setAutenticacionEstado, setDatosUsuario } = contextoAutenticacion;
 
+    const { AUTENTICACION_API_URL, USUARIOS_ID_API_URL } = CONSTANTES;
     const [ formularioSubmitted, setFormularioSubmitted ] = useState(false);
-    const [ esValidasCredenciales, setEsValidasCredenciales ] = useState(true);
+    const [ logueadoCorrecto, setLogueadoCorrecto ] = useState(true);
     const navigate = useNavigate();
 
     const formularioDatosIniciales = {
@@ -23,26 +25,36 @@ const InicioSesion = () => {
 
     const { email, emailValido, contrasenia, contraseniaValido, onInputChange, EsValidoFormulario } = useForm(formularioDatosIniciales, formularioValidaciones);
 
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
         event.preventDefault();
         setFormularioSubmitted(true);
 
-        const objetoDePrueba = {
-            email: "maureen@gmail.com",
-            contrasenia: '1234567'
+        const body = {
+            usuario: email,
+            clave: contrasenia
         }
 
-        const esValidasCredenciales = objetoDePrueba.email === email && objetoDePrueba.contrasenia === contrasenia ? true : false;
-        setEsValidasCredenciales(esValidasCredenciales)
-        if (EsValidoFormulario && esValidasCredenciales ){
+        const data = await postFetch(AUTENTICACION_API_URL, body);
+
+        if (EsValidoFormulario && data.jwtToken){
+            localStorage.setItem('token', data.jwtToken);
+            setAutenticacionEstado(data.jwtToken);
+            const url = `${USUARIOS_ID_API_URL}/${data.usuarioId}`
+            const dataUsuario = await getFetch(url);
+            localStorage.setItem('datosUsuario', JSON.stringify(dataUsuario));
+            setDatosUsuario(dataUsuario)
             navigate("/");
-            login();
+        } else {
+            setLogueadoCorrecto(false)
         }
     };
 
     return (
         <div className="seccion__crear-cuenta">
             <h1>Iniciar sesión</h1>
+            { !logueadoCorrecto && <div className="bloque__informativo">
+                <p>Lamentablemente no ha podido iniciar sesión. Por favor intente más tarde!</p>
+            </div>}
             <form onSubmit={onSubmit} className="formulario__crear-cuenta">
                 <div className="formulario__crear-cuenta__row">
                     <label htmlFor="email">Correo electrónico</label>
@@ -63,7 +75,7 @@ const InicioSesion = () => {
                             type="password" 
                             id="contrasenia" 
                             name="contrasenia"
-                            className={`${contraseniaValido ? 'invalidInput' : 'validInput'}`}
+                            className={`${contraseniaValido && contrasenia.length > 0 ? 'invalidInput': 'validInput'}`}
                             required
                             value={contrasenia}
                             onChange={onInputChange}
@@ -72,7 +84,7 @@ const InicioSesion = () => {
                     </div>
                     {formularioSubmitted && contraseniaValido && <p>{contraseniaValido}</p> }
                 </div>
-                { !esValidasCredenciales || (formularioSubmitted && !EsValidoFormulario) ? <p className="formulario__crear-cuenta-invalido">Por favor vuelva a intentarlo, sus credenciales son inválidas!</p> : null }
+                { (formularioSubmitted && !EsValidoFormulario) ? <p className="formulario__crear-cuenta-invalido">Por favor vuelva a intentarlo, sus credenciales son inválidas!</p> : null }
                 <div className="formulario__crear-cuenta__row-boton">
                     <button type="submit" className='formulario__crear-cuenta__boton'>Ingresar</button>
                     <p className="">¿Aún no tienes cuenta? <Link to="/crearCuenta">Registrate</Link></p>
