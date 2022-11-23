@@ -97,6 +97,10 @@ public class ReservaService implements IReservaService {
             && (fechaCheckOut.isBefore(reservaCheckOut) || fechaCheckOut.isEqual(reservaCheckOut)))){
                     result = false;
         }
+       if((fechaCheckIn.isBefore(reservaCheckIn) || fechaCheckIn.isEqual(reservaCheckIn))
+               && (fechaCheckOut.isAfter(reservaCheckOut) || fechaCheckOut.isEqual(reservaCheckOut))){
+           result = false;
+       }
         return result;
     }
 
