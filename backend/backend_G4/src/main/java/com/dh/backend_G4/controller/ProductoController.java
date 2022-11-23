@@ -173,44 +173,52 @@ public class ProductoController {
     public Set<ProductoDTO> getProductosByFechas(@RequestBody FiltroProductoReq filtro) throws ResourceNotFoundException{
         logger.info("Filtrando Productos con fechaCheckIn = "+filtro.getFechaCheckIn()+" y fechaCheckOut = "+filtro.getFechaCheckOut());
 
-        LocalDate fechaCheckIn = LocalDate.parse(filtro.getFechaCheckIn());
-        LocalDate fechaCheckOut = LocalDate.parse(filtro.getFechaCheckOut());
-        Long ciudadId = filtro.getCiudad().getId();
-
         //Estructuras
         Set<ProductoDTO> productos = new HashSet<>();
         Set<ReservaDTO> reservasDTOS = new HashSet<>();
         List<Boolean> isRango = new ArrayList<>();
         Set<ProductoDTO> productosDisponibles = new HashSet<>();
+        Long ciudadId = filtro.getCiudad().getId();
 
-        if(ciudadId != 0){
-            //Se obtiene la lista de productos por ciudad
+        if(filtro.getFechaCheckIn().isEmpty() || filtro.getFechaCheckOut().isEmpty()){
             productos = productoService.listarProductosByCiudad(ciudadId);
+            for (ProductoDTO producto:productos) {
+                productosDisponibles.add(producto);
+            }
         }else{
-            productos = productoService.listar();
-        }
+            LocalDate fechaCheckIn = LocalDate.parse(filtro.getFechaCheckIn());
+            LocalDate fechaCheckOut = LocalDate.parse(filtro.getFechaCheckOut());
 
-        //Se buscan las reservas por cada uno de los productos
-        for (ProductoDTO productoDTO:productos) {
-            //Se consulta si existen reservas
-            reservasDTOS = reservaService.buscarReservabyProducto(productoDTO.getId());
-            //Si no hay reservas
-            if(reservasDTOS.isEmpty()){
-                //Se agrega al Set de productos disponibles
-                productosDisponibles.add(productoDTO);
+            if(ciudadId != 0){
+                //Se obtiene la lista de productos por ciudad
+                productos = productoService.listarProductosByCiudad(ciudadId);
             }else{
-                //Se consulta cada una de las reservas
-                for (ReservaDTO reservaDTO:reservasDTOS) {
-                    //Se verifica si las reservas existentes están en el rango de fechaCheckin y fechaCheckout y se agrega a un array de booleanos
-                    isRango.add(reservaService.comprobarDisponibilidadFechaNuevaReserva(reservaDTO, fechaCheckIn, fechaCheckOut));
-                }
-                //Si el arreglo isRango no contiene false, indica que no hay reservas en ese rango
-                if(!isRango.contains(false)){
-                    //Se agrega el producto al listado de productos disponibles
+                productos = productoService.listar();
+            }
+
+            //Se buscan las reservas por cada uno de los productos
+            for (ProductoDTO productoDTO:productos) {
+                //Se consulta si existen reservas
+                reservasDTOS = reservaService.buscarReservabyProducto(productoDTO.getId());
+                //Si no hay reservas
+                if(reservasDTOS.isEmpty()){
+                    //Se agrega al Set de productos disponibles
                     productosDisponibles.add(productoDTO);
+                }else{
+                    //Se consulta cada una de las reservas
+                    for (ReservaDTO reservaDTO:reservasDTOS) {
+                        //Se verifica si las reservas existentes están en el rango de fechaCheckin y fechaCheckout y se agrega a un array de booleanos
+                        isRango.add(reservaService.comprobarDisponibilidadFechaNuevaReserva(reservaDTO, fechaCheckIn, fechaCheckOut));
+                    }
+                    //Si el arreglo isRango no contiene false, indica que no hay reservas en ese rango
+                    if(!isRango.contains(false)){
+                        //Se agrega el producto al listado de productos disponibles
+                        productosDisponibles.add(productoDTO);
+                    }
                 }
             }
         }
+
         //return isRango;
         return productosDisponibles;
     }
