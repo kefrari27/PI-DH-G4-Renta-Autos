@@ -3,17 +3,20 @@ import { Link, useNavigate } from "react-router-dom";
 import useForm from "../../../hooks/useFormulario";
 import autenticacionContext from "../../../context/autenticacion/autenticacionContext";
 import '../CrearCuenta/styles.css'
+import { postFetch, CONSTANTES } from "../../../core/request";
 
 const CrearCuenta = () => {
 
     const contextoAutenticacion = useContext(autenticacionContext);
-    const { login, setFormularioRegistroDatos } = contextoAutenticacion;
+    const { setAutenticacionEstado, setDatosUsuario } = contextoAutenticacion;
+    const { USUARIOS_API_URL, AUTENTICACION_API_URL } = CONSTANTES;
 
     const [ confirmarContraseniaEstado, setConfirmarContraseniaEstado ] = useState('');
     const [ esConfirmarContraseniaEstado, setEsConfirmarContraseniaEstado ] = useState(true);
     const [ formularioSubmitted, setFormularioSubmitted ] = useState(false);
     const [ esContraseniasValidas, setEsContraseniasValidas ] = useState(false);
     const [ formularioValido, setFormularioValido ] = useState(true);
+    const [ registroCorrecto, setRegistroCorrecto ] = useState(true);
 
     const navigate = useNavigate();
 
@@ -30,7 +33,7 @@ const CrearCuenta = () => {
         contrasenia: [(parametro) => parametro.length > 6, 'La contraseña debe tener minimo 6 caracteres']
     }
 
-    const { nombre, apellido, email, emailValido, contrasenia, contraseniaValido, onInputChange, EsValidoFormulario, formularioEstado } = 
+    const { nombre, apellido, email, emailValido, contrasenia, contraseniaValido, onInputChange, EsValidoFormulario } = 
     useForm(formularioDatosIniciales, formularioValidaciones);
 
     const onValidarConfirmarContrasenia = (e) => {
@@ -54,25 +57,46 @@ const CrearCuenta = () => {
     }, [esContraseniasValidas, EsValidoFormulario])
 
 
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
         event.preventDefault();
         setFormularioSubmitted(true);
 
-        if (formularioSubmitted && formularioValido){
-            navigate("/");
-            login();
-        }
+        const body = {
+            nombre,
+            apellido,
+            correo: email,
+            password: contrasenia,
+            rol: { id: 0 },
+            ciudad: { id: 2 }
+        };
 
-        const valoresFormulario = {
-            ...formularioEstado,
-            confirmarContrasenia: confirmarContraseniaEstado
+        const data = await postFetch(USUARIOS_API_URL, body);
+
+        if (data && data.nombre && data.apellido){ 
+            navigate("/");
+            setDatosUsuario(data || {});
+
+            const body = {
+                usuario: data.correo,
+                clave: data.password
+            }
+    
+            const dataLogueo = await postFetch(AUTENTICACION_API_URL, body);
+            localStorage.setItem('token', dataLogueo.jwtToken);
+            localStorage.setItem('datosUsuario', JSON.stringify(data));
+            setAutenticacionEstado(dataLogueo.jwtToken);
+            
+        } else {
+            setRegistroCorrecto(false)
         }
-        setFormularioRegistroDatos(valoresFormulario)
     };
 
     return (
         <div className="seccion__crear-cuenta">
             <h1>Crear cuenta</h1>
+            { !registroCorrecto && <div className="bloque__informativo">
+                <p>Lamentablemente no ha podido registrarse. Por favor intente más tarde</p>
+            </div>}
             <form onSubmit={onSubmit} className="formulario__crear-cuenta">
                 <div className="formulario__crear-cuenta__bloque">
                     <div className="formulario__crear-cuenta__row formulario__crear-cuenta__row-nombre-apellido">
@@ -106,7 +130,7 @@ const CrearCuenta = () => {
                         type="email" 
                         id="email" 
                         name="email"
-                        className={`${emailValido ? 'invalidInput' : 'validInput'}`}
+                        className={`${emailValido && email.length > 0 ? 'invalidInput': 'validInput'}`}
                         required
                         value={email}
                         onChange={onInputChange}
@@ -120,7 +144,7 @@ const CrearCuenta = () => {
                             type="password" 
                             id="contrasenia" 
                             name="contrasenia"
-                            className={`${contraseniaValido ? 'invalidInput' : 'validInput'}`}
+                            className={`${contraseniaValido && contrasenia.length > 0 ? 'invalidInput': 'validInput'}`}
                             required
                             value={contrasenia}
                             onChange={onInputChange}
@@ -135,7 +159,7 @@ const CrearCuenta = () => {
                         type="password" 
                         id="confirmarContrasenia" 
                         name="confirmarContrasenia"
-                        className={`${esConfirmarContraseniaEstado ? 'invalidInput' : 'validInput'}`}
+                        className={`${esConfirmarContraseniaEstado && confirmarContraseniaEstado.length > 0 ? 'invalidInput': 'validInput'}`}
                         required
                         value={confirmarContraseniaEstado}
                         onChange={onValidarConfirmarContrasenia}
