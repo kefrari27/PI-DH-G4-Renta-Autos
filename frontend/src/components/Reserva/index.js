@@ -12,6 +12,7 @@ const Reserva = () => {
     const { PRODUCTOS_ID_API_URL, CIUDADES_ID_API_URL } = CONSTANTES;
    
     const [dataProducto, setDataProducto] = useState({});
+    console.log("🚀 ~ file: index.js ~ line 15 ~ Reserva ~ dataProducto", dataProducto)
     const [dataUbicacionProducto, setDataUbicacionProducto] = useState({});
     /* const datos_reserva = data */
      
@@ -34,20 +35,21 @@ const Reserva = () => {
 
     useEffect(() => {
       consultarProducto();          
+      console.log("🚀 ~ file: index.js ~ line 37 ~ useEffect ~ consultarProducto")
     }, []) 
   
     
   
     return (
         <>
-        
-          
           <HeaderReserva titulo={dataProducto?.titulo}/>
           <div className='reserva__contenedor'>
             <CrearReserva />
-            <DetalleReserva titulo={dataProducto?.titulo} categoria={dataProducto?.categoria?.descripcion} 
-
-              />
+            <DetalleReserva 
+            titulo={dataProducto?.titulo} 
+            categoria={dataProducto?.categoria?.descripcion} 
+            imagen={ dataProducto && dataProducto?.imagenes && dataProducto?.imagenes[0]?.urlImagen}
+            />
           </div>
         </>
     )
