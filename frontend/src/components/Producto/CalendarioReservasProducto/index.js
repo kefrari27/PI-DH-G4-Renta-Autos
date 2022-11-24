@@ -54,9 +54,11 @@ const CalendarioReservasProducto = ({identificador}) => {
                 calendarClassName="calendario-reserva"
                 monthsShown={2}
             />
-            <div className="boton-reserva-contenedor">
-                <p>Agrega tus fechas de viaje para obtener precios exactos</p>
-                <button onClick={onIniciarReserva}>Iniciar reserva</button>
+            <div className="boton-reserva__contenedor">
+              <div className="boton-reserva__borde">
+                  <p>Agrega tus fechas de viaje para obtener precios exactos</p>
+                  <button onClick={onIniciarReserva}>Iniciar reserva</button>
+              </div>
             </div>
         </div>
     </div>
