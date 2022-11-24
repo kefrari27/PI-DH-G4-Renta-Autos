@@ -1,0 +1,1560 @@
+{
+	"info": {
+		"_postman_id": "02bdeec2-5f6f-47fa-9cbf-87a7e749ac14",
+		"name": "Backend_G4_EC2_Spring3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24092968"
+	},
+	"item": [
+		{
+			"name": "Ciudades",
+			"item": [
+				{
+					"name": "GetCiudades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/ciudades",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ciudades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCiudadById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/ciudades/27",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ciudades",
+								"27"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCiudad",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Buenos Aires (CABA)\",\r\n    \"provincia\":\"Buenos Aires\",\r\n    \"pais\":\"Argentina\",\r\n    \"latitud\": \" -34.61315\",\r\n    \"longitud\":\"-58.37723\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/ciudades",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ciudades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCiudad",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Bariloche \",\r\n    \"provincia\":\"Rio Negro\",\r\n    \"pais\":\"Argentina\",\r\n    \"latitud\": \" -41.14557\",\r\n    \"longitud\":\"-71.30822\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/ciudades",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ciudades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCiudad",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/ciudades/27",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ciudades",
+								"27"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCiudadesWithProductos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/ciudades/ciudadesConProductos",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ciudades",
+								"ciudadesConProductos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Imagenes",
+			"item": [
+				{
+					"name": "GetImagenes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/imagenes",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"imagenes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetImagenById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/imagenes",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"imagenes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateImagen",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\":\"Dcbel Electric movimiento\",\r\n    \"urlImagen\": \"https://images.unsplash.com/photo-1487101588220-01e039029925?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80\",\r\n    \"descripcion\":\"Movimiento de vehículo\",\r\n    \"producto\":{\"id\": 31}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/imagenes",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"imagenes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateImagen",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/imagenes",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"imagenes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImagen",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/imagenes",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"imagenes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetImagenesByProductoId",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "GetCategorias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye titulo\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"titulo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye descripcion\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"descripcion\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye urlImagen\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"urlImagen\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/categorias",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCategoriaById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye titulo\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"titulo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye descripcion\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"descripcion\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye urlImagen\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"urlImagen\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verificar id\", function (){\r",
+									"    var response = pm.response.json();    \r",
+									"    pm.expect(response.id).to.eql(1);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/categoria/1",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categoria",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCategoria",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Todo Terreno\",\r\n        \"descripcion\": \"Autos Todo Terreno 4x4\",\r\n        \"urlImagen\": \"https://images.unsplash.com/photo-1541789575190-4dcfb12b6793?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1202&q=80\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/categorias",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCategoria",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye titulo\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"titulo\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye descripcion\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"descripcion\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categoría incluye urlImagen\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"urlImagen\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": 51,\r\n    \"titulo\": \"Todo Terreno\",\r\n    \"descripcion\": \"Autos Todo Terreno 4x4, doble transmisión\",\r\n    \"urlImagen\": \"https://images.unsplash.com/photo-1541789575190-4dcfb12b6793?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1202&q=80\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/categorias",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategoria",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code es 200\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/categorias/26",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categorias",
+								"26"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "GetProductos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductoById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProducto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\":\"Porsche Boxter\",\r\n    \"categoria\":{\"id\": 24},\r\n    \"ciudad\":{\"id\": 41},\r\n    \"descripcion\":\"Vehículo Automático 2 puertas convertible a gasolina\",\r\n    \"disponibilidad\":\"Inmediata\",\r\n    \"politica\":\"Sin depósitos ni franquicias\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProducto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":54,\r\n    \"titulo\":\"Porsche Boxter prueba\",\r\n    \"categoria\":{\"id\": 24},\r\n    \"ciudad\":{\"id\": 41},\r\n    \"descripcion\":\"Vehículo Automático 2 puertas convertible a gasolina\",\r\n    \"disponibilidad\":\"Inmediata\",\r\n    \"politica\":\"Sin depósitos ni franquicias\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProducto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/68",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"68"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCaracteristica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productoId\": 73,\r\n    \"caracteristicas\":[{\"id\": 32}, {\"id\":33}, {\"id\":34}] \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/addCaracteristica",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"addCaracteristica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetImagenesByProductoId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/imagenesByProductoId/62",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"imagenesByProductoId",
+								"62"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImagenesByProductoId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/imagenesByProductoId/54",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"imagenesByProductoId",
+								"54"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductosByCategoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/productosByCategoria/24",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"productosByCategoria",
+								"24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductosByCiudad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/productosByCiudad/41",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"productosByCiudad",
+								"41"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductosAleatorios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/productosAleatorios/2",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"productosAleatorios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FiltroProductosByFechas",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fechaCheckIn\":\"2022-11-20\",\r\n    \"fechaCheckOut\":\"2022-11-25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/productos/filtroProductosByFechas",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"productos",
+								"filtroProductosByFechas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Caracteristicas",
+			"item": [
+				{
+					"name": "GetCaracteristicas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/caracteristicas",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"caracteristicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCaracteristicaById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/caracteristicas/28",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"caracteristicas",
+								"28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCaracteristica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"icono\": \"fa-solid fa-leaf\",\r\n    \"titulo\": \"Eco Amigable\",\r\n    \"descripcion\":\"Cero emisiones\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/caracteristicas",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"caracteristicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCaracteristica",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 28,\r\n    \"icono\": \"fa-solid fa-bolt\",\r\n    \"titulo\": \"Motor Eléctrico\",\r\n    \"descripcion\": \"Vehiculo con motor Eléctrico\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/caracteristicas",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"caracteristicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCaracteristica",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/caracteristicas",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"caracteristicas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autenticación",
+			"item": [
+				{
+					"name": "Authenticate_userAdmin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\":\"mgrisales@gmail.com\",\r\n    \"clave\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/autenticacion",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"autenticacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate_userUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\":\"jgrisales@gmail.com\",\r\n    \"clave\": \"456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/autenticacion",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"autenticacion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "GetUsuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUsuarioByCorreo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUsuariosById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/usuarios/",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUsuario",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Mauricio\",\r\n    \"apellido\":\"Grisales\",\r\n    \"correo\":\"mgrisales@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"rol\":{\"id\":234},\r\n    \"ciudad\":{\"id\":24}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUsuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUsuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/usuarios/",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "GetRoles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/roles",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRolesById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/roles/1",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateRol",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/roles/api/v1/roles",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"api",
+								"v1",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRol",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\":\"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/roles/api/v1/roles",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"api",
+								"v1",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRol",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservas",
+			"item": [
+				{
+					"name": "GetReservas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/roles/api/v1/reservas",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"api",
+								"v1",
+								"reservas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetReservaById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "CreateReserva",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZ3Jpc2FsZXNAZ21haWwuY29tIiwiZXhwIjoxNjY5MTc2NDMzLCJpYXQiOjE2NjkxNzI4MzMsInJvbCI6eyJhdXRob3JpdHkiOiJST0xFX3VzZXIifX0.XqmJ8wucZ_xVLK9JZ_Ou0Qyhr8OzSQL4G9bdyvAjXNU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"horaCheckIn\": \"19:09:00\",\r\n    \"fechaCheckIn\": \"2022-11-19\",\r\n    \"fechaCheckOut\":\"2022-11-20\",\r\n    \"producto\":{\"id\":119},\r\n    \"usuario\":{\"id\":116}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://18.218.111.107:8080/api/v1/roles/api/v1/reservas",
+							"protocol": "http",
+							"host": [
+								"18",
+								"218",
+								"111",
+								"107"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"api",
+								"v1",
+								"reservas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateReserva",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteReserva",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetReservaByProductoId",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
