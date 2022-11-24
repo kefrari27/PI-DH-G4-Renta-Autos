@@ -82,6 +82,7 @@
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
+    text-transform: uppercase;
 }
 
 .header__usuario {
@@ -92,6 +93,7 @@
 .header__usuario-nombre {
     margin: 0;
     color: var(--primario);
+    padding-left: 0;
 }
 
 .header__cerrar-sesion {
@@ -213,6 +215,7 @@
         height: 40px;
         border-radius: 50%;
         margin-bottom: 10px;
+        text-transform: uppercase;
     }
 
     .menu__mobile-header__usuario-nombre {
