@@ -1,11 +1,40 @@
 import React from 'react';
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 import '../DetalleReserva/styles.css';
+import { format } from 'date-fns'
+import { postFetch } from '../../../core/request';
 
-const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni,
-  fechaResFin}) => {
+const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaResFin}) => {
   
   /* Renderizar ubicación del producto */
   const { pais, nombre, provincia} = ubicacion;
+  const { idProducto } = useParams();
+  const [seCreoReserva, setSeCreoReserva] = useState(false);
+  const usuarioInformacion = localStorage.getItem('datosUsuario');
+
+  let idUsuario = usuarioInformacion ? JSON.parse(usuarioInformacion) : { id: 256 };
+
+  const crearReserva = async () => {
+
+    const body = {
+      horaCheckIn: "19:09:00",
+      fechaCheckIn: format(new Date(fechaResIni), 'yyyy-MM-dd'),
+      fechaCheckOut: format(new Date(fechaResFin), 'yyyy-MM-dd'),
+      producto: {
+        id: Number(idProducto)
+      },
+      usuario:{ 
+        id: Number(idUsuario.id)
+      }
+    };
+
+    const data = await postFetch('http://18.218.111.107:8080/api/v1/reservas', body);
+
+    if (data) {
+      setSeCreoReserva(true);
+    }
+  }
   
   return (
     <>
@@ -47,12 +76,18 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni,
               </div>
               <hr className="detalle-reserva-separador"/>
               <div className="detalle-reserva-btn__contenedor">
-                <button>Confirmar reserva</button>
+                <button onClick={crearReserva}>Confirmar reserva</button>
               </div>
             </div>
           </div>
         </div>
-      </section> 
+      </section>
+       {seCreoReserva && 
+            <div
+          >
+            SE CREO LA RESERVA DE MANERA EXITOSA!!
+          </div>
+       }
     </>
   );
 }

@@ -43,11 +43,14 @@ const getFetch = async(url) => {
   return data;
 }
 
+const token = localStorage.getItem('token');
+
 const postFetch = async(url, datos)=>{  
     const response = await fetch(url, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json;charset=utf-8'
+          'Content-Type': 'application/json;charset=utf-8',
+          'Authorization': token ? `Bearer ${token}` : ''
         },
         body: JSON.stringify(datos)
       });
