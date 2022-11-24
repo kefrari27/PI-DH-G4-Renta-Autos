@@ -6,8 +6,7 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni,
   
   /* Renderizar ubicación del producto */
   const { pais, nombre, provincia} = ubicacion;
-  /* let datosDeLocalStorage = localStorage.getItem('datosUsuario')
-  console.log(datosDeLocalStorage); */
+  
   return (
     <>
       <section className="detalle-reserva__section">
