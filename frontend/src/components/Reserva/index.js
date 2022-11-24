@@ -6,7 +6,9 @@ import HeaderReserva from './HeaderReserva';
 import '../Reserva/styles.css';
 import { CONSTANTES, getFetch } from "../../core/request";
 import { useState, useEffect } from "react";
-import CrearCuenta from '../Formularios/CrearCuenta'
+import CrearCuenta from '../Formularios/CrearCuenta';
+import PoliticaProducto from '../Producto/PoliticaProducto';
+
 const Reserva = () => {
     const { idProducto } = useParams();
     const { PRODUCTOS_ID_API_URL, CIUDADES_ID_API_URL } = CONSTANTES;
@@ -40,8 +42,7 @@ const Reserva = () => {
     }
 
     useEffect(() => {
-      consultarProducto();          
-      console.log("🚀 ~ file: index.js ~ line 37 ~ useEffect ~ consultarProducto")
+      consultarProducto();
     }, []) 
   
     const datosDeLocalStorage =JSON.parse( localStorage.getItem('datosUsuario'));
@@ -59,7 +60,10 @@ const Reserva = () => {
             fechaResIni={fechaReservaInicial}
             fechaResFin={fechaReservaFinal}
             />
-        </div> </> ): <CrearCuenta/>} </div>  
+        </div> 
+          <PoliticaProducto />
+        </> ): 
+        <CrearCuenta/>} </div>  
           
 
          
