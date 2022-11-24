@@ -5,10 +5,9 @@ import es from "date-fns/locale/es";
 
 registerLocale("es", es);
 
-const CalendarioBuscador = () => {
+const CalendarioBuscador = ({setRangoAPadre = ()=>{}}) => {
     const [rango, setRango] = useState([null, null]);
     const [fechaInicio, fechaFinal] = rango;
-    // console.log(rango);
 
     return (
         <div className="calendario-buscador__contenedor" id="calendario-buscador__contenedor">
@@ -21,6 +20,7 @@ const CalendarioBuscador = () => {
                 dateFormat="dd 'de' MMM"
                 onChange={(update)=>{
                     setRango(update);
+                    setRangoAPadre(update)
                 }}
                 isClearable={true}
                 locale="es"

@@ -1,39 +1,20 @@
-import { useState } from "react";
 import RentaCarrosAPP from "./RentaCarrosApp";
-import contextAplicacion from "./provider/contextAutenticacion";
+import AutenticacionProvider from "./context/autenticacion/autenticacionProvider";
+import ControlMobileProvider from "./context/controlMobile/controlMobileProvider";
+import DataProductosProvider from "./context/dataProductos/dataProductosProvider";
 
 import '../src/styles.css'
 
 function App() {
 
-  /** refactorizar el contexto para que sea escalable */
-  
-  const [autenticacionEstado, setAutenticacionEstado] = useState(false);
-  const [esVersionMobileHeaderMenu, setEsVersionMobileHeaderMenu] = useState(false);
-  const login = () => {
-    setAutenticacionEstado(!autenticacionEstado);
-  };
-
-  const setVersionMobileHeaderMenu = () => {
-    setEsVersionMobileHeaderMenu(!esVersionMobileHeaderMenu);
-  };
-
-  const contextValue = {
-    autenticacion:
-      { 
-        estadoAutenticacion: autenticacionEstado, 
-        login
-      },
-    versionMobileHeaderMenu: {
-      esVersionMobileHeaderMenu,
-      setVersionMobileHeaderMenu
-    }
-  }
-
   return (
-    <contextAplicacion.Provider value={contextValue}>
-      <RentaCarrosAPP />
-    </contextAplicacion.Provider>
+    <DataProductosProvider>
+      <ControlMobileProvider>
+        <AutenticacionProvider>
+          <RentaCarrosAPP />
+        </AutenticacionProvider>
+      </ControlMobileProvider>
+    </DataProductosProvider>
   )
 }
 
