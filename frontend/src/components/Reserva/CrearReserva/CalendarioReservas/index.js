@@ -4,7 +4,7 @@ import { addDays, add } from "date-fns";
 import ControlMobileContext from "../../../../context/controlMobile/controlMobileContext";
 import "../CalendarioReservas/styles.css";
 
-const CalendarioReservas = () => {
+const CalendarioReservas = ({actualizarFecha}) => {
 
     /* const contextoControlMobile = useContext(ControlMobileContext);
     const { esVersionMobileCalendario, setVersionMobileCalendario } = contextoControlMobile;
@@ -19,11 +19,13 @@ const CalendarioReservas = () => {
     const [fechaInicial, setFechaInicial] = useState(new Date());
     const [fechaFinal, setFechaFinal] = useState(null);
     const onChange = (fechas) => {
-        const [fechaInicio, fechaFin] = fechas;
+        const [fechaInicio, fechaFinal] = fechas;
         setFechaInicial(fechaInicio);
-        setFechaFinal(fechaFin);
+        setFechaFinal(fechaFinal);
+        actualizarFecha(fechaInicio,fechaFinal)
     };
-    
+    console.log(fechaInicial);
+    console.log(fechaFinal);
 
     return (
         <div className="calendario-reserva__contenedor">

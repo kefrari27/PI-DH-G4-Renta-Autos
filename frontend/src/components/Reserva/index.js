@@ -15,7 +15,13 @@ const Reserva = () => {
     console.log("🚀 ~ file: index.js ~ line 15 ~ Reserva ~ dataProducto", dataProducto)
     const [dataUbicacionProducto, setDataUbicacionProducto] = useState({});
     /* const datos_reserva = data */
-     
+    
+    let [fechaReservaInicial,setFechaReservaInicial]=useState();
+    let [fechaReservaFinal,setFechaReservaFinal]=useState();
+    const tomarFecha = (fechaInicio,fechaFin)=>{
+      setFechaReservaInicial(fechaInicio.toDateString());
+      setFechaReservaFinal(fechaFin.toDateString());
+    }
     
     const consultarCiudad = async(ciudad) => {
       if(typeof(ciudad) === 'string' || typeof(ciudad) === 'number') {
@@ -44,12 +50,14 @@ const Reserva = () => {
         <>
           <HeaderReserva titulo={dataProducto?.titulo}/>
           <div className='reserva__contenedor'>
-            <CrearReserva />
+            <CrearReserva lecturaFecha={tomarFecha}/>
             <DetalleReserva 
               titulo={dataProducto?.titulo} 
               categoria={dataProducto?.categoria?.descripcion} 
               imagen={dataProducto && dataProducto?.imagenes && dataProducto?.imagenes[0]?.urlImagen}
               ubicacion={dataUbicacionProducto}
+              fechaResIni={fechaReservaInicial}
+              fechaResFin={fechaReservaFinal}
               />
           </div>
         </>

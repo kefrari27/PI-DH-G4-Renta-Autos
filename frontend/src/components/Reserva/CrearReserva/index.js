@@ -5,7 +5,7 @@ import autenticacionContext from "../../../context/autenticacion/autenticacionCo
 import CalendarioReservas from './CalendarioReservas';
 import './styles.css'
 
-const CrearReserva = () => {
+const CrearReserva = ({lecturaFecha}) => {
 
     /* Listado horarios */
 
@@ -131,7 +131,7 @@ const CrearReserva = () => {
                 </section>
                 <section className="formulario__crear-reserva-fecha__seccion">
                     <h2>Seleccioná tu fecha de reserva</h2>
-                    <CalendarioReservas/>
+                    <CalendarioReservas actualizarFecha={lecturaFecha}/>
                 </section>
                 <section className="formulario__crear-reserva-horario__seccion">
                     <h2>Tu horario de llegada</h2>

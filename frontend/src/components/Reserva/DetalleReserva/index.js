@@ -1,11 +1,13 @@
 import React from 'react';
 import '../DetalleReserva/styles.css';
 
-const DetalleReserva = ({titulo,categoria,imagen,ubicacion}) => {
-
+const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni,
+  fechaResFin}) => {
+  
   /* Renderizar ubicación del producto */
   const { pais, nombre, provincia} = ubicacion;
-  
+  /* let datosDeLocalStorage = localStorage.getItem('datosUsuario')
+  console.log(datosDeLocalStorage); */
   return (
     <>
       <section className="detalle-reserva__section">
@@ -37,12 +39,12 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion}) => {
               <hr className="detalle-reserva-separador"/>
               <div className='detalle-reserva-check'>
                 <h5>Check in</h5>
-                <p>__ /__ /__</p>
+                <p>{fechaResIni ? fechaResIni : "__ /__ /__"}</p>
               </div>
               <hr className="detalle-reserva-separador"/>
               <div className='detalle-reserva-check'>
                 <h5>Check out</h5>
-                <p>__ /__ /__</p>
+                <p>{fechaResFin ? fechaResFin : "__ /__ /__"}</p>
               </div>
               <hr className="detalle-reserva-separador"/>
               <div className="detalle-reserva-btn__contenedor">
@@ -51,7 +53,7 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion}) => {
             </div>
           </div>
         </div>
-      </section>
+      </section> 
     </>
   );
 }
