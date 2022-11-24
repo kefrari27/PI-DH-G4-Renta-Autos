@@ -1,15 +1,16 @@
-.calendario-reserva-boton-reserva-contenedor {
+.calendario-reserva-boton-reserva__borde {
     padding: 20px 40px;
     background-color: #191b1d0a;
 }
 
-.calendario-reserva-boton-reserva-contenedor h2 {
+.calendario-reserva-boton-reserva__borde h2 {
     padding: 0;
 }
 
 .calendario-reserva-boton-reserva {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .calendario-reserva {
@@ -21,7 +22,6 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     padding: 20px;
-    margin-right: 50px;
 }
 
 .calendario-reserva > .react-datepicker__month-container {
@@ -44,19 +44,28 @@
     border-color: var(--blanco);
 }
 
-.boton-reserva-contenedor {
+.boton-reserva__contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px 0 50px;
+}
+
+.boton-reserva__borde {
     background-color: var(--blanco);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     height: max-content;
+    max-width: 400px;
+    width: 80%;
     padding: 30px;
 }
 
-.boton-reserva-contenedor p {
+.boton-reserva__borde p {
     padding: 0;
     font-weight: 700;
 }
-.boton-reserva-contenedor button {
+.boton-reserva__borde button {
     width: 100%;
     padding: 10px 0;
     border: none;
@@ -72,16 +81,26 @@
         flex-wrap: wrap;
     }
 
-    .calendario-reserva  {
-        margin-bottom: 20px;
-        flex-wrap: wrap;
-        margin-right: 0;
+    .calendario-reserva-boton-reserva > div {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
     }
 
-    .boton-reserva-contenedor{
-        display: flex;
-        background-color: transparent;
-        box-shadow: none;
-        justify-content: space-between;
+    .calendario-reserva  {
+        
+        flex-wrap: wrap;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .boton-reserva__contenedor {
+        padding: 50px 0 30px 0;
+    }
+
+    .boton-reserva__borde{
+        width: 100%;
     }
 }

@@ -64,11 +64,11 @@ const Header = () => {
             </header>
             <div className="menu__mobile-seccion-botones">
                 <div className="menu__mobile-botones">
-                    <button>Crear cuenta</button>
+                    <button><Link to="/crearCuenta">Crear Cuenta</Link></button>
                 </div>
                 <hr className="menu__mobile-separador-botones"/> 
                 <div className="menu__mobile-botones">
-                    <button>Iniciar sesión</button>
+                    <button><Link to="/inicioSesion">Iniciar sesión</Link></button>
                 </div>                
             </div>
         </div>

@@ -1,0 +1,21 @@
+.reserva__contenedor{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    background-color: var(--cuaternario);
+}
+
+.seccion__crear-reserva{
+    grid-column: 1 / 3;
+}
+
+.carCard{
+    grid-column: 3 / 4;
+}
+
+@media screen and (max-width: 1024px) {
+    .reserva__contenedor{
+        display: flex;
+        flex-direction: column;
+    }
+}

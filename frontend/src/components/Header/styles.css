@@ -1,4 +1,5 @@
 @import "../estilos_globales.css";
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 .header {
     display: flex;
@@ -147,6 +148,7 @@
         border: none;
         font-size: 16px;
         font-weight: 700;
+        font-family: 'Quicksand', sans-serif;
     }
 
     .menu__mobile-header {
@@ -182,6 +184,10 @@
         padding: 20px;
         color: var(--secundario);
         font-weight: 700;
+    }
+
+    .menu__mobile-botones a {
+        text-decoration: none;
     }
 
     .menu__mobile-separador-botones {
