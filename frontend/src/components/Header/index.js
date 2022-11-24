@@ -21,6 +21,13 @@ const Header = () => {
         setAutenticacionEstado(null)
     };
 
+    const cerrarSesionMobile = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('datosUsuario');
+        setAutenticacionEstado(null)
+        setVersionMobileHeaderMenu()
+    };
+
     return (
         <>
        {!esVersionMobileHeaderMenu ?
@@ -45,7 +52,7 @@ const Header = () => {
         </header> :
         <div className="menu__mobile">
             <header className="menu__mobile-header">
-                <span><button className="menu__mobile-header-cerrar-sesion" onClick={setVersionMobileHeaderMenu}>X</button></span>
+                <span><button className="menu__mobile-header-cerrar-sesion" onClick={cerrarSesionMobile}>X</button></span>
                 {!estadoAutenticacion ?
                     <p className="menu__mobile-header-menu">Menú</p> :
                     <div className="menu__mobile-header__usuario">
