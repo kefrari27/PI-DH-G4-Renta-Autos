@@ -45,8 +45,11 @@ const Reserva = () => {
           <HeaderReserva titulo={dataProducto?.titulo}/>
           <div className='reserva__contenedor'>
             <CrearReserva />
-            <DetalleReserva titulo={dataProducto?.titulo} categoria={dataProducto?.categoria?.descripcion} 
-
+            <DetalleReserva 
+              titulo={dataProducto?.titulo} 
+              categoria={dataProducto?.categoria?.descripcion} 
+              imagen={dataProducto && dataProducto?.imagenes && dataProducto?.imagenes[0]?.urlImagen}
+              ubicacion={dataUbicacionProducto}
               />
           </div>
         </>

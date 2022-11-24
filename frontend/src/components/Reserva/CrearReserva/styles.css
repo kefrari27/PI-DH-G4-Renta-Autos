@@ -166,9 +166,11 @@
 
 /* Media Queries estilos*/
 
-/* @media screen and (max-width: 1024px) {
-
-} */
+@media screen and (max-width: 1024px) {
+    .seccion__crear-reserva {
+        margin-bottom: 0;
+    }
+}
 
 @media screen and (max-width: 480px) {
     .formulario__crear-reserva__bloque {
