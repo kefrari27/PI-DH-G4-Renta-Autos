@@ -5,7 +5,7 @@ import autenticacionContext from "../../../context/autenticacion/autenticacionCo
 import CalendarioReservas from './CalendarioReservas';
 import './styles.css'
 
-const CrearReserva = () => {
+const CrearReserva = ({lecturaFecha}) => {
 
     /* Listado horarios */
 
@@ -35,18 +35,21 @@ const CrearReserva = () => {
         { value: "22:00:00", label: "10:00 PM" },
         { value: "23:00:00", label: "11:00 PM" },
     ];
-
+    const datosDeLocalStorage =JSON.parse( localStorage.getItem('datosUsuario'));
+  
+    const {nombre,apellido,correo} = datosDeLocalStorage;
+    
     const contextoAutenticacion = useContext(autenticacionContext);
     const { login } = contextoAutenticacion;
-
+    /* console.log( contextoAutenticacion.datosUsuario); */
     const [ formularioSubmitted, setFormularioSubmitted ] = useState(false);
     const [ formularioValido, setFormularioValido ] = useState(true);
 
     const navigate = useNavigate();
 
     const formularioDatosIniciales = {
-        nombre: '',
-        apellido: '',
+        nombre: nombre,
+        apellido: 'bla',
         email: '',
         ciudad: '',
     }
@@ -88,6 +91,7 @@ const CrearReserva = () => {
                                     id="nombre"
                                     name="nombre"
                                     type="text"
+                                    value={nombre}
                                     disabled
                                 />
                             </div>
@@ -99,6 +103,7 @@ const CrearReserva = () => {
                                     id="apellido" 
                                     name="apellido"
                                     disabled
+                                    value={apellido}
                                 />
                             </div>
                             <div className="formulario__crear-reserva-email__row" >
@@ -109,7 +114,7 @@ const CrearReserva = () => {
                                     name="email"
                                     className="input__email"
                                     required
-                                    value={email}
+                                    value={correo}
                                     onChange={onInputChange}
                                     disabled
                                 />
@@ -131,7 +136,7 @@ const CrearReserva = () => {
                 </section>
                 <section className="formulario__crear-reserva-fecha__seccion">
                     <h2>Seleccioná tu fecha de reserva</h2>
-                    <CalendarioReservas/>
+                    <CalendarioReservas actualizarFecha={lecturaFecha}/>
                 </section>
                 <section className="formulario__crear-reserva-horario__seccion">
                     <h2>Tu horario de llegada</h2>
