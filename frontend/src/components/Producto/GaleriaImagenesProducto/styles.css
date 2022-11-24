@@ -9,7 +9,7 @@
 }
 
 .galeria-imagenes-producto-componente {
-    background-color: var(--secundario);
+    background-color: #ebd1cabf;
     display: grid;
     align-items: center;
     justify-content: center;

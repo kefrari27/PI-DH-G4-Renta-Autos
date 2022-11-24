@@ -72,8 +72,7 @@ const CrearCuenta = () => {
 
         const data = await postFetch(USUARIOS_API_URL, body);
 
-        if (data && data.nombre && data.apellido){ 
-            navigate("/");
+        if (data && data.nombre && data.apellido){
             setDatosUsuario(data || {});
 
             const body = {
@@ -84,7 +83,8 @@ const CrearCuenta = () => {
             const dataLogueo = await postFetch(AUTENTICACION_API_URL, body);
             localStorage.setItem('token', dataLogueo.jwtToken);
             localStorage.setItem('datosUsuario', JSON.stringify(data));
-            setAutenticacionEstado(dataLogueo.jwtToken);
+            setAutenticacionEstado(dataLogueo.jwtToken); 
+            navigate("/");
             
         } else {
             setRegistroCorrecto(false)
