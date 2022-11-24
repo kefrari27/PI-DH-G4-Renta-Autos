@@ -9,6 +9,18 @@
     margin-bottom: 100px;
 }
 
+.bloque__informativo {
+    background-color: var(--datoInvalido);
+    border-color: var(--invalido);
+    border-width: 1px;
+    text-align: center;
+    margin: 20px 0;
+    align-self: center;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid var(--invalido);
+}
+
 .seccion__crear-cuenta h1{
     text-align: center;
     color: var(--primario);

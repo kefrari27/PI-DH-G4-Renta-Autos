@@ -8,7 +8,7 @@ import Productos from "../Productos";
 
 const Home = () => {
 
-    const { CATEGORIAS_API_URL, PRODUCTOS_API_URL } = CONSTANTES;
+    const { CATEGORIAS_API_URL, PRODUCTOS_ALEATORIOS_API_URL } = CONSTANTES;
     
     const [dataCategorias, setdataCategorias] = useState(dataMock);
     const contextoDataProductos = useContext(DataProductosContext);
@@ -16,7 +16,7 @@ const Home = () => {
 
     const consultarCategorias = async()=> {     
       const dataCategoriasRespuesta = await getFetch(CATEGORIAS_API_URL);
-      const dataProductosRespuesta = await getFetch(PRODUCTOS_API_URL);
+      const dataProductosRespuesta = await getFetch(`${PRODUCTOS_ALEATORIOS_API_URL}/4`);
       setDataProductos(dataProductosRespuesta);
       setdataCategorias(dataCategoriasRespuesta);
     }   
@@ -29,7 +29,7 @@ const Home = () => {
         <>
             <Buscador />
             <Categorias dataCategorias={dataCategorias}/>
-            <Productos dataProductos={dataProductos}/>
+            {dataProductos.length > 0 && <Productos dataProductos={dataProductos}/>}
         </>
     );
 };

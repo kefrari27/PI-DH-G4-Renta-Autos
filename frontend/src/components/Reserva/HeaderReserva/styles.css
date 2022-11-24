@@ -1,0 +1,61 @@
+.header-reserva {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--terciario);
+    color: var(--blanco);
+    padding: 10px 0;
+}
+
+.header-reserva__informacion {
+    padding-left: 40px ;
+}
+
+.header-reserva__informacion h4 {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.header-reserva__informacion h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.header-reserva__volver {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.header-reserva__volver button {
+    background: url('../../../assets/icon_flecha_back.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    padding-right: 49px;
+    width: 30px;
+    height: 33px;
+    border: none;
+}
+
+@media screen and (max-width: 480px) {
+    .header-reserva {
+        padding-left: 0;
+    }
+
+    .header-reserva__volver {
+        padding-right: 35px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .header-reserva__informacion {
+        padding-left: 20px;
+    }
+
+
+    .header-reserva__volver {
+        padding-right: 0px;
+    }
+}
