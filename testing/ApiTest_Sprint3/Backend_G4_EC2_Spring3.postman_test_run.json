@@ -1,0 +1,1753 @@
+{
+	"id": "99f6461e-8263-4f98-862e-28766c39490d",
+	"name": "Backend_G4_EC2_Spring3",
+	"timestamp": "2022-11-24T19:18:56.904Z",
+	"collection_id": "18574377-23e9473f-d220-410d-b3b5-137b88be2a0c",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 131,
+	"totalFail": 33,
+	"results": [
+		{
+			"id": "0d933aad-ca12-4001-a486-98970fc5bee9",
+			"name": "GetCiudades",
+			"url": "http://18.218.111.107:8080/api/v1/ciudades",
+			"time": 267,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Ciudades incluye nombre": true,
+				"Ciudades incluye provincia": true,
+				"Ciudades incluye pais": true,
+				"Ciudades incluye latitud": true,
+				"Ciudades incluye longitud": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				267
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Ciudades incluye nombre": true,
+					"Ciudades incluye provincia": true,
+					"Ciudades incluye pais": true,
+					"Ciudades incluye latitud": true,
+					"Ciudades incluye longitud": true
+				}
+			]
+		},
+		{
+			"id": "8f10caaf-abd6-4d7f-a8d5-9ac35e7e28f6",
+			"name": "GetCiudadById",
+			"url": "http://18.218.111.107:8080/api/v1/ciudades/272",
+			"time": 180,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Ciudades incluye nombre": true,
+				"Ciudades incluye provincia": true,
+				"Ciudades incluye pais": true,
+				"Ciudades incluye latitud": true,
+				"Ciudades incluye longitud": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				180
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Ciudades incluye nombre": true,
+					"Ciudades incluye provincia": true,
+					"Ciudades incluye pais": true,
+					"Ciudades incluye latitud": true,
+					"Ciudades incluye longitud": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "c02dfcc7-fe6d-4003-8929-4dd460924513",
+			"name": "UpdateCiudad",
+			"url": "http://18.218.111.107:8080/api/v1/ciudades",
+			"time": 167,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Successful POST request": false,
+				"Status code name has string": false
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code name has string": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				167
+			],
+			"allTests": [
+				{
+					"Successful POST request": false,
+					"Status code name has string": false
+				}
+			]
+		},
+		{
+			"id": "5c9e5446-d981-402a-b114-c77b5cdeb3b9",
+			"name": "GetCiudadesWithProductos",
+			"url": "http://18.218.111.107:8080/api/v1/ciudades/ciudadesConProductos",
+			"time": 404,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Ciudades incluye nombre": true,
+				"Ciudades incluye provincia": true,
+				"Ciudades incluye pais": true,
+				"Ciudades incluye latitud": true,
+				"Ciudades incluye longitud": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ciudades incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				404
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Ciudades incluye nombre": true,
+					"Ciudades incluye provincia": true,
+					"Ciudades incluye pais": true,
+					"Ciudades incluye latitud": true,
+					"Ciudades incluye longitud": true
+				}
+			]
+		},
+		{
+			"id": "e662ba0d-e967-4085-b50c-52ae6c62c1c7",
+			"name": "GetImagenes",
+			"url": "http://18.218.111.107:8080/api/v1/imagenes",
+			"time": 1368,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Imagen incluye nombre": true,
+				"Imagen incluye provincia": true,
+				"Imagen incluye pais": true,
+				"Imagen incluye latitud": true,
+				"Imagen incluye longitud": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1368
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Imagen incluye nombre": true,
+					"Imagen incluye provincia": true,
+					"Imagen incluye pais": true,
+					"Imagen incluye latitud": true,
+					"Imagen incluye longitud": true
+				}
+			]
+		},
+		{
+			"id": "0c4022d7-78b6-40e5-99fa-27cb844dde00",
+			"name": "GetImagenById",
+			"url": "http://18.218.111.107:8080/api/v1/imagenes/72",
+			"time": 380,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Imagen incluye nombre": true,
+				"Imagen incluye provincia": true,
+				"Imagen incluye pais": true,
+				"Imagen incluye latitud": true,
+				"Imagen incluye longitud": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				380
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Imagen incluye nombre": true,
+					"Imagen incluye provincia": true,
+					"Imagen incluye pais": true,
+					"Imagen incluye latitud": true,
+					"Imagen incluye longitud": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "126ec131-4ee3-449d-8913-41c3df2fe766",
+			"name": "UpdateImagen",
+			"url": "http://18.218.111.107:8080/api/v1/imagenes",
+			"time": 174,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code es 200": false,
+				"Imagen incluye nombre": false,
+				"Imagen incluye provincia": false,
+				"Imagen incluye pais": false,
+				"Imagen incluye latitud": false,
+				"Imagen incluye longitud": false
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Imagen incluye nombre": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Imagen incluye provincia": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Imagen incluye pais": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Imagen incluye latitud": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Imagen incluye longitud": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				174
+			],
+			"allTests": [
+				{
+					"Status code es 200": false,
+					"Imagen incluye nombre": false,
+					"Imagen incluye provincia": false,
+					"Imagen incluye pais": false,
+					"Imagen incluye latitud": false,
+					"Imagen incluye longitud": false
+				}
+			]
+		},
+		{
+			"id": "3fde2719-9a54-469c-9b5c-0bf2f5dab192",
+			"name": "GetImagenesByProductoId",
+			"url": "http://18.218.111.107:8080/api/v1/productos/imagenesByProductoId/193",
+			"time": 956,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Imagen incluye nombre": true,
+				"Imagen incluye provincia": true,
+				"Imagen incluye pais": true,
+				"Imagen incluye latitud": true,
+				"Imagen incluye longitud": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				956
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Imagen incluye nombre": true,
+					"Imagen incluye provincia": true,
+					"Imagen incluye pais": true,
+					"Imagen incluye latitud": true,
+					"Imagen incluye longitud": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "805557ee-8e3c-4c27-b475-163396598e4d",
+			"name": "GetCategorias",
+			"url": "http://18.218.111.107:8080/api/v1/categorias",
+			"time": 366,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Categoría incluye titulo": true,
+				"Categoría incluye descripcion": true,
+				"Categoría incluye urlImagen": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye titulo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye descripcion": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categoría incluye urlImagen": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				366
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Categoría incluye titulo": true,
+					"Categoría incluye descripcion": true,
+					"Categoría incluye urlImagen": true
+				}
+			]
+		},
+		{
+			"id": "22950d88-fcb0-4c0c-aaa0-e25eb3726056",
+			"name": "GetCategoriaById",
+			"url": "http://18.218.111.107:8080/api/v1/categoria/1",
+			"time": 180,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status code es 200": false,
+				"Categoría incluye titulo": false,
+				"Categoría incluye descripcion": false,
+				"Categoría incluye urlImagen": false,
+				"Verificar id": false
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Categoría incluye titulo": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Categoría incluye descripcion": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Categoría incluye urlImagen": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Verificar id": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				180
+			],
+			"allTests": [
+				{
+					"Status code es 200": false,
+					"Categoría incluye titulo": false,
+					"Categoría incluye descripcion": false,
+					"Categoría incluye urlImagen": false,
+					"Verificar id": false
+				}
+			]
+		},
+		{
+			"id": "f7374871-ba0d-40db-a7b9-9aec1a58f7b7",
+			"name": "UpdateCategoria",
+			"url": "http://18.218.111.107:8080/api/v1/categorias",
+			"time": 184,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code es 200": false,
+				"Categoría incluye titulo": false,
+				"Categoría incluye descripcion": false,
+				"Categoría incluye urlImagen": false
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Categoría incluye titulo": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Categoría incluye descripcion": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Categoría incluye urlImagen": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				184
+			],
+			"allTests": [
+				{
+					"Status code es 200": false,
+					"Categoría incluye titulo": false,
+					"Categoría incluye descripcion": false,
+					"Categoría incluye urlImagen": false
+				}
+			]
+		},
+		{
+			"id": "de532008-f30c-4b73-8c97-50f919079afb",
+			"name": "GetProductos",
+			"url": "http://18.218.111.107:8080/api/v1/productos",
+			"time": 1045,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Producto incluye titulo": true,
+				"Producto incluye categoría": true,
+				"Producto incluye ciudad": true,
+				"Producto incluye descripción": true,
+				"Producto incluye disponibilidad": true,
+				"Producto incluye política": true,
+				"Producto incluye características": true,
+				"Producto incluye imágenes": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye titulo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye categoría": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye ciudad": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye descripción": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye disponibilidad": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye política": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye características": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye imágenes": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1045
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Producto incluye titulo": true,
+					"Producto incluye categoría": true,
+					"Producto incluye ciudad": true,
+					"Producto incluye descripción": true,
+					"Producto incluye disponibilidad": true,
+					"Producto incluye política": true,
+					"Producto incluye características": true,
+					"Producto incluye imágenes": true
+				}
+			]
+		},
+		{
+			"id": "5a4587b5-7140-4f83-a79d-b26b4be0c281",
+			"name": "GetProductoById",
+			"url": "http://18.218.111.107:8080/api/v1/productos/44",
+			"time": 646,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Producto incluye titulo": true,
+				"Producto incluye categoría": true,
+				"Producto incluye ciudad": true,
+				"Producto incluye descripción": true,
+				"Producto incluye disponibilidad": true,
+				"Producto incluye política": true,
+				"Producto incluye características": true,
+				"Producto incluye imágenes": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye titulo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye categoría": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye ciudad": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye descripción": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye disponibilidad": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye política": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye características": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye imágenes": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				646
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Producto incluye titulo": true,
+					"Producto incluye categoría": true,
+					"Producto incluye ciudad": true,
+					"Producto incluye descripción": true,
+					"Producto incluye disponibilidad": true,
+					"Producto incluye política": true,
+					"Producto incluye características": true,
+					"Producto incluye imágenes": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "fc30f105-9d2f-474a-915e-54cabc663986",
+			"name": "UpdateProducto",
+			"url": "http://18.218.111.107:8080/api/v1/productos",
+			"time": 189,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code es 200": false,
+				"Producto incluye titulo": false,
+				"Producto incluye categoría": false,
+				"Producto incluye ciudad": false,
+				"Producto incluye descripción": false,
+				"Producto incluye disponibilidad": false,
+				"Producto incluye política": false,
+				"Producto incluye características": false,
+				"Producto incluye imágenes": false
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Producto incluye titulo": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Producto incluye categoría": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Producto incluye ciudad": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Producto incluye descripción": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Producto incluye disponibilidad": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Producto incluye política": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Producto incluye características": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Producto incluye imágenes": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				189
+			],
+			"allTests": [
+				{
+					"Status code es 200": false,
+					"Producto incluye titulo": false,
+					"Producto incluye categoría": false,
+					"Producto incluye ciudad": false,
+					"Producto incluye descripción": false,
+					"Producto incluye disponibilidad": false,
+					"Producto incluye política": false,
+					"Producto incluye características": false,
+					"Producto incluye imágenes": false
+				}
+			]
+		},
+		{
+			"id": "1e218040-8e91-4fd4-8d0c-1e802665aa4c",
+			"name": "GetImagenesByProductoId",
+			"url": "http://18.218.111.107:8080/api/v1/productos/imagenesByProductoId/44",
+			"time": 860,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Imagen incluye nombre": true,
+				"Imagen incluye provincia": true,
+				"Imagen incluye pais": true,
+				"Imagen incluye latitud": true,
+				"Imagen incluye longitud": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				860
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Imagen incluye nombre": true,
+					"Imagen incluye provincia": true,
+					"Imagen incluye pais": true,
+					"Imagen incluye latitud": true,
+					"Imagen incluye longitud": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "a23fcaf8-61af-488c-a7c5-a89a6a19c4ed",
+			"name": "GetProductosByCategoria",
+			"url": "http://18.218.111.107:8080/api/v1/productos/productosByCategoria/1",
+			"time": 924,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Imagen incluye nombre": true,
+				"Imagen incluye provincia": true,
+				"Imagen incluye pais": true,
+				"Imagen incluye latitud": true,
+				"Imagen incluye longitud": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				924
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Imagen incluye nombre": true,
+					"Imagen incluye provincia": true,
+					"Imagen incluye pais": true,
+					"Imagen incluye latitud": true,
+					"Imagen incluye longitud": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "dff55697-ff9a-4339-aac3-210ccede9cc4",
+			"name": "GetProductosByCiudad",
+			"url": "http://18.218.111.107:8080/api/v1/productos/productosByCiudad/121",
+			"time": 562,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Imagen incluye nombre": true,
+				"Imagen incluye provincia": true,
+				"Imagen incluye pais": true,
+				"Imagen incluye latitud": true,
+				"Imagen incluye longitud": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye provincia": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye pais": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye latitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagen incluye longitud": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				562
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Imagen incluye nombre": true,
+					"Imagen incluye provincia": true,
+					"Imagen incluye pais": true,
+					"Imagen incluye latitud": true,
+					"Imagen incluye longitud": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "c6febe6e-1452-4166-b4e6-88fa029b5aff",
+			"name": "GetProductosAleatorios",
+			"url": "http://18.218.111.107:8080/api/v1/productos/productosAleatorios/2",
+			"time": 314,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Producto incluye titulo": true,
+				"Producto incluye categoría": true,
+				"Producto incluye ciudad": true,
+				"Producto incluye descripción": true,
+				"Producto incluye disponibilidad": true,
+				"Producto incluye política": true,
+				"Producto incluye características": true,
+				"Producto incluye imágenes": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye titulo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye categoría": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye ciudad": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye descripción": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye disponibilidad": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye política": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye características": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Producto incluye imágenes": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				314
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Producto incluye titulo": true,
+					"Producto incluye categoría": true,
+					"Producto incluye ciudad": true,
+					"Producto incluye descripción": true,
+					"Producto incluye disponibilidad": true,
+					"Producto incluye política": true,
+					"Producto incluye características": true,
+					"Producto incluye imágenes": true
+				}
+			]
+		},
+		{
+			"id": "14ba061d-39f7-4c54-9402-4ae09fa9725e",
+			"name": "GetCaracteristicas",
+			"url": "http://18.218.111.107:8080/api/v1/caracteristicas",
+			"time": 309,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Característica incluye icono": true,
+				"Característica incluye título": true,
+				"Característica incluye descripción": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye icono": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye título": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye descripción": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				309
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Característica incluye icono": true,
+					"Característica incluye título": true,
+					"Característica incluye descripción": true
+				}
+			]
+		},
+		{
+			"id": "776cded4-8391-45f0-8cbd-68bf9405133a",
+			"name": "GetCaracteristicaById",
+			"url": "http://18.218.111.107:8080/api/v1/caracteristicas/28",
+			"time": 701,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Característica incluye icono": true,
+				"Característica incluye título": true,
+				"Característica incluye descripción": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye icono": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye título": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Característica incluye descripción": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				701
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Característica incluye icono": true,
+					"Característica incluye título": true,
+					"Característica incluye descripción": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "e365edd3-9129-4d6b-854e-23f44883f3a5",
+			"name": "UpdateCaracteristica",
+			"url": "http://18.218.111.107:8080/api/v1/caracteristicas",
+			"time": 903,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Status code name has string": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				903
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Status code name has string": true
+				}
+			]
+		},
+		{
+			"id": "9d69a247-95b0-4e69-9c05-2ae26b3c0490",
+			"name": "GetUsuarios",
+			"url": "http://18.218.111.107:8080/api/v1/usuarios",
+			"time": 1504,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Usuario incluye nombre": true,
+				"Usuario incluye apellido": true,
+				"Usuario incluye correo": true,
+				"Usuario incluye password": true,
+				"Usuario incluye rol": true,
+				"Usuario incluye ciudad": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye apellido": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye correo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye password": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye rol": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye ciudad": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1504
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Usuario incluye nombre": true,
+					"Usuario incluye apellido": true,
+					"Usuario incluye correo": true,
+					"Usuario incluye password": true,
+					"Usuario incluye rol": true,
+					"Usuario incluye ciudad": true
+				}
+			]
+		},
+		{
+			"id": "ce8e5d24-2d7d-4930-82f2-0a6b74647a68",
+			"name": "GetUsuarioByCorreo",
+			"url": "http://18.218.111.107:8080/api/v1/usuarios",
+			"time": 985,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				985
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9a23fb64-9fe8-472c-a0a6-ef80ca83d950",
+			"name": "GetUsuariosById",
+			"url": "http://18.218.111.107:8080/api/v1/usuarios/252",
+			"time": 958,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Usuario incluye nombre": true,
+				"Usuario incluye apellido": true,
+				"Usuario incluye correo": true,
+				"Usuario incluye password": true,
+				"Usuario incluye rol": true,
+				"Usuario incluye ciudad": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye apellido": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye correo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye password": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye rol": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye ciudad": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				958
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Usuario incluye nombre": true,
+					"Usuario incluye apellido": true,
+					"Usuario incluye correo": true,
+					"Usuario incluye password": true,
+					"Usuario incluye rol": true,
+					"Usuario incluye ciudad": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "9b1879b0-ec58-432f-9eb8-f2db3dc9975c",
+			"name": "UpdateUsuario",
+			"url": "http://18.218.111.107:8080/api/v1/usuarios",
+			"time": 174,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Successful POST request": false,
+				"Status code name has string": false
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code name has string": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				174
+			],
+			"allTests": [
+				{
+					"Successful POST request": false,
+					"Status code name has string": false
+				}
+			]
+		},
+		{
+			"id": "c52a9ec5-3461-4782-b332-903031b567a5",
+			"name": "GetRoles",
+			"url": "http://18.218.111.107:8080/api/v1/roles",
+			"time": 1483,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Usuario incluye nombre": true,
+				"Usuario incluye usuarios": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye usuarios": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1483
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Usuario incluye nombre": true,
+					"Usuario incluye usuarios": true
+				}
+			]
+		},
+		{
+			"id": "6d3b7169-1f88-4ec2-a41e-a22dd9db7bfc",
+			"name": "GetRolesById",
+			"url": "http://18.218.111.107:8080/api/v1/roles/245",
+			"time": 711,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code es 200": true,
+				"Usuario incluye nombre": true,
+				"Usuario incluye usuarios": true,
+				"Verificar id": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye nombre": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuario incluye usuarios": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				711
+			],
+			"allTests": [
+				{
+					"Status code es 200": true,
+					"Usuario incluye nombre": true,
+					"Usuario incluye usuarios": true,
+					"Verificar id": true
+				}
+			]
+		},
+		{
+			"id": "958d6000-64a6-4291-8fcd-cf6e75d56140",
+			"name": "UpdateRol",
+			"url": "http://18.218.111.107:8080/api/v1/roles/api/v1/roles",
+			"time": 177,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Successful POST request": false,
+				"Status code name has string": false
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code name has string": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				177
+			],
+			"allTests": [
+				{
+					"Successful POST request": false,
+					"Status code name has string": false
+				}
+			]
+		},
+		{
+			"id": "b0df94b3-fe52-45b5-89dc-d36a3b7e9702",
+			"name": "GetReservas",
+			"url": "http://18.218.111.107:8080/api/v1/roles/api/v1/reservas",
+			"time": 182,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code es 200": false,
+				"Reserva incluye status": true,
+				"Reserva incluye error": true,
+				"Reserva incluye path": true
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Reserva incluye status": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Reserva incluye error": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Reserva incluye path": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				182
+			],
+			"allTests": [
+				{
+					"Status code es 200": false,
+					"Reserva incluye status": true,
+					"Reserva incluye error": true,
+					"Reserva incluye path": true
+				}
+			]
+		},
+		{
+			"id": "8bbc316e-1111-43d5-80ff-a19e4b8baa1e",
+			"name": "GetReservaById",
+			"url": "http://18.218.111.107:8080/api/v1/roles/api/v1/reservas/1",
+			"time": 177,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code es 200": false,
+				"Reserva incluye status": true,
+				"Reserva incluye error": true,
+				"Reserva incluye path": true,
+				"Verificar id": false
+			},
+			"testPassFailCounts": {
+				"Status code es 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Reserva incluye status": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Reserva incluye error": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Reserva incluye path": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verificar id": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				177
+			],
+			"allTests": [
+				{
+					"Status code es 200": false,
+					"Reserva incluye status": true,
+					"Reserva incluye error": true,
+					"Reserva incluye path": true,
+					"Verificar id": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 17430,
+	"collection": {
+		"requests": [
+			{
+				"id": "0d933aad-ca12-4001-a486-98970fc5bee9",
+				"method": "GET"
+			},
+			{
+				"id": "8f10caaf-abd6-4d7f-a8d5-9ac35e7e28f6",
+				"method": "GET"
+			},
+			{
+				"id": "c02dfcc7-fe6d-4003-8929-4dd460924513",
+				"method": "PUT"
+			},
+			{
+				"id": "5c9e5446-d981-402a-b114-c77b5cdeb3b9",
+				"method": "GET"
+			},
+			{
+				"id": "e662ba0d-e967-4085-b50c-52ae6c62c1c7",
+				"method": "GET"
+			},
+			{
+				"id": "0c4022d7-78b6-40e5-99fa-27cb844dde00",
+				"method": "GET"
+			},
+			{
+				"id": "126ec131-4ee3-449d-8913-41c3df2fe766",
+				"method": "PUT"
+			},
+			{
+				"id": "3fde2719-9a54-469c-9b5c-0bf2f5dab192",
+				"method": "GET"
+			},
+			{
+				"id": "805557ee-8e3c-4c27-b475-163396598e4d",
+				"method": "GET"
+			},
+			{
+				"id": "22950d88-fcb0-4c0c-aaa0-e25eb3726056",
+				"method": "GET"
+			},
+			{
+				"id": "f7374871-ba0d-40db-a7b9-9aec1a58f7b7",
+				"method": "PUT"
+			},
+			{
+				"id": "de532008-f30c-4b73-8c97-50f919079afb",
+				"method": "GET"
+			},
+			{
+				"id": "5a4587b5-7140-4f83-a79d-b26b4be0c281",
+				"method": "GET"
+			},
+			{
+				"id": "fc30f105-9d2f-474a-915e-54cabc663986",
+				"method": "PUT"
+			},
+			{
+				"id": "1e218040-8e91-4fd4-8d0c-1e802665aa4c",
+				"method": "GET"
+			},
+			{
+				"id": "a23fcaf8-61af-488c-a7c5-a89a6a19c4ed",
+				"method": "GET"
+			},
+			{
+				"id": "dff55697-ff9a-4339-aac3-210ccede9cc4",
+				"method": "GET"
+			},
+			{
+				"id": "c6febe6e-1452-4166-b4e6-88fa029b5aff",
+				"method": "GET"
+			},
+			{
+				"id": "14ba061d-39f7-4c54-9402-4ae09fa9725e",
+				"method": "GET"
+			},
+			{
+				"id": "776cded4-8391-45f0-8cbd-68bf9405133a",
+				"method": "GET"
+			},
+			{
+				"id": "e365edd3-9129-4d6b-854e-23f44883f3a5",
+				"method": "PUT"
+			},
+			{
+				"id": "9d69a247-95b0-4e69-9c05-2ae26b3c0490",
+				"method": "GET"
+			},
+			{
+				"id": "ce8e5d24-2d7d-4930-82f2-0a6b74647a68",
+				"method": "GET"
+			},
+			{
+				"id": "9a23fb64-9fe8-472c-a0a6-ef80ca83d950",
+				"method": "GET"
+			},
+			{
+				"id": "9b1879b0-ec58-432f-9eb8-f2db3dc9975c",
+				"method": "PUT"
+			},
+			{
+				"id": "c52a9ec5-3461-4782-b332-903031b567a5",
+				"method": "GET"
+			},
+			{
+				"id": "6d3b7169-1f88-4ec2-a41e-a22dd9db7bfc",
+				"method": "GET"
+			},
+			{
+				"id": "958d6000-64a6-4291-8fcd-cf6e75d56140",
+				"method": "PUT"
+			},
+			{
+				"id": "b0df94b3-fe52-45b5-89dc-d36a3b7e9702",
+				"method": "GET"
+			},
+			{
+				"id": "8bbc316e-1111-43d5-80ff-a19e4b8baa1e",
+				"method": "GET"
+			},
+			{
+				"id": "860d5dfe-8158-46f2-bcde-607be4aa2ea1",
+				"method": "PUT"
+			}
+		]
+	}
+}
