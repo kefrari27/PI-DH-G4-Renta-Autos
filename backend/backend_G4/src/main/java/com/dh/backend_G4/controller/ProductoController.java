@@ -6,10 +6,7 @@ import com.dh.backend_G4.model.Ciudad;
 import com.dh.backend_G4.model.FiltroProductoReq;
 import com.dh.backend_G4.model.Producto;
 import com.dh.backend_G4.model.Usuario;
-import com.dh.backend_G4.model.modelDTO.AddCaracteristicaDTO;
-import com.dh.backend_G4.model.modelDTO.ImagenDTO;
-import com.dh.backend_G4.model.modelDTO.ProductoDTO;
-import com.dh.backend_G4.model.modelDTO.ReservaDTO;
+import com.dh.backend_G4.model.modelDTO.*;
 import com.dh.backend_G4.service.interfaceService.IProductoService;
 import com.dh.backend_G4.service.interfaceService.IReservaService;
 import org.apache.log4j.*;
@@ -218,8 +215,32 @@ public class ProductoController {
                 }
             }
         }
-
-        //return isRango;
         return productosDisponibles;
+    }
+
+    @GetMapping("/FechasReservasByProducto/{id}")
+    public List<FechasReservas> getFechasReservasByProducto(@PathVariable("id") Long id) throws ResourceNotFoundException {
+        logger.info("Listando Reservas de Productos");
+        List<FechasReservas> rangoFechas = new ArrayList<>();
+        if(id != 0 && productoService.buscar(id) != null) {
+            Set<ReservaDTO> reservasDTOS = reservaService.buscarReservabyProducto(id);
+            if(!reservasDTOS.isEmpty()){
+                for (ReservaDTO reservaDTO:reservasDTOS) {
+                    System.out.println("FechaCheckIn = "+reservaDTO.getFechaCheckIn());
+                    System.out.println("FechaCheckOut = "+reservaDTO.getFechaCheckOut());
+                    FechasReservas fechas = new FechasReservas();
+                    fechas.setFechaCheckIn(reservaDTO.getFechaCheckIn());
+                    fechas.setFechaCheckOut(reservaDTO.getFechaCheckOut());
+                    System.out.println("fechas = "+fechas.toString());
+                    rangoFechas.add(fechas);
+                    System.out.println("rangoFechas = "+rangoFechas);
+                }
+                return rangoFechas;
+            }else{
+                throw new ResourceNotFoundException("No hay Reservas para mostrar");
+            }
+        }else{
+            throw new ResourceNotFoundException("El id no pertenece a un producto");
+        }
     }
 }

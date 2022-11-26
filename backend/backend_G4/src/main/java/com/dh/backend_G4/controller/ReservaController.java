@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -54,8 +56,29 @@ public class ReservaController {
 
     @PostMapping
     public ResponseEntity<ReservaDTO> createReserva(@RequestBody ReservaDTO reservaDTO) throws ResourceNotFoundException{
-        logger.info("Agregando Reserva");
-        return new ResponseEntity<>(reservaService.guardar(reservaDTO), HttpStatus.CREATED);
+        List<Boolean> isRango = new ArrayList<>();
+        //Se consulta si existen reservas
+        Set<ReservaDTO> reservasDTOS = reservaService.buscarReservabyProducto(reservaDTO.getProducto().getId());
+        //Si no hay reservas
+        if(reservasDTOS.isEmpty()){
+            //Se agrega Reserva
+            logger.info("Agregando Reserva");
+            return new ResponseEntity<>(reservaService.guardar(reservaDTO), HttpStatus.CREATED);
+        }else{
+            //Se consulta cada una de las reservas
+            for (ReservaDTO reservaDTO1: reservasDTOS) {
+                //Se verifica si las reservas existentes están en el rango de fechaCheckin y fechaCheckout y se agrega a un array de booleanos
+                isRango.add(reservaService.comprobarDisponibilidadFechaNuevaReserva(reservaDTO1, reservaDTO.getFechaCheckIn(), reservaDTO.getFechaCheckOut()));
+            }
+            //Si el arreglo isRango no contiene false, indica que no hay reservas en ese rango
+            if(!isRango.contains(false)){
+                //Se agrega Reserva
+                logger.info("Agregando Reserva");
+                return new ResponseEntity<>(reservaService.guardar(reservaDTO), HttpStatus.CREATED);
+            }else{
+                throw new ResourceNotFoundException("No es posible alamacenar la reserva, ya existe una reserva que se cruzan con las fechas indicadas");
+            }
+        }
     }
 
     @PutMapping
