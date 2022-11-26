@@ -235,10 +235,8 @@ public class ProductoController {
                     rangoFechas.add(fechas);
                     System.out.println("rangoFechas = "+rangoFechas);
                 }
-                return rangoFechas;
-            }else{
-                throw new ResourceNotFoundException("No hay Reservas para mostrar");
             }
+            return rangoFechas;
         }else{
             throw new ResourceNotFoundException("El id no pertenece a un producto");
         }
