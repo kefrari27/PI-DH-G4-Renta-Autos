@@ -32,7 +32,8 @@ const CONSTANTES = {
   PRODUCTOS_POR_PRODUCTOID_API_URL: `${PRODUCTOS_API_URL}/addCaracteristica`,
   PRODUCTOS_POR_CATEGORIA_API_URL: `${PRODUCTOS_API_URL}/productosByCategoria`,
   PRODUCTOS_POR_CIUDAD_API_URL: `${PRODUCTOS_API_URL}/productosByCiudad`,
-  PRODUCTOS_ALEATORIOS_API_URL: `${PRODUCTOS_API_URL}/productosAleatorios/{cantidad}`
+  PRODUCTOS_ALEATORIOS_API_URL: `${PRODUCTOS_API_URL}/productosAleatorios`,
+  PRODUCTOS_FECHAS_CIUDAD_API_URL: `${PRODUCTOS_API_URL}/filtroProductosByFechas`
 }
 
 
@@ -42,11 +43,14 @@ const getFetch = async(url) => {
   return data;
 }
 
+const token = localStorage.getItem('token');
+
 const postFetch = async(url, datos)=>{  
     const response = await fetch(url, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json;charset=utf-8'
+          'Content-Type': 'application/json;charset=utf-8',
+          'Authorization': token ? `Bearer ${token}` : ''
         },
         body: JSON.stringify(datos)
       });

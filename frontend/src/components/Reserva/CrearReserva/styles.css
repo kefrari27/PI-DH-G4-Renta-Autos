@@ -1,0 +1,183 @@
+@import url("../../estilos_globales.css");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap'); 
+
+.seccion__crear-reserva {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.formulario__crear-reserva {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.formulario__crear-reserva section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.formulario__crear-reserva label {
+    margin-bottom: 10px;
+    color: var(--secundario);
+}
+
+.formulario__crear-reserva input {
+    height: 40px;
+    width: 100%;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.formulario__crear-reserva h2 {
+    padding: 0;
+    align-self: flex-start;
+}
+
+/** Estilos para el bloque de datos */
+
+.formulario__crear-reserva__container {
+    background-color: var(--blanco);
+    border: none;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.formulario__crear-reserva__bloque {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    grid-auto-rows: minmax(100px, auto);
+    width: 100%;
+}
+
+.formulario__crear-reserva__bloque > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.formulario__crear-reserva__row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 30%;
+}
+
+.formulario__crear-reserva__row p {
+    color: var(--invalido);
+    margin: 10px 0;
+    align-self: flex-end;
+}
+
+.invalidInput {
+    background-color: var(--datoInvalido);
+    border: 1px solid var(--invalido);
+}
+
+.validInput {
+    border: none;
+}
+
+/* Estilos para el bloque de Calendario */
+
+.formulario__crear-reserva-calendario__bloque{
+    background-color: var(--blanco);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 30px;
+}
+
+/* Estilos para el bloque de Horario */
+
+.formulario__crear-reserva-horario__bloque {
+    background-color: var(--blanco);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.formulario__crear-reserva-horario__bloque span {
+    background: url('../../../assets/icon_circulo_check.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 15px;
+    height: 15px;
+    color: transparent;
+    margin-top: 17px;
+}
+
+.formulario__crear-reserva-horario__bloque p {
+    padding: 0;
+    font-weight: 600;
+}
+
+.formulario__crear-reserva-horario {
+    display: block;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    color: var(--gris);
+    line-height: 1.3;
+    padding: 0 10px;
+    width: 310px;
+    max-width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    /* -moz-appearance: none; */
+    /* -webkit-appearance: none; */
+    /* appearance: none; */
+    background-color: var(--blanco);
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+    height: 38.6px;
+}
+
+/* Media Queries estilos*/
+
+@media screen and (max-width: 1024px) {
+    .seccion__crear-reserva {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .formulario__crear-reserva__bloque {
+        display: flex;
+        flex-direction: column;
+    }
+    .formulario__crear-reserva h2 {
+        font-size: 22px;
+    }
+}
