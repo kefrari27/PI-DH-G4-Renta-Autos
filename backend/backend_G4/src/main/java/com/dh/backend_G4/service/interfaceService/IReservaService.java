@@ -16,4 +16,5 @@ public interface IReservaService {
     public Set<ReservaDTO> buscarReservabyProducto(Long id);
     public Boolean comprobarDisponibilidadFechaNuevaReserva(ReservaDTO reservaDTO, LocalDate fechaCheckIn, LocalDate fechaCheckOut);
     public List<Reserva> obtenerReservasPorRango(LocalDate fechaCheckIn, LocalDate fechaCheckOut);
+    public Set<ReservaDTO> obtenerReservasPorUsuario(Long id);
 }

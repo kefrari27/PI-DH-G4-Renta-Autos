@@ -16,4 +16,7 @@ public interface IReservaRepository extends JpaRepository<Reserva, Long> {
 
     @Query("from Reserva r where r.fechaCheckIn BETWEEN :startDate AND :endDate")
     List<Reserva> getReservasByRango(@Param("startDate")LocalDate startDate, @Param("endDate")LocalDate endDate);
+
+    @Query("from Reserva r where r.usuario.id =:id_usuario")
+    List<Reserva> getReservasByUsuarioId(@Param("id_usuario") Long id_usuario);
 }

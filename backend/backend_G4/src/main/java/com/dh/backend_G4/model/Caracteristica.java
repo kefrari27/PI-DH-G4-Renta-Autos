@@ -23,6 +23,7 @@ public class Caracteristica {
     private String titulo;
     private String descripcion;
     @ManyToMany(mappedBy = "caracteristicas", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Producto> productos;
 
 }

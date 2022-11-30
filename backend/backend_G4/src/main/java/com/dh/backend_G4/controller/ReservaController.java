@@ -124,4 +124,22 @@ public class ReservaController {
         return response;
     }
 
+    @GetMapping("/reservasByUsuarioId/{id}")
+    public ResponseEntity<Set<ReservaDTO>> getReservasByUsuarioId(@PathVariable("id") Long id) throws ResourceNotFoundException{
+        logger.info("Buscando Reservas por UsuarioId " + id);
+        ResponseEntity<Set<ReservaDTO>> response = null;
+        if(id !=0){
+            Set<ReservaDTO> reservasDTOByUsuarioId = reservaService.obtenerReservasPorUsuario(id);
+            if(!reservasDTOByUsuarioId.isEmpty()){
+                response = ResponseEntity.ok(reservasDTOByUsuarioId);
+            }else{
+                throw new ResourceNotFoundException("Reservas no encontradas para el usuario con id = "+id);
+            }
+        }else{
+            throw new ResourceNotFoundException("id no válido");
+        }
+
+        return response;
+    }
+
 }

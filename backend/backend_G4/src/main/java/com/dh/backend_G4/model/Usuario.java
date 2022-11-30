@@ -1,6 +1,7 @@
 package com.dh.backend_G4.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
@@ -31,5 +32,6 @@ public class Usuario {
     @JoinColumn(name = "ciudad_id", referencedColumnName = "id", nullable = false)
     private Ciudad ciudad;
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Reserva> reservas;
 }

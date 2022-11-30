@@ -20,6 +20,7 @@ public interface IProductoService {
     public Set<ProductoDTO>listarProductosByCategoria(Long id);
     public Set<ProductoDTO>listarProductosByCiudad(Long id);
     public Set<ProductoDTO>listarProductosAleatorios(int cantidad);
+    public ProductoDTO buscarProductoByTituloAndCategoriaAndCiudad(String titulo, Long categoria_id, Long ciudad_id);
 
 
 }

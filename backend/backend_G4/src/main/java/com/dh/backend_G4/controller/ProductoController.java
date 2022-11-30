@@ -2,13 +2,16 @@ package com.dh.backend_G4.controller;
 
 
 import com.dh.backend_G4.exceptions.ResourceNotFoundException;
-import com.dh.backend_G4.model.Ciudad;
+import com.dh.backend_G4.model.Caracteristica;
 import com.dh.backend_G4.model.FiltroProductoReq;
+import com.dh.backend_G4.model.Imagen;
 import com.dh.backend_G4.model.Producto;
-import com.dh.backend_G4.model.Usuario;
 import com.dh.backend_G4.model.modelDTO.*;
+import com.dh.backend_G4.service.interfaceService.ICaracteristicaService;
+import com.dh.backend_G4.service.interfaceService.IImagenService;
 import com.dh.backend_G4.service.interfaceService.IProductoService;
 import com.dh.backend_G4.service.interfaceService.IReservaService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.*;
 
 import org.springframework.http.HttpStatus;
@@ -16,8 +19,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 
@@ -27,10 +28,16 @@ public class ProductoController {
     public static Logger logger = Logger.getLogger(ProductoController.class);
     private final IProductoService productoService;
     private final IReservaService reservaService;
+    private final ICaracteristicaService caracteristicaService;
+    private final IImagenService imagenService;
+    private final ObjectMapper mapper;
 
-    public ProductoController(IProductoService productoService, IReservaService reservaService) {
+    public ProductoController(IProductoService productoService, IReservaService reservaService, ICaracteristicaService caracteristicaService, IImagenService imagenService, ObjectMapper mapper) {
         this.productoService = productoService;
         this.reservaService = reservaService;
+        this.caracteristicaService = caracteristicaService;
+        this.imagenService = imagenService;
+        this.mapper = mapper;
     }
 
     @GetMapping
@@ -65,10 +72,13 @@ public class ProductoController {
     @PostMapping
     public ResponseEntity<ProductoDTO> createProducto(@RequestBody ProductoDTO productoDTO) throws ResourceNotFoundException{
         logger.info("Agregando Producto");
-        /*if(categoriaService.guardar(categoriaDTO) ==null) {
-            throw new ResourceNotFoundException("La Categoría no pudo ser almacenada");
-        }*/
-        return new ResponseEntity<>(productoService.guardar(productoDTO), HttpStatus.CREATED);
+        productoService.guardar(productoDTO);
+        ProductoDTO productoCreado = productoService.buscarProductoByTituloAndCategoriaAndCiudad(productoDTO.getTitulo(), productoDTO.getCategoria().getId(), productoDTO.getCiudad().getId());
+        if(productoCreado != null){
+            return new ResponseEntity<>(productoCreado, HttpStatus.CREATED);
+        }else{
+            throw new ResourceNotFoundException("El producto no pudo ser almacenado");
+        }
     }
 
     @PutMapping
@@ -240,5 +250,63 @@ public class ProductoController {
         }else{
             throw new ResourceNotFoundException("El id no pertenece a un producto");
         }
+    }
+
+    //  Set<CaracteristicaDTO> caracteristicasDTO
+    @PostMapping("/crearProductoCompleto")
+    public ResponseEntity<ProductoDTO> createProductoCompleto(@RequestBody ProductoDTO productoDTO) throws ResourceNotFoundException{
+        logger.info("Agregando Producto");
+        ResponseEntity<ProductoDTO> productoCreado = null;
+        //Se genera un nuevo objeto de ProductoDTO y se carga con los valores que ingresan
+        ProductoDTO productoDTO1 = new ProductoDTO();
+        productoDTO1.setTitulo(productoDTO.getTitulo());
+        productoDTO1.setCategoria(productoDTO.getCategoria());
+        productoDTO1.setCiudad(productoDTO.getCiudad());
+        productoDTO1.setDescripcion(productoDTO.getDescripcion());
+        productoDTO1.setDisponibilidad(productoDTO.getDisponibilidad());
+        productoDTO1.setPolitica(productoDTO.getPolitica());
+
+        ResponseEntity<ProductoDTO> response = createProducto(productoDTO1);
+        if(response.getStatusCode().value() == 201){
+            if(!productoDTO.getCaracteristicas().isEmpty()){
+                //Se obtienen las caracteristicas
+                Set<Caracteristica> caracteristicas = productoDTO.getCaracteristicas();
+                //Si poseen caracteristicas
+                if(!caracteristicas.isEmpty()){
+                    //Se crea caracteristicaDTO para relacionar producto con caracteristicas
+                    AddCaracteristicaDTO addCaracteristicaDTO = new AddCaracteristicaDTO();
+                    addCaracteristicaDTO.setProductoId(response.getBody().getId());
+                    addCaracteristicaDTO.setCaracteristicas(caracteristicas);
+
+                    //Se almacena
+                    productoService.addCaracteristica(addCaracteristicaDTO);
+                }
+            }
+            if(!productoDTO.getImagenes().isEmpty()){
+                //Se obtienen las imagenes
+                Set<Imagen> imagenes = productoDTO.getImagenes();
+                //Si posee imagenes
+                if(!imagenes.isEmpty()){
+                    //Se recorren cada una de ellas
+                    for (Imagen imagen:imagenes) {
+                        Imagen imagen1 = new Imagen();
+                        imagen1.setTitulo(imagen.getTitulo());
+                        imagen1.setDescripcion(imagen.getDescripcion());
+                        imagen1.setUrlImagen(imagen.getUrlImagen());
+
+                        //Se agrega el producto a la imagen
+                        Producto productoImagen = imagen.getProducto();
+                        productoImagen.setId(response.getBody().getId());
+                        imagen1.setProducto(productoImagen);
+
+                        //Se guarda la imagen
+                        imagenService.guardar(mapper.convertValue(imagen1, ImagenDTO.class));
+                    }
+                }
+            }
+            productoCreado = getProductoById(response.getBody().getId());
+            //productoCreado = response;
+        }
+        return productoCreado;
     }
 }

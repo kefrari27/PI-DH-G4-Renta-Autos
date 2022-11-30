@@ -26,5 +26,6 @@ public class Categoria {
     private String descripcion;
     private String urlImagen;
     @OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Producto> productos;
 }

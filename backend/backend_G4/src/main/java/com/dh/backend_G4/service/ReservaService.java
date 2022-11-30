@@ -112,4 +112,14 @@ public class ReservaService implements IReservaService {
         List<Reserva> reservas = reservaRepository.getReservasByRango(fechaCheckIn, fechaCheckOut);
         return reservas;
     }
+    @Override
+    public Set<ReservaDTO> obtenerReservasPorUsuario(Long id){
+        List<Reserva> reservas = reservaRepository.getReservasByUsuarioId(id);
+        Set<ReservaDTO> reservaDTOS = new HashSet<>();
+        for (Reserva reserva:reservas) {
+            reservaDTOS.add(mapper.convertValue(reserva, ReservaDTO.class));
+        }
+        return reservaDTOS;
+    }
+
 }

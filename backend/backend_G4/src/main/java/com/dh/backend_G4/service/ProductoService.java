@@ -164,5 +164,13 @@ public class ProductoService implements IProductoService {
         return productosAleatorios;
     }
 
+    @Override
+    public ProductoDTO buscarProductoByTituloAndCategoriaAndCiudad(String titulo, Long categoria_id, Long ciudad_id) {
+        Producto producto = productoRepository.getProductoByTituloAndCategoriaAndCiudad(titulo, categoria_id, ciudad_id);
+        ProductoDTO productoDTO = mapper.convertValue(producto, ProductoDTO.class);
+        return productoDTO;
+    }
+
+
 
 }

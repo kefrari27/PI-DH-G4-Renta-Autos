@@ -4,7 +4,9 @@ import com.dh.backend_G4.model.Caracteristica;
 import com.dh.backend_G4.model.Categoria;
 import com.dh.backend_G4.model.Ciudad;
 import com.dh.backend_G4.model.Imagen;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
