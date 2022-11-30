@@ -10,6 +10,7 @@ import Header from "../components/Header";
 import Home from "../components/Home";
 import Product from "../components/Producto";
 import Reserva from "../components/Reserva";
+import ProcesoExitoso from "../components/ProcesoExitoso";
 
 const AppRouter = () => {
     return (
@@ -21,6 +22,7 @@ const AppRouter = () => {
             <Route path="/inicioSesion" element={<InicioSesion />} />
             <Route path="/producto/:idProducto" element={<Product />} />
             <Route path="/producto/:idProducto/reserva" element={<Reserva />} />
+            <Route path="/producto/:idProducto/reserva/procesoExitoso" element={<ProcesoExitoso />} />
           </Routes>
         <Footer />
         </BrowserRouter>

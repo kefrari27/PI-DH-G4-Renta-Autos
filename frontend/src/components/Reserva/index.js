@@ -59,7 +59,7 @@ const Reserva = () => {
             ubicacion={dataUbicacionProducto}
             fechaResIni={fechaReservaInicial}
             fechaResFin={fechaReservaFinal}
-            />
+          />
         </div> 
           <PoliticaProducto />
         </> ): 

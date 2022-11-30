@@ -1,0 +1,100 @@
+/* Importaciones */
+@import url("../estilos_globales.css");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+.proceso-exitoso__contenedor {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.proceso-exitoso__borde {
+    width: 45vw;
+    height: 300px;
+    border: 1px solid var(--blanco);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.proceso-exitoso__borde span {
+    background: url('../../assets/icon_proceso_exitoso.svg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 100px;
+    height: 100px;
+    color: transparent;
+    margin-top: 17px;
+}
+
+.proceso-exitoso__borde h2 {
+    font-size: 28px;
+    color: var(--primario);
+    padding: 0;
+    margin: 5px 0;
+}
+
+.proceso-exitoso__borde p {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--secundario);
+    margin: 5px 0 30px 0;
+    padding: 0;
+}
+
+.proceso-exitoso__borde .proceso-exitoso-btn {
+    font-size: 18px;
+    font-weight: 700;
+    width: 30vw;
+    max-width: 400px;
+    padding: 10px 0;
+    border: none;
+    color: var(--blanco);
+    background-color: var(--primario);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 30px;
+}
+
+.proceso-exitoso__borde .proceso-exitoso-btn:hover {
+    background-color: var(--datoInvalido);
+    color: var(--primario);
+}
+
+/* Estilos Media Queries */
+
+@media screen and (max-width: 480px) {
+    .proceso-exitoso__borde {
+        width: 90vw;
+    }
+
+    .proceso-exitoso__borde h2 {
+        font-size: 20px;
+    }
+
+    .proceso-exitoso__borde p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .proceso-exitoso__borde {
+        width: 65vw;
+    }
+
+    .proceso-exitoso__borde h2 {
+        font-size: 22px;
+    }
+
+    .proceso-exitoso__borde p {
+        font-size: 20px;
+    }
+}

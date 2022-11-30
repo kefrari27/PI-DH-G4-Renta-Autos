@@ -106,6 +106,7 @@
 }
 
 .detalle-reserva-btn__contenedor button {
+    font-weight: 600;
     width: 100%;
     max-width: 400px;
     padding: 10px 0;
@@ -114,6 +115,13 @@
     background-color: var(--primario);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
     border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.detalle-reserva-btn__contenedor button:hover {
+    background-color: var(--datoInvalido);
+    color: var(--primario);
 }
 
 @media screen and (max-width: 1024px) {

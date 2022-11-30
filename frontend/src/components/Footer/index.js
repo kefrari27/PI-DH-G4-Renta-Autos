@@ -14,7 +14,7 @@ const Footer = () => {
         {!esVersionMobileHeaderMenu ?
             <footer className="footer">
                 <div className="footer_copywrite">
-                    <span>©2021 Digital Booking</span>
+                    <span>©2022 Digital Booking</span>
                 </div>
                 <div className="footer__redes_sociales">
                     <span className='icon__facebook' />
