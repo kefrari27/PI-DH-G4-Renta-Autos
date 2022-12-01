@@ -98,6 +98,12 @@
     color: var(--terciario);
 }
 
+.detalle-reserva-fallida {
+    color: var(--invalido);
+    font-size: 14px;
+    text-align: start;
+}
+
 .detalle-reserva-btn__contenedor {
     display: flex;
     justify-content: center;
