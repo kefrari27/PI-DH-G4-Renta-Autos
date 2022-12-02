@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import '../DetalleReserva/styles.css';
 import { format } from 'date-fns'
 import { postFetch } from '../../../core/request';
@@ -10,8 +10,9 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
   /* Renderizar ubicación del producto */
   const { pais, nombre, provincia} = ubicacion;
   const { idProducto } = useParams();
-  const [seCreoReserva, setSeCreoReserva] = useState(false);
+  const [reservaFallida, setReservaFallida] = useState(false);
   const usuarioInformacion = localStorage.getItem('datosUsuario');
+  const navigate = useNavigate();
 
   let idUsuario = usuarioInformacion ? JSON.parse(usuarioInformacion) : { id: 256 };
 
@@ -32,7 +33,9 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
     const data = await postFetch('http://18.218.111.107:8080/api/v1/reservas', body);
 
     if (data) {
-      setSeCreoReserva(true);
+      navigate(`/producto/${idProducto}/reserva/procesoExitoso`);
+    } else {
+      setReservaFallida(true);
     }
   }
   
@@ -75,6 +78,10 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
                 <p>{fechaResFin ? fechaResFin : "__ /__ /__"}</p>
               </div>
               <hr className="detalle-reserva-separador"/>
+              { reservaFallida ?
+                <p className='detalle-reserva-fallida'>
+                  Lamentablemente la reserva no ha podido realizarse. Por favor, intente más tarde”
+                </p> : null}
               <div className="detalle-reserva-btn__contenedor">
                 <button onClick={crearReserva}>Confirmar reserva</button>
               </div>
@@ -82,12 +89,6 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
           </div>
         </div>
       </section>
-       {seCreoReserva && 
-            <div
-          >
-            SE CREO LA RESERVA DE MANERA EXITOSA!!
-          </div>
-       }
     </>
   );
 }

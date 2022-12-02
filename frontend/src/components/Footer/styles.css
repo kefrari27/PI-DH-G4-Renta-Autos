@@ -32,6 +32,12 @@
     margin: 5px 15px;
     width: 30px;
     height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer__redes_sociales span:hover {
+    transform: scale(1.1);
 }
 
 .icon__facebook {
