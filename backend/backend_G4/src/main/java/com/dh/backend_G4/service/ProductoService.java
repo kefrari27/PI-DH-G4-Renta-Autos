@@ -97,14 +97,19 @@ public class ProductoService implements IProductoService {
 
     @Override
     public ProductoDTO addCaracteristica(AddCaracteristicaDTO addCaracteristicaDTO) throws ResourceNotFoundException {
-        Optional<Producto> producto = productoRepository.findById(addCaracteristicaDTO.getProductoId());
+        /*Optional<Producto> producto = productoRepository.findById(addCaracteristicaDTO.getProductoId());
         if(producto.isPresent()) {
             producto.get().getCaracteristicas().addAll(addCaracteristicaDTO.getCaracteristicas());
             productoRepository.saveAndFlush(producto.get());
             return mapper.convertValue(producto.get(), ProductoDTO.class);
         }
-        throw new ResourceNotFoundException("No existe el producto");
+        throw new ResourceNotFoundException("No existe el producto");*/
 
+        ProductoDTO producto = buscar(addCaracteristicaDTO.getProductoId());
+        producto.setCaracteristicas(addCaracteristicaDTO.getCaracteristicas());
+        productoRepository.saveAndFlush(mapper.convertValue(producto, Producto.class));
+
+        return producto;
     }
 
     @Override

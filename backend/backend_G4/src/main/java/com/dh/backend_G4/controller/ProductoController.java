@@ -252,7 +252,6 @@ public class ProductoController {
         }
     }
 
-    //  Set<CaracteristicaDTO> caracteristicasDTO
     @PostMapping("/crearProductoCompleto")
     public ResponseEntity<ProductoDTO> createProductoCompleto(@RequestBody ProductoDTO productoDTO) throws ResourceNotFoundException{
         logger.info("Agregando Producto");
@@ -282,31 +281,125 @@ public class ProductoController {
                     productoService.addCaracteristica(addCaracteristicaDTO);
                 }
             }
-            if(!productoDTO.getImagenes().isEmpty()){
-                //Se obtienen las imagenes
-                Set<Imagen> imagenes = productoDTO.getImagenes();
-                //Si posee imagenes
-                if(!imagenes.isEmpty()){
-                    //Se recorren cada una de ellas
-                    for (Imagen imagen:imagenes) {
-                        Imagen imagen1 = new Imagen();
-                        imagen1.setTitulo(imagen.getTitulo());
-                        imagen1.setDescripcion(imagen.getDescripcion());
-                        imagen1.setUrlImagen(imagen.getUrlImagen());
+            productoCreado = getProductoById(response.getBody().getId());
+        }
+        return productoCreado;
+    }
 
-                        //Se agrega el producto a la imagen
-                        Producto productoImagen = imagen.getProducto();
-                        productoImagen.setId(response.getBody().getId());
-                        imagen1.setProducto(productoImagen);
+    @PostMapping("/crearProductoCompletoNew")
+    public ResponseEntity<ProductoDTO> createProductoCompletoNew(@RequestBody ProductoCompletoDTO productoCompletoDTO) throws ResourceNotFoundException{
+        logger.info("Agregando Producto");
+        ResponseEntity<ProductoDTO> productoCreado = null;
+        //Se genera un nuevo objeto de ProductoDTO y se carga con los valores que ingresan
+        ProductoDTO productoDTO1 = new ProductoDTO();
+        productoDTO1 = productoCompletoDTO.getProductoDTO();
 
-                        //Se guarda la imagen
-                        imagenService.guardar(mapper.convertValue(imagen1, ImagenDTO.class));
+        //Se crea el producto
+        ResponseEntity<ProductoDTO> response = createProducto(productoDTO1);
+
+        if(response.getStatusCode().value() == 201){
+
+            if(!productoCompletoDTO.getCaracteristicasDTO().isEmpty()){
+                //Se obtienen las caracteristicas
+                Set<CaracteristicaDTO> caracteristicas = productoCompletoDTO.getCaracteristicasDTO();
+                //Si poseen caracteristicas
+                if(!caracteristicas.isEmpty()){
+
+                    //Se crea caracteristicaDTO para relacionar producto con caracteristicas
+                    AddCaracteristicaDTO addCaracteristicaDTO = new AddCaracteristicaDTO();
+                    addCaracteristicaDTO.setProductoId(response.getBody().getId());
+                    Set<Caracteristica> caracteristicas1 = new HashSet<>();
+                    Set<CaracteristicaDTO> caracteristicasDTO = productoCompletoDTO.getCaracteristicasDTO();
+                    for (CaracteristicaDTO caracteristicaDTO:caracteristicasDTO) {
+                        caracteristicas1.add(mapper.convertValue(caracteristicaDTO, Caracteristica.class));
                     }
+                    addCaracteristicaDTO.setCaracteristicas(caracteristicas1);
+                    //Se almacena
+                    productoService.addCaracteristica(addCaracteristicaDTO);
                 }
             }
-            productoCreado = getProductoById(response.getBody().getId());
-            //productoCreado = response;
+
+            if(!productoCompletoDTO.getImagenesDTO().isEmpty()){
+                //Se obtienen las imagenes
+                Set<ImagenDTO> imagenes = productoCompletoDTO.getImagenesDTO();
+
+                //Se recorren cada una de ellas
+                for (ImagenDTO imagen:imagenes) {
+                    //Se agrega el producto a la imagen
+                    Producto productoImagen = imagen.getProducto();
+                    productoImagen.setId(response.getBody().getId());
+                    imagen.setProducto(productoImagen);
+
+                    //Se guarda la imagen
+                    imagenService.guardar(imagen);
+                }
+            }
+
+            Long idProducto = response.getBody().getId();
+            if(idProducto != null){
+                ProductoDTO productoDTOById = productoService.buscar(idProducto);
+                if(productoDTOById != null){
+                    productoCreado = ResponseEntity.ok(productoDTOById);
+                }
+            }
         }
+        return productoCreado;
+    }
+
+    @PostMapping("/crearProductoCompletoNew2")
+    public ResponseEntity<ProductoDTO> createProductoCompletoNew2(@RequestBody ProductoCompletoDTO productoCompletoDTO) throws ResourceNotFoundException{
+        logger.info("Agregando Producto");
+        ResponseEntity<ProductoDTO> productoCreado = null;
+        //Se genera un nuevo objeto de ProductoDTO y se carga con los valores que ingresan
+        ProductoDTO productoDTO1 = new ProductoDTO();
+        productoDTO1 = productoCompletoDTO.getProductoDTO();
+
+        //Se crea el producto
+        ResponseEntity<ProductoDTO> response = createProducto(productoDTO1);
+
+
+        if(response.getStatusCode().value() == 201) {
+            long idProducto = response.getBody().getId().longValue();
+            productoCreado =  ResponseEntity.ok(productoService.buscar(idProducto));
+        }
+             /*
+            Producto producto = mapper.convertValue(response, Producto.class);
+            if(!productoCompletoDTO.getCaracteristicasDTO().isEmpty()){
+                //Se obtienen las caracteristicas
+                Set<CaracteristicaDTO> caracteristicas = productoCompletoDTO.getCaracteristicasDTO();
+                //Si poseen caracteristicas
+                if(!caracteristicas.isEmpty()){
+
+                    //Se crea caracteristicaDTO para relacionar producto con caracteristicas
+                    AddCaracteristicaDTO addCaracteristicaDTO = new AddCaracteristicaDTO();
+                    addCaracteristicaDTO.setProductoId(response.getBody().getId());
+                    Set<Caracteristica> caracteristicas1 = new HashSet<>();
+                    Set<CaracteristicaDTO> caracteristicasDTO = productoCompletoDTO.getCaracteristicasDTO();
+                    for (CaracteristicaDTO caracteristicaDTO:caracteristicasDTO) {
+                        caracteristicas1.add(mapper.convertValue(caracteristicaDTO, Caracteristica.class));
+                    }
+                    addCaracteristicaDTO.setCaracteristicas(caracteristicas1);
+                    //Se almacena
+                    productoService.addCaracteristica(addCaracteristicaDTO);
+                }
+            }
+
+            if(!productoCompletoDTO.getImagenesDTO().isEmpty()){
+                //Se obtienen las imagenes
+                Set<ImagenDTO> imagenes = productoCompletoDTO.getImagenesDTO();
+
+                //Se recorren cada una de ellas
+                for (ImagenDTO imagen:imagenes) {
+                    //Se agrega el producto a la imagen
+                    imagen.setProducto(producto);
+
+                    //Se guarda la imagen
+                    imagenService.guardar(imagen);
+                }
+            }
+
+            productoCreado = getProductoById(response.getBody().getId());
+        }*/
         return productoCreado;
     }
 }
