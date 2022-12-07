@@ -288,13 +288,16 @@ public class ProductoController {
             if(!productoCompletoDTO.getImagenesDTO().isEmpty()){
                 //Se obtienen las imagenes
                 Set<ImagenDTO> imagenes = productoCompletoDTO.getImagenesDTO();
-
+                int cont = 0;
                 //Se recorren cada una de ellas
                 for (ImagenDTO imagen:imagenes) {
+                    cont += 1;
                     //Se agrega el producto a la imagen
                     Producto productoImagen = imagen.getProducto();
                     productoImagen.setId(response.getBody().getId());
                     imagen.setProducto(productoImagen);
+                    imagen.setTitulo("imagen "+response.getBody().getTitulo()+" "+String.valueOf(cont));
+                    imagen.setDescripcion("imagen "+ String.valueOf(cont));
 
                     //Se guarda la imagen
                     imagenService.guardar(imagen);
