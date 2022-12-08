@@ -54,7 +54,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                                 "/api/v1/caracteristicas/**",
                                 "/api/v1/imagenes/**",
                                 "/api/v1/roles/**",
-                                "/api/v1/politicas/**").permitAll()
+                                "/api/v1/politicas/**",
+                                "/api/v1/mail/**").permitAll()
                     //.antMatchers("/api/v1/reservas").hasRole("admin")
                     .antMatchers("/api/v1/reservas/**").authenticated()
                     .anyRequest().authenticated()
