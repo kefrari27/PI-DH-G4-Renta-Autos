@@ -4,13 +4,9 @@ package com.dh.backend_G4.controller;
 import com.dh.backend_G4.exceptions.ResourceNotFoundException;
 import com.dh.backend_G4.model.Caracteristica;
 import com.dh.backend_G4.model.FiltroProductoReq;
-import com.dh.backend_G4.model.Imagen;
 import com.dh.backend_G4.model.Producto;
 import com.dh.backend_G4.model.modelDTO.*;
-import com.dh.backend_G4.service.interfaceService.ICaracteristicaService;
-import com.dh.backend_G4.service.interfaceService.IImagenService;
-import com.dh.backend_G4.service.interfaceService.IProductoService;
-import com.dh.backend_G4.service.interfaceService.IReservaService;
+import com.dh.backend_G4.service.interfaceService.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.*;
 
@@ -30,13 +26,15 @@ public class ProductoController {
     private final IReservaService reservaService;
     private final ICaracteristicaService caracteristicaService;
     private final IImagenService imagenService;
+    private final IPoliticaService politicaService;
     private final ObjectMapper mapper;
 
-    public ProductoController(IProductoService productoService, IReservaService reservaService, ICaracteristicaService caracteristicaService, IImagenService imagenService, ObjectMapper mapper) {
+    public ProductoController(IProductoService productoService, IReservaService reservaService, ICaracteristicaService caracteristicaService, IImagenService imagenService, IPoliticaService politicaService, ObjectMapper mapper) {
         this.productoService = productoService;
         this.reservaService = reservaService;
         this.caracteristicaService = caracteristicaService;
         this.imagenService = imagenService;
+        this.politicaService = politicaService;
         this.mapper = mapper;
     }
 
@@ -264,7 +262,7 @@ public class ProductoController {
         ResponseEntity<ProductoDTO> response = createProducto(productoDTO1);
 
         if(response.getStatusCode().value() == 201){
-
+            //Caracteristicas
             if(!productoCompletoDTO.getCaracteristicasDTO().isEmpty()){
                 //Se obtienen las caracteristicas
                 Set<CaracteristicaDTO> caracteristicas = productoCompletoDTO.getCaracteristicasDTO();
@@ -284,7 +282,7 @@ public class ProductoController {
                     productoService.addCaracteristica(addCaracteristicaDTO);
                 }
             }
-
+            //Imagenes
             if(!productoCompletoDTO.getImagenesDTO().isEmpty()){
                 //Se obtienen las imagenes
                 Set<ImagenDTO> imagenes = productoCompletoDTO.getImagenesDTO();
@@ -301,6 +299,19 @@ public class ProductoController {
 
                     //Se guarda la imagen
                     imagenService.guardar(imagen);
+                }
+            }
+            //Politicas
+            if(!productoCompletoDTO.getPoliticasDTO().isEmpty()){
+                //Se obtienen las politicas
+                Set<PoliticaDTO> politicas = productoCompletoDTO.getPoliticasDTO();
+                for (PoliticaDTO politica:politicas) {
+                    Producto productoPolitica = politica.getProducto();
+                    productoPolitica.setId(response.getBody().getId());
+                    politica.setProducto(productoPolitica);
+
+                    //Se guarda la política
+                    politicaService.guardar(politica);
                 }
             }
 

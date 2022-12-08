@@ -1,9 +1,6 @@
 package com.dh.backend_G4.model.modelDTO;
 
-import com.dh.backend_G4.model.Caracteristica;
-import com.dh.backend_G4.model.Categoria;
-import com.dh.backend_G4.model.Ciudad;
-import com.dh.backend_G4.model.Imagen;
+import com.dh.backend_G4.model.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,8 +19,9 @@ public class ProductoDTO implements Serializable {
     private Ciudad ciudad;
     private String descripcion;
     private String disponibilidad;
-    private String politica;
+    //private String politica;
     private String direccion;
     private Set<Caracteristica> caracteristicas;
     private Set<Imagen> imagenes;
+    private Set<Politica> politicas;
 }

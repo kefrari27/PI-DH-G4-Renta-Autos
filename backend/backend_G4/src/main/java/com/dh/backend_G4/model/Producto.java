@@ -38,9 +38,11 @@ public class Producto {
             inverseJoinColumns = {@JoinColumn(name = "caracteristica_id", nullable = false)})
     private Set<Caracteristica> caracteristicas;
     private String disponibilidad;
-    private String politica;
+    //private String politica;
     private String direccion;
     @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
     private Set<Reserva> reservas;
+    @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
+    private Set<Politica> politicas;
 
 }

@@ -14,4 +14,5 @@ public class ProductoCompletoDTO  implements Serializable {
     private ProductoDTO productoDTO;
     private Set<CaracteristicaDTO> caracteristicasDTO;
     private Set<ImagenDTO> imagenesDTO;
+    private Set<PoliticaDTO> politicasDTO;
 }
