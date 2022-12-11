@@ -5,7 +5,7 @@ import '../DetalleReserva/styles.css';
 import { format } from 'date-fns'
 import { postFetch } from '../../../core/request';
 
-const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaResFin}) => {
+const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaResFin, hora}) => {
   
   /* Renderizar ubicación del producto */
   const { pais, nombre, provincia} = ubicacion;
@@ -19,7 +19,7 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
   const crearReserva = async () => {
 
     const body = {
-      horaCheckIn: "19:09:00",
+      horaCheckIn: hora,
       fechaCheckIn: format(new Date(fechaResIni), 'yyyy-MM-dd'),
       fechaCheckOut: format(new Date(fechaResFin), 'yyyy-MM-dd'),
       producto: {
@@ -29,10 +29,14 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
         id: Number(idUsuario.id)
       }
     };
+    console.log(hora)
+    console.log(body);
 
     const data = await postFetch('http://18.218.111.107:8080/api/v1/reservas', body);
-
-    if (data) {
+    console.log(data.ok);
+    console.log(data.status);
+    
+    if (data.status === 200 || data.status === 201) {
       navigate(`/producto/${idProducto}/reserva/procesoExitoso`);
     } else {
       setReservaFallida(true);
@@ -78,9 +82,14 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
                 <p>{fechaResFin ? fechaResFin : "__ /__ /__"}</p>
               </div>
               <hr className="detalle-reserva-separador"/>
+              <div className='detalle-reserva-hora'>
+                <h5>Hora de llegada</h5>
+                <p>{}</p>
+              </div>
+              <hr className="detalle-reserva-separador"/>
               { reservaFallida ?
                 <p className='detalle-reserva-fallida'>
-                  Lamentablemente la reserva no ha podido realizarse. Por favor, intente más tarde”
+                  Lamentablemente la reserva no ha podido realizarse. Por favor, intente más tarde.
                 </p> : null}
               <div className="detalle-reserva-btn__contenedor">
                 <button onClick={crearReserva}>Confirmar reserva</button>

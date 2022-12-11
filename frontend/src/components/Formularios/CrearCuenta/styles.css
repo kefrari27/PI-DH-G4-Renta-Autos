@@ -138,7 +138,14 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
+    cursor: pointer;
+    transition: 0.3s;
 }
+
+.formulario__crear-cuenta__boton:hover {
+    background-color: var(--datoInvalido);
+    color: var(--primario);
+} 
 
 @media screen and (max-width: 1024px) {
     .formulario__crear-cuenta__row {

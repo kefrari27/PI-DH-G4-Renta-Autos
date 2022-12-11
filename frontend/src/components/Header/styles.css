@@ -58,11 +58,22 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.header__botones-boton:hover {
+    background-color: var(--primario);
 }
 
 .header__botones-boton a {
     color: var(--primario);
     text-decoration: none;
+    transition: 0.3s;
+}
+
+.header__botones-boton a:hover {
+    color: var(--blanco);
 }
 
 .header__botones-boton:first-child {
