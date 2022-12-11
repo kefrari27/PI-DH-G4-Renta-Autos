@@ -1,17 +1,19 @@
 package com.dh.backend_G4.controller;
 
 import com.dh.backend_G4.exceptions.ResourceNotFoundException;
-import com.dh.backend_G4.model.Rol;
-import com.dh.backend_G4.model.modelDTO.RolDTO;
 import com.dh.backend_G4.model.modelDTO.UsuarioDTO;
+import com.dh.backend_G4.service.interfaceService.IMailService;
 import com.dh.backend_G4.service.interfaceService.IRolService;
 import com.dh.backend_G4.service.interfaceService.IUsuarioService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailSendException;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import java.util.Set;
 
 @RestController
@@ -20,12 +22,13 @@ public class UsuarioController {
     final static Logger logger = Logger.getLogger(UsuarioController.class);
     private final IUsuarioService usuarioService;
     private final IRolService rolService;
-
+    private final IMailService mailService;
     private final ObjectMapper mapper;
 
-    public UsuarioController(IUsuarioService usuarioService, IRolService rolService, ObjectMapper mapper) {
+    public UsuarioController(IUsuarioService usuarioService, IRolService rolService, IMailService mailService, ObjectMapper mapper) {
         this.usuarioService = usuarioService;
         this.rolService = rolService;
+        this.mailService = mailService;
         this.mapper = mapper;
     }
 
@@ -59,10 +62,12 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<UsuarioDTO> createUsuario(@RequestBody UsuarioDTO usuarioDTO) throws ResourceNotFoundException{
+    public ResponseEntity<UsuarioDTO> createUsuario(@RequestBody UsuarioDTO usuarioDTO) throws ResourceNotFoundException, MessagingException, InterruptedException {
         logger.info("Agregando Usuario");
         UsuarioDTO usuario = usuarioService.guardar(usuarioDTO);
         if(usuario.getId() == null){
+            sendMailUsuario(usuarioDTO);
+            Thread.sleep(1000);
             return new ResponseEntity<>(usuario, HttpStatus.CREATED);
         }else{
             throw new ResourceNotFoundException("El Usuario ya se encuentra registrado");
@@ -106,5 +111,13 @@ public class UsuarioController {
             throw new ResourceNotFoundException("Usuario no encontrado");
         }
         return response;
+    }
+    @Async
+    public void sendMailUsuario(UsuarioDTO usuarioDTO) throws MessagingException, MailSendException {
+        String name =usuarioDTO.getNombre();
+        String to = usuarioDTO.getCorreo();
+        String subject = "Registro DigitalBooking4";
+        String content = "Nos alegra que hagas parte de la familia DigitalBooking4, estamos ansiosos de compartir contigo maravillosas experiencias en tu próximo viaje.";
+        mailService.sendEmailBienvenida(name,to,subject,content);
     }
 }

@@ -122,4 +122,21 @@ public class ReservaService implements IReservaService {
         return reservaDTOS;
     }
 
+    @Override
+    public ReservaDTO obtenerReservaEspecifica(ReservaDTO reservaDTO){
+        ReservaDTO reserva_DTO = null;
+        Long id_producto = reservaDTO.getProducto().getId();
+        LocalDate fechaCheckIn = reservaDTO.getFechaCheckIn();
+        LocalDate fechaCheckOut = reservaDTO.getFechaCheckOut();
+        Reserva reserva = reservaRepository.getReservaEspecifica(id_producto, fechaCheckIn, fechaCheckOut);
+        if(reserva != null){
+            reserva_DTO = mapper.convertValue(reserva, ReservaDTO.class);
+        }
+
+
+
+        return reserva_DTO;
+    }
+
+
 }

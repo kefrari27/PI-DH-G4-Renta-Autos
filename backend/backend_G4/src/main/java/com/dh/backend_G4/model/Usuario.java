@@ -32,6 +32,5 @@ public class Usuario {
     @JoinColumn(name = "ciudad_id", referencedColumnName = "id", nullable = false)
     private Ciudad ciudad;
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
-    @JsonIgnore
     private Set<Reserva> reservas;
 }

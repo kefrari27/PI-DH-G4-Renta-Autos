@@ -81,6 +81,7 @@ public class UsuarioService implements IUsuarioService {
     @Override
     public UsuarioDTO actualizar(UsuarioDTO usuarioDTO) {
         Usuario usuario = mapper.convertValue(usuarioDTO, Usuario.class);
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         usuarioRepository.save(usuario);
         return usuarioDTO;
     }

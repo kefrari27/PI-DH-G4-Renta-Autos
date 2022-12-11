@@ -1,16 +1,14 @@
 package com.dh.backend_G4.model.modelDTO;
 
 import com.dh.backend_G4.model.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Set;
 
 @Getter
 @Setter
+@ToString
 public class ProductoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;

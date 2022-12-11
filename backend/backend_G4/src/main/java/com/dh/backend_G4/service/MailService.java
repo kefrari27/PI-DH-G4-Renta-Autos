@@ -38,12 +38,34 @@ public class MailService implements IMailService {
         helper.setSubject(subject);
 
         String contentEmail =
-                "<b>Apreciado "+name+"</b>,"
+                "<b>Apreciad@ "+name+"</b>,"
                 + "<br><i>"+content+"</i>"
                 + "<br><br><b>Estos son tus datos de reserva: </b>"
                 + "<br>"+reserva
                 + "<br><br><b>Saludos,</b>"
                 + "<br><br><img src='cid:image001'/>";
+
+        helper.setText(contentEmail, true);
+
+        FileSystemResource resource = new FileSystemResource(new File("logo_header.png"));
+        helper.addInline("image001", resource);
+
+        mailSender.send(message);
+    }
+    @Override
+    public void sendEmailBienvenida(String name, String to, String subject, String content) throws MessagingException {
+
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+        helper.setTo(to);
+        helper.setSubject(subject);
+
+        String contentEmail =
+                "<b>Apreciad@ "+name+"</b>,"
+                        + "<br><i>"+content+"</i>"
+                        + "<br><br><b>Saludos,</b>"
+                        + "<br><br><img src='cid:image001'/>";
 
         helper.setText(contentEmail, true);
 

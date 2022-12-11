@@ -5,6 +5,7 @@ import com.dh.backend_G4.service.UsuarioDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -58,6 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                                 "/api/v1/mail/**").permitAll()
                     //.antMatchers("/api/v1/reservas").hasRole("admin")
                     .antMatchers("/api/v1/reservas/**").authenticated()
+                    //.antMatchers(HttpMethod.POST, "/api/v1/productos/**").hasAnyRole("admin")
                     .anyRequest().authenticated()
                 .and().cors()
                 .and()

@@ -19,4 +19,8 @@ public interface IReservaRepository extends JpaRepository<Reserva, Long> {
 
     @Query("from Reserva r where r.usuario.id =:id_usuario")
     List<Reserva> getReservasByUsuarioId(@Param("id_usuario") Long id_usuario);
+
+    @Query("from Reserva r where r.producto.id =:id_producto AND r.fechaCheckIn =:fechaCheckin AND r.fechaCheckOut =:fechaCheckout ")
+    Reserva getReservaEspecifica(@Param("id_producto") Long id_producto, @Param("fechaCheckin") LocalDate fechaCheckin, @Param("fechaCheckout") LocalDate fechaCheckout);
+
 }
