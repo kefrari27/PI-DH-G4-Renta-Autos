@@ -90,15 +90,14 @@ public class UsuarioService implements IUsuarioService {
     public void eliminar(Long id) {
         usuarioRepository.deleteById(id);
     }
-    /*
-    @Override
-    public Usuario codificarPassword(Usuario usuario){
-        usuario.setPassword(bcryptPasswordEncoder.encode(usuario.getPassword()));
-        return usuario;
-    }
-    @Override
-    public void decodificarPassword(String password, Usuario usuario){
-        bcryptPasswordEncoder.matches(password, usuario.getPassword());
-    }*/
 
+    @Override
+    public UsuarioDTO buscarUsuarioCreado(String correo, String nombre, String apellido) {
+        Optional<Usuario> usuario = usuarioRepository.getUsuarioCreado(correo, nombre, apellido);
+        UsuarioDTO usuarioDTO = null;
+        if(usuario.isPresent()){
+            usuarioDTO = mapper.convertValue(usuario, UsuarioDTO.class);
+        }
+        return usuarioDTO;
+    }
 }

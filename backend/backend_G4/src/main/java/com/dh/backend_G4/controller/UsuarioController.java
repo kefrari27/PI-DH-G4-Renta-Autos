@@ -67,8 +67,9 @@ public class UsuarioController {
         UsuarioDTO usuario = usuarioService.guardar(usuarioDTO);
         if(usuario.getId() == null){
             sendMailUsuario(usuarioDTO);
-            Thread.sleep(1000);
-            return new ResponseEntity<>(usuario, HttpStatus.CREATED);
+            Thread.sleep(2000);
+            UsuarioDTO usuarioCreado = usuarioService.buscarUsuarioCreado(usuarioDTO.getCorreo(), usuarioDTO.getNombre(), usuarioDTO.getApellido());
+            return new ResponseEntity<>(usuarioCreado, HttpStatus.CREATED);
         }else{
             throw new ResourceNotFoundException("El Usuario ya se encuentra registrado");
         }

@@ -12,6 +12,7 @@ public interface IUsuarioService {
     public UsuarioDTO buscarUsuarioByCorreo(String correo);
     public UsuarioDTO actualizar(UsuarioDTO usuarioDTO);
     public void eliminar(Long id);
+    public UsuarioDTO buscarUsuarioCreado(String correo, String nombre, String apellido);
     //public Usuario codificarPassword(Usuario usuario);
     //public void decodificarPassword(String password, Usuario usuario);
 }

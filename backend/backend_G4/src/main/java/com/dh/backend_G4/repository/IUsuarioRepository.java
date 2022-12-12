@@ -12,4 +12,7 @@ import java.util.Optional;
 public interface IUsuarioRepository extends JpaRepository<Usuario, Long> {
     @Query("from Usuario u where u.correo =:correo")
     Optional<Usuario> getUsuarioByCorreo(@Param("correo") String correo);
+
+    @Query("from Usuario u where u.correo =:correo and u.nombre =:nombre and u.apellido =:apellido")
+    Optional<Usuario> getUsuarioCreado(@Param("correo") String correo, @Param("nombre") String nombre, @Param("apellido") String apellido);
 }

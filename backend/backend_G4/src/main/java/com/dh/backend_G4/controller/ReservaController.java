@@ -95,7 +95,7 @@ public class ReservaController {
                 ReservaDTO reserva = reservaService.guardar(reservaDTO);
                 ReservaDTO resultadoReserva = reservaService.obtenerReservaEspecifica(reservaDTO);
                 sendMailReserva(resultadoReserva);
-                Thread.sleep(1000);
+                Thread.sleep(2000);
                 return new ResponseEntity<>(resultadoReserva, HttpStatus.CREATED);
             }else{
                 throw new ResourceNotFoundException("No es posible alamacenar la reserva, ya existe una reserva que se cruzan con las fechas indicadas");
