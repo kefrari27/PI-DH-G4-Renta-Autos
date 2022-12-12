@@ -47,7 +47,7 @@ public class MailService implements IMailService {
 
         helper.setText(contentEmail, true);
 
-        FileSystemResource resource = new FileSystemResource(new File("logo_header.png"));
+        FileSystemResource resource = new FileSystemResource(new File("./main/resources/logo_header.png"));
         helper.addInline("image001", resource);
 
         mailSender.send(message);
@@ -69,7 +69,7 @@ public class MailService implements IMailService {
 
         helper.setText(contentEmail, true);
 
-        FileSystemResource resource = new FileSystemResource(new File("logo_header.png"));
+        FileSystemResource resource = new FileSystemResource(new File("./main/resources/logo_header.png"));
         helper.addInline("image001", resource);
 
         mailSender.send(message);
