@@ -16,6 +16,7 @@ const Product = () => {
     const { PRODUCTOS_ID_API_URL, CIUDADES_ID_API_URL } = CONSTANTES;
       
     const [dataProducto, setDataProducto] = useState({});
+    console.log("🚀 ~ file: index.js:19 ~ Product ~ dataProducto", dataProducto)
     const [dataUbicacionProducto, setDataUbicacionProducto] = useState({});
     const { idProducto } = useParams();
 
@@ -40,14 +41,13 @@ const Product = () => {
       consultarProducto();
     }, []);
     
-    //console.log(dataProducto);
     return (
         <>
           <ProductHeader titulo={dataProducto?.titulo}/>
           <ProductLocation ubicacion={dataUbicacionProducto}/>
           <GaleriaImagenesProducto imagenes={dataProducto?.imagenes ? dataProducto?.imagenes : dataImagenesMock}/>
           <DescripcionProducto descripcion={dataProducto?.descripcion}/>
-          <CaracteristicasProducto />
+          <CaracteristicasProducto caracteristicas={dataProducto?.caracteristicas} />
           <CalendarioReservasProducto identificador={dataProducto?.id} />
           <PoliticaProducto />
         </>

@@ -90,7 +90,7 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
               { reservaFallida ?
                 <p className='detalle-reserva-fallida'>
                   Lamentablemente la reserva no ha podido realizarse. Por favor, intente más tarde.
-                </p> : null}
+                </p> : null }
               <div className="detalle-reserva-btn__contenedor">
                 <button onClick={crearReserva}>Confirmar reserva</button>
               </div>

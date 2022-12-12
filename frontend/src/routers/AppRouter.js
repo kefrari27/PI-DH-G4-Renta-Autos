@@ -14,6 +14,8 @@ import Reserva from "../components/Reserva";
 import ProcesoExitoso from "../components/ProcesoExitoso";
 
 const AppRouter = () => {
+  const datosDeLocalStorage = localStorage.getItem('datosUsuario');
+
     return (
         <BrowserRouter>
         <Header />
@@ -23,8 +25,10 @@ const AppRouter = () => {
             <Route path="/inicioSesion" element={<InicioSesion />} />
             <Route path="/producto/:idProducto" element={<Product />} />
             <Route path="/producto/:idProducto/reserva" element={<Reserva />} />
-            <Route path="/administracion" element={<CrearProducto />} />
             <Route path="/producto/:idProducto/reserva/procesoExitoso" element={<ProcesoExitoso />} />
+            <Route path="/administracion" element={ JSON.parse(datosDeLocalStorage)?.rol && JSON.parse(datosDeLocalStorage)?.rol.id === 244 ? 
+            <CrearProducto /> : <Home />} />
+            <Route path="/producto/:idProducto/creacionProducto/procesoExitoso" element={<ProcesoExitoso descripcion='La creación del producto se ha realizo con éxito' />} />
           </Routes>
         <Footer />
         </BrowserRouter>

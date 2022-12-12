@@ -3,6 +3,7 @@ import { getFetch, CONSTANTES, postFetch } from "../../../core/request";
 import ProductHeader from "../../Producto/ProductHeader";
 import '../CrearProductos/styles.css'
 import useForm from "../../../hooks/useFormulario";
+import { useNavigate } from "react-router-dom";
 
 const CrearProducto = () => {
   const [listaCategorias, setListaCategorias] = useState([]);
@@ -17,6 +18,9 @@ const CrearProducto = () => {
   const [descripcion, setDescripcion] = useState("");
   const [urlImagen, setURLImagen] = useState("");
   const [indice, setIndice] = useState(1);
+  const [creacionProductoFallido, setCreacionProductoFallido] = useState(false);
+
+  const navigate = useNavigate();
 
   const formularioDatosIniciales = {
     nombreProducto: '',
@@ -146,9 +150,10 @@ const CrearProducto = () => {
 
     const data = await postFetch(PRODUCTOS_CREAR_API_URL, body);
     if(data && data.id) {
-      console.log("🚀 ~ file: index.js:148 ~ onSubmit ~ data", data)
+      navigate(`/producto/${data.id}/creacionProducto/procesoExitoso`);
+    } else {
+      setCreacionProductoFallido(true);
     }
-
   };
 
   return (
@@ -255,6 +260,10 @@ const CrearProducto = () => {
             <button type="button" className="formulario-producto__filas_imagen-input__button_agregar" onClick={onCrearInputImagen}>+</button>
           </div>
         </div>
+        { creacionProductoFallido ?
+        <p className='detalle-reserva-fallida'>
+          Lamentablemente el producto no ha podido crearse. Por favor intente más tarde.
+        </p> : null }
         <button type="submit" className="formulario-producto__boton-crear">Crear</button>
       </form>
     </div>
