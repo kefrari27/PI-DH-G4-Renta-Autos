@@ -44,9 +44,8 @@ const getFetch = async(url) => {
   return data;
 }
 
-const token = localStorage.getItem('token');
-
 const postFetch = async(url, datos)=>{  
+    const token = localStorage.getItem('token');
     const response = await fetch(url, {
         method: 'POST',
         headers: {

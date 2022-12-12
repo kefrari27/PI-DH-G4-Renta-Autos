@@ -8,7 +8,6 @@ import './styles.css'
 const CrearReserva = ({lecturaFecha}) => {
 
     /* Listado horarios */
-
     const horarios = [
         { value: "00:00:00", label: "00:00 AM" },
         { value: "01:00:00", label: "01:00 AM" },
@@ -37,7 +36,8 @@ const CrearReserva = ({lecturaFecha}) => {
     ];
     const datosDeLocalStorage =JSON.parse( localStorage.getItem('datosUsuario'));
   
-    const {nombre,apellido,correo} = datosDeLocalStorage;
+    const {nombre, apellido, correo, ciudad} = datosDeLocalStorage;
+    const nombreCiudad = ciudad.nombre;
     
     const contextoAutenticacion = useContext(autenticacionContext);
     const { login } = contextoAutenticacion;
@@ -49,9 +49,9 @@ const CrearReserva = ({lecturaFecha}) => {
 
     const formularioDatosIniciales = {
         nombre: nombre,
-        apellido: 'bla',
-        email: '',
-        ciudad: '',
+        apellido: apellido,
+        email: correo,
+        ciudad: nombreCiudad,
     }
 
     const formularioValidaciones = {
@@ -65,7 +65,6 @@ const CrearReserva = ({lecturaFecha}) => {
         setFormularioValido(esValidoFor);
     
     }, [EsValidoFormulario])
-
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -127,8 +126,8 @@ const CrearReserva = ({lecturaFecha}) => {
                                     type="text" 
                                     id="ciudad" 
                                     name="ciudad"
-                                    placeholder="Ciudad"
-                                    required
+                                    value={nombreCiudad}
+                                    disabled
                                 />
                             </div>
                         </div>
@@ -141,7 +140,7 @@ const CrearReserva = ({lecturaFecha}) => {
                 <section className="formulario__crear-reserva-horario__seccion">
                     <h2>Tu horario de llegada</h2>
                     <div className="formulario__crear-reserva-horario__bloque">
-                        <h4><span>00</span> Tu habitación va a estar lista para el check-in entre las 10:00 AM y las 11:00 PM</h4>
+                        <h4><span>00</span> Tu vehiculo va a estar disponible para que lo retires al momento que dispongas </h4>
                         <p>Indica tu horario estimado de llegada</p>
                         <select className="formulario__crear-reserva-horario" id="horaReserva">
                             <option selected disabled value="">Selecciona tu horario</option>

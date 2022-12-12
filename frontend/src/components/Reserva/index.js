@@ -24,6 +24,12 @@ const Reserva = () => {
       setFechaReservaInicial(fechaInicio.toDateString());
       setFechaReservaFinal(fechaFin.toDateString());
     }
+
+    let [horaLlegada, setHoraLlegada] = useState();
+    const tomarHora = (hora) => {
+      setHoraLlegada(hora);
+      console.log(horaLlegada);
+    }
     
     const consultarCiudad = async(ciudad) => {
       if(typeof(ciudad) === 'string' || typeof(ciudad) === 'number') {
@@ -51,7 +57,7 @@ const Reserva = () => {
        <div>{datosDeLocalStorage ? ( <>
         <HeaderReserva titulo={dataProducto?.titulo}/>
         <div className='reserva__contenedor'>
-          <CrearReserva lecturaFecha={tomarFecha}/>
+          <CrearReserva lecturaFecha={tomarFecha} lecturaHora={tomarHora}/>
           <DetalleReserva 
             titulo={dataProducto?.titulo} 
             categoria={dataProducto?.categoria?.descripcion} 
@@ -59,7 +65,8 @@ const Reserva = () => {
             ubicacion={dataUbicacionProducto}
             fechaResIni={fechaReservaInicial}
             fechaResFin={fechaReservaFinal}
-            />
+            hora={horaLlegada}
+          />
         </div> 
           <PoliticaProducto />
         </> ): 

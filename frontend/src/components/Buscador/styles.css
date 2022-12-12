@@ -81,6 +81,7 @@
     background-size: .65em auto, 100%;
     height: 38.6px;
     position: relative;
+    cursor: pointer;
 }
 
 .buscador-formulario-ciudad__contenedor label {
@@ -180,6 +181,13 @@
     height: 40px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buscador-formulario-btn:hover {
+    background-color: var(--datoInvalido);
+    color: var(--primario);
 }
 
 /* Responsive Design*/
