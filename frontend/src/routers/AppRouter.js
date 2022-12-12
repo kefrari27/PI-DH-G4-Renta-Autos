@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Footer from "../components/Footer";
 import CrearCuenta from "../components/Formularios/CrearCuenta";
+import CrearProducto from "../components/Formularios/CrearProductos";
 import InicioSesion from "../components/Formularios/InicioSesion";
 import Header from "../components/Header";
 import Home from "../components/Home";
@@ -21,6 +22,7 @@ const AppRouter = () => {
             <Route path="/inicioSesion" element={<InicioSesion />} />
             <Route path="/producto/:idProducto" element={<Product />} />
             <Route path="/producto/:idProducto/reserva" element={<Reserva />} />
+            <Route path="/administracion" element={<CrearProducto />} />
           </Routes>
         <Footer />
         </BrowserRouter>
