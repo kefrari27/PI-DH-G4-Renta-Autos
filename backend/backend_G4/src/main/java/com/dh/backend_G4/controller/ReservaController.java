@@ -94,15 +94,6 @@ public class ReservaController {
                 logger.info("Agregando Reserva");
                 ReservaDTO reserva = reservaService.guardar(reservaDTO);
                 ReservaDTO resultadoReserva = reservaService.obtenerReservaEspecifica(reservaDTO);
-                /*Set<ReservaDTO> reservasDTO = reservaService.obtenerReservasPorUsuario(reservaDTO.getUsuario().getId());
-                for (ReservaDTO reservaDTO1:reservasDTO) {
-                    if(reservaDTO1.getProducto().getId().equals(reservaDTO.getProducto().getId()) &&
-                        reservaDTO1.getFechaCheckIn().toString() == reservaDTO.getFechaCheckIn().toString() &&
-                        reservaDTO1.getFechaCheckOut().toString() == reservaDTO.getFechaCheckOut().toString()){
-                            ReservaDTO reservaBuscada = reservaService.buscar(reservaDTO1.getId());
-                            sendMailReserva(reservaBuscada);
-                    }
-                }*/
                 sendMailReserva(resultadoReserva);
                 Thread.sleep(1000);
                 return new ResponseEntity<>(resultadoReserva, HttpStatus.CREATED);

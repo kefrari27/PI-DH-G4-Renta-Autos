@@ -43,12 +43,9 @@ public class MailService implements IMailService {
                 + "<br><br><b>Estos son tus datos de reserva: </b>"
                 + "<br>"+reserva
                 + "<br><br><b>Saludos,</b>"
-                + "<br><br><img src='cid:image001'/>";
+                + "<br><br><img src='https://res.cloudinary.com/kefrari27/image/upload/v1670806685/digitalbooking/logo_header_ufgca3.png'/>";
 
         helper.setText(contentEmail, true);
-
-        FileSystemResource resource = new FileSystemResource(new File("./main/resources/logo_header.png"));
-        helper.addInline("image001", resource);
 
         mailSender.send(message);
     }
@@ -65,12 +62,9 @@ public class MailService implements IMailService {
                 "<b>Apreciad@ "+name+"</b>,"
                         + "<br><i>"+content+"</i>"
                         + "<br><br><b>Saludos,</b>"
-                        + "<br><br><img src='cid:image001'/>";
+                        + "<br><br><img src='https://res.cloudinary.com/kefrari27/image/upload/v1670806685/digitalbooking/logo_header_ufgca3.png'/>";
 
         helper.setText(contentEmail, true);
-
-        FileSystemResource resource = new FileSystemResource(new File("./main/resources/logo_header.png"));
-        helper.addInline("image001", resource);
 
         mailSender.send(message);
     }
