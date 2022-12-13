@@ -38,6 +38,7 @@ const InicioSesion = () => {
 
         if (EsValidoFormulario && data.jwtToken){
             localStorage.setItem('token', data.jwtToken);
+            localStorage.setItem('uid', data.usuarioId);
             setAutenticacionEstado(data.jwtToken);
             const url = `${USUARIOS_ID_API_URL}/${data.usuarioId}`
             const dataUsuario = await getFetch(url);

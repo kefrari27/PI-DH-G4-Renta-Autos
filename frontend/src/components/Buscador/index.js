@@ -31,7 +31,7 @@ const ciudades = [
 
 const Buscador = () => {
 
-    const { CIUDADES_API_URL, PRODUCTOS_FECHAS_CIUDAD_API_URL } = CONSTANTES;
+    const { CIUDADES_API_URL, PRODUCTOS_FECHAS_CIUDAD_API_URL, CIUDADESCONPROD_API_URL } = CONSTANTES;
 
     const contextoDataProductos = useContext(DataProductosContext);
     const { setDataProductos } = contextoDataProductos;
@@ -43,7 +43,7 @@ const Buscador = () => {
     const fechaSalidaFormateada = rangoAPadre?.[1] ? format(new Date(rangoAPadre?.[1]), 'yyyy-MM-dd') : "";
      
     const consultarCiudades = async()=> {     
-      const data = await getFetch(CIUDADES_API_URL);     
+      const data = await getFetch(CIUDADESCONPROD_API_URL);     
       setListaCiudades(data);
     }   
 

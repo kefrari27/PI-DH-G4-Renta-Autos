@@ -5,7 +5,7 @@ import autenticacionContext from "../../../context/autenticacion/autenticacionCo
 import CalendarioReservas from './CalendarioReservas';
 import './styles.css'
 
-const CrearReserva = ({lecturaFecha}) => {
+const CrearReserva = ({lecturaFecha, lecturaHora}) => {
 
     /* Listado horarios */
     const horarios = [
@@ -45,6 +45,8 @@ const CrearReserva = ({lecturaFecha}) => {
     const [ formularioSubmitted, setFormularioSubmitted ] = useState(false);
     const [ formularioValido, setFormularioValido ] = useState(true);
 
+    const [horaLlegada, setHoraLlegada] = useState();
+
     const navigate = useNavigate();
 
     const formularioDatosIniciales = {
@@ -75,6 +77,12 @@ const CrearReserva = ({lecturaFecha}) => {
             login();
         }
     };
+
+    const onSeleccionarHora = (event) => {
+        setHoraLlegada(event.target.value);
+        console.log(horaLlegada);
+        lecturaHora(horaLlegada);
+    }
 
     return (
         <div className="seccion__crear-reserva">
@@ -142,7 +150,7 @@ const CrearReserva = ({lecturaFecha}) => {
                     <div className="formulario__crear-reserva-horario__bloque">
                         <h4><span>00</span> Tu vehiculo va a estar disponible para que lo retires al momento que dispongas </h4>
                         <p>Indica tu horario estimado de llegada</p>
-                        <select className="formulario__crear-reserva-horario" id="horaReserva">
+                        <select className="formulario__crear-reserva-horario" id="horaReserva" onChange={onSeleccionarHora}>
                             <option selected disabled value="">Selecciona tu horario</option>
                             {horarios.map((i) => <option value={i.value}>{i.label}</option>)}
                         </select>

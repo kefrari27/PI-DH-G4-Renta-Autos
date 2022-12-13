@@ -19,7 +19,7 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
   const crearReserva = async () => {
 
     const body = {
-      horaCheckIn: hora,
+      horaCheckIn: "08:00:00",
       fechaCheckIn: format(new Date(fechaResIni), 'yyyy-MM-dd'),
       fechaCheckOut: format(new Date(fechaResFin), 'yyyy-MM-dd'),
       producto: {

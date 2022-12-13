@@ -28,7 +28,6 @@ const Reserva = () => {
     let [horaLlegada, setHoraLlegada] = useState();
     const tomarHora = (hora) => {
       setHoraLlegada(hora);
-      console.log(horaLlegada);
     }
     
     const consultarCiudad = async(ciudad) => {
