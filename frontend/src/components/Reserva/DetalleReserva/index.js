@@ -32,13 +32,11 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
     console.log(body);
 
     const data = await postFetch('http://18.218.111.107:8080/api/v1/reservas', body);
-    console.log(data.ok);
-    console.log(data.status);
-    
-    if (data.status === 200 || data.status === 201) {
-      navigate(`/producto/${idProducto}/reserva/procesoExitoso`);
-    } else {
+    console.log(data);
+    if (data.status === 404 || data.status === 500) {
       setReservaFallida(true);
+    } else {
+      navigate(`/producto/${idProducto}/reserva/procesoExitoso`);
     }
   }
   

@@ -1,0 +1,73 @@
+.carCardReserva {
+    border-radius: 4px;    
+    width: 23%;
+    height: fit-content;
+    margin: 0px 10px 60px 10px;
+    background-color: #fdf7f7;
+    backface-visibility: hidden;
+    box-shadow: 0px 5px 10px rgb(220, 216, 216, 0.8);
+    transition: 0.3s;
+}
+
+.carCardReserva:hover {
+    transform: scale(1.03);
+}
+
+.imgCardReserva {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 70%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.imgCardReserva img {
+    height: 200px;
+}
+
+.infoCardReserva {
+    min-width: 280px;
+    height: 30%; 
+}
+
+.infoCardReserva button {
+    margin: 20px;
+    border-style: dashed;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.infoCardReserva button:hover {
+    border-color: var(--primario);
+    color: var(--primario);
+}
+
+h2{
+    padding-left: 35px;
+}
+
+h3, p{
+    padding-left: 15px;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .carCardReserva{
+        margin: 0px 10px 60px 10px;
+        width: 46%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carCardReserva{       
+        width: 100%;
+    }    
+}

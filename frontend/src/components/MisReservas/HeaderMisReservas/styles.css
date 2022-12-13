@@ -37,6 +37,7 @@
     width: 30px;
     height: 33px;
     border: none;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {

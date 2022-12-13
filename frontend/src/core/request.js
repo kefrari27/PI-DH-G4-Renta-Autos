@@ -10,6 +10,7 @@ const CIUDADES_API_URL = `${API_URL_PRODUCCION}/ciudades`;
 const IMAGENES_API_URL = `${API_URL_PRODUCCION}/imagenes`;
 const PRODUCTOS_API_URL = `${API_URL_PRODUCCION}/productos`;
 const USUARIOS_API_URL = `${API_URL_PRODUCCION}/usuarios`;
+const RESERVAS_API_URL = `${API_URL_PRODUCCION}/reservas`;
 
 const CONSTANTES = {
 
@@ -35,7 +36,9 @@ const CONSTANTES = {
   PRODUCTOS_POR_CIUDAD_API_URL: `${PRODUCTOS_API_URL}/productosByCiudad`,
   PRODUCTOS_ALEATORIOS_API_URL: `${PRODUCTOS_API_URL}/productosAleatorios`,
   PRODUCTOS_FECHAS_CIUDAD_API_URL: `${PRODUCTOS_API_URL}/filtroProductosByFechas`,
-  PRODUCTOS_CREAR_API_URL: `${PRODUCTOS_API_URL}/crearProductoCompleto`
+  PRODUCTOS_CREAR_API_URL: `${PRODUCTOS_API_URL}/crearProductoCompleto`,
+
+  RESERVAS_POR_ID_USUARIO_API_URL: `${RESERVAS_API_URL}/reservasByUsuarioId`
 }
 
 
@@ -43,6 +46,19 @@ const getFetch = async(url) => {
   const response = await fetch(url);
   const data = await response.json();
   return data;
+}
+
+const getFetchReservas = async(url) => {
+  const token = localStorage.getItem('token');
+  const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        'Authorization': token ? `Bearer ${token}` : ''
+      }
+    });
+    const data = await response.json();
+    return data;
 }
 
 const postFetch = async(url, datos)=>{  
@@ -83,4 +99,4 @@ const deleteFetch = async(url)=>{
 }
 
 
-export{getFetch, postFetch, putFetch, deleteFetch, CONSTANTES}
+export{getFetch, getFetchReservas, postFetch, putFetch, deleteFetch, CONSTANTES}

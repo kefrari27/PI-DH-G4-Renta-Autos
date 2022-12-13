@@ -1,0 +1,71 @@
+/* Importaciones */
+@import url("../estilos_globales.css");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+.mis-reservas-listado__contenedor {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mis-reservas-listado__contenedor .carCardReserva {
+    margin-top: 20px;
+}
+
+.mis-reservas-mensaje__contenedor {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.mis-reservas-mensaje__borde {
+    width: 45vw;
+    height: 300px;
+    border: 1px solid var(--blanco);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mis-reservas-mensaje__borde span {
+    background: url('../../assets/icon_warning.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 40px;
+    height: 40px;
+    color: transparent;
+    margin-top: 17px;
+}
+
+.mis-reservas-mensaje__borde h2 {
+    font-size: 28px;
+    color: var(--secundario);
+    padding: 0;
+    margin: 15px 0;
+}
+
+.mis-reservas-mensaje__borde .mis-reservas-boton-regresar {
+    font-size: 18px;
+    font-weight: 700;
+    width: 30vw;
+    max-width: 400px;
+    padding: 10px 0;
+    border: none;
+    color: var(--blanco);
+    background-color: var(--primario);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 30px;
+}
+
+.mis-reservas-mensaje__borde .mis-reservas-boton-regresar:hover {
+    background-color: var(--datoInvalido);
+    color: var(--primario);
+}
