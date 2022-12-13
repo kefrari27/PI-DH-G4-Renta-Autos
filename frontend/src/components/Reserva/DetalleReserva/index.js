@@ -29,7 +29,6 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
         id: Number(idUsuario.id)
       }
     };
-    console.log(hora)
     console.log(body);
 
     const data = await postFetch('http://18.218.111.107:8080/api/v1/reservas', body);
@@ -80,11 +79,6 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
               <div className='detalle-reserva-check'>
                 <h5>Check out</h5>
                 <p>{fechaResFin ? fechaResFin : "__ /__ /__"}</p>
-              </div>
-              <hr className="detalle-reserva-separador"/>
-              <div className='detalle-reserva-hora'>
-                <h5>Hora de llegada</h5>
-                <p>{}</p>
               </div>
               <hr className="detalle-reserva-separador"/>
               { reservaFallida ?

@@ -99,6 +99,12 @@
     border-radius: 50%;
     margin-right: 10px;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.header__avatar:hover {
+    transform: scale(1.03);
 }
 
 .header__administracion__label {
@@ -133,6 +139,7 @@
 .header__cerrar-sesion-boton {
     background-color: transparent;
     border: 0;
+    cursor: pointer;
 }
 
 .menu__mobile {
@@ -243,6 +250,7 @@
         border-radius: 50%;
         margin-bottom: 10px;
         text-transform: uppercase;
+        cursor: pointer;
     }
 
     .menu__mobile-header__usuario-nombre {

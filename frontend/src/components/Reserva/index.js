@@ -14,9 +14,7 @@ const Reserva = () => {
     const { PRODUCTOS_ID_API_URL, CIUDADES_ID_API_URL } = CONSTANTES;
    
     const [dataProducto, setDataProducto] = useState({});
-    /* console.log("🚀 ~ file: index.js ~ line 15 ~ Reserva ~ dataProducto", dataProducto) */
     const [dataUbicacionProducto, setDataUbicacionProducto] = useState({});
-    /* const datos_reserva = data */
     
     let [fechaReservaInicial,setFechaReservaInicial]=useState();
     let [fechaReservaFinal,setFechaReservaFinal]=useState();

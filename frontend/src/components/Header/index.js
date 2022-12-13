@@ -1,16 +1,18 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import autenticacionContext from '../../context/autenticacion/autenticacionContext';
 import ControlMobileContext from '../../context/controlMobile/controlMobileContext';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../Header/styles.css'
 
 const Header = () => {
     const contextoAutenticacion = useContext(autenticacionContext);
     const contextoControlMobile = useContext(ControlMobileContext);
     const { estadoAutenticacion, setAutenticacionEstado, datosUsuario } = contextoAutenticacion;
-    const {nombre, apellido, rol} = datosUsuario;
+    const {idUsuario, nombre, apellido, rol} = datosUsuario;
     const datosDeLocalStorage = localStorage.getItem('datosUsuario');
     const { esVersionMobileHeaderMenu, setVersionMobileHeaderMenu } = contextoControlMobile;
+
+    const navigate = useNavigate();
 
     const nombreLetra = nombre ? nombre?.slice(0, 1) : JSON.parse(datosDeLocalStorage)?.nombre?.slice(0, 1);
     const apellidoLetra = apellido ? apellido?.slice(0, 1) : JSON.parse(datosDeLocalStorage)?.apellido?.slice(0, 1);
@@ -28,6 +30,10 @@ const Header = () => {
         setVersionMobileHeaderMenu()
     };
 
+    const manejadorClickAvatar = () => {
+        navigate(`/${idUsuario}/misReservas`);
+    };
+
     return (
         <>
        {!esVersionMobileHeaderMenu ?
@@ -41,7 +47,7 @@ const Header = () => {
                 {!estadoAutenticacion ? <button className='header__botones-boton'><Link to="/inicioSesion">Iniciar sesión</Link></button> :
                 <div className="header__usuario-logueado">
                     {(rol && rol.id === 244) || JSON.parse(datosDeLocalStorage)?.rol?.id === 244 && <div className="header__administracion__label"><h3><Link to="/administracion">Administración</Link></h3></div>}
-                    <div className="header__avatar"><span>{nombreLetra}{apellidoLetra}</span></div>
+                    <div className="header__avatar" onClick={manejadorClickAvatar}><span>{nombreLetra}{apellidoLetra}</span></div>
                     <div className="header__usuario">
                         <p className="header__cerrar-sesion"><button className="header__cerrar-sesion-boton" onClick={cerrarSesion}>X</button></p>
                         <label>Hola,</label>
@@ -57,7 +63,7 @@ const Header = () => {
                 {!estadoAutenticacion ?
                     <p className="menu__mobile-header-menu">Menú</p> :
                     <div className="menu__mobile-header__usuario">
-                        <div className="menu__mobile-header__avatar"><span>{nombreLetra}{apellidoLetra}</span></div>
+                        <div className="menu__mobile-header__avatar" onClick={manejadorClickAvatar}><span>{nombreLetra}{apellidoLetra}</span></div>
                         <label>Hola,</label>
                         <p className="menu__mobile-header__usuario-nombre">{nombre ? nombre : JSON.parse(datosDeLocalStorage)?.nombre} {apellido ? apellido : JSON.parse(datosDeLocalStorage)?.apellido}</p>
                     </div>
