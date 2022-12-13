@@ -8,7 +8,7 @@ const Header = () => {
     const contextoAutenticacion = useContext(autenticacionContext);
     const contextoControlMobile = useContext(ControlMobileContext);
     const { estadoAutenticacion, setAutenticacionEstado, datosUsuario } = contextoAutenticacion;
-    const {nombre, apellido} = datosUsuario;
+    const {nombre, apellido, rol} = datosUsuario;
     const datosDeLocalStorage = localStorage.getItem('datosUsuario');
     const { esVersionMobileHeaderMenu, setVersionMobileHeaderMenu } = contextoControlMobile;
 
@@ -40,6 +40,7 @@ const Header = () => {
                 {!estadoAutenticacion && <button className='header__botones-boton'><Link to="/crearCuenta">Crear Cuenta</Link></button>}
                 {!estadoAutenticacion ? <button className='header__botones-boton'><Link to="/inicioSesion">Iniciar sesión</Link></button> :
                 <div className="header__usuario-logueado">
+                    {(rol && rol.id === 244) || JSON.parse(datosDeLocalStorage)?.rol?.id === 244 && <div className="header__administracion__label"><h3><Link to="/administracion">Administración</Link></h3></div>}
                     <div className="header__avatar"><span>{nombreLetra}{apellidoLetra}</span></div>
                     <div className="header__usuario">
                         <p className="header__cerrar-sesion"><button className="header__cerrar-sesion-boton" onClick={cerrarSesion}>X</button></p>

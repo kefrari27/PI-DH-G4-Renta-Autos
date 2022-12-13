@@ -20,7 +20,7 @@ const InicioSesion = () => {
 
     const formularioValidaciones = {
         email: [(parametro) => parametro.includes('@'), 'El correo debe ser un email válido'],
-        contrasenia: [(parametro) => parametro.length > 6, 'La contraseña debe tener minimo 6 caracteres']
+        contrasenia: [(parametro) => parametro.length > 6, 'La contraseña debe tener minimo 7 caracteres']
     }
 
     const { email, emailValido, contrasenia, contraseniaValido, onInputChange, EsValidoFormulario } = useForm(formularioDatosIniciales, formularioValidaciones);
