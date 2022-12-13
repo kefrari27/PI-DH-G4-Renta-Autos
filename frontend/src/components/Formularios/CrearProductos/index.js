@@ -146,7 +146,6 @@ const CrearProducto = () => {
         }
       ] 
     };
-    console.log("🚀 ~ file: index.js:154 ~ onSubmit ~ body", body)
 
     const data = await postFetch(PRODUCTOS_CREAR_API_URL, body);
     if(data && data.id) {
@@ -220,7 +219,7 @@ const CrearProducto = () => {
             listaCaracteristicas.map(caracteristica => (
             <div>
               <input className="checkbox" type="checkbox" name='checkbox' id={caracteristica.id} value={caracteristica.id} onChange={onObtenerValoresChecks}/>
-              <label>{caracteristica.descripcion}</label> 
+              <label>{caracteristica.titulo}</label> 
             </div>
             ))
           }

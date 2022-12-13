@@ -16,7 +16,6 @@ const Product = () => {
     const { PRODUCTOS_ID_API_URL, CIUDADES_ID_API_URL } = CONSTANTES;
       
     const [dataProducto, setDataProducto] = useState({});
-    console.log("🚀 ~ file: index.js:19 ~ Product ~ dataProducto", dataProducto)
     const [dataUbicacionProducto, setDataUbicacionProducto] = useState({});
     const { idProducto } = useParams();
 
@@ -49,7 +48,7 @@ const Product = () => {
           <DescripcionProducto descripcion={dataProducto?.descripcion}/>
           <CaracteristicasProducto caracteristicas={dataProducto?.caracteristicas} />
           <CalendarioReservasProducto identificador={dataProducto?.id} />
-          <PoliticaProducto />
+          <PoliticaProducto politicas={dataProducto?.politicas} />
         </>
     )
 };
