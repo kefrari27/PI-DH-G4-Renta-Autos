@@ -41,16 +41,15 @@ const Product = () => {
       consultarProducto();
     }, []);
     
-    //console.log(dataProducto);
     return (
         <>
           <ProductHeader titulo={dataProducto?.titulo}/>
           <ProductLocation ubicacion={dataUbicacionProducto}/>
           <GaleriaImagenesProducto imagenes={dataProducto?.imagenes ? dataProducto?.imagenes : dataImagenesMock}/>
           <DescripcionProducto descripcion={dataProducto?.descripcion}/>
-          <CaracteristicasProducto />
+          <CaracteristicasProducto caracteristicas={dataProducto?.caracteristicas} />
           <CalendarioReservasProducto identificador={dataProducto?.id} />
-          <PoliticaProducto />
+          <PoliticaProducto politicas={dataProducto?.politicas} />
         </>
     )
 };

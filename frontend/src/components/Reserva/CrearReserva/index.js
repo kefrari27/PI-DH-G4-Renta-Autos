@@ -34,14 +34,12 @@ const CrearReserva = ({lecturaFecha, lecturaHora}) => {
         { value: "22:00:00", label: "10:00 PM" },
         { value: "23:00:00", label: "11:00 PM" },
     ];
-    const datosDeLocalStorage =JSON.parse( localStorage.getItem('datosUsuario'));
+    const datosDeLocalStorage = JSON.parse(localStorage.getItem('datosUsuario'));
   
-    const {nombre, apellido, correo, ciudad} = datosDeLocalStorage;
-    const nombreCiudad = ciudad.nombre;
+    const nombreCiudad = datosDeLocalStorage?.ciudad?.nombre;
     
     const contextoAutenticacion = useContext(autenticacionContext);
     const { login } = contextoAutenticacion;
-    /* console.log( contextoAutenticacion.datosUsuario); */
     const [ formularioSubmitted, setFormularioSubmitted ] = useState(false);
     const [ formularioValido, setFormularioValido ] = useState(true);
 
@@ -50,22 +48,21 @@ const CrearReserva = ({lecturaFecha, lecturaHora}) => {
     const navigate = useNavigate();
 
     const formularioDatosIniciales = {
-        nombre: nombre,
-        apellido: apellido,
-        email: correo,
+        nombre: datosDeLocalStorage?.nombre,
+        apellido: datosDeLocalStorage?.apellido,
+        email: datosDeLocalStorage?.correo,
         ciudad: nombreCiudad,
     }
 
     const formularioValidaciones = {
-        email: [(parametro) => parametro.includes('@'), 'El correo debe ser un email válido'],
+        email: [(parametro) => parametro.includes('@'), 'El correo debe ser un email válido']
     }
 
-    const { email, emailValido, onInputChange, EsValidoFormulario } = useForm(formularioDatosIniciales, formularioValidaciones);
+    const { emailValido, onInputChange, EsValidoFormulario } = useForm(formularioDatosIniciales, formularioValidaciones);
 
     useEffect(() => {
         const esValidoFor = !EsValidoFormulario ? false : true;
         setFormularioValido(esValidoFor);
-    
     }, [EsValidoFormulario])
 
     const onSubmit = (event) => {
@@ -98,7 +95,7 @@ const CrearReserva = ({lecturaFecha, lecturaHora}) => {
                                     id="nombre"
                                     name="nombre"
                                     type="text"
-                                    value={nombre}
+                                    value={datosDeLocalStorage?.nombre}
                                     disabled
                                 />
                             </div>
@@ -110,7 +107,7 @@ const CrearReserva = ({lecturaFecha, lecturaHora}) => {
                                     id="apellido" 
                                     name="apellido"
                                     disabled
-                                    value={apellido}
+                                    value={datosDeLocalStorage?.apellido}
                                 />
                             </div>
                             <div className="formulario__crear-reserva-email__row" >
@@ -121,7 +118,7 @@ const CrearReserva = ({lecturaFecha, lecturaHora}) => {
                                     name="email"
                                     className="input__email"
                                     required
-                                    value={correo}
+                                    value={datosDeLocalStorage?.correo}
                                     onChange={onInputChange}
                                     disabled
                                 />
