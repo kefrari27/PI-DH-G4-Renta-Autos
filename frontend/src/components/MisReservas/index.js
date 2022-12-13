@@ -24,7 +24,8 @@ const MisReservas = () => {
         consultarReservas();
     }, []);
 
-    if(reservas) {
+    if(reservas.length > 0) {
+        console.log(reservas)
         return (
             <>
                 <HeaderMisReservas />
