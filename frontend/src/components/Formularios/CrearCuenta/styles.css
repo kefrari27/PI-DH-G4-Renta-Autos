@@ -55,6 +55,10 @@
     width: 30%;
 }
 
+.formulario__crear-cuenta__bloque input {
+    padding-left: 10px;
+}
+
 .formulario__crear-cuenta__bloque > div:first-of-type {
     margin-right: 20px;
 }
@@ -64,6 +68,10 @@
     flex-direction: column;
     margin-bottom: 10px;
     width: 30%;
+}
+
+.formulario__crear-cuenta__row input {
+    padding-left: 10px;
 }
 
 .formulario__crear-cuenta__row p {

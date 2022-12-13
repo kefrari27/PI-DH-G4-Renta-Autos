@@ -32,7 +32,8 @@ const Product = () => {
       await getFetch(url).then(respuesta => {
         setDataProducto(respuesta);
         const { ciudad } = respuesta;
-        consultarCiudad(ciudad)
+        const idCiudad = ciudad.id;
+        consultarCiudad(idCiudad)
       })
     }
 

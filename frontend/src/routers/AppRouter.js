@@ -11,6 +11,7 @@ import Header from "../components/Header";
 import Home from "../components/Home";
 import Product from "../components/Producto";
 import Reserva from "../components/Reserva";
+import MisReservas from "../components/MisReservas";
 import ProcesoExitoso from "../components/ProcesoExitoso";
 
 const AppRouter = () => {
@@ -29,6 +30,7 @@ const AppRouter = () => {
             <Route path="/administracion" element={ JSON.parse(datosDeLocalStorage)?.rol && JSON.parse(datosDeLocalStorage)?.rol.id === 244 ? 
             <CrearProducto /> : <Home />} />
             <Route path="/producto/:idProducto/creacionProducto/procesoExitoso" element={<ProcesoExitoso descripcion='La creación del producto se ha realizo con éxito' />} />
+            <Route path="/:idUsuario/misReservas" element={<MisReservas />} />
           </Routes>
         <Footer />
         </BrowserRouter>

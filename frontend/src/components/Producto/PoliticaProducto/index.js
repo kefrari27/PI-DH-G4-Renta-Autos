@@ -52,7 +52,7 @@ const PoliticaProducto = ({ politicas }) => {
                         </ul> :
                         <ul>
                             <li>La cancelación sin costo es válida hasta con 12 horas de anticipación, 
-                                de lo contrario, se le conrará el 10% del valor de la renta total como penalidad.
+                                de lo contrario, se le cobrará el 10% del valor de la renta total como penalidad.
                             </li>
                             <li>La empresa puede realizar la cancelación del arriendo del vehiculo si encuentra irregularidares
                                 del historial penal del usuario.

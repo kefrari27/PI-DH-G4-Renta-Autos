@@ -19,7 +19,7 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
   const crearReserva = async () => {
 
     const body = {
-      horaCheckIn: hora,
+      horaCheckIn: "08:00:00",
       fechaCheckIn: format(new Date(fechaResIni), 'yyyy-MM-dd'),
       fechaCheckOut: format(new Date(fechaResFin), 'yyyy-MM-dd'),
       producto: {
@@ -29,17 +29,14 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
         id: Number(idUsuario.id)
       }
     };
-    console.log(hora)
     console.log(body);
 
     const data = await postFetch('http://18.218.111.107:8080/api/v1/reservas', body);
-    console.log(data.ok);
-    console.log(data.status);
-    
-    if (data.status === 200 || data.status === 201) {
-      navigate(`/producto/${idProducto}/reserva/procesoExitoso`);
-    } else {
+    console.log(data);
+    if (data.status === 404 || data.status === 500) {
       setReservaFallida(true);
+    } else {
+      navigate(`/producto/${idProducto}/reserva/procesoExitoso`);
     }
   }
   
@@ -80,11 +77,6 @@ const DetalleReserva = ({titulo,categoria,imagen,ubicacion,fechaResIni, fechaRes
               <div className='detalle-reserva-check'>
                 <h5>Check out</h5>
                 <p>{fechaResFin ? fechaResFin : "__ /__ /__"}</p>
-              </div>
-              <hr className="detalle-reserva-separador"/>
-              <div className='detalle-reserva-hora'>
-                <h5>Hora de llegada</h5>
-                <p>{}</p>
               </div>
               <hr className="detalle-reserva-separador"/>
               { reservaFallida ?

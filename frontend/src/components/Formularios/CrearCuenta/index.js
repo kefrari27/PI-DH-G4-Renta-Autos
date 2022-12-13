@@ -82,6 +82,7 @@ const CrearCuenta = () => {
     
             const dataLogueo = await postFetch(AUTENTICACION_API_URL, body);
             localStorage.setItem('token', dataLogueo.jwtToken);
+            localStorage.setItem('uid', dataLogueo.usuarioId);
             localStorage.setItem('datosUsuario', JSON.stringify(data));
             setAutenticacionEstado(dataLogueo.jwtToken); 
             navigate("/");

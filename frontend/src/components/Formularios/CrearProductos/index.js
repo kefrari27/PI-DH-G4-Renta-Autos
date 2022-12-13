@@ -42,7 +42,7 @@ const CrearProducto = () => {
   }   
 
   useEffect(() => {
-    consultarListas();          
+    consultarListas();
   }, [])
 
   const onSeleccionarCiudad = (event) => {
