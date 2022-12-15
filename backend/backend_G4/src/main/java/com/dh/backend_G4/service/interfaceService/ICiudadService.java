@@ -10,4 +10,6 @@ public interface ICiudadService {
     public CiudadDTO buscar(Long id);
     public CiudadDTO actualizar(CiudadDTO ciudadDTO);
     public void eliminar(Long id);
+
+    public Set<CiudadDTO> listarCiudadesConProductos();
 }

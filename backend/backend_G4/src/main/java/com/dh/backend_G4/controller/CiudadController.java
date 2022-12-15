@@ -8,6 +8,7 @@ import com.dh.backend_G4.service.interfaceService.IProductoService;
 import org.apache.log4j.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
@@ -94,6 +95,17 @@ public class CiudadController {
             throw new ResourceNotFoundException("Ciudad no encontrada para ser eliminada");
         }
         return response;
+    }
+
+    @GetMapping("/ciudadesConProductos")
+    public ResponseEntity<Set<CiudadDTO>> getCiudadesWithProducto() throws ResourceNotFoundException {
+        logger.info("Listando Ciudades con Productos");
+        Set<CiudadDTO> ciudades = ciudadService.listarCiudadesConProductos();
+        if(!ciudades.isEmpty()){
+            return ResponseEntity.ok(ciudades);
+        }else{
+            throw new ResourceNotFoundException("No hay Ciudades con productos para listar");
+        }
     }
 
 }

@@ -19,7 +19,6 @@ import java.util.*;
 public class ProductoService implements IProductoService {
     private final IProductoRepository productoRepository;
     private final IImagenRepository imagenRepository;
-
     private final ObjectMapper mapper;
 
     public ProductoService(IProductoRepository productoRepository, IImagenRepository imagenRepository, ObjectMapper mapper) {
@@ -98,14 +97,19 @@ public class ProductoService implements IProductoService {
 
     @Override
     public ProductoDTO addCaracteristica(AddCaracteristicaDTO addCaracteristicaDTO) throws ResourceNotFoundException {
-        Optional<Producto> producto = productoRepository.findById(addCaracteristicaDTO.getProductoId());
+        /*Optional<Producto> producto = productoRepository.findById(addCaracteristicaDTO.getProductoId());
         if(producto.isPresent()) {
             producto.get().getCaracteristicas().addAll(addCaracteristicaDTO.getCaracteristicas());
             productoRepository.saveAndFlush(producto.get());
             return mapper.convertValue(producto.get(), ProductoDTO.class);
         }
-        throw new ResourceNotFoundException("No existe el producto");
+        throw new ResourceNotFoundException("No existe el producto");*/
 
+        ProductoDTO producto = buscar(addCaracteristicaDTO.getProductoId());
+        producto.setCaracteristicas(addCaracteristicaDTO.getCaracteristicas());
+        productoRepository.saveAndFlush(mapper.convertValue(producto, Producto.class));
+
+        return producto;
     }
 
     @Override
@@ -164,6 +168,14 @@ public class ProductoService implements IProductoService {
         }
         return productosAleatorios;
     }
+
+    @Override
+    public ProductoDTO buscarProductoByTituloAndCategoriaAndCiudad(String titulo, Long categoria_id, Long ciudad_id) {
+        Producto producto = productoRepository.getProductoByTituloAndCategoriaAndCiudad(titulo, categoria_id, ciudad_id);
+        ProductoDTO productoDTO = mapper.convertValue(producto, ProductoDTO.class);
+        return productoDTO;
+    }
+
 
 
 }
