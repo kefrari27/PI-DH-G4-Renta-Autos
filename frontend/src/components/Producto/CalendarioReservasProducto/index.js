@@ -1,10 +1,14 @@
 import { useState } from "react";
-import DatePicker from "react-datepicker";
+import DatePicker, {registerLocale} from "react-datepicker";
+import es from "date-fns/locale/es";
 //import { addDays } from "date-fns";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
+
+registerLocale("es", es);
+
 const CalendarioReservasProducto = ({identificador}) => {
-   const [fechaInicial, setFechaInicial] = useState(new Date());
+   const [fechaInicial, setFechaInicial] = useState(null);
     const [fechaFinal, setFechaFinal] = useState(null);
     const onChange = (fechas) => {
         const [fechaInicio, fechaFin] = fechas;
@@ -41,17 +45,18 @@ const CalendarioReservasProducto = ({identificador}) => {
                     locale="es"
                     /> */}
             <DatePicker
-                selected={fechaInicial}
+                // selected={fechaInicial}
                 onChange={onChange}
                 startDate={fechaInicial}
                 endDate={fechaFinal}
                 minDate={new Date()}
-                dateFormat="dd 'de' MMM"
+                // dateFormat="dd 'de' MMM"
                 //showDisabledMonthNavigation
                 selectsRange
                 //selectsDisabledDaysInRange
                 inline
                 calendarClassName="calendario-reserva"
+                locale="es"
                 monthsShown={2}
             />
             <div className="boton-reserva__contenedor">

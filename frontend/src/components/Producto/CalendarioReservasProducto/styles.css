@@ -73,6 +73,14 @@
     background-color: var(--primario);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
     border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.boton-reserva__borde button:hover {
+    background-color: var(--datoInvalido);
+    color: var(--primario);
 }
 
 @media screen and (max-width: 1024px) {

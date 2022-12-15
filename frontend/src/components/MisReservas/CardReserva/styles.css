@@ -1,4 +1,4 @@
-.carCard {
+.carCardReserva {
     border-radius: 4px;    
     width: 23%;
     height: fit-content;
@@ -9,11 +9,11 @@
     transition: 0.3s;
 }
 
-.carCard:hover {
+.carCardReserva:hover {
     transform: scale(1.03);
 }
 
-.imgCard {
+.imgCardReserva {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     width: 100%;
@@ -26,16 +26,16 @@
     justify-content: flex-end;
 }
 
-.imgCard img {
+.imgCardReserva img {
     height: 200px;
 }
 
-.infoCard {
+.infoCardReserva {
     min-width: 280px;
     height: 30%; 
 }
 
-.infoCard button {
+.infoCardReserva button {
     margin: 20px;
     border-style: dashed;
     background-color: transparent;
@@ -45,7 +45,7 @@
     cursor: pointer;
 }
 
-.infoCard button:hover {
+.infoCardReserva button:hover {
     border-color: var(--primario);
     color: var(--primario);
 }
@@ -60,14 +60,14 @@ h3, p{
 
 
 @media screen and (max-width: 1024px) {
-    .carCard{
+    .carCardReserva{
         margin: 0px 10px 60px 10px;
         width: 46%;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .carCard{       
+    .carCardReserva{       
         width: 100%;
     }    
 }

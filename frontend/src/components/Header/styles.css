@@ -30,6 +30,11 @@
     display: block;
     width: 80px;
     height: 53px;
+    transition: 0.3s;
+}
+
+.header__container-imagen:hover {
+    transform: scale(1.03);
 }
 
 .header__container-title {
@@ -53,11 +58,22 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.header__botones-boton:hover {
+    background-color: var(--primario);
 }
 
 .header__botones-boton a {
     color: var(--primario);
     text-decoration: none;
+    transition: 0.3s;
+}
+
+.header__botones-boton a:hover {
+    color: var(--blanco);
 }
 
 .header__botones-boton:first-child {
@@ -83,6 +99,23 @@
     border-radius: 50%;
     margin-right: 10px;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.header__avatar:hover {
+    transform: scale(1.03);
+}
+
+.header__administracion__label {
+    margin: 0 15px 10px 0;
+    padding-right: 15px;
+    color: var(--terciario);
+    border-right: solid 3px var(--primario);
+}
+
+.header__administracion__label h3 a {
+    text-decoration: none;
 }
 
 .header__usuario {
@@ -106,6 +139,7 @@
 .header__cerrar-sesion-boton {
     background-color: transparent;
     border: 0;
+    cursor: pointer;
 }
 
 .menu__mobile {
@@ -216,6 +250,7 @@
         border-radius: 50%;
         margin-bottom: 10px;
         text-transform: uppercase;
+        cursor: pointer;
     }
 
     .menu__mobile-header__usuario-nombre {

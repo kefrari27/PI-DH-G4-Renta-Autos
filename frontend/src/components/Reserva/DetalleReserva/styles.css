@@ -5,18 +5,19 @@
 .detalle-reserva__section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
 .detalle-reserva__borde {
     border-radius: 4px;
-    height: 700px;
+    height: 730px;
     width: 90%;
     margin: 0px 10px 10px 10px;
     background-color: var(--blanco);
     backface-visibility: hidden;
-    box-shadow: 0px 5px 10px rgb(220, 216, 216, 0.8);    
+    box-shadow: 0px 5px 10px rgb(220, 216, 216, 0.8);
+    margin-bottom: 100px;
 }
 
 .detalle-reserva-img__contenedor {
@@ -64,6 +65,7 @@
     display: flex;
     color: var(--secundario);
     font-weight: 500;
+    padding-left: 10px;
 }
 
 .producto-ubicacion__informacion p {
@@ -92,10 +94,24 @@
     margin-top: 17px;
 }
 
+.detalle-reserva-hora {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    padding: 10px;
+}
+
 .detalle-reserva-separador {
     width: 90%;
     height: 1px;
     color: var(--terciario);
+}
+
+.detalle-reserva-fallida {
+    color: var(--invalido);
+    font-size: 14px;
+    text-align: start;
 }
 
 .detalle-reserva-btn__contenedor {
@@ -106,6 +122,7 @@
 }
 
 .detalle-reserva-btn__contenedor button {
+    font-weight: 600;
     width: 100%;
     max-width: 400px;
     padding: 10px 0;
@@ -114,7 +131,20 @@
     background-color: var(--primario);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
     border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
 }
+
+.detalle-reserva-btn__contenedor button:hover {
+    background-color: var(--datoInvalido);
+    color: var(--primario);
+}
+
+.detalle-reserva-datos__contenedor h5 {
+    margin-left: 10px;
+}
+
+/* Estilos de Media Query */
 
 @media screen and (max-width: 1024px) {
     .detalle-reserva__section {
@@ -143,15 +173,18 @@
     }
 
     .detalle-reserva__borde {
-        height: 450px;
+        height: 550px;
+        margin-bottom: 10px;
+        margin-top: 20px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .detalle-reserva__borde {
         width: 90%;
-        height: 680px;
-        margin: 0;
+        height: 760px;
+        margin-bottom: 10px;
+        margin-top: 20px;
     }
 
     .detalle-reserva-img-datos__contenedor {

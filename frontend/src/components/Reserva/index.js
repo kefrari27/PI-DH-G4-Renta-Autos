@@ -14,15 +14,18 @@ const Reserva = () => {
     const { PRODUCTOS_ID_API_URL, CIUDADES_ID_API_URL } = CONSTANTES;
    
     const [dataProducto, setDataProducto] = useState({});
-    /* console.log("🚀 ~ file: index.js ~ line 15 ~ Reserva ~ dataProducto", dataProducto) */
     const [dataUbicacionProducto, setDataUbicacionProducto] = useState({});
-    /* const datos_reserva = data */
     
     let [fechaReservaInicial,setFechaReservaInicial]=useState();
     let [fechaReservaFinal,setFechaReservaFinal]=useState();
     const tomarFecha = (fechaInicio,fechaFin)=>{
       setFechaReservaInicial(fechaInicio.toDateString());
       setFechaReservaFinal(fechaFin.toDateString());
+    }
+
+    let [horaLlegada, setHoraLlegada] = useState();
+    const tomarHora = (hora) => {
+      setHoraLlegada(hora);
     }
     
     const consultarCiudad = async(ciudad) => {
@@ -51,7 +54,7 @@ const Reserva = () => {
        <div>{datosDeLocalStorage ? ( <>
         <HeaderReserva titulo={dataProducto?.titulo}/>
         <div className='reserva__contenedor'>
-          <CrearReserva lecturaFecha={tomarFecha}/>
+          <CrearReserva lecturaFecha={tomarFecha} lecturaHora={tomarHora}/>
           <DetalleReserva 
             titulo={dataProducto?.titulo} 
             categoria={dataProducto?.categoria?.descripcion} 
@@ -59,7 +62,8 @@ const Reserva = () => {
             ubicacion={dataUbicacionProducto}
             fechaResIni={fechaReservaInicial}
             fechaResFin={fechaReservaFinal}
-            />
+            hora={horaLlegada}
+          />
         </div> 
           <PoliticaProducto />
         </> ): 
